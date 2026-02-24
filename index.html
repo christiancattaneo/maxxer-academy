@@ -280,6 +280,20 @@
       background: #fefce8; color: #854d0e; border: 1px solid #fde68a;
     }
 
+    /* ── Viral proof block ── */
+    .card-proof {
+      display: flex; flex-direction: column; gap: 6px;
+      text-decoration: none; padding: 9px 11px; border-radius: 9px;
+      background: var(--bg); border: 1px solid var(--border);
+      transition: border-color .15s, background .15s;
+    }
+    .card-proof:hover { border-color: #999; background: #f0ede8; }
+    .cp-head { display: flex; align-items: center; gap: 6px; }
+    .cp-x { width: 11px; height: 11px; opacity: .55; flex-shrink: 0; }
+    .cp-handle { font-size: 10px; font-weight: 700; color: var(--ink-3); flex: 1; letter-spacing: .1px; }
+    .cp-arrow { font-size: 10px; color: var(--ink-3); opacity: .5; }
+    .cp-quote { font-size: 11.5px; line-height: 1.5; color: var(--ink-2); font-style: italic; }
+
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border); padding: 32px 24px; text-align: center;
@@ -435,6 +449,10 @@
       </div>
       <p class="card-desc">Newsletter platform with full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
       <div class="card-int"><span class="int-cmd">api.beehiiv.com/v2/publications</span><span class="int-badge ib-api">API</span></div>
+      <a class="card-proof" href="https://x.com/SobkoYaroslav/status/1811058781536539020" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@SobkoYaroslav · Creator</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"675% subscriber growth + $53,721 in 6 months on @beehiiv. The 'dead' email market is a gold mine."</p>
+      </a>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/beehiiv" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
   </div>
@@ -459,6 +477,10 @@
       </div>
       <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to 40+ languages, and download it in one shot.</p>
       <div class="card-int"><span class="int-cmd">api.heygen.com/v2/video/generate</span><span class="int-badge ib-api">API</span></div>
+      <a class="card-proof" href="https://x.com/joshua_xu_/status/2001311422278672462" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@joshua_xu_ · CEO, HeyGen</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"2022: 140K minutes. 2024: 24 million. 2025: over 100 million minutes of AI video created."</p>
+      </a>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/HeyGen_Official" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
     <div class="card" data-cat="video" data-int="clawhub">
@@ -492,6 +514,10 @@
       </div>
       <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP tracking. Alfred can run weekly audits and deliver reports automatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install seo-competitor-analysis</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <a class="card-proof" href="https://x.com/semrush/status/1960621558814192040" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@semrush · Semrush Data</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"AI Overviews now appear in 13% of Google results. Rankings alone aren't enough anymore."</p>
+      </a>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/ahrefs" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Ahrefs</a></div>
     </div>
     <div class="card" data-cat="seo" data-int="clawhub">
@@ -558,6 +584,10 @@
       </div>
       <p class="card-desc">Fastest image generation API — Flux, SDXL, ControlNet. Alfred generates ad creative, product mockups, and social images in seconds from a text prompt.</p>
       <div class="card-int"><span class="int-cmd">fal.run/fal-ai/flux</span><span class="int-badge ib-api">API</span></div>
+      <a class="card-proof" href="https://x.com/emollick/status/1819893282777825370" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@emollick · Wharton Prof.</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"Flux is very good and free. These are from my home computer — each took under 10 seconds."</p>
+      </a>
       <div class="card-footer"><span class="card-price">Pay/use</span><a class="card-link" href="https://x.com/fal_ai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
   </div>
@@ -666,6 +696,10 @@
       </div>
       <p class="card-desc">Real-time web-grounded answers via API. Alfred uses Perplexity for tasks needing live sources — competitive intel, news monitoring, fact-checking.</p>
       <div class="card-int"><span class="int-cmd">api.perplexity.ai/chat/completions</span><span class="int-badge ib-api">API</span></div>
+      <a class="card-proof" href="https://x.com/amitTwitr/status/1958745101603045712" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@amitTwitr · Analyst</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"Perplexity: $148M ARR, 30M monthly users, 780M queries in May 2025. Was $63M end of 2024."</p>
+      </a>
       <div class="card-footer"><span class="card-price">$5/1M tokens</span><a class="card-link" href="https://x.com/perplexity_ai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
@@ -675,6 +709,10 @@
       </div>
       <p class="card-desc">Self-hosted automation with 400+ integrations and MCP support. Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
       <div class="card-int"><span class="int-cmd">your-n8n.com/api/v1/workflows</span><span class="int-badge ib-api">API</span></div>
+      <a class="card-proof" href="https://x.com/NoahEpstein_/status/1957786797125013704" target="_blank" rel="noopener">
+        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@NoahEpstein_ · Founder</span><span class="cp-arrow">↗</span></div>
+        <p class="cp-quote">"n8n hit $40M ARR with only 67 employees — $597K per employee — while Zapier burns 800."</p>
+      </a>
       <div class="card-footer"><span class="card-price price-free">Free / Self-host</span><a class="card-link" href="https://x.com/n8n_io" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
