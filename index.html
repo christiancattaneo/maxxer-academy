@@ -289,38 +289,24 @@
       background: #fefce8; color: #854d0e; border: 1px solid #fde68a;
     }
 
-    /* ── Viral proof block ── */
-    .card-proof {
-      display: flex; flex-direction: column; gap: 7px;
-      text-decoration: none; padding: 10px 12px; border-radius: 10px;
-      background: var(--bg); border: 1px solid var(--border);
-      transition: border-color .15s, background .15s;
+    /* ── Twitter embed proof block ── */
+    .card-tweet {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--bg);
+      min-height: 80px; display: flex; align-items: center; justify-content: center;
     }
-    .card-proof:hover { border-color: #bbb; background: #efece7; }
-    .cp-head { display: flex; align-items: center; gap: 8px; }
-    .cp-avatar {
-      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-      background: var(--ink); color: #fff;
-      font-size: 10px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; letter-spacing: 0;
+    .card-tweet .twitter-tweet { margin: 0 !important; width: 100% !important; }
+    .card-tweet iframe { border-radius: 8px !important; }
+    .tweet-loading {
+      font-size: 11px; color: var(--ink-3); opacity: .5; padding: 18px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .cp-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .cp-meta { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-    .cp-name { font-size: 11px; font-weight: 700; color: var(--ink); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .cp-handle { font-size: 10px; color: var(--ink-3); line-height: 1.2; }
-    .cp-x { width: 11px; height: 11px; opacity: .4; flex-shrink: 0; }
-    .cp-quote {
-      font-size: 11.5px; line-height: 1.52; color: var(--ink-2);
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    .tweet-loading-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3);
+      animation: pulse 1.4s ease infinite;
     }
-    .cp-metrics {
-      display: flex; gap: 12px; align-items: center;
-      font-size: 10px; color: var(--ink-3); font-weight: 500;
-    }
-    .cp-metric { display: flex; align-items: center; gap: 4px; }
-    .cp-metric svg { width: 10px; height: 10px; opacity: .55; }
-    .cp-loading { font-size: 11px; color: var(--ink-3); opacity: .5; animation: fadeUp .3s ease; }
+    .tweet-loading-dot:nth-child(2) { animation-delay: .2s; }
+    .tweet-loading-dot:nth-child(3) { animation-delay: .4s; }
 
     /* ── Footer ── */
     footer {
@@ -482,15 +468,11 @@
       </div>
       <p class="card-desc">Newsletter platform with full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
       <div class="card-int"><span class="int-cmd">api.beehiiv.com/v2/publications</span><span class="int-badge ib-api">API</span></div>
-      <a class="card-proof" data-tweet="1811058781536539020" href="https://x.com/SobkoYaroslav/status/1811058781536539020" target="_blank" rel="noopener">
-        <div class="cp-head">
-          <div class="cp-avatar">C</div>
-          <div class="cp-meta"><span class="cp-name">Captain YAR</span><span class="cp-handle">@SobkoYaroslav · Creator</span></div>
-          <svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>
-        </div>
-        <p class="cp-quote">Our @beehiiv newsletter made 675% subscriber growth + $53,721 in 6 months. The 'dead' email market is actually a gold mine.</p>
-        <div class="cp-metrics"><span class="cp-loading">Loading live stats...</span></div>
-      </a>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/SobkoYaroslav/status/1811058781536539020"></a>
+        </blockquote>
+      </div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://beehiiv.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -515,15 +497,11 @@
       </div>
       <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to 40+ languages, and download it in one shot.</p>
       <div class="card-int"><span class="int-cmd">api.heygen.com/v2/video/generate</span><span class="int-badge ib-api">API</span></div>
-      <a class="card-proof" data-tweet="2001311422278672462" href="https://x.com/joshua_xu_/status/2001311422278672462" target="_blank" rel="noopener">
-        <div class="cp-head">
-          <div class="cp-avatar">J</div>
-          <div class="cp-meta"><span class="cp-name">Joshua Xu</span><span class="cp-handle">@joshua_xu_ · CEO, HeyGen</span></div>
-          <svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>
-        </div>
-        <p class="cp-quote">In 2022: 140K minutes. 2024: 24 million. 2025: over 100 million minutes of AI video created. That growth isn't just a milestone — it's a market signal.</p>
-        <div class="cp-metrics"><span class="cp-loading">Loading live stats...</span></div>
-      </a>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/joshua_xu_/status/2001311422278672462"></a>
+        </blockquote>
+      </div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://heygen.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="video" data-int="clawhub">
@@ -557,15 +535,11 @@
       </div>
       <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP tracking. Alfred can run weekly audits and deliver reports automatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install seo-competitor-analysis</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-      <a class="card-proof" data-tweet="1960621558814192040" href="https://x.com/semrush/status/1960621558814192040" target="_blank" rel="noopener">
-        <div class="cp-head">
-          <div class="cp-avatar">S</div>
-          <div class="cp-meta"><span class="cp-name">Semrush</span><span class="cp-handle">@semrush · SEO Data</span></div>
-          <svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>
-        </div>
-        <p class="cp-quote">As of June 2025, AI Overviews appear in 13% of Google search results. Rankings alone aren't enough — your content must be AI-readable too.</p>
-        <div class="cp-metrics"><span class="cp-loading">Loading live stats...</span></div>
-      </a>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/semrush/status/1960621558814192040"></a>
+        </blockquote>
+      </div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://ahrefs.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="seo" data-int="clawhub">
@@ -632,9 +606,11 @@
       </div>
       <p class="card-desc">Fastest image generation API — Flux, SDXL, ControlNet. Alfred generates ad creative, product mockups, and social images in seconds from a text prompt.</p>
       <div class="card-int"><span class="int-cmd">fal.run/fal-ai/flux</span><span class="int-badge ib-api">API</span></div>
-      <a class="card-proof" href="https://x.com/emollick/status/1819893282777825370" target="_blank" rel="noopener">
-        <div class="cp-head"><svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg><span class="cp-handle">@emollick · Wharton Prof.</span><span class="cp-arrow">↗</span></div>
-        <p class="cp-quote">"Flux is very good and free. These are from my home computer — each took under 10 seconds."</p>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/emollick/status/1819893282777825370"></a>
+        </blockquote>
+      </div>
       </a>
       <div class="card-footer"><span class="card-price">Pay/use</span><a class="card-link" href="https://fal.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
@@ -744,15 +720,11 @@
       </div>
       <p class="card-desc">Real-time web-grounded answers via API. Alfred uses Perplexity for tasks needing live sources — competitive intel, news monitoring, fact-checking.</p>
       <div class="card-int"><span class="int-cmd">api.perplexity.ai/chat/completions</span><span class="int-badge ib-api">API</span></div>
-      <a class="card-proof" data-tweet="1890452005472055673" href="https://x.com/perplexity_ai/status/1890452005472055673" target="_blank" rel="noopener">
-        <div class="cp-head">
-          <div class="cp-avatar">P</div>
-          <div class="cp-meta"><span class="cp-name">Perplexity</span><span class="cp-handle">@perplexity_ai · Official</span></div>
-          <svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>
-        </div>
-        <p class="cp-quote">Introducing Deep Research on Perplexity. Generate in-depth research reports on any topic. Available free — 5 queries/day.</p>
-        <div class="cp-metrics"><span class="cp-loading">Loading live stats...</span></div>
-      </a>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/perplexity_ai/status/1890452005472055673"></a>
+        </blockquote>
+      </div>
       <div class="card-footer"><span class="card-price">$5/1M tokens</span><a class="card-link" href="https://perplexity.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
@@ -762,15 +734,11 @@
       </div>
       <p class="card-desc">Self-hosted automation with 400+ integrations and MCP support. Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
       <div class="card-int"><span class="int-cmd">your-n8n.com/api/v1/workflows</span><span class="int-badge ib-api">API</span></div>
-      <a class="card-proof" data-tweet="1957786797125013704" href="https://x.com/NoahEpstein_/status/1957786797125013704" target="_blank" rel="noopener">
-        <div class="cp-head">
-          <div class="cp-avatar">N</div>
-          <div class="cp-meta"><span class="cp-name">Nozz</span><span class="cp-handle">@NoahEpstein_ · Founder</span></div>
-          <svg class="cp-x" viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>
-        </div>
-        <p class="cp-quote">n8n just hit $40M revenue with only 67 employees — $597K per employee. While Zapier burns through 800 for similar revenue.</p>
-        <div class="cp-metrics"><span class="cp-loading">Loading live stats...</span></div>
-      </a>
+      <div class="card-tweet">
+        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
+          <a href="https://x.com/NoahEpstein_/status/1957786797125013704"></a>
+        </blockquote>
+      </div>
       <div class="card-footer"><span class="card-price price-free">Free / Self-host</span><a class="card-link" href="https://n8n.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
@@ -842,60 +810,6 @@
   });
 })();
 
-// Live tweet metrics via /api/tweets
-(function() {
-  const proofs = [...document.querySelectorAll('[data-tweet]')];
-  if (!proofs.length) return;
-  const ids = proofs.map(el => el.dataset.tweet).join(',');
-
-  fetch('/api/tweets?ids=' + ids)
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(data => {
-      proofs.forEach(el => {
-        const t = data[el.dataset.tweet];
-        if (!t) return;
-        const metricsEl = el.querySelector('.cp-metrics');
-        if (!metricsEl) return;
-
-        // Replace avatar with real image if available
-        const avatarEl = el.querySelector('.cp-avatar');
-        if (avatarEl && t.avatar) {
-          const img = document.createElement('img');
-          img.src = t.avatar.replace('_normal', '_bigger');
-          img.alt = t.author_name;
-          avatarEl.textContent = '';
-          avatarEl.appendChild(img);
-        }
-
-        // Update name/handle with real data
-        const nameEl = el.querySelector('.cp-name');
-        const handleEl = el.querySelector('.cp-handle');
-        if (nameEl && t.author_name) nameEl.textContent = t.author_name;
-        if (handleEl && t.author_handle) handleEl.textContent = '@' + t.author_handle;
-
-        // Format numbers
-        const fmt = n => n >= 1000000 ? (n/1000000).toFixed(1) + 'M'
-          : n >= 1000 ? (n/1000).toFixed(1) + 'K' : String(n);
-
-        metricsEl.innerHTML = `
-          <span class="cp-metric">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 1.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11z" opacity=".3"/><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-.75 10.25v-4.5h-.75v-1H8.5v5.5h-.75v.5h-2v-1h.5v.5zm0-7V3h1.5v1.25h-.75V5H8v-.75H7.25z"/></svg>
-            <svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.5 3 3.5.5-2.5 2.5.5 3.5L7 9l-3 1.5.5-3.5L2 4.5l3.5-.5z"/></svg>
-            ${fmt(t.impressions)} views
-          </span>
-          <span class="cp-metric">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 2C4.7 2 2 4.7 2 8c0 1.5.5 2.9 1.4 4L2 14l2-.4c1 .6 2.2 1 3.4 1C10.7 14.6 14 12 14 8S11.3 2 8 2zm-2.5 8.5l-.5-.3a5 5 0 115.5.3l-.5.2-2.2 1.1-2.3-1.3z" opacity=".3"/><path d="M8 3.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm-1 6.5V7l3 2-3 1z"/></svg>
-            ${fmt(t.likes)} likes
-          </span>
-        `;
-      });
-    })
-    .catch(() => {
-      // Silently fail — static text already in place
-      document.querySelectorAll('.cp-loading').forEach(el => el.remove());
-    });
-})();
-
 // Aurora mouse parallax
 (function() {
   const blobs = document.querySelectorAll('.blob');
@@ -913,5 +827,6 @@
   })();
 })();
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
