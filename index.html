@@ -417,7 +417,7 @@
       </div>
       <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Alfred can draft and schedule tweets from any trigger — email, webhook, or cron.</p>
       <div class="card-int"><span class="int-cmd">clawhub install x-twitter</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet" data-tweet-id="1943787579301888172"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
+            <div class="card-tweet" data-tweet-id="2025932242778734654"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">OAuth 1.0a</span><a class="card-link" href="https://developer.twitter.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="social" data-int="api">
@@ -555,7 +555,7 @@
       </div>
       <p class="card-desc">Generates SEO-optimized articles from a keyword list. Handles outline, NLP terms, internal links. Alfred can keep your blog on autopilot.</p>
       <div class="card-int"><span class="int-cmd">clawhub install seo-content-writer</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet" data-tweet-id="1919842970695827954"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
+            <div class="card-tweet" data-tweet-id="1907946228857581958"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://surferseo.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="seo" data-int="clawhub">
@@ -691,7 +691,7 @@
       </div>
       <p class="card-desc">GraphQL project management. Alfred creates issues from any trigger, updates sprint boards, and keeps engineering velocity visible in real time.</p>
       <div class="card-int"><span class="int-cmd">clawhub install linear</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet" data-tweet-id="1893424435526599033"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
+            <div class="card-tweet" data-tweet-id="2023331828304924893"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://linear.app" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="mcp">
@@ -857,6 +857,10 @@
     const avatarHtml = t.avatar
       ? `<img class="tweet-avatar" src="${t.avatar.replace('_normal','_bigger')}" alt="${t.author_name}" loading="lazy">`
       : `<div class="tweet-avatar"></div>`;
+    const bodyText = t.text.replace(/https:\/\/t\.co\/\S+/g,'').trim();
+    const bodyHtml = bodyText
+      ? `<div class="tweet-body">${bodyText}</div>`
+      : `<div class="tweet-body" style="color:#1d9bf0;font-style:italic">📸 Media post — view on X</div>`;
     return `<div class="tweet-card">
       <div class="tweet-header">
         ${avatarHtml}
@@ -866,7 +870,7 @@
         </div>
         <svg class="tweet-x-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </div>
-      <div class="tweet-body">${t.text.replace(/https:\/\/t\.co\/\S+/g,'').trim()}</div>
+      ${bodyHtml}
       <div class="tweet-stats">
         <span class="tweet-stat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
