@@ -10,37 +10,48 @@ export default async function handler(req, res) {
 
   const key = process.env.X_API_KEY;
   const secret = process.env.X_API_SECRET;
-  if (!key || !secret) return res.status(500).json({ error: 'X API creds not configured' });
+  if (!key || !secret) return res.status(500).json({ error: 'X API creds not configured', hasKey: !!key, hasSecret: !!secret });
 
   try {
-    // Get Bearer token
+    // Get Bearer token via OAuth2 client_credentials
+    const basicAuth = Buffer.from(`${key}:${secret}`).toString('base64');
     const authResp = await fetch('https://api.twitter.com/oauth2/token', {
       method: 'POST',
       headers: {
-        Authorization: 'Basic ' + Buffer.from(`${key}:${secret}`).toString('base64'),
+        Authorization: `Basic ${basicAuth}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: 'grant_type=client_credentials',
     });
-    const { access_token } = await authResp.json();
+    const authBody = await authResp.json();
+    const access_token = authBody.access_token;
+    if (!access_token) {
+      return res.status(500).json({ error: 'auth failed', authStatus: authResp.status, authBody });
+    }
 
     // Fetch tweets
-    const url = new URL('https://api.twitter.com/2/tweets');
-    url.searchParams.set('ids', ids);
-    url.searchParams.set('tweet.fields', 'text,public_metrics,created_at,author_id');
-    url.searchParams.set('expansions', 'author_id');
-    url.searchParams.set('user.fields', 'name,username,profile_image_url');
+    const params = new URLSearchParams({
+      ids,
+      'tweet.fields': 'text,public_metrics,created_at,author_id',
+      expansions: 'author_id',
+      'user.fields': 'name,username,profile_image_url',
+    });
 
-    const tweetResp = await fetch(url.toString(), {
+    const tweetResp = await fetch(`https://api.twitter.com/2/tweets?${params}`, {
       headers: { Authorization: `Bearer ${access_token}` },
     });
     const data = await tweetResp.json();
 
-    // Shape into a flat map: { [tweetId]: { id, text, author, metrics } }
+    if (data.errors && !data.data) {
+      return res.status(500).json({ error: 'X API error', details: data.errors });
+    }
+
+    // Index users
     const users = Object.fromEntries(
       (data.includes?.users || []).map(u => [u.id, u])
     );
 
+    // Build flat result map keyed by tweet ID
     const result = {};
     for (const t of (data.data || [])) {
       const u = users[t.author_id] || {};
@@ -61,6 +72,6 @@ export default async function handler(req, res) {
 
     return res.status(200).json(result);
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message, stack: err.stack?.split('\n').slice(0,3) });
   }
 }
