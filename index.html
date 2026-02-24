@@ -325,10 +325,90 @@
     footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
     footer p + p { margin-top: 5px; color: #bbb; font-size: 11px; }
 
-    @media(max-width: 600px) {
-      nav { padding: 0 16px; }
-      .hero { padding: 52px 16px 40px; }
-      .wrap { padding: 28px 16px 60px; }
+    /* ═══════════════════════════════════════
+       MOBILE — full responsive overhaul
+       ═══════════════════════════════════════ */
+
+    /* Prevent horizontal overflow globally */
+    @media(max-width: 768px) {
+      html, body { overflow-x: hidden; }
+
+      /* Nav */
+      nav { padding: 0 16px; height: 52px; }
+      .nav-cta { padding: 6px 12px; font-size: 11px; }
+
+      /* Hero */
+      .hero { padding: 44px 16px 36px; }
+      h1 { letter-spacing: -1.5px; margin-bottom: 16px; }
+      .hero-sub { font-size: 14.5px; margin-bottom: 16px; }
+      .hero-legend { gap: 14px; }
+      .hl { font-size: 11px; }
+
+      /* Ticker: replace scroll animation with touch-scrollable row */
+      .ticker-bar {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        cursor: default;
+        height: 52px;
+      }
+      .ticker-bar::-webkit-scrollbar { display: none; }
+      .ticker-track {
+        animation: none !important;
+        transform: none !important;
+        width: max-content;
+        padding: 0 6px;
+      }
+      .ticker-bar:hover .ticker-track { animation-play-state: running; }
+      .ticker-item { padding: 0 16px; font-size: 11.5px; }
+      .ticker-bar::after { display: none; }
+
+      /* Wrap */
+      .wrap { padding: 24px 14px 60px; }
+
+      /* Grid: force single column on narrow screens */
+      .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Card */
+      .card { padding: 16px; gap: 10px; }
+      .card:hover { transform: none; box-shadow: none; } /* no hover on touch */
+      .card-top-badge { font-size: 8px; padding: 2px 6px; }
+
+      /* int-cmd — prevent overflow */
+      .card-int { padding: 7px 10px; gap: 6px; }
+      .int-cmd { font-size: 9.5px; min-width: 0; }
+
+      /* Tweet card */
+      .card-tweet { padding: 12px 13px; }
+      .tweet-body { font-size: 12px; }
+      .tweet-name { font-size: 12px; }
+
+      /* Footer */
+      footer { padding: 24px 16px; }
+
+      /* Aurora — shrink blobs to prevent overflow */
+      .b1 { width: 300px; height: 300px; top: -100px; left: -80px; }
+      .b2 { width: 280px; height: 280px; top: -60px; right: -60px; }
+      .b3 { width: 220px; height: 220px; }
+      .b4 { width: 200px; height: 200px; }
+
+      /* Section labels */
+      .sec-label { font-size: 10px; margin: 36px 0 12px; }
+    }
+
+    /* Extra-small phones (< 400px) */
+    @media(max-width: 400px) {
+      h1 { font-size: 32px; letter-spacing: -1px; }
+      .nav-cta { display: none; } /* hide CTA on very small screens */
+      .int-cmd { font-size: 9px; }
+      .card-int { flex-wrap: wrap; gap: 5px; }
+      .int-badge { font-size: 7.5px; }
+      .card-price { font-size: 9.5px; }
+      .card-link { font-size: 10px; padding: 3px 8px; }
     }
   </style>
 </head>
