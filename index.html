@@ -11,195 +11,185 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f8f7f4;
+      --bg: #f7f6f3;
       --surface: #ffffff;
       --ink: #0f0f0f;
       --ink-2: #3a3a3a;
-      --ink-3: #777;
-      --border: #e8e6e1;
+      --ink-3: #888;
+      --border: #e6e4df;
       --radius: 14px;
-      --c-social:   #1d4ed8;
-      --c-email:    #0891b2;
-      --c-video:    #7c3aed;
-      --c-seo:      #ca8a04;
-      --c-analytics:#16a34a;
-      --c-design:   #db2777;
-      --c-infra:    #374151;
-      --c-ai:       #6366f1;
-      --c-ads:      #ea580c;
-      /* integration badge colors */
-      --clawhub: #ff4d00;
-      --mcp: #8b5cf6;
-      --api: #0ea5e9;
+      --c-social:    #1d4ed8;
+      --c-email:     #0891b2;
+      --c-video:     #7c3aed;
+      --c-seo:       #b45309;
+      --c-analytics: #16a34a;
+      --c-design:    #db2777;
+      --c-infra:     #374151;
+      --c-ai:        #4f46e5;
+      --c-ads:       #ea580c;
+      --clawhub:     #e8400c;
+      --mcp:         #7c3aed;
+      --api:         #0284c7;
     }
+
     html { scroll-behavior: smooth; }
     body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
 
-    /* ── Aurora background ── */
-    .aurora {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0; pointer-events: none; overflow: hidden;
-    }
-    .blob {
-      position: absolute; border-radius: 50%; filter: blur(110px);
-      opacity: 0; animation: blobFade 1.4s ease forwards;
-    }
-    @keyframes blobFade { to { opacity: 1; } }
-    .b1 { width: 700px; height: 700px; background: radial-gradient(circle, #ff6b3520, #ff4d0012);
-      top: -200px; left: -150px; animation: blobFade 1.4s ease forwards, drift1 18s ease-in-out infinite; }
-    .b2 { width: 600px; height: 600px; background: radial-gradient(circle, #8b5cf618, #6366f10c);
-      top: -100px; right: -100px; animation: blobFade 1.4s .3s ease both, drift2 22s ease-in-out infinite; }
-    .b3 { width: 500px; height: 500px; background: radial-gradient(circle, #06b6d414, #0ea5e90a);
-      bottom: 10%; left: 20%; animation: blobFade 1.4s .5s ease both, drift3 26s ease-in-out infinite; }
-    .b4 { width: 450px; height: 450px; background: radial-gradient(circle, #ec489912, #db277708);
-      bottom: 20%; right: 10%; animation: blobFade 1.4s .7s ease both, drift4 20s ease-in-out infinite; }
-    .b5 { width: 380px; height: 380px; background: radial-gradient(circle, #f59e0b10, #ca8a0408);
-      top: 40%; left: 45%; animation: blobFade 1.4s .9s ease both, drift5 24s ease-in-out infinite; }
-    @keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)}   33%{transform:translate(80px,60px) scale(1.08)}   66%{transform:translate(-40px,100px) scale(.95)} }
-    @keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)}   40%{transform:translate(-70px,80px) scale(1.06)}  80%{transform:translate(50px,-60px) scale(.97)} }
-    @keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)}   30%{transform:translate(60px,-80px) scale(1.1)}   70%{transform:translate(-80px,40px) scale(.92)} }
-    @keyframes drift4 { 0%,100%{transform:translate(0,0) scale(1)}   50%{transform:translate(-90px,-70px) scale(1.07)} 80%{transform:translate(40px,80px) scale(.98)} }
-    @keyframes drift5 { 0%,100%{transform:translate(0,0) scale(1)}   35%{transform:translate(100px,50px) scale(.94)}  70%{transform:translate(-60px,-90px) scale(1.05)} }
+    /* ── Aurora ── */
+    .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(120px); will-change: transform; }
+    .b1 { width: 680px; height: 680px; background: radial-gradient(circle, #ff6b2b18, #ff4d0008);
+          top: -200px; left: -160px; animation: d1 20s ease-in-out infinite; }
+    .b2 { width: 560px; height: 560px; background: radial-gradient(circle, #8b5cf614, #6366f108);
+          top: -80px; right: -80px; animation: d2 25s ease-in-out infinite; }
+    .b3 { width: 460px; height: 460px; background: radial-gradient(circle, #06b6d412, #0ea5e908);
+          bottom: 12%; left: 18%; animation: d3 30s ease-in-out infinite; }
+    .b4 { width: 400px; height: 400px; background: radial-gradient(circle, #ec489910, #db277706);
+          bottom: 20%; right: 8%; animation: d4 22s ease-in-out infinite; }
+    @keyframes d1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(70px,55px)} 66%{transform:translate(-30px,90px)} }
+    @keyframes d2 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(-60px,70px)} 75%{transform:translate(45px,-55px)} }
+    @keyframes d3 { 0%,100%{transform:translate(0,0)} 30%{transform:translate(50px,-70px)} 65%{transform:translate(-75px,35px)} }
+    @keyframes d4 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-80px,-60px)} 80%{transform:translate(35px,70px)} }
 
-    nav, .hero, .filter-bar, .wrap, footer { position: relative; z-index: 1; }
-
-    /* ── Scroll reveal ── */
-    .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .55s ease, transform .55s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    .sec-label.reveal { transform: translateX(-16px); }
-    .sec-label.reveal.in { transform: none; }
-
-    /* ── Card hover glow ── */
-    .card[data-cat="social"]:hover    { box-shadow: 0 8px 36px rgba(29,78,216,.12),  0 2px 10px rgba(29,78,216,.08); }
-    .card[data-cat="email"]:hover     { box-shadow: 0 8px 36px rgba(8,145,178,.12),  0 2px 10px rgba(8,145,178,.08); }
-    .card[data-cat="video"]:hover     { box-shadow: 0 8px 36px rgba(124,58,237,.13), 0 2px 10px rgba(124,58,237,.08); }
-    .card[data-cat="seo"]:hover       { box-shadow: 0 8px 36px rgba(202,138,4,.12),  0 2px 10px rgba(202,138,4,.08); }
-    .card[data-cat="analytics"]:hover { box-shadow: 0 8px 36px rgba(22,163,74,.12),  0 2px 10px rgba(22,163,74,.08); }
-    .card[data-cat="design"]:hover    { box-shadow: 0 8px 36px rgba(219,39,119,.12), 0 2px 10px rgba(219,39,119,.08); }
-    .card[data-cat="infra"]:hover     { box-shadow: 0 8px 36px rgba(55,65,81,.12),   0 2px 10px rgba(55,65,81,.08); }
-    .card[data-cat="ai"]:hover        { box-shadow: 0 8px 36px rgba(99,102,241,.13), 0 2px 10px rgba(99,102,241,.08); }
-    .card[data-cat="ads"]:hover       { box-shadow: 0 8px 36px rgba(234,88,12,.12),  0 2px 10px rgba(234,88,12,.08); }
-
-    /* ── Filter transition ── */
-    .card.hiding { opacity: 0; transform: scale(.94) translateY(8px); pointer-events: none; }
-    .card.showing { animation: cardPop .35s ease forwards; }
-    @keyframes cardPop { from{opacity:0;transform:scale(.94) translateY(10px)} to{opacity:1;transform:none} }
-
-    /* ── Install cmd cursor ── */
-    .int-cmd::after {
-      content: '|'; margin-left: 2px; opacity: 1;
-      animation: blink .9s step-start infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    /* ── Hero word reveal ── */
-    .hero-word { display: inline-block; opacity: 0; transform: translateY(18px); animation: wordIn .5s ease forwards; }
-    @keyframes wordIn { to{opacity:1;transform:none} }
-
-    /* ── Nav animated border ── */
-    nav::after {
-      content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px;
-      background: linear-gradient(90deg, var(--clawhub), var(--mcp), var(--api));
-      animation: navLine 2.5s ease .5s forwards;
-    }
-    @keyframes navLine { to{width:100%} }
-
-    /* ── Pill active transition ── */
-    .pill { transition: all .18s ease; }
-    .pill.active { transform: scale(1.04); }
+    nav, .hero, .ticker-bar, .wrap, footer { position: relative; z-index: 1; }
 
     /* ── Nav ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 32px; height: 58px;
-      background: rgba(248,247,244,.94); backdrop-filter: blur(14px);
+      padding: 0 36px; height: 56px;
+      background: rgba(247,246,243,.92); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
-    .nav-badge { background: var(--ink); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .6px; }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .nav-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; }
+    nav::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; height: 1px; width: 0;
+      background: linear-gradient(90deg, var(--clawhub), var(--mcp), var(--api));
+      animation: navSlide 2.2s cubic-bezier(.4,0,.2,1) .4s forwards;
+    }
+    @keyframes navSlide { to { width: 100%; } }
+    .nav-logo { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); letter-spacing: -.2px; }
+    .nav-badge { background: var(--ink); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; letter-spacing: .8px; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; transition: color .15s; }
     .nav-link:hover { color: var(--ink); }
-    .nav-cta { background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 8px; text-decoration: none; }
-    .nav-cta:hover { opacity: .82; }
+    .nav-cta { background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; padding: 7px 18px; border-radius: 8px; text-decoration: none; letter-spacing: .2px; transition: opacity .15s; }
+    .nav-cta:hover { opacity: .8; }
 
     /* ── Hero ── */
-    .hero { max-width: 820px; margin: 0 auto; padding: 72px 24px 48px; text-align: center; }
+    .hero { max-width: 800px; margin: 0 auto; padding: 80px 24px 56px; text-align: center; }
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
       color: var(--ink-3); background: var(--surface); border: 1px solid var(--border);
-      padding: 5px 14px; border-radius: 20px; margin-bottom: 24px;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+      animation: fadeUp .5s ease both;
     }
-    .eyebrow-dot { width: 6px; height: 6px; background: var(--clawhub); border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
-    h1 { font-size: clamp(34px, 5.5vw, 58px); font-weight: 700; line-height: 1.09; letter-spacing: -2px; margin-bottom: 18px; }
-    h1 em { font-style: normal; background: linear-gradient(135deg, var(--clawhub), var(--mcp)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-sub { font-size: 16px; color: var(--ink-3); line-height: 1.65; max-width: 520px; margin: 0 auto 36px; font-weight: 400; }
-    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-    .hb {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 8px; border: 1.5px solid;
-    }
-    .hb-clawhub { background: #fff5f2; color: var(--clawhub); border-color: #ffd5c8; }
-    .hb-mcp     { background: #f5f3ff; color: var(--mcp); border-color: #ddd6fe; }
-    .hb-api     { background: #f0f9ff; color: var(--api); border-color: #bae6fd; }
-    .hb-dot { width: 7px; height: 7px; border-radius: 50%; }
-    .hb-clawhub .hb-dot { background: var(--clawhub); }
-    .hb-mcp .hb-dot { background: var(--mcp); }
-    .hb-api .hb-dot { background: var(--api); }
+    .eyebrow-dot { width: 5px; height: 5px; background: #22c55e; border-radius: 50%; animation: pulse 2.2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.6)} }
 
-    /* ── Filter ── */
-    .filter-bar {
-      position: sticky; top: 58px; z-index: 90;
-      background: rgba(248,247,244,.96); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border); padding: 12px 32px;
-      display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    h1 {
+      font-size: clamp(36px, 6vw, 62px); font-weight: 700; line-height: 1.06;
+      letter-spacing: -2.5px; margin-bottom: 20px;
+      animation: fadeUp .6s ease .1s both;
     }
-    .filter-bar::-webkit-scrollbar { display: none; }
-    .pill {
-      flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
-      border: 1.5px solid var(--border); background: var(--surface); color: var(--ink-2);
-      cursor: pointer; white-space: nowrap; font-family: inherit;
-      transition: all .15s;
+    h1 em { font-style: normal; background: linear-gradient(135deg, var(--clawhub) 20%, var(--mcp) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+
+    .hero-sub {
+      font-size: 16px; color: var(--ink-3); line-height: 1.7; max-width: 500px;
+      margin: 0 auto 40px; font-weight: 400;
+      animation: fadeUp .6s ease .2s both;
     }
-    .pill:hover { background: var(--bg); }
-    .pill.active { color: #fff; border-color: transparent; }
-    .pill[data-cat="all"].active    { background: var(--ink); }
-    .pill[data-cat="social"].active { background: var(--c-social); }
-    .pill[data-cat="email"].active  { background: var(--c-email); }
-    .pill[data-cat="video"].active  { background: var(--c-video); }
-    .pill[data-cat="seo"].active    { background: var(--c-seo); }
-    .pill[data-cat="analytics"].active { background: var(--c-analytics); }
-    .pill[data-cat="design"].active { background: var(--c-design); }
-    .pill[data-cat="infra"].active  { background: var(--c-infra); }
-    .pill[data-cat="ai"].active     { background: var(--c-ai); }
-    .pill[data-cat="ads"].active    { background: var(--c-ads); }
-    .pill[data-int="clawhub"].active { background: var(--clawhub); }
-    .pill[data-int="mcp"].active    { background: var(--mcp); }
+
+    .hero-legend {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp .6s ease .3s both;
+    }
+    .hl {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 600; color: var(--ink-2);
+    }
+    .hl-dot {
+      width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0;
+    }
+
+    /* ── Scrolling ticker filter ── */
+    .ticker-bar {
+      position: sticky; top: 56px; z-index: 90;
+      background: rgba(247,246,243,.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; cursor: pointer; height: 48px;
+    }
+    .ticker-track {
+      display: flex; align-items: center; height: 100%;
+      width: max-content;
+      animation: tickerScroll 36s linear infinite;
+    }
+    .ticker-bar:hover .ticker-track { animation-play-state: paused; }
+    @keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0 28px; height: 100%; white-space: nowrap;
+      font-size: 12px; font-weight: 600; color: var(--ink-3);
+      border: none; background: none; font-family: inherit; cursor: pointer;
+      transition: color .15s; position: relative;
+      letter-spacing: .1px;
+    }
+    .ticker-item::after {
+      content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+      height: 14px; width: 1px; background: var(--border);
+    }
+    .ticker-item:hover { color: var(--ink); }
+    .ticker-item.active { color: var(--ink); }
+    .ticker-item.active .ti-dot { opacity: 1; transform: scale(1); }
+    .ticker-item svg { width: 13px; height: 13px; flex-shrink: 0; opacity: .6; transition: opacity .15s; }
+    .ticker-item:hover svg, .ticker-item.active svg { opacity: 1; }
+    .ti-dot {
+      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+      opacity: 0; transform: scale(0); transition: all .2s ease;
+      margin-left: -2px;
+    }
+
+    /* ── Active indicator bar ── */
+    .ticker-bar::after {
+      content: attr(data-active); position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+      color: var(--ink-3); opacity: .5;
+      pointer-events: none;
+    }
 
     /* ── Grid ── */
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 44px 24px 90px; }
+
     .sec-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--ink-3); margin: 44px 0 16px; display: flex; align-items: center; gap: 10px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--ink-3); margin: 48px 0 14px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; transform: translateX(-14px);
+      transition: opacity .4s ease, transform .4s ease;
     }
+    .sec-label.in { opacity: 1; transform: none; }
+    .sec-label svg { width: 13px; height: 13px; opacity: .5; flex-shrink: 0; }
     .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
 
     /* ── Card ── */
     .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 18px; display: flex; flex-direction: column; gap: 10px;
-      transition: opacity .32s ease, transform .32s ease, box-shadow .22s ease; position: relative; overflow: hidden;
+      padding: 18px; display: flex; flex-direction: column; gap: 11px;
+      transition: opacity .35s ease, transform .35s ease, box-shadow .2s ease;
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(22px) scale(.98);
     }
+    .card.in { opacity: 1; transform: none; }
     .card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      border-radius: var(--radius) var(--radius) 0 0;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      border-radius: var(--radius) var(--radius) 0 0; opacity: .7;
     }
-    .card:hover { box-shadow: 0 6px 28px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .card:hover { transform: translateY(-2px); }
     .card[data-cat="social"]::before    { background: var(--c-social); }
     .card[data-cat="email"]::before     { background: var(--c-email); }
     .card[data-cat="video"]::before     { background: var(--c-video); }
@@ -209,92 +199,99 @@
     .card[data-cat="infra"]::before     { background: var(--c-infra); }
     .card[data-cat="ai"]::before        { background: var(--c-ai); }
     .card[data-cat="ads"]::before       { background: var(--c-ads); }
+
+    .card[data-cat="social"]:hover    { box-shadow: 0 8px 32px rgba(29,78,216,.1); }
+    .card[data-cat="email"]:hover     { box-shadow: 0 8px 32px rgba(8,145,178,.1); }
+    .card[data-cat="video"]:hover     { box-shadow: 0 8px 32px rgba(124,58,237,.1); }
+    .card[data-cat="seo"]:hover       { box-shadow: 0 8px 32px rgba(180,83,9,.1); }
+    .card[data-cat="analytics"]:hover { box-shadow: 0 8px 32px rgba(22,163,74,.1); }
+    .card[data-cat="design"]:hover    { box-shadow: 0 8px 32px rgba(219,39,119,.1); }
+    .card[data-cat="infra"]:hover     { box-shadow: 0 8px 32px rgba(55,65,81,.1); }
+    .card[data-cat="ai"]:hover        { box-shadow: 0 8px 32px rgba(79,70,229,.1); }
+    .card[data-cat="ads"]:hover       { box-shadow: 0 8px 32px rgba(234,88,12,.1); }
+
+    .card.hiding { opacity: 0; transform: scale(.94) translateY(8px); pointer-events: none; }
     .card.hidden { display: none; }
 
     .card-head { display: flex; align-items: center; gap: 11px; }
     .card-icon {
-      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; background: var(--bg); border: 1px solid var(--border);
+      background: var(--bg); border: 1px solid var(--border);
     }
-    .card-title { font-weight: 700; font-size: 14.5px; letter-spacing: -.2px; }
+    .card-icon svg { width: 16px; height: 16px; }
+    .card-title { font-weight: 700; font-size: 14px; letter-spacing: -.2px; line-height: 1.2; }
     .card-cat {
-      font-size: 9.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 20px; width: fit-content; margin-top: 2px;
+      font-size: 9px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 20px; width: fit-content; margin-top: 3px;
     }
     .cat-social    { background: #eff6ff; color: var(--c-social); }
     .cat-email     { background: #ecfeff; color: var(--c-email); }
     .cat-video     { background: #ede9fe; color: var(--c-video); }
-    .cat-seo       { background: #fefce8; color: var(--c-seo); }
+    .cat-seo       { background: #fef3c7; color: var(--c-seo); }
     .cat-analytics { background: #f0fdf4; color: var(--c-analytics); }
     .cat-design    { background: #fdf2f8; color: var(--c-design); }
-    .cat-infra     { background: #f9fafb; color: var(--c-infra); }
+    .cat-infra     { background: #f9fafb; color: var(--c-infra); border: 1px solid var(--border); }
     .cat-ai        { background: #eef2ff; color: var(--c-ai); }
     .cat-ads       { background: #fff7ed; color: var(--c-ads); }
 
-    .card-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.6; flex: 1; }
+    .card-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.58; flex: 1; font-weight: 400; }
 
-    /* Integration block */
     .card-int {
       background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
-      padding: 9px 11px; display: flex; align-items: center; justify-content: space-between;
-      gap: 8px;
+      padding: 8px 11px; display: flex; align-items: center; gap: 8px;
     }
     .int-cmd {
-      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2);
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-2);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1;
     }
-    .int-type {
-      flex-shrink: 0; font-size: 9px; font-weight: 700; letter-spacing: .5px;
+    .int-cmd::after { content: '▎'; margin-left: 1px; opacity: 1; animation: cur .9s step-start infinite; }
+    @keyframes cur { 0%,100%{opacity:1} 50%{opacity:0} }
+    .int-badge {
+      flex-shrink: 0; font-size: 8.5px; font-weight: 700; letter-spacing: .5px;
       text-transform: uppercase; padding: 2px 7px; border-radius: 20px; white-space: nowrap;
     }
-    .int-clawhub { background: #fff5f2; color: var(--clawhub); border: 1px solid #ffd5c8; }
-    .int-mcp     { background: #f5f3ff; color: var(--mcp); border: 1px solid #ddd6fe; }
-    .int-api     { background: #f0f9ff; color: var(--api); border: 1px solid #bae6fd; }
-    .int-cli     { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+    .ib-clawhub { background: #fff0ec; color: var(--clawhub); border: 1px solid #ffd5c6; }
+    .ib-mcp     { background: #f5f0ff; color: var(--mcp); border: 1px solid #ddd6fe; }
+    .ib-api     { background: #f0f7ff; color: var(--api); border: 1px solid #bae6fd; }
+    .ib-cli     { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
 
-    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .card-price {
-      font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px;
+      font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px;
       background: var(--bg); color: var(--ink-3); border: 1px solid var(--border);
     }
     .price-free { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-    .price-freemium { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-    .card-x {
+    .price-fm   { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .card-link {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 11px; font-weight: 600; color: var(--ink-3);
-      text-decoration: none; padding: 4px 9px; border-radius: 6px;
+      text-decoration: none; padding: 4px 10px; border-radius: 7px;
       border: 1px solid var(--border); transition: all .15s;
     }
-    .card-x:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .card-hot {
-      position: absolute; top: 13px; right: 13px;
-      font-size: 9px; font-weight: 700; letter-spacing: .4px;
-      background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 20px;
-      border: 1px solid #fde68a;
-    }
+    .card-link svg { width: 11px; height: 11px; }
+    .card-link:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .card-link:hover svg { fill: #fff; }
 
-    /* ── Legend ── */
-    .legend {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px 8px;
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    .card-top-badge {
+      position: absolute; top: 12px; right: 12px;
+      font-size: 9px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 20px;
+      background: #fefce8; color: #854d0e; border: 1px solid #fde68a;
     }
-    .legend-label { font-size: 11px; color: var(--ink-3); font-weight: 500; }
-    .leg { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; }
-    .leg-dot { width: 8px; height: 8px; border-radius: 2px; }
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border); padding: 28px; text-align: center;
+      border-top: 1px solid var(--border); padding: 32px 24px; text-align: center;
       font-size: 12px; color: var(--ink-3); background: var(--surface);
     }
     footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    footer p + p { margin-top: 5px; color: #bbb; font-size: 11px; }
 
     @media(max-width: 600px) {
       nav { padding: 0 16px; }
-      .hero { padding: 48px 16px 32px; }
-      .filter-bar { padding: 12px 16px; }
-      .wrap { padding: 24px 16px 60px; }
+      .hero { padding: 52px 16px 40px; }
+      .wrap { padding: 28px 16px 60px; }
     }
   </style>
 </head>
@@ -305,946 +302,466 @@
   <div class="blob b2"></div>
   <div class="blob b3"></div>
   <div class="blob b4"></div>
-  <div class="blob b5"></div>
 </div>
 
+<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">ACADEMY</span></a>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
   <div class="nav-right">
     <a class="nav-link" href="https://maxxer.ai" target="_blank">maxxer.ai</a>
     <a class="nav-cta" href="https://maxxer.ai/#waitlist" target="_blank">Early Access</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="eyebrow"><span class="eyebrow-dot"></span> OpenClaw + ClawHub Integration Stack</div>
-  <h1>Tools Your Agent<br>Can <em>Actually Control</em></h1>
-  <p class="hero-sub">Not just apps you use by hand. Every tool here has a ClawHub skill, MCP server, or direct API — so Alfred can operate it for you.</p>
-  <div class="hero-badges">
-    <div class="hb hb-clawhub"><div class="hb-dot"></div> ClawHub Skill — install via CLI</div>
-    <div class="hb hb-mcp"><div class="hb-dot"></div> MCP Server — agent-native protocol</div>
-    <div class="hb hb-api"><div class="hb-dot"></div> REST API — direct programmatic access</div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span> OpenClaw · ClawHub · MCP</div>
+  <h1>Tools Your Agent<br>Can <em>Actually Run</em></h1>
+  <p class="hero-sub">Not apps you open by hand — tools with ClawHub skills, MCP servers, and direct APIs so Alfred operates them for you.</p>
+  <div class="hero-legend">
+    <div class="hl"><span class="hl-dot" style="background:var(--clawhub)"></span> ClawHub Skill</div>
+    <div class="hl"><span class="hl-dot" style="background:var(--mcp)"></span> MCP Server</div>
+    <div class="hl"><span class="hl-dot" style="background:var(--api)"></span> REST API</div>
+    <div class="hl"><span class="hl-dot" style="background:#15803d"></span> CLI</div>
   </div>
 </section>
 
-<div class="filter-bar">
-  <button class="pill active" data-cat="all">All</button>
-  <button class="pill" data-int="clawhub">🦞 ClawHub Only</button>
-  <button class="pill" data-int="mcp">⚡ MCP Only</button>
-  <button class="pill" data-cat="social">📢 Social / X</button>
-  <button class="pill" data-cat="email">📧 Email & Outreach</button>
-  <button class="pill" data-cat="video">📹 Video</button>
-  <button class="pill" data-cat="seo">🔍 SEO</button>
-  <button class="pill" data-cat="analytics">📊 Analytics</button>
-  <button class="pill" data-cat="design">🎨 Design</button>
-  <button class="pill" data-cat="ads">📣 Paid Ads</button>
-  <button class="pill" data-cat="infra">⚙️ Infrastructure</button>
-  <button class="pill" data-cat="ai">🤖 AI Models</button>
+<!-- SCROLLING TICKER FILTER -->
+<div class="ticker-bar" id="tickerBar">
+  <div class="ticker-track" id="tickerTrack">
+    <!-- Set 1 -->
+    <button class="ticker-item active" data-cat="all"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>All Tools<span class="ti-dot" style="background:var(--ink)"></span></button>
+    <button class="ticker-item" data-cat="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1ZM11.9 13.8H13.1L5.6 2.2H4.3L11.9 13.8Z"/></svg>Social / X<span class="ti-dot" style="background:var(--c-social)"></span></button>
+    <button class="ticker-item" data-cat="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach<span class="ti-dot" style="background:var(--c-email)"></span></button>
+    <button class="ticker-item" data-cat="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video<span class="ti-dot" style="background:var(--c-video)"></span></button>
+    <button class="ticker-item" data-cat="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO<span class="ti-dot" style="background:var(--c-seo)"></span></button>
+    <button class="ticker-item" data-cat="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics<span class="ti-dot" style="background:var(--c-analytics)"></span></button>
+    <button class="ticker-item" data-cat="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design<span class="ti-dot" style="background:var(--c-design)"></span></button>
+    <button class="ticker-item" data-cat="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads<span class="ti-dot" style="background:var(--c-ads)"></span></button>
+    <button class="ticker-item" data-cat="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure<span class="ti-dot" style="background:var(--c-infra)"></span></button>
+    <button class="ticker-item" data-cat="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models<span class="ti-dot" style="background:var(--c-ai)"></span></button>
+    <button class="ticker-item" data-int="clawhub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.8 1 4 2.6 4 4.5c0 .8.3 1.5.8 2.1L3 9H2a1 1 0 000 2h1l-.5 2.5A1 1 0 003.5 15h9a1 1 0 001-1.5L13 11h1a1 1 0 000-2h-1.8L10.2 6.6A3.5 3.5 0 008 1zm0 2a1.5 1.5 0 110 3A1.5 1.5 0 018 3z"/></svg>ClawHub Only<span class="ti-dot" style="background:var(--clawhub)"></span></button>
+    <button class="ticker-item" data-int="mcp"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5L5 9h3l-1.5 5.5 5.5-7H9l2-6z"/></svg>MCP Only<span class="ti-dot" style="background:var(--mcp)"></span></button>
+    <!-- Divider -->
+    <span style="padding:0 20px;color:var(--border);font-size:20px;line-height:48px">·</span>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <button class="ticker-item" data-cat="all"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>All Tools<span class="ti-dot" style="background:var(--ink)"></span></button>
+    <button class="ticker-item" data-cat="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1ZM11.9 13.8H13.1L5.6 2.2H4.3L11.9 13.8Z"/></svg>Social / X<span class="ti-dot" style="background:var(--c-social)"></span></button>
+    <button class="ticker-item" data-cat="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach<span class="ti-dot" style="background:var(--c-email)"></span></button>
+    <button class="ticker-item" data-cat="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video<span class="ti-dot" style="background:var(--c-video)"></span></button>
+    <button class="ticker-item" data-cat="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO<span class="ti-dot" style="background:var(--c-seo)"></span></button>
+    <button class="ticker-item" data-cat="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics<span class="ti-dot" style="background:var(--c-analytics)"></span></button>
+    <button class="ticker-item" data-cat="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design<span class="ti-dot" style="background:var(--c-design)"></span></button>
+    <button class="ticker-item" data-cat="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads<span class="ti-dot" style="background:var(--c-ads)"></span></button>
+    <button class="ticker-item" data-cat="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure<span class="ti-dot" style="background:var(--c-infra)"></span></button>
+    <button class="ticker-item" data-cat="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models<span class="ti-dot" style="background:var(--c-ai)"></span></button>
+    <button class="ticker-item" data-int="clawhub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.8 1 4 2.6 4 4.5c0 .8.3 1.5.8 2.1L3 9H2a1 1 0 000 2h1l-.5 2.5A1 1 0 003.5 15h9a1 1 0 001-1.5L13 11h1a1 1 0 000-2h-1.8L10.2 6.6A3.5 3.5 0 008 1zm0 2a1.5 1.5 0 110 3A1.5 1.5 0 018 3z"/></svg>ClawHub Only<span class="ti-dot" style="background:var(--clawhub)"></span></button>
+    <button class="ticker-item" data-int="mcp"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5L5 9h3l-1.5 5.5 5.5-7H9l2-6z"/></svg>MCP Only<span class="ti-dot" style="background:var(--mcp)"></span></button>
+    <span style="padding:0 20px;color:var(--border);font-size:20px;line-height:48px">·</span>
+  </div>
 </div>
 
+<!-- TOOL GRID -->
 <div class="wrap">
 
-  <!-- SOCIAL / X -->
-  <div class="sec-label" data-section="social">📢 Social / X</div>
-  <div class="grid">
-
+  <!-- SOCIAL -->
+  <div class="sec-label" data-section="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>Social / X</div>
+  <div class="tool-grid">
     <div class="card" data-cat="social" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">𝕏</div>
-        <div>
-          <div class="card-title">x-twitter</div>
-          <div class="card-cat cat-social">Social</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg></div>
+        <div><div class="card-title">x-twitter</div><div class="card-cat cat-social">Social</div></div>
       </div>
-      <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Alfred can draft and schedule tweets from any trigger — email, webhook, cron.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install x-twitter</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">OAuth 1.0a</span>
-        <a class="card-x" href="https://x.com/1955676588349206630" target="_blank">𝕏 Post</a>
-      </div>
+      <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Alfred can draft and schedule tweets from any trigger — email, webhook, or cron.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install x-twitter</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price">OAuth 1.0a</span><a class="card-link" href="https://x.com/twitter" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Post</a></div>
     </div>
-
-    <div class="card" data-cat="social" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon">📰</div>
-        <div>
-          <div class="card-title">twitter-automation</div>
-          <div class="card-cat cat-social">Social</div>
-        </div>
-      </div>
-      <p class="card-desc">Automate full Twitter workflows — thread scheduling, auto-reply, follower outreach, viral content detection and boosting.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install twitter-automation</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/TwitterDev" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="social" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
-      <div class="card-head">
-        <div class="card-icon">📝</div>
-        <div>
-          <div class="card-title">Typefully</div>
-          <div class="card-cat cat-social">Social</div>
-        </div>
-      </div>
-      <p class="card-desc">X/Twitter drafting, thread scheduling, and analytics. REST API lets Alfred queue posts, fetch analytics, and manage drafts programmatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.typefully.com/v1/drafts</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/typefully" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
     <div class="card" data-cat="social" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🐦</div>
-        <div>
-          <div class="card-title">Tweet Hunter</div>
-          <div class="card-cat cat-social">Social</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="9" rx="1.5"/><path d="M4 11v2M12 11v2M1 6h14"/></svg></div>
+        <div><div class="card-title">Typefully</div><div class="card-cat cat-social">Social</div></div>
       </div>
-      <p class="card-desc">AI ghostwriter trained on viral patterns. API exposes tweet generation, auto-DM, and engagement scoring — Alfred can run your whole X presence.</p>
-      <div class="card-int">
-        <span class="int-cmd">app.tweethunter.io/api</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">$49/mo</span>
-        <a class="card-x" href="https://x.com/TweetHunterIO" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">X/Twitter drafting, thread scheduling, and analytics. REST API lets Alfred queue posts, pull analytics, and manage drafts programmatically.</p>
+      <div class="card-int"><span class="int-cmd">api.typefully.com/v1/drafts</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/typefully" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
+    <div class="card" data-cat="social" data-int="api">
+      <div class="card-head">
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+        <div><div class="card-title">Tweet Hunter</div><div class="card-cat cat-social">Social</div></div>
+      </div>
+      <p class="card-desc">AI ghostwriter trained on viral patterns. API exposes tweet generation, auto-DM, and engagement scoring — Alfred can run your full X presence.</p>
+      <div class="card-int"><span class="int-cmd">app.tweethunter.io/api</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">$49/mo</span><a class="card-link" href="https://x.com/TweetHunterIO" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
+    </div>
   </div>
 
-  <!-- EMAIL & OUTREACH -->
-  <div class="sec-label" data-section="email">📧 Email & Outreach</div>
-  <div class="grid">
-
+  <!-- EMAIL -->
+  <div class="sec-label" data-section="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach</div>
+  <div class="tool-grid">
     <div class="card" data-cat="email" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">📬</div>
-        <div>
-          <div class="card-title">himalaya</div>
-          <div class="card-cat cat-email">Email</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg></div>
+        <div><div class="card-title">himalaya</div><div class="card-cat cat-email">Email</div></div>
       </div>
-      <p class="card-desc">Full IMAP/SMTP email via CLI. Alfred can read, reply, forward, compose with attachments, and search across multiple accounts — zero UI needed.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install himalaya</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free / OSS</span>
-        <a class="card-x" href="https://x.com/1955676588349206630" target="_blank">𝕏 Post</a>
-      </div>
+      <p class="card-desc">Full IMAP/SMTP email via CLI. Alfred can read, reply, compose with attachments, and search across multiple accounts — zero UI needed.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install himalaya</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://x.com/himalayaapp" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="email" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
       <div class="card-head">
-        <div class="card-icon">🚀</div>
-        <div>
-          <div class="card-title">Apollo.io</div>
-          <div class="card-cat cat-email">Outreach</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5"/></svg></div>
+        <div><div class="card-title">Apollo.io</div><div class="card-cat cat-email">Outreach</div></div>
       </div>
       <p class="card-desc">270M contact B2B database + email sequences. Full REST API — Alfred can search contacts, enrich leads, and trigger sequences without touching the UI.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.apollo.io/v1/people/search</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/ApolloIO" target="_blank">𝕏 Follow</a>
-      </div>
+      <div class="card-int"><span class="int-cmd">api.apollo.io/v1/people/search</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/ApolloIO" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="email" data-int="api">
       <div class="card-head">
-        <div class="card-icon">⚡</div>
-        <div>
-          <div class="card-title">Instantly</div>
-          <div class="card-cat cat-email">Outreach</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="14" y1="2" x2="7" y2="9"/><polygon points="14 2 10 14 7 9 2 6 14 2" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+        <div><div class="card-title">Instantly</div><div class="card-cat cat-email">Outreach</div></div>
       </div>
       <p class="card-desc">Cold email at scale with bulletproof deliverability. API lets Alfred add leads, launch campaigns, and pull reply analytics — fully autonomous outbound.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.instantly.ai/api/v1</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">$37/mo</span>
-        <a class="card-x" href="https://x.com/instantly_ai" target="_blank">𝕏 Follow</a>
-      </div>
+      <div class="card-int"><span class="int-cmd">api.instantly.ai/api/v1</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">$37/mo</span><a class="card-link" href="https://x.com/instantly_ai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="email" data-int="api">
       <div class="card-head">
-        <div class="card-icon">📧</div>
-        <div>
-          <div class="card-title">Beehiiv</div>
-          <div class="card-cat cat-email">Newsletter</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/><path d="M5 10h6" stroke-dasharray="2 1"/></svg></div>
+        <div><div class="card-title">Beehiiv</div><div class="card-cat cat-email">Newsletter</div></div>
       </div>
-      <p class="card-desc">Newsletter platform with a full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.beehiiv.com/v2/publications</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/beehiiv" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Newsletter platform with full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
+      <div class="card-int"><span class="int-cmd">api.beehiiv.com/v2/publications</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/beehiiv" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
-    <div class="card" data-cat="email" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon">📤</div>
-        <div>
-          <div class="card-title">send-email</div>
-          <div class="card-cat cat-email">Email</div>
-        </div>
-      </div>
-      <p class="card-desc">Dead-simple skill for sending emails from OpenClaw. SMTP or provider-backed. Alfred can trigger email sends from any event, cron, or workflow.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install send-email</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
-      </div>
-    </div>
-
   </div>
 
   <!-- VIDEO -->
-  <div class="sec-label" data-section="video">📹 Video</div>
-  <div class="grid">
-
+  <div class="sec-label" data-section="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video</div>
+  <div class="tool-grid">
     <div class="card" data-cat="video" data-int="clawhub">
-      <div class="card-hot">Built-in Skill</div>
+      <div class="card-top-badge">Built-in</div>
       <div class="card-head">
-        <div class="card-icon">🎬</div>
-        <div>
-          <div class="card-title">video-frames</div>
-          <div class="card-cat cat-video">Video</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="10" height="10" rx="1.5"/><path d="M11 6l4-2v8l-4-2"/></svg></div>
+        <div><div class="card-title">video-frames</div><div class="card-cat cat-video">Video</div></div>
       </div>
-      <p class="card-desc">Extract frames and short clips from any video using ffmpeg. Alfred can grab thumbnails, generate GIF previews, or create clip reels automatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install video-frames</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free / ffmpeg</span>
-        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
-      </div>
+      <p class="card-desc">Extract frames and short clips from any video via ffmpeg. Alfred can grab thumbnails, generate GIF previews, or cut clip reels automatically.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install video-frames</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/openclaw" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> OpenClaw</a></div>
     </div>
-
-    <div class="card" data-cat="video" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon">🎥</div>
-        <div>
-          <div class="card-title">demo-video</div>
-          <div class="card-cat cat-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">Automated demo video creation — record a script, generate captions, assemble clips. Alfred can create product walkthroughs end-to-end with no human.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install demo-video</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="video" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
-      <div class="card-head">
-        <div class="card-icon">🎭</div>
-        <div>
-          <div class="card-title">HeyGen</div>
-          <div class="card-cat cat-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to any language, and download it in one shot.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.heygen.com/v2/video/generate</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/HeyGen_Official" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="video" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon">🗣️</div>
-        <div>
-          <div class="card-title">sag (ElevenLabs)</div>
-          <div class="card-cat cat-video">Voice</div>
-        </div>
-      </div>
-      <p class="card-desc">ElevenLabs TTS with mac-style say UX. Alfred already uses this for voice — also generates voiceovers for videos, ads, and demos programmatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install sag</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/elevenlabsio" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
     <div class="card" data-cat="video" data-int="api">
       <div class="card-head">
-        <div class="card-icon">✂️</div>
-        <div>
-          <div class="card-title">Opus Clip</div>
-          <div class="card-cat cat-video">Video</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M6 5.5l4 2.5-4 2.5V5.5z" fill="currentColor" stroke="none"/></svg></div>
+        <div><div class="card-title">HeyGen</div><div class="card-cat cat-video">Video</div></div>
       </div>
-      <p class="card-desc">Auto-clip long videos into viral shorts. API accepts a video URL and returns timestamped clips with captions — Alfred can run this on every recording.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.opus.pro/v1/clips</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/opus_clip" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to 40+ languages, and download it in one shot.</p>
+      <div class="card-int"><span class="int-cmd">api.heygen.com/v2/video/generate</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/HeyGen_Official" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
+    <div class="card" data-cat="video" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3a2 2 0 00-2 2v.5H4a1 1 0 000 2h.1l.9 5h6l.9-5H12a1 1 0 000-2h-2V5a2 2 0 00-2-2z"/></svg></div>
+        <div><div class="card-title">sag (ElevenLabs)</div><div class="card-cat cat-video">Voice</div></div>
+      </div>
+      <p class="card-desc">ElevenLabs TTS with mac-style CLI. Alfred already uses this for voice — also generates voiceovers for videos, ads, and demos programmatically.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install sag</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/elevenlabsio" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
+    </div>
+    <div class="card" data-cat="video" data-int="api">
+      <div class="card-head">
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9V5l4-2h2l4 2v4l-4 4H7L3 9z"/></svg></div>
+        <div><div class="card-title">Opus Clip</div><div class="card-cat cat-video">Video</div></div>
+      </div>
+      <p class="card-desc">Auto-clip long videos into viral shorts. API accepts a video URL and returns timestamped clips with captions — Alfred runs this on every recording.</p>
+      <div class="card-int"><span class="int-cmd">api.opus.pro/v1/clips</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/opus_clip" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
+    </div>
   </div>
 
   <!-- SEO -->
-  <div class="sec-label" data-section="seo">🔍 SEO</div>
-  <div class="grid">
-
+  <div class="sec-label" data-section="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO</div>
+  <div class="tool-grid">
     <div class="card" data-cat="seo" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">🕵️</div>
-        <div>
-          <div class="card-title">seo-competitor-analysis</div>
-          <div class="card-cat cat-seo">SEO</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg></div>
+        <div><div class="card-title">seo-competitor-analysis</div><div class="card-cat cat-seo">SEO</div></div>
       </div>
-      <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP position tracking. Alfred can run weekly audits and deliver reports automatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install seo-competitor-analysis</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/ahrefs" target="_blank">𝕏 Ahrefs</a>
-      </div>
+      <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP tracking. Alfred can run weekly audits and deliver reports automatically.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install seo-competitor-analysis</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/ahrefs" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Ahrefs</a></div>
     </div>
-
     <div class="card" data-cat="seo" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">✍️</div>
-        <div>
-          <div class="card-title">seo-content-writer</div>
-          <div class="card-cat cat-seo">SEO</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13.5 1.5a1.5 1.5 0 012 2L6 13.5 2 14l.5-4L13.5 1.5z"/></svg></div>
+        <div><div class="card-title">seo-content-writer</div><div class="card-cat cat-seo">SEO</div></div>
       </div>
       <p class="card-desc">Generates SEO-optimized articles from a keyword list. Handles outline, NLP terms, internal links. Alfred can keep your blog on autopilot.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install seo-content-writer</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/SurferSEO" target="_blank">𝕏 Surfer</a>
-      </div>
+      <div class="card-int"><span class="int-cmd">clawhub install seo-content-writer</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/SurferSEO" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Surfer</a></div>
     </div>
-
     <div class="card" data-cat="seo" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">📡</div>
-        <div>
-          <div class="card-title">google-search-console</div>
-          <div class="card-cat cat-seo">SEO</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h14M8 1C5.3 1 3 4 3 8s2.3 7 5 7 5-3 5-7-2.3-7-5-7z"/></svg></div>
+        <div><div class="card-title">google-search-console</div><div class="card-cat cat-seo">SEO</div></div>
       </div>
-      <p class="card-desc">Pull real GSC data — impressions, clicks, CTR, rankings — via the API. Alfred monitors search performance and alerts on drops or wins automatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install google-search-console</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/googlesearchc" target="_blank">𝕏 GSC</a>
-      </div>
+      <p class="card-desc">Pull real GSC data — impressions, clicks, CTR, rankings. Alfred monitors search performance and alerts on drops or wins automatically.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install google-search-console</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/googlesearchc" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
-    <div class="card" data-cat="seo" data-int="api">
-      <div class="card-head">
-        <div class="card-icon">🔍</div>
-        <div>
-          <div class="card-title">Ahrefs API</div>
-          <div class="card-cat cat-seo">SEO</div>
-        </div>
-      </div>
-      <p class="card-desc">Programmatic access to Ahrefs' backlink index, keyword data, and site audit. Alfred can build competitive reports, find broken links, and track rankings weekly.</p>
-      <div class="card-int">
-        <span class="int-cmd">ahrefs.com/api/v2/</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">$129/mo</span>
-        <a class="card-x" href="https://x.com/ahrefs" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
   </div>
 
   <!-- ANALYTICS -->
-  <div class="sec-label" data-section="analytics">📊 Analytics</div>
-  <div class="grid">
-
+  <div class="sec-label" data-section="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics</div>
+  <div class="tool-grid">
     <div class="card" data-cat="analytics" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">📈</div>
-        <div>
-          <div class="card-title">ga4-analytics</div>
-          <div class="card-cat cat-analytics">Analytics</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg></div>
+        <div><div class="card-title">ga4-analytics</div><div class="card-cat cat-analytics">Analytics</div></div>
       </div>
-      <p class="card-desc">Query GA4 data via the API. Alfred can pull traffic, conversion, and event data, generate daily digests, and alert on anomalies — no dashboard needed.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install ga4-analytics</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">𝕏 GA</a>
-      </div>
+      <p class="card-desc">Query GA4 data via API. Alfred pulls traffic, conversion, and event data, generates daily digests, and alerts on anomalies — no dashboard needed.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install ga4-analytics</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/googleanalytics" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
-    <div class="card" data-cat="analytics" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon">📊</div>
-        <div>
-          <div class="card-title">google-analytics</div>
-          <div class="card-cat cat-analytics">Analytics</div>
-        </div>
-      </div>
-      <p class="card-desc">Multi-property GA4 support with Search Console and Google Indexing integration. Alfred can monitor all your properties and trigger re-indexing on new pages.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install google-analytics</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">𝕏 GA</a>
-      </div>
-    </div>
-
     <div class="card" data-cat="analytics" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🧪</div>
-        <div>
-          <div class="card-title">Mixpanel</div>
-          <div class="card-cat cat-analytics">Analytics</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 12l4-4 3 3 4-5 3 2"/></svg></div>
+        <div><div class="card-title">Mixpanel</div><div class="card-cat cat-analytics">Analytics</div></div>
       </div>
-      <p class="card-desc">Product analytics with a full query API. Alfred can pull retention cohorts, funnel conversion, and feature usage data — weekly product health report, zero effort.</p>
-      <div class="card-int">
-        <span class="int-cmd">mixpanel.com/api/query/</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/mixpanel" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Product analytics with a full query API. Alfred pulls retention cohorts, funnel conversion, and feature usage — weekly product health reports, zero effort.</p>
+      <div class="card-int"><span class="int-cmd">mixpanel.com/api/query/</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/mixpanel" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
   </div>
 
   <!-- DESIGN -->
-  <div class="sec-label" data-section="design">🎨 Design</div>
-  <div class="grid">
-
+  <div class="sec-label" data-section="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design</div>
+  <div class="tool-grid">
     <div class="card" data-cat="design" data-int="mcp">
-      <div class="card-hot">⚡ MCP</div>
+      <div class="card-top-badge">MCP Server</div>
       <div class="card-head">
-        <div class="card-icon">🖼️</div>
-        <div>
-          <div class="card-title">Figma MCP</div>
-          <div class="card-cat cat-design">Design</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1l3 3-6 6H2v-3l6-6zM11 4l1 1"/><path d="M14 12h-4M12 10v4"/></svg></div>
+        <div><div class="card-title">Figma MCP</div><div class="card-cat cat-design">Design</div></div>
       </div>
-      <p class="card-desc">Read file layouts, inspect components, manage comments, and extract design tokens directly. Alfred can pull Figma specs and hand them to code agents automatically.</p>
-      <div class="card-int">
-        <span class="int-cmd">smithery.ai/server/figma-mcp</span>
-        <span class="int-type int-mcp">MCP Server</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/figma" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Read file layouts, inspect components, extract design tokens. Alfred pulls Figma specs and hands them to code agents automatically.</p>
+      <div class="card-int"><span class="int-cmd">smithery.ai/server/figma-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/figma" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
-    <div class="card" data-cat="design" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
-      <div class="card-head">
-        <div class="card-icon">🌄</div>
-        <div>
-          <div class="card-title">fal.ai (Flux / SDXL)</div>
-          <div class="card-cat cat-design">Image Gen</div>
-        </div>
-      </div>
-      <p class="card-desc">The fastest image generation API — Flux, SDXL, ControlNet. Alfred can generate ad creative, product mockups, and social images in seconds from a text prompt.</p>
-      <div class="card-int">
-        <span class="int-cmd">fal.run/fal-ai/flux</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Pay-per-use</span>
-        <a class="card-x" href="https://x.com/fal_ai" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
     <div class="card" data-cat="design" data-int="api">
       <div class="card-head">
-        <div class="card-icon">⚡</div>
-        <div>
-          <div class="card-title">v0 by Vercel</div>
-          <div class="card-cat cat-design">Design</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+        <div><div class="card-title">fal.ai (Flux)</div><div class="card-cat cat-design">Image Gen</div></div>
       </div>
-      <p class="card-desc">Prompt → production React/Tailwind UI. API access lets Alfred generate UI components, iterate on designs, and export code directly into your repo.</p>
-      <div class="card-int">
-        <span class="int-cmd">v0.dev/api (beta)</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/v0" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Fastest image generation API — Flux, SDXL, ControlNet. Alfred generates ad creative, product mockups, and social images in seconds from a text prompt.</p>
+      <div class="card-int"><span class="int-cmd">fal.run/fal-ai/flux</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">Pay/use</span><a class="card-link" href="https://x.com/fal_ai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
   </div>
 
-  <!-- PAID ADS -->
-  <div class="sec-label" data-section="ads">📣 Paid Ads</div>
-  <div class="grid">
-
-    <div class="card" data-cat="ads" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
-      <div class="card-head">
-        <div class="card-icon">📣</div>
-        <div>
-          <div class="card-title">Meta Marketing API</div>
-          <div class="card-cat cat-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">Full programmatic control over Facebook/Instagram ad campaigns. Alfred can create campaigns, A/B test creatives, adjust budgets, and pull ROAS — zero ad manager UI.</p>
-      <div class="card-int">
-        <span class="int-cmd">graph.facebook.com/v19.0/act_</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Self-serve</span>
-        <a class="card-x" href="https://x.com/MetaForBusiness" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
+  <!-- ADS -->
+  <div class="sec-label" data-section="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads</div>
+  <div class="tool-grid">
     <div class="card" data-cat="ads" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🎨</div>
-        <div>
-          <div class="card-title">AdCreative.ai</div>
-          <div class="card-cat cat-ads">Ads</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg></div>
+        <div><div class="card-title">Meta Marketing API</div><div class="card-cat cat-ads">Ads</div></div>
       </div>
-      <p class="card-desc">Generate scored ad creatives via API. Alfred can produce 100 ad variants from your brief, score them, and push the top performers directly to Meta Ads.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.adcreative.ai/v1/generate</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">$29/mo</span>
-        <a class="card-x" href="https://x.com/adcreativeai" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Full programmatic control over Facebook/Instagram campaigns. Alfred creates campaigns, A/B tests creatives, adjusts budgets, and pulls ROAS — no ad manager UI.</p>
+      <div class="card-int"><span class="int-cmd">graph.facebook.com/v19.0/act_</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">Self-serve</span><a class="card-link" href="https://x.com/MetaForBusiness" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="ads" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🎵</div>
-        <div>
-          <div class="card-title">TikTok Ads API</div>
-          <div class="card-cat cat-ads">Ads</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="14" height="8" rx="1.5"/><path d="M4 8h2M9 8h3"/></svg></div>
+        <div><div class="card-title">AdCreative.ai</div><div class="card-cat cat-ads">Ads</div></div>
       </div>
-      <p class="card-desc">Programmatic TikTok campaign management — create ad groups, upload creatives, bid adjustments, reporting. Alfred can run full TikTok Ads automation.</p>
-      <div class="card-int">
-        <span class="int-cmd">business-api.tiktok.com/open_api</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">Self-serve</span>
-        <a class="card-x" href="https://x.com/TikTokBusiness" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Generate scored ad creatives via API. Alfred produces 100 ad variants from your brief, scores them, and pushes the top performers to Meta automatically.</p>
+      <div class="card-int"><span class="int-cmd">api.adcreative.ai/v1/generate</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">$29/mo</span><a class="card-link" href="https://x.com/adcreativeai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
   </div>
 
   <!-- INFRASTRUCTURE -->
-  <div class="sec-label" data-section="infra">⚙️ Infrastructure</div>
-  <div class="grid">
-
+  <div class="sec-label" data-section="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure</div>
+  <div class="tool-grid">
     <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">🐙</div>
-        <div>
-          <div class="card-title">github</div>
-          <div class="card-cat cat-infra">Infra</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1C4.7 1 2 3.6 2 6.8c0 3 2 5.4 4.7 6l.3.2h2l.3-.2C11.9 12.2 14 9.8 14 6.8 14 3.6 11.3 1 8 1z"/><path d="M5.5 8.5l2 2 3-3"/></svg></div>
+        <div><div class="card-title">github</div><div class="card-cat cat-infra">Infra</div></div>
       </div>
-      <p class="card-desc">Managed OAuth for repos, issues, PRs, and commits. Alfred can create issues, review PRs, merge branches, and manage releases without touching GitHub UI.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install github</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/github" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Managed OAuth for repos, issues, PRs, and commits. Alfred can create issues, review PRs, merge branches, and manage releases without touching the UI.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install github</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">📓</div>
-        <div>
-          <div class="card-title">notion</div>
-          <div class="card-cat cat-infra">Infra</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 4h12v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/><path d="M2 4l6-2 6 2"/><path d="M6 9h4M8 7v4"/></svg></div>
+        <div><div class="card-title">notion</div><div class="card-cat cat-infra">Infra</div></div>
       </div>
-      <p class="card-desc">Read, write, and query Notion databases, pages, and blocks. Alfred can use Notion as a memory store, CRM, content calendar, or project tracker — live.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install notion</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/NotionHQ" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Read, write, and query Notion databases and pages. Alfred uses Notion as memory store, CRM, content calendar, or project tracker — live.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install notion</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/NotionHQ" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-top-badge">Top Skill</div>
       <div class="card-head">
-        <div class="card-icon">💳</div>
-        <div>
-          <div class="card-title">stripe-api</div>
-          <div class="card-cat cat-infra">Infra</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="14" height="9" rx="1.5"/><path d="M5 4V3a2 2 0 014 0v1"/><path d="M8 8v2"/></svg></div>
+        <div><div class="card-title">stripe-api</div><div class="card-cat cat-infra">Infra</div></div>
       </div>
-      <p class="card-desc">Full Stripe billing control via skill. Alfred can check MRR, create payment links, manage subscriptions, issue refunds, and generate revenue reports autonomously.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install stripe-api</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free (pay-per-txn)</span>
-        <a class="card-x" href="https://x.com/stripe" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Full Stripe billing control. Alfred checks MRR, creates payment links, manages subscriptions, issues refunds, and generates revenue reports autonomously.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install stripe-api</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free (per-txn)</span><a class="card-link" href="https://x.com/stripe" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="infra" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">📋</div>
-        <div>
-          <div class="card-title">linear</div>
-          <div class="card-cat cat-infra">Infra</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1" width="14" height="7" rx="1"/><rect x="1" y="10" width="14" height="5" rx="1"/><path d="M4 4h.01M4 12h.01"/></svg></div>
+        <div><div class="card-title">linear</div><div class="card-cat cat-infra">Infra</div></div>
       </div>
-      <p class="card-desc">GraphQL-based project management. Alfred can create issues from Slack/email/cron, update sprint boards, and keep engineering velocity visible in real time.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install linear</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/linear" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">GraphQL project management. Alfred creates issues from any trigger, updates sprint boards, and keeps engineering velocity visible in real time.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install linear</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/linear" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="infra" data-int="mcp">
       <div class="card-head">
-        <div class="card-icon">🌐</div>
-        <div>
-          <div class="card-title">Playwright MCP</div>
-          <div class="card-cat cat-infra">Browser</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="14" height="11" rx="1.5"/><path d="M4 9l2-2 2 2 4-4"/></svg></div>
+        <div><div class="card-title">Playwright MCP</div><div class="card-cat cat-infra">Browser</div></div>
       </div>
-      <p class="card-desc">Full browser automation via MCP protocol. Alfred can navigate any website, click, fill forms, scrape data, and record sessions — headless or headed.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install playwright-mcp</span>
-        <span class="int-type int-mcp">MCP Server</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free / OSS</span>
-        <a class="card-x" href="https://x.com/playwrightweb" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Full browser automation via MCP. Alfred navigates any website, clicks, fills forms, scrapes data, and records sessions — headless or headed.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install playwright-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://x.com/playwrightweb" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
-    <div class="card" data-cat="infra" data-int="api">
+    <div class="card" data-cat="infra" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">▲</div>
-        <div>
-          <div class="card-title">Vercel CLI</div>
-          <div class="card-cat cat-infra">Deploy</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1l5 4v10H3V5l5-4z"/><path d="M6 15v-5h4v5"/></svg></div>
+        <div><div class="card-title">Vercel CLI</div><div class="card-cat cat-infra">Deploy</div></div>
       </div>
       <p class="card-desc">Alfred already deploys via Vercel CLI on every build. REST API also available for domain management, env vars, and deployment hooks from any script.</p>
-      <div class="card-int">
-        <span class="int-cmd">vercel --prod --yes</span>
-        <span class="int-type int-cli">CLI</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/vercel" target="_blank">𝕏 Follow</a>
-      </div>
+      <div class="card-int"><span class="int-cmd">vercel --prod --yes</span><span class="int-badge ib-cli">CLI</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/vercel" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
   </div>
 
   <!-- AI MODELS -->
-  <div class="sec-label" data-section="ai">🤖 AI Models</div>
-  <div class="grid">
-
-    <div class="card" data-cat="ai" data-int="api">
-      <div class="card-hot">🔥 Viral</div>
-      <div class="card-head">
-        <div class="card-icon">🤖</div>
-        <div>
-          <div class="card-title">Claude (Anthropic)</div>
-          <div class="card-cat cat-ai">AI Model</div>
-        </div>
-      </div>
-      <p class="card-desc">Alfred IS Claude. But you can also call Claude's API from your own tools, crons, and sub-agents — 200K context, best-in-class reasoning and writing.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.anthropic.com/v1/messages</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/AnthropicAI" target="_blank">𝕏 Follow</a>
-      </div>
-    </div>
-
+  <div class="sec-label" data-section="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models</div>
+  <div class="tool-grid">
     <div class="card" data-cat="ai" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🔁</div>
-        <div>
-          <div class="card-title">n8n</div>
-          <div class="card-cat cat-ai">Automation</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2C5 2 3 4 3 7c0 2 1 3.5 2.5 4.5V13h5v-1.5C12 10.5 13 9 13 7c0-3-2-5-5-5z"/><path d="M6 13v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V13"/></svg></div>
+        <div><div class="card-title">Claude (Anthropic)</div><div class="card-cat cat-ai">AI Model</div></div>
       </div>
-      <p class="card-desc">Self-hosted automation with 400+ integrations. REST API + MCP support means Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
-      <div class="card-int">
-        <span class="int-cmd">your-n8n.com/api/v1/workflows</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free / Self-host</span>
-        <a class="card-x" href="https://x.com/n8n_io" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Alfred is Claude. But you can also call the API from your tools, crons, and sub-agents — 200K context, best-in-class reasoning and writing.</p>
+      <div class="card-int"><span class="int-cmd">api.anthropic.com/v1/messages</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://x.com/AnthropicAI" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="ai" data-int="api">
       <div class="card-head">
-        <div class="card-icon">🔮</div>
-        <div>
-          <div class="card-title">Perplexity API</div>
-          <div class="card-cat cat-ai">AI Model</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 6c0 4-3 7-6 8C5 13 2 10 2 6a6 6 0 0112 0z"/><path d="M8 4v4l2 2"/></svg></div>
+        <div><div class="card-title">Perplexity API</div><div class="card-cat cat-ai">AI Model</div></div>
       </div>
-      <p class="card-desc">Real-time web-grounded answers via API. Alfred can use Perplexity for research tasks that need live sources — competitive intel, news monitoring, fact-checking.</p>
-      <div class="card-int">
-        <span class="int-cmd">api.perplexity.ai/chat/completions</span>
-        <span class="int-type int-api">REST API</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price">$5/1M tokens</span>
-        <a class="card-x" href="https://x.com/perplexity_ai" target="_blank">𝕏 Follow</a>
-      </div>
+      <p class="card-desc">Real-time web-grounded answers via API. Alfred uses Perplexity for tasks needing live sources — competitive intel, news monitoring, fact-checking.</p>
+      <div class="card-int"><span class="int-cmd">api.perplexity.ai/chat/completions</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price">$5/1M tokens</span><a class="card-link" href="https://x.com/perplexity_ai" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="ai" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">🦞</div>
-        <div>
-          <div class="card-title">ipeaky</div>
-          <div class="card-cat cat-ai">Key Mgmt</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="12" height="4" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/><path d="M4.5 6v3M11.5 6v3"/></svg></div>
+        <div><div class="card-title">n8n</div><div class="card-cat cat-ai">Automation</div></div>
       </div>
-      <p class="card-desc">Secure API key management for OpenClaw. Store, list, test, and rotate API keys for any service without exposing them in chat history or process args.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install ipeaky</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free / OSS</span>
-        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
-      </div>
+      <p class="card-desc">Self-hosted automation with 400+ integrations and MCP support. Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
+      <div class="card-int"><span class="int-cmd">your-n8n.com/api/v1/workflows</span><span class="int-badge ib-api">API</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free / Self-host</span><a class="card-link" href="https://x.com/n8n_io" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> Follow</a></div>
     </div>
-
     <div class="card" data-cat="ai" data-int="clawhub">
       <div class="card-head">
-        <div class="card-icon">🔍</div>
-        <div>
-          <div class="card-title">google-maps-b2b-extractor</div>
-          <div class="card-cat cat-ai">Lead Gen</div>
-        </div>
+        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="9" height="8" rx="1"/><path d="M10 6l5-2v8l-5-2"/></svg></div>
+        <div><div class="card-title">ipeaky</div><div class="card-cat cat-ai">Key Mgmt</div></div>
       </div>
-      <p class="card-desc">Extract B2B leads from Google Maps — business names, phones, emails, websites, reviews. Alfred can build hyper-local lead lists for any niche on demand.</p>
-      <div class="card-int">
-        <span class="int-cmd">clawhub install google-maps-b2b-extractor</span>
-        <span class="int-type int-clawhub">ClawHub</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
-      </div>
+      <p class="card-desc">Secure API key management for OpenClaw. Store, list, test, and rotate keys for any service without exposing them in chat history or process args.</p>
+      <div class="card-int"><span class="int-cmd">clawhub install ipeaky</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+      <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://x.com/openclaw" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg> OpenClaw</a></div>
     </div>
-
   </div>
 
 </div>
 
 <footer>
   <p>Built by <a href="https://maxxer.ai" target="_blank">Maxxer</a> · Every tool here is directly controllable by your AI agent</p>
-  <p style="margin-top:5px;color:#bbb;font-size:11px">Skills sourced from ClawHub · MCP servers via Smithery.ai · Not sponsored</p>
+  <p>Skills sourced from ClawHub · MCP servers via Smithery.ai · Not sponsored</p>
 </footer>
 
 <script>
-// ── Hero word-by-word reveal ──────────────────────────────────────────────────
+// Scroll reveal
 (function() {
-  const h1 = document.querySelector('h1');
-  if (!h1) return;
-  const html = h1.innerHTML;
-  // Split on spaces but preserve <br> and <em> tags
-  const wrapped = html.replace(/(<[^>]+>)|([^<\s]+)/g, (match, tag, word) => {
-    if (tag) return tag;
-    return `<span class="hero-word">${word} </span>`;
-  });
-  h1.innerHTML = wrapped;
-  h1.querySelectorAll('.hero-word').forEach((w, i) => {
-    w.style.animationDelay = (0.1 + i * 0.08) + 's';
-  });
-})();
-
-// ── Scroll reveal ─────────────────────────────────────────────────────────────
-(function() {
-  // Add reveal class to everything that should animate in
-  document.querySelectorAll('.card, .sec-label, .eyebrow, .hero-sub, .hero-badges, .hero-stat, .hb').forEach(el => {
-    el.classList.add('reveal');
-  });
-
-  // Stagger cards within each grid
-  document.querySelectorAll('.grid').forEach(grid => {
-    grid.querySelectorAll('.card').forEach((card, i) => {
-      card.style.transitionDelay = (i * 0.06) + 's';
-    });
-  });
-
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.sec-label').forEach(el => io.observe(el));
+  document.querySelectorAll('.tool-grid').forEach(grid => {
+    grid.querySelectorAll('.card').forEach((card, i) => {
+      card.style.transitionDelay = (i * 0.07) + 's';
+      io.observe(card);
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  });
 })();
 
-// ── Filter with animation ────────────────────────────────────────────────────
+// Ticker filter
 (function() {
-  const pills = document.querySelectorAll('.pill');
+  const bar = document.getElementById('tickerBar');
+  const items = document.querySelectorAll('.ticker-item');
   const cards = document.querySelectorAll('.card');
-  const sections = document.querySelectorAll('.sec-label');
+  const sections = document.querySelectorAll('.sec-label[data-section]');
+  let active = { cat: 'all', int: null };
 
-  function applyFilter(cat, intType) {
+  function filter() {
     cards.forEach(c => {
-      const catMatch = !cat || cat === 'all' || c.dataset.cat === cat;
-      const intMatch = !intType || c.dataset.int === intType;
-      const visible = catMatch && intMatch;
-      if (!visible && !c.classList.contains('hidden')) {
-        c.classList.add('hiding');
-        setTimeout(() => { c.classList.add('hidden'); c.classList.remove('hiding'); }, 280);
-      } else if (visible && c.classList.contains('hidden')) {
-        c.classList.remove('hidden');
-        c.classList.add('showing');
-        setTimeout(() => c.classList.remove('showing'), 400);
-      }
+      const catOk = !active.cat || active.cat === 'all' || c.dataset.cat === active.cat;
+      const intOk = !active.int || c.dataset.int === active.int;
+      const show = catOk && intOk;
+      if (!show) { c.classList.add('hidden'); c.classList.remove('in'); }
+      else { c.classList.remove('hidden'); setTimeout(() => c.classList.add('in'), 30); }
     });
-    setTimeout(() => {
-      sections.forEach(sec => {
-        const secCat = sec.dataset.section;
-        const grid = sec.nextElementSibling;
-        const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
-        sec.style.display = hasVisible ? '' : 'none';
-        if (grid) grid.style.display = hasVisible ? '' : 'none';
-      });
-    }, 100);
+    sections.forEach(s => {
+      const grid = s.nextElementSibling;
+      const has = [...cards].some(c => c.dataset.cat === s.dataset.section && !c.classList.contains('hidden'));
+      s.style.display = grid.style.display = has ? '' : 'none';
+    });
   }
 
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      applyFilter(pill.dataset.cat, pill.dataset.int);
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      // Mark all duplicates with same data attrs active
+      const cat = item.dataset.cat, int_ = item.dataset.int;
+      document.querySelectorAll(cat ? `[data-cat="${cat}"].ticker-item` : `[data-int="${int_}"].ticker-item`)
+        .forEach(i => i.classList.add('active'));
+      active = { cat: cat || null, int: int_ || null };
+      filter();
     });
   });
 })();
 
-// ── Aurora mouse parallax ─────────────────────────────────────────────────────
+// Aurora mouse parallax
 (function() {
   const blobs = document.querySelectorAll('.blob');
-  const factors = [.018, .012, .022, .016, .025];
-  let mx = 0, my = 0, cx = window.innerWidth / 2, cy = window.innerHeight / 2;
-  let curr = blobs.map(() => ({ x: 0, y: 0 }));
+  const f = [.014,.01,.018,.012];
+  let mx = innerWidth/2, my = innerHeight/2;
+  const c = blobs.map(() => ({x:0,y:0}));
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  window.addEventListener('resize', () => { cx = window.innerWidth / 2; cy = window.innerHeight / 2; });
   (function tick() {
     blobs.forEach((b, i) => {
-      const tx = (mx - cx) * factors[i];
-      const ty = (my - cy) * factors[i];
-      curr[i].x += (tx - curr[i].x) * 0.06;
-      curr[i].y += (ty - curr[i].y) * 0.06;
-      b.style.transform = `translate(${curr[i].x}px, ${curr[i].y}px)`;
+      const tx = (mx - innerWidth/2) * f[i], ty = (my - innerHeight/2) * f[i];
+      c[i].x += (tx - c[i].x) * .05; c[i].y += (ty - c[i].y) * .05;
+      b.style.transform = `translate(${c[i].x}px,${c[i].y}px)`;
     });
     requestAnimationFrame(tick);
   })();
 })();
 </script>
-
 </body>
 </html>
