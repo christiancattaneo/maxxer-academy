@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maxxer Academy — The Founder's Growth Stack</title>
+  <meta name="description" content="Curated from viral X threads. The exact plug-and-play tools used by the fastest-growing founders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --ink: #0f0f0f;
+      --ink-2: #3a3a3a;
+      --ink-3: #777;
+      --border: #e8e6e1;
+      --radius: 14px;
+      --c-video:   #7c3aed;
+      --c-ads:     #ea580c;
+      --c-outreach:#2563eb;
+      --c-content: #16a34a;
+      --c-design:  #db2777;
+      --c-seo:     #ca8a04;
+      --c-analytics:#0891b2;
+      --c-ai:      #6366f1;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 58px;
+      background: rgba(248,247,244,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-weight: 700; font-size: 16px; letter-spacing: -.3px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
+    .nav-logo-badge { background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .5px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-cta { background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 8px; text-decoration: none; transition: opacity .15s; }
+    .nav-cta:hover { opacity: .8; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 860px; margin: 0 auto; padding: 80px 24px 48px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+      color: var(--ink-3); background: var(--surface); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 22px;
+    }
+    .hero-eyebrow-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+    h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 700; line-height: 1.08; letter-spacing: -2px; color: var(--ink); margin-bottom: 18px; }
+    h1 em { font-style: normal; background: linear-gradient(135deg, #7c3aed, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 17px; color: var(--ink-3); line-height: 1.6; max-width: 560px; margin: 0 auto 36px; font-family: 'Inter', sans-serif; font-weight: 400; }
+    .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+    .hero-stat-label { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+    /* ── Filter bar ── */
+    .filter-bar {
+      position: sticky; top: 58px; z-index: 90;
+      background: rgba(248,247,244,.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px; display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-pill {
+      flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      border: 1.5px solid var(--border); background: var(--surface); color: var(--ink-2);
+      cursor: pointer; transition: all .15s; white-space: nowrap;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .filter-pill:hover { border-color: currentColor; }
+    .filter-pill.active { color: #fff; border-color: transparent; }
+    .filter-pill[data-cat="all"].active { background: var(--ink); }
+    .filter-pill[data-cat="video"].active   { background: var(--c-video); }
+    .filter-pill[data-cat="ads"].active     { background: var(--c-ads); }
+    .filter-pill[data-cat="outreach"].active{ background: var(--c-outreach); }
+    .filter-pill[data-cat="content"].active { background: var(--c-content); }
+    .filter-pill[data-cat="design"].active  { background: var(--c-design); }
+    .filter-pill[data-cat="seo"].active     { background: var(--c-seo); }
+    .filter-pill[data-cat="analytics"].active{ background: var(--c-analytics); }
+    .filter-pill[data-cat="ai"].active      { background: var(--c-ai); }
+
+    /* ── Grid ── */
+    .grid-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--ink-3); margin: 40px 0 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+    /* ── Tool Card ── */
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 20px; display: flex; flex-direction: column; gap: 12px;
+      transition: box-shadow .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .tool-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .tool-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+
+    /* Category top border + hover accent */
+    .tool-card[data-cat="video"]::before    { background: var(--c-video); }
+    .tool-card[data-cat="ads"]::before      { background: var(--c-ads); }
+    .tool-card[data-cat="outreach"]::before { background: var(--c-outreach); }
+    .tool-card[data-cat="content"]::before  { background: var(--c-content); }
+    .tool-card[data-cat="design"]::before   { background: var(--c-design); }
+    .tool-card[data-cat="seo"]::before      { background: var(--c-seo); }
+    .tool-card[data-cat="analytics"]::before{ background: var(--c-analytics); }
+    .tool-card[data-cat="ai"]::before       { background: var(--c-ai); }
+
+    .tool-card.hidden { display: none; }
+
+    .card-top { display: flex; align-items: center; gap: 12px; }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0; border: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .card-name { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+    .card-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 20px; width: fit-content;
+    }
+    .badge-video    { background: #ede9fe; color: var(--c-video); }
+    .badge-ads      { background: #fff7ed; color: var(--c-ads); }
+    .badge-outreach { background: #eff6ff; color: var(--c-outreach); }
+    .badge-content  { background: #f0fdf4; color: var(--c-content); }
+    .badge-design   { background: #fdf2f8; color: var(--c-design); }
+    .badge-seo      { background: #fefce8; color: var(--c-seo); }
+    .badge-analytics{ background: #ecfeff; color: var(--c-analytics); }
+    .badge-ai       { background: #eef2ff; color: var(--c-ai); }
+
+    .card-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; font-family: 'Inter', sans-serif; flex: 1; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .card-price {
+      font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px;
+      background: var(--bg); color: var(--ink-3); border: 1px solid var(--border);
+    }
+    .price-free { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .price-freemium { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .card-x {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; color: var(--ink-3);
+      text-decoration: none; padding: 5px 10px; border-radius: 7px;
+      border: 1px solid var(--border); transition: all .15s;
+    }
+    .card-x:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .card-x svg { width: 11px; height: 11px; }
+    .card-x-icon { font-size: 13px; }
+
+    /* ── Pill viral badge ── */
+    .card-viral {
+      position: absolute; top: 14px; right: 14px;
+      font-size: 9px; font-weight: 700; letter-spacing: .5px;
+      background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 20px;
+      border: 1px solid #fde68a;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px; text-align: center;
+      font-size: 13px; color: var(--ink-3); background: var(--surface);
+    }
+    footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width: 600px) {
+      nav { padding: 0 16px; }
+      .hero { padding: 48px 16px 32px; }
+      h1 { letter-spacing: -1px; }
+      .filter-bar { padding: 12px 16px; }
+      .grid-wrap { padding: 24px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    Maxxer<span class="nav-logo-badge">ACADEMY</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="https://maxxer.ai" target="_blank">maxxer.ai</a>
+    <a class="nav-cta" href="https://maxxer.ai/#waitlist" target="_blank">Get Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    Updated weekly from viral X threads
+  </div>
+  <h1>The Founder's<br><em>Growth Stack</em></h1>
+  <p class="hero-sub">Plug-and-play tools used by the fastest-growing founders. Curated from viral X posts with thousands of likes.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">40+</div>
+      <div class="hero-stat-label">Curated tools</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Categories</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1M+</div>
+      <div class="hero-stat-label">X impressions tracked</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <button class="filter-pill active" data-cat="all">All Tools</button>
+  <button class="filter-pill" data-cat="video">📹 Video</button>
+  <button class="filter-pill" data-cat="ads">📣 Paid Ads</button>
+  <button class="filter-pill" data-cat="outreach">🎯 Outreach</button>
+  <button class="filter-pill" data-cat="content">✍️ Content</button>
+  <button class="filter-pill" data-cat="design">🎨 Design</button>
+  <button class="filter-pill" data-cat="seo">🔍 SEO</button>
+  <button class="filter-pill" data-cat="analytics">📊 Analytics</button>
+  <button class="filter-pill" data-cat="ai">🤖 AI Stack</button>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+
+  <!-- VIDEO -->
+  <div class="section-label" data-section="video">📹 Video</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="video">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🎭</div>
+        <div>
+          <div class="card-name">HeyGen</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Create AI avatar videos from a script in minutes. Translate any video to 40+ languages with lip sync. No camera, no studio.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/HeyGen_Official" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="video">
+      <div class="card-top">
+        <div class="card-icon">✂️</div>
+        <div>
+          <div class="card-name">Descript</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Edit video by editing the transcript. Delete filler words with one click. AI voice clone for overdubs. Podcasters swear by it.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/DescriptApp" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="video">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">✂️</div>
+        <div>
+          <div class="card-name">Opus Clip</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Paste a long YouTube or Zoom video — AI finds the best 30–90s clips for TikTok, Reels, and Shorts. Adds captions automatically.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/opus_clip" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="video">
+      <div class="card-top">
+        <div class="card-icon">🎬</div>
+        <div>
+          <div class="card-name">Runway Gen-3</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Text or image → cinematic AI video. Best-in-class for B-roll, product visuals, and social content without a production budget.</p>
+      <div class="card-footer">
+        <span class="card-price">$$$</span>
+        <a class="card-x" href="https://x.com/runwayml" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="video">
+      <div class="card-top">
+        <div class="card-icon">📱</div>
+        <div>
+          <div class="card-name">CapCut</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">The go-to short-form video editor. Auto-captions, trendy templates, AI background remover. Used by virtually every viral creator.</p>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/CapCut" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="video">
+      <div class="card-top">
+        <div class="card-icon">🎙️</div>
+        <div>
+          <div class="card-name">ElevenLabs</div>
+          <div class="card-badge badge-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Ultra-realistic AI voice for voiceovers, avatars, and podcasts. Clone your own voice in 1 minute. Powers HeyGen, Descript, and more.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/elevenlabsio" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ADS -->
+  <div class="section-label" data-section="ads">📣 Paid Ads</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="ads">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">📣</div>
+        <div>
+          <div class="card-name">Meta Ads</div>
+          <div class="card-badge badge-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Still the single highest-ROI paid channel for most B2C businesses. Advantage+ campaigns now run near-autonomously with AI bidding.</p>
+      <div class="card-footer">
+        <span class="card-price">Self-serve</span>
+        <a class="card-x" href="https://x.com/MetaForBusiness" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ads">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🎨</div>
+        <div>
+          <div class="card-name">AdCreative.ai</div>
+          <div class="card-badge badge-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Generate 100 high-converting ad creatives in minutes. Works for Meta, TikTok, Google, LinkedIn. Scores each creative before you launch.</p>
+      <div class="card-footer">
+        <span class="card-price">From $29/mo</span>
+        <a class="card-x" href="https://x.com/adcreativeai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ads">
+      <div class="card-top">
+        <div class="card-icon">💾</div>
+        <div>
+          <div class="card-name">Foreplay</div>
+          <div class="card-badge badge-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Save competitor ads from Meta Ad Library, TikTok, and more. Build your own swipe file. Brief AI-generated ad concepts from winning angles.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/foreplay_co" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ads">
+      <div class="card-top">
+        <div class="card-icon">📊</div>
+        <div>
+          <div class="card-name">Motion</div>
+          <div class="card-badge badge-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Creative analytics for performance marketers. See exactly which ads are fatiguing, which angles win, and where to double down — across all channels.</p>
+      <div class="card-footer">
+        <span class="card-price">$$$</span>
+        <a class="card-x" href="https://x.com/madebymotion" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ads">
+      <div class="card-top">
+        <div class="card-icon">🎵</div>
+        <div>
+          <div class="card-name">TikTok Ads</div>
+          <div class="card-badge badge-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">The fastest-growing ad platform. Lower CPMs than Meta for many verticals. TopView and Spark Ads let you boost organic content that already works.</p>
+      <div class="card-footer">
+        <span class="card-price">Self-serve</span>
+        <a class="card-x" href="https://x.com/TikTokBusiness" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- OUTREACH -->
+  <div class="section-label" data-section="outreach">🎯 Outreach</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="outreach">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🧱</div>
+        <div>
+          <div class="card-name">Clay</div>
+          <div class="card-badge badge-outreach">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">The data enrichment layer for hyper-personalized cold outreach. Pull from 50+ sources, run AI research, build custom lead lists at scale.</p>
+      <div class="card-footer">
+        <span class="card-price">From $149/mo</span>
+        <a class="card-x" href="https://x.com/clay" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="outreach">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🚀</div>
+        <div>
+          <div class="card-name">Apollo.io</div>
+          <div class="card-badge badge-outreach">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">270M contact B2B database + built-in email sequences. Best all-in-one for solo founders who want to move fast without 5 separate tools.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/ApolloIO" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="outreach">
+      <div class="card-top">
+        <div class="card-icon">⚡</div>
+        <div>
+          <div class="card-name">Instantly</div>
+          <div class="card-badge badge-outreach">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">Cold email at massive scale with bulletproof deliverability. Warmup infrastructure built-in. Pair with Clay for the ultimate outbound stack.</p>
+      <div class="card-footer">
+        <span class="card-price">From $37/mo</span>
+        <a class="card-x" href="https://x.com/instantly_ai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="outreach">
+      <div class="card-top">
+        <div class="card-icon">💼</div>
+        <div>
+          <div class="card-name">LinkedIn Sales Nav</div>
+          <div class="card-badge badge-outreach">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">The deepest B2B prospecting database on the planet. Advanced filters, saved searches, and CRM sync. Still the best signal for intent.</p>
+      <div class="card-footer">
+        <span class="card-price">$$$</span>
+        <a class="card-x" href="https://x.com/LinkedInSales" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="outreach">
+      <div class="card-top">
+        <div class="card-icon">📬</div>
+        <div>
+          <div class="card-name">Smartlead</div>
+          <div class="card-badge badge-outreach">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">Email sending infra with smart mailbox rotation and AI-powered warmup. Loved by agencies running outbound for dozens of clients simultaneously.</p>
+      <div class="card-footer">
+        <span class="card-price">From $39/mo</span>
+        <a class="card-x" href="https://x.com/smartleadai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="section-label" data-section="content">✍️ Content</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="content">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">📝</div>
+        <div>
+          <div class="card-name">Typefully</div>
+          <div class="card-badge badge-content">Content</div>
+        </div>
+      </div>
+      <p class="card-desc">The cleanest X/Twitter drafting and scheduling tool. AI assistant trained on viral tweet patterns. Analytics show exactly what resonates.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/typefully" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="content">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">📧</div>
+        <div>
+          <div class="card-name">Beehiiv</div>
+          <div class="card-badge badge-content">Content</div>
+        </div>
+      </div>
+      <p class="card-desc">The newsletter platform built for growth. Free up to 2,500 subscribers, paid boosts, ad network, and the cleanest editor in the game.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/beehiiv" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="content">
+      <div class="card-top">
+        <div class="card-icon">🎙️</div>
+        <div>
+          <div class="card-name">Castmagic</div>
+          <div class="card-badge badge-content">Content</div>
+        </div>
+      </div>
+      <p class="card-desc">Upload any audio or video — get transcripts, show notes, tweets, LinkedIn posts, and newsletters in one click. Content repurposing on autopilot.</p>
+      <div class="card-footer">
+        <span class="card-price">From $39/mo</span>
+        <a class="card-x" href="https://x.com/castmagicio" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="content">
+      <div class="card-top">
+        <div class="card-icon">📰</div>
+        <div>
+          <div class="card-name">Perplexity</div>
+          <div class="card-badge badge-content">Content</div>
+        </div>
+      </div>
+      <p class="card-desc">AI-powered research with cited sources. Best for content research, competitive intel, and rapid ideation. Replaces hours of Googling.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/perplexity_ai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="content">
+      <div class="card-top">
+        <div class="card-icon">🐦</div>
+        <div>
+          <div class="card-name">Tweet Hunter</div>
+          <div class="card-badge badge-content">Content</div>
+        </div>
+      </div>
+      <p class="card-desc">AI ghostwriter trained on millions of viral tweets. Idea generation, auto-DMs, engagement tracking, and CRM for X power users.</p>
+      <div class="card-footer">
+        <span class="card-price">From $49/mo</span>
+        <a class="card-x" href="https://x.com/TweetHunterIO" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DESIGN -->
+  <div class="section-label" data-section="design">🎨 Design</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="design">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🖼️</div>
+        <div>
+          <div class="card-name">Figma</div>
+          <div class="card-badge badge-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">The industry standard for UI/UX design and prototyping. Real-time collaboration, component libraries, and now AI-powered design generation.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/figma" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="design">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🎨</div>
+        <div>
+          <div class="card-name">Canva</div>
+          <div class="card-badge badge-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">Zero design skills required. Social posts, pitch decks, video thumbnails, ad creatives — all in one tool with 1,000s of free templates.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/canva" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="design">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🌄</div>
+        <div>
+          <div class="card-name">Midjourney</div>
+          <div class="card-badge badge-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">The best AI image generator for brand assets, ad creative concepts, and product visuals. Consistently produces the most aesthetically polished output.</p>
+      <div class="card-footer">
+        <span class="card-price">From $10/mo</span>
+        <a class="card-x" href="https://x.com/midjourney" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="design">
+      <div class="card-top">
+        <div class="card-icon">🌐</div>
+        <div>
+          <div class="card-name">Framer</div>
+          <div class="card-badge badge-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">Design and ship websites with code-quality output. AI generates full pages from a prompt. Founders use it to launch landing pages in hours.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/framer" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="design">
+      <div class="card-top">
+        <div class="card-icon">⚡</div>
+        <div>
+          <div class="card-name">v0 by Vercel</div>
+          <div class="card-badge badge-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">Prompt → production-ready React/Tailwind UI. Fastest way to go from idea to a coded component. Engineers and non-engineers both use it daily.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/v0" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SEO -->
+  <div class="section-label" data-section="seo">🔍 SEO</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="seo">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🔍</div>
+        <div>
+          <div class="card-name">Ahrefs</div>
+          <div class="card-badge badge-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">The best all-in-one SEO suite. Backlink analysis, keyword research, content gap analysis, and site auditing. Founders and SEOs both use it.</p>
+      <div class="card-footer">
+        <span class="card-price">From $129/mo</span>
+        <a class="card-x" href="https://x.com/ahrefs" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="seo">
+      <div class="card-top">
+        <div class="card-icon">🏄</div>
+        <div>
+          <div class="card-name">Surfer SEO</div>
+          <div class="card-badge badge-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">Write content that ranks by scoring it against top SERP results in real time. AI outlines, NLP keyword suggestions, and one-click audits.</p>
+      <div class="card-footer">
+        <span class="card-price">From $89/mo</span>
+        <a class="card-x" href="https://x.com/SurferSEO" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="seo">
+      <div class="card-top">
+        <div class="card-icon">📡</div>
+        <div>
+          <div class="card-name">Semrush</div>
+          <div class="card-badge badge-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">Full marketing intelligence platform. Competitive research, PPC analysis, social media tracking, and content marketing. More breadth than Ahrefs.</p>
+      <div class="card-footer">
+        <span class="card-price">From $139/mo</span>
+        <a class="card-x" href="https://x.com/semrush" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="seo">
+      <div class="card-top">
+        <div class="card-icon">🔎</div>
+        <div>
+          <div class="card-name">Google Search Console</div>
+          <div class="card-badge badge-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">Free, official source of truth for search performance. Real impressions, clicks, CTR, average position. Start here before buying any paid SEO tool.</p>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/googlesearchc" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="section-label" data-section="analytics">📊 Analytics</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="analytics">
+      <div class="card-top">
+        <div class="card-icon">📈</div>
+        <div>
+          <div class="card-name">GA4</div>
+          <div class="card-badge badge-analytics">Analytics</div>
+        </div>
+      </div>
+      <p class="card-desc">Google Analytics 4. Free, powerful, and the standard web analytics tool. Event-based tracking, funnel analysis, and integration with every ad platform.</p>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="analytics">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🔥</div>
+        <div>
+          <div class="card-name">Hotjar</div>
+          <div class="card-badge badge-analytics">Analytics</div>
+        </div>
+      </div>
+      <p class="card-desc">Heatmaps, session recordings, and user surveys. See exactly where users click, scroll, and drop off. Essential for CRO and landing page optimization.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/hotjar" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="analytics">
+      <div class="card-top">
+        <div class="card-icon">🧪</div>
+        <div>
+          <div class="card-name">Mixpanel</div>
+          <div class="card-badge badge-analytics">Analytics</div>
+        </div>
+      </div>
+      <p class="card-desc">Product analytics for SaaS. Track user journeys, retention cohorts, feature adoption, and conversion funnels. Free up to 20M events/month.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/mixpanel" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="analytics">
+      <div class="card-top">
+        <div class="card-icon">🪟</div>
+        <div>
+          <div class="card-name">Microsoft Clarity</div>
+          <div class="card-badge badge-analytics">Analytics</div>
+        </div>
+      </div>
+      <p class="card-desc">Free Hotjar alternative from Microsoft. Unlimited session recordings, heatmaps, and rage-click detection. No traffic limits, fully free forever.</p>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/msclarityapp" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI STACK -->
+  <div class="section-label" data-section="ai">🤖 AI Stack</div>
+  <div class="tool-grid">
+
+    <div class="tool-card" data-cat="ai">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">🤖</div>
+        <div>
+          <div class="card-name">Claude</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">Best AI for writing, reasoning, and long-context analysis. Founders use it for contracts, investor memos, strategy docs, and complex research.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/AnthropicAI" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ai">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">💬</div>
+        <div>
+          <div class="card-name">ChatGPT</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">The most widely used AI. GPT-4o for general tasks, o3 for deep reasoning. Image generation, browsing, and custom GPTs for your specific workflows.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/ChatGPTapp" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ai">
+      <span class="card-viral">🔥 Viral</span>
+      <div class="card-top">
+        <div class="card-icon">💻</div>
+        <div>
+          <div class="card-name">Cursor</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">The AI-first code editor. Tab-complete entire functions, chat with your codebase, and apply multi-file edits in one go. Non-engineers ship with it.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/cursor_ai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ai">
+      <div class="card-top">
+        <div class="card-icon">🔮</div>
+        <div>
+          <div class="card-name">Notion AI</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">Your whole company's brain — docs, wikis, projects, databases — plus AI that can search, summarize, and draft across everything you've written.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/NotionHQ" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ai">
+      <div class="card-top">
+        <div class="card-icon">🌊</div>
+        <div>
+          <div class="card-name">Windsurf</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">Cursor alternative with autonomous "Cascade" agent mode. Writes, debugs, and deploys full features with minimal prompting. Growing fast in 2025.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/windsurf_ai" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card" data-cat="ai">
+      <div class="card-top">
+        <div class="card-icon">🔁</div>
+        <div>
+          <div class="card-name">Zapier</div>
+          <div class="card-badge badge-ai">AI Stack</div>
+        </div>
+      </div>
+      <p class="card-desc">Connect any two tools without code. 6,000+ app integrations. AI Actions let you trigger Claude/ChatGPT inside any automated workflow.</p>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/zapier" target="_blank">
+          <span class="card-x-icon">𝕏</span> Follow
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built by <a href="https://maxxer.ai" target="_blank">Maxxer</a> · The AI growth layer for ambitious founders</p>
+  <p style="margin-top:6px;font-size:11px;color:#aaa">Tools updated weekly from viral X threads · Not sponsored · Just what actually works</p>
+</footer>
+
+<script>
+  // Category filter
+  const pills = document.querySelectorAll('.filter-pill');
+  const cards = document.querySelectorAll('.tool-card');
+  const sections = document.querySelectorAll('.section-label');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const cat = pill.dataset.cat;
+
+      cards.forEach(card => {
+        card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+      });
+
+      sections.forEach(sec => {
+        const secCat = sec.dataset.section;
+        const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
+        sec.style.display = (cat !== 'all' && !hasVisible) ? 'none' : '';
+        // Hide the grid after section label too
+        const grid = sec.nextElementSibling;
+        if (grid) grid.style.display = (cat !== 'all' && !hasVisible) ? 'none' : '';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
