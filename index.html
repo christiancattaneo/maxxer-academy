@@ -98,9 +98,18 @@
 
     .hero-sub {
       font-size: 16px; color: var(--ink-3); line-height: 1.7; max-width: 500px;
-      margin: 0 auto 40px; font-weight: 400;
+      margin: 0 auto 20px; font-weight: 400;
       animation: fadeUp .6s ease .2s both;
     }
+    .hero-byline {
+      font-size: 12px; color: var(--ink-3); margin: 0 auto 36px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      animation: fadeUp .6s ease .25s both;
+    }
+    .hero-byline strong { color: var(--ink); font-weight: 600; }
+    .hero-byline a { color: var(--ink-3); text-decoration: none; font-weight: 500; }
+    .hero-byline a:hover { color: var(--ink); }
+    .hero-byline-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
 
     .hero-legend {
       display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
@@ -348,9 +357,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow"><span class="eyebrow-dot"></span> OpenClaw · ClawHub · MCP</div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span> For Alpha Founders Academy</div>
   <h1>Tools Your Agent<br>Can <em>Actually Run</em></h1>
-  <p class="hero-sub">Not apps you open by hand — tools with ClawHub skills, MCP servers, and direct APIs so Alfred operates them for you.</p>
+  <p class="hero-sub">Not apps you open by hand — tools with ClawHub skills, MCP servers, and direct APIs so your agent operates them for you.</p>
+  <p class="hero-byline">
+    <span>Curated by <strong>Christian Cattaneo</strong></span>
+    <span class="hero-byline-sep"></span>
+    <a href="https://maxxer.ai" target="_blank">maxxer.ai</a>
+  </p>
   <div class="hero-legend">
     <div class="hl"><span class="hl-dot" style="background:var(--clawhub)"></span> ClawHub Skill</div>
     <div class="hl"><span class="hl-dot" style="background:var(--mcp)"></span> MCP Server</div>
@@ -773,8 +787,8 @@
 </div>
 
 <footer>
-  <p>Built by <a href="https://maxxer.ai" target="_blank">Maxxer</a> · Every tool here is directly controllable by your AI agent</p>
-  <p>Skills sourced from ClawHub · MCP servers via Smithery.ai · Not sponsored</p>
+  <p>Built for <strong>Alpha Founders Academy</strong> by <a href="https://maxxer.ai" target="_blank">Christian Cattaneo</a></p>
+  <p>Every tool here is directly controllable by your AI agent · Skills via ClawHub · Not sponsored</p>
 </footer>
 
 <script>
