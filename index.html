@@ -33,12 +33,80 @@
       --api: #0ea5e9;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); }
-    #bg-canvas {
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+
+    /* ── Aurora background ── */
+    .aurora {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0; pointer-events: none;
+      z-index: 0; pointer-events: none; overflow: hidden;
     }
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(110px);
+      opacity: 0; animation: blobFade 1.4s ease forwards;
+    }
+    @keyframes blobFade { to { opacity: 1; } }
+    .b1 { width: 700px; height: 700px; background: radial-gradient(circle, #ff6b3520, #ff4d0012);
+      top: -200px; left: -150px; animation: blobFade 1.4s ease forwards, drift1 18s ease-in-out infinite; }
+    .b2 { width: 600px; height: 600px; background: radial-gradient(circle, #8b5cf618, #6366f10c);
+      top: -100px; right: -100px; animation: blobFade 1.4s .3s ease both, drift2 22s ease-in-out infinite; }
+    .b3 { width: 500px; height: 500px; background: radial-gradient(circle, #06b6d414, #0ea5e90a);
+      bottom: 10%; left: 20%; animation: blobFade 1.4s .5s ease both, drift3 26s ease-in-out infinite; }
+    .b4 { width: 450px; height: 450px; background: radial-gradient(circle, #ec489912, #db277708);
+      bottom: 20%; right: 10%; animation: blobFade 1.4s .7s ease both, drift4 20s ease-in-out infinite; }
+    .b5 { width: 380px; height: 380px; background: radial-gradient(circle, #f59e0b10, #ca8a0408);
+      top: 40%; left: 45%; animation: blobFade 1.4s .9s ease both, drift5 24s ease-in-out infinite; }
+    @keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)}   33%{transform:translate(80px,60px) scale(1.08)}   66%{transform:translate(-40px,100px) scale(.95)} }
+    @keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)}   40%{transform:translate(-70px,80px) scale(1.06)}  80%{transform:translate(50px,-60px) scale(.97)} }
+    @keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)}   30%{transform:translate(60px,-80px) scale(1.1)}   70%{transform:translate(-80px,40px) scale(.92)} }
+    @keyframes drift4 { 0%,100%{transform:translate(0,0) scale(1)}   50%{transform:translate(-90px,-70px) scale(1.07)} 80%{transform:translate(40px,80px) scale(.98)} }
+    @keyframes drift5 { 0%,100%{transform:translate(0,0) scale(1)}   35%{transform:translate(100px,50px) scale(.94)}  70%{transform:translate(-60px,-90px) scale(1.05)} }
+
     nav, .hero, .filter-bar, .wrap, footer { position: relative; z-index: 1; }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .sec-label.reveal { transform: translateX(-16px); }
+    .sec-label.reveal.in { transform: none; }
+
+    /* ── Card hover glow ── */
+    .card[data-cat="social"]:hover    { box-shadow: 0 8px 36px rgba(29,78,216,.12),  0 2px 10px rgba(29,78,216,.08); }
+    .card[data-cat="email"]:hover     { box-shadow: 0 8px 36px rgba(8,145,178,.12),  0 2px 10px rgba(8,145,178,.08); }
+    .card[data-cat="video"]:hover     { box-shadow: 0 8px 36px rgba(124,58,237,.13), 0 2px 10px rgba(124,58,237,.08); }
+    .card[data-cat="seo"]:hover       { box-shadow: 0 8px 36px rgba(202,138,4,.12),  0 2px 10px rgba(202,138,4,.08); }
+    .card[data-cat="analytics"]:hover { box-shadow: 0 8px 36px rgba(22,163,74,.12),  0 2px 10px rgba(22,163,74,.08); }
+    .card[data-cat="design"]:hover    { box-shadow: 0 8px 36px rgba(219,39,119,.12), 0 2px 10px rgba(219,39,119,.08); }
+    .card[data-cat="infra"]:hover     { box-shadow: 0 8px 36px rgba(55,65,81,.12),   0 2px 10px rgba(55,65,81,.08); }
+    .card[data-cat="ai"]:hover        { box-shadow: 0 8px 36px rgba(99,102,241,.13), 0 2px 10px rgba(99,102,241,.08); }
+    .card[data-cat="ads"]:hover       { box-shadow: 0 8px 36px rgba(234,88,12,.12),  0 2px 10px rgba(234,88,12,.08); }
+
+    /* ── Filter transition ── */
+    .card.hiding { opacity: 0; transform: scale(.94) translateY(8px); pointer-events: none; }
+    .card.showing { animation: cardPop .35s ease forwards; }
+    @keyframes cardPop { from{opacity:0;transform:scale(.94) translateY(10px)} to{opacity:1;transform:none} }
+
+    /* ── Install cmd cursor ── */
+    .int-cmd::after {
+      content: '|'; margin-left: 2px; opacity: 1;
+      animation: blink .9s step-start infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── Hero word reveal ── */
+    .hero-word { display: inline-block; opacity: 0; transform: translateY(18px); animation: wordIn .5s ease forwards; }
+    @keyframes wordIn { to{opacity:1;transform:none} }
+
+    /* ── Nav animated border ── */
+    nav::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--clawhub), var(--mcp), var(--api));
+      animation: navLine 2.5s ease .5s forwards;
+    }
+    @keyframes navLine { to{width:100%} }
+
+    /* ── Pill active transition ── */
+    .pill { transition: all .18s ease; }
+    .pill.active { transform: scale(1.04); }
 
     /* ── Nav ── */
     nav {
@@ -125,7 +193,7 @@
     .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 18px; display: flex; flex-direction: column; gap: 10px;
-      transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden;
+      transition: opacity .32s ease, transform .32s ease, box-shadow .22s ease; position: relative; overflow: hidden;
     }
     .card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -232,7 +300,13 @@
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
+<div class="aurora">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+  <div class="blob b5"></div>
+</div>
 
 <nav>
   <a class="nav-logo" href="/">Maxxer <span class="nav-badge">ACADEMY</span></a>
@@ -1069,6 +1143,50 @@
 </footer>
 
 <script>
+// ── Hero word-by-word reveal ──────────────────────────────────────────────────
+(function() {
+  const h1 = document.querySelector('h1');
+  if (!h1) return;
+  const html = h1.innerHTML;
+  // Split on spaces but preserve <br> and <em> tags
+  const wrapped = html.replace(/(<[^>]+>)|([^<\s]+)/g, (match, tag, word) => {
+    if (tag) return tag;
+    return `<span class="hero-word">${word} </span>`;
+  });
+  h1.innerHTML = wrapped;
+  h1.querySelectorAll('.hero-word').forEach((w, i) => {
+    w.style.animationDelay = (0.1 + i * 0.08) + 's';
+  });
+})();
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+(function() {
+  // Add reveal class to everything that should animate in
+  document.querySelectorAll('.card, .sec-label, .eyebrow, .hero-sub, .hero-badges, .hero-stat, .hb').forEach(el => {
+    el.classList.add('reveal');
+  });
+
+  // Stagger cards within each grid
+  document.querySelectorAll('.grid').forEach(grid => {
+    grid.querySelectorAll('.card').forEach((card, i) => {
+      card.style.transitionDelay = (i * 0.06) + 's';
+    });
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+// ── Filter with animation ────────────────────────────────────────────────────
+(function() {
   const pills = document.querySelectorAll('.pill');
   const cards = document.querySelectorAll('.card');
   const sections = document.querySelectorAll('.sec-label');
@@ -1077,179 +1195,54 @@
     cards.forEach(c => {
       const catMatch = !cat || cat === 'all' || c.dataset.cat === cat;
       const intMatch = !intType || c.dataset.int === intType;
-      c.classList.toggle('hidden', !(catMatch && intMatch));
+      const visible = catMatch && intMatch;
+      if (!visible && !c.classList.contains('hidden')) {
+        c.classList.add('hiding');
+        setTimeout(() => { c.classList.add('hidden'); c.classList.remove('hiding'); }, 280);
+      } else if (visible && c.classList.contains('hidden')) {
+        c.classList.remove('hidden');
+        c.classList.add('showing');
+        setTimeout(() => c.classList.remove('showing'), 400);
+      }
     });
-    sections.forEach(sec => {
-      const secCat = sec.dataset.section;
-      const grid = sec.nextElementSibling;
-      const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
-      sec.style.display = hasVisible ? '' : 'none';
-      if (grid) grid.style.display = hasVisible ? '' : 'none';
-    });
+    setTimeout(() => {
+      sections.forEach(sec => {
+        const secCat = sec.dataset.section;
+        const grid = sec.nextElementSibling;
+        const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
+        sec.style.display = hasVisible ? '' : 'none';
+        if (grid) grid.style.display = hasVisible ? '' : 'none';
+      });
+    }, 100);
   }
 
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      const cat = pill.dataset.cat;
-      const intType = pill.dataset.int;
-      applyFilter(cat, intType);
+      applyFilter(pill.dataset.cat, pill.dataset.int);
     });
   });
-</script>
+})();
 
-<script>
-// ── 3D Particle Network Background ───────────────────────────────────────────
+// ── Aurora mouse parallax ─────────────────────────────────────────────────────
 (function() {
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  const FOV = 900;
-  const COUNT = window.innerWidth < 600 ? 55 : 110;
-  const MAX_DIST = 160;
-  const SPEED = 0.18;
-  const DEPTH = 700;
-
-  let W, H, cx, cy;
-  let mouse = { x: 0, y: 0 };
-  let tilt = { x: 0, y: 0 };
-  let rotY = 0, rotX = 0;
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    cx = W / 2; cy = H / 2;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  // Generate particles in 3D space
-  const pts = Array.from({ length: COUNT }, () => ({
-    x: (Math.random() - .5) * W * 1.8,
-    y: (Math.random() - .5) * H * 1.8,
-    z: (Math.random() - .5) * DEPTH * 2,
-    vx: (Math.random() - .5) * SPEED,
-    vy: (Math.random() - .5) * SPEED,
-    vz: (Math.random() - .5) * SPEED * .6,
-    r: Math.random() * 2 + 1,
-    hue: Math.random() < .5 ? 20 : 270,  // orange or purple family
-  }));
-
-  document.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  // Slow camera tilt toward mouse
-  function lerpTilt() {
-    const tx = ((mouse.x - cx) / cx) * 0.18;
-    const ty = ((mouse.y - cy) / cy) * 0.12;
-    tilt.x += (ty - tilt.x) * 0.04;
-    tilt.y += (tx - tilt.y) * 0.04;
-  }
-
-  // Project 3D → 2D with tilt
-  function project(p) {
-    // Apply camera tilt rotation
-    const cosY = Math.cos(tilt.y), sinY = Math.sin(tilt.y);
-    const cosX = Math.cos(tilt.x), sinX = Math.sin(tilt.x);
-    // Rotate around Y
-    const x1 = p.x * cosY - p.z * sinY;
-    const z1 = p.x * sinY + p.z * cosY;
-    // Rotate around X
-    const y1 = p.y * cosX - z1 * sinX;
-    const z2 = p.y * sinX + z1 * cosX;
-    // Perspective divide
-    const scale = FOV / (FOV + z2 + DEPTH);
-    return {
-      sx: cx + x1 * scale,
-      sy: cy + y1 * scale,
-      scale,
-      depth: z2,
-    };
-  }
-
-  let lastTime = 0;
-  function draw(ts) {
-    const dt = Math.min(ts - lastTime, 32);
-    lastTime = ts;
-
-    ctx.clearRect(0, 0, W, H);
-    lerpTilt();
-
-    // Slow global rotation
-    rotY += 0.00018;
-
-    // Update particles
-    pts.forEach(p => {
-      p.x += p.vx * dt * 0.3;
-      p.y += p.vy * dt * 0.3;
-      p.z += p.vz * dt * 0.3;
-      // Wrap
-      const bx = W * 0.95, by = H * 0.95, bz = DEPTH;
-      if (p.x >  bx) p.x = -bx; if (p.x < -bx) p.x = bx;
-      if (p.y >  by) p.y = -by; if (p.y < -by) p.y = by;
-      if (p.z >  bz) p.z = -bz; if (p.z < -bz) p.z = bz;
+  const blobs = document.querySelectorAll('.blob');
+  const factors = [.018, .012, .022, .016, .025];
+  let mx = 0, my = 0, cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+  let curr = blobs.map(() => ({ x: 0, y: 0 }));
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  window.addEventListener('resize', () => { cx = window.innerWidth / 2; cy = window.innerHeight / 2; });
+  (function tick() {
+    blobs.forEach((b, i) => {
+      const tx = (mx - cx) * factors[i];
+      const ty = (my - cy) * factors[i];
+      curr[i].x += (tx - curr[i].x) * 0.06;
+      curr[i].y += (ty - curr[i].y) * 0.06;
+      b.style.transform = `translate(${curr[i].x}px, ${curr[i].y}px)`;
     });
-
-    // Project all points
-    const projected = pts.map((p, i) => ({ ...project(p), p, i }));
-
-    // Draw connections
-    for (let i = 0; i < projected.length; i++) {
-      const a = projected[i];
-      if (a.sx < -100 || a.sx > W + 100 || a.sy < -100 || a.sy > H + 100) continue;
-      for (let j = i + 1; j < projected.length; j++) {
-        const b = projected[j];
-        const dx = a.sx - b.sx, dy = a.sy - b.sy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist > MAX_DIST) continue;
-        const alpha = (1 - dist / MAX_DIST) * 0.22 * Math.min(a.scale, b.scale) * 2.5;
-        const avgScale = (a.scale + b.scale) / 2;
-        // Gradient line: orange → purple based on position
-        const t = (a.p.x + W) / (W * 2);
-        const r = Math.round(255 * (1 - t) * 0.85 + 139 * t);
-        const g = Math.round(77  * (1 - t) * 0.5  + 92  * t);
-        const bl = Math.round(0   * (1 - t)        + 246 * t);
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(${r},${g},${bl},${alpha})`;
-        ctx.lineWidth = avgScale * 0.7;
-        ctx.moveTo(a.sx, a.sy);
-        ctx.lineTo(b.sx, b.sy);
-        ctx.stroke();
-      }
-    }
-
-    // Draw nodes
-    projected.forEach(({ sx, sy, scale, p }) => {
-      if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) return;
-      const alpha = Math.min(0.75, scale * 0.9);
-      const t = (p.x + W) / (W * 2);
-      // Orange (#ff4d00) ↔ Purple (#8b5cf6)
-      const r = Math.round(255 * (1 - t) + 139 * t);
-      const g = Math.round(77  * (1 - t) + 92  * t);
-      const bl = Math.round(0   * (1 - t) + 246 * t);
-      const radius = p.r * scale * 1.4;
-
-      // Glow
-      const grd = ctx.createRadialGradient(sx, sy, 0, sx, sy, radius * 3);
-      grd.addColorStop(0, `rgba(${r},${g},${bl},${alpha * 0.25})`);
-      grd.addColorStop(1, `rgba(${r},${g},${bl},0)`);
-      ctx.beginPath();
-      ctx.fillStyle = grd;
-      ctx.arc(sx, sy, radius * 3, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Core dot
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(${r},${g},${bl},${alpha})`;
-      ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-      ctx.fill();
-    });
-
-    requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
+    requestAnimationFrame(tick);
+  })();
 })();
 </script>
 
