@@ -289,24 +289,33 @@
       background: #fefce8; color: #854d0e; border: 1px solid #fde68a;
     }
 
-    /* ── Twitter embed proof block ── */
+    /* ── Custom tweet card ── */
     .card-tweet {
       border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border); background: var(--bg);
-      min-height: 80px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); background: #fff;
+      padding: 14px 16px; font-family: -apple-system, sans-serif;
     }
-    .card-tweet .twitter-tweet { margin: 0 !important; width: 100% !important; }
-    .card-tweet iframe { border-radius: 8px !important; }
-    .tweet-loading {
-      font-size: 11px; color: var(--ink-3); opacity: .5; padding: 18px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .tweet-loading-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3);
-      animation: pulse 1.4s ease infinite;
-    }
-    .tweet-loading-dot:nth-child(2) { animation-delay: .2s; }
-    .tweet-loading-dot:nth-child(3) { animation-delay: .4s; }
+    .tweet-card { display: flex; flex-direction: column; gap: 8px; }
+    .tweet-header { display: flex; align-items: center; gap: 9px; }
+    .tweet-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: var(--border); }
+    .tweet-author { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+    .tweet-name { font-size: 13px; font-weight: 700; color: #0f1419; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tweet-handle { font-size: 12px; color: #536471; }
+    .tweet-x-logo { width: 18px; height: 18px; flex-shrink: 0; }
+    .tweet-body { font-size: 13px; line-height: 1.55; color: #0f1419; }
+    .tweet-stats { display: flex; gap: 14px; margin-top: 2px; }
+    .tweet-stat { display: flex; align-items: center; gap: 4px; font-size: 11.5px; color: #536471; }
+    .tweet-stat svg { width: 13px; height: 13px; }
+    .tweet-link { font-size: 11px; color: #1d9bf0; text-decoration: none; margin-top: 2px; display: inline-block; }
+    .tweet-link:hover { text-decoration: underline; }
+    /* Skeleton loader */
+    .tweet-skeleton { padding: 4px 0; }
+    .ts-header { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+    .ts-av { width: 36px; height: 36px; border-radius: 50%; background: var(--border); animation: shimmer 1.4s ease infinite; }
+    .ts-name { height: 12px; width: 100px; border-radius: 4px; background: var(--border); animation: shimmer 1.4s ease infinite; }
+    .ts-line { height: 10px; border-radius: 4px; background: var(--border); margin-bottom: 6px; animation: shimmer 1.4s ease infinite; }
+    .ts-line-short { width: 60%; }
+    @keyframes shimmer { 0%,100%{opacity:.4} 50%{opacity:1} }
 
     /* ── Footer ── */
     footer {
@@ -408,11 +417,7 @@
       </div>
       <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Alfred can draft and schedule tweets from any trigger — email, webhook, or cron.</p>
       <div class="card-int"><span class="int-cmd">clawhub install x-twitter</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/JulianGoldieSEO/status/1943787579301888172"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1943787579301888172"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">OAuth 1.0a</span><a class="card-link" href="https://developer.twitter.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="social" data-int="api">
@@ -422,11 +427,7 @@
       </div>
       <p class="card-desc">X/Twitter drafting, thread scheduling, and analytics. REST API lets Alfred queue posts, pull analytics, and manage drafts programmatically.</p>
       <div class="card-int"><span class="int-cmd">api.typefully.com/v1/drafts</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/kanekallaway/status/1870873958968693234"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1870873958968693234"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://typefully.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="social" data-int="api">
@@ -436,11 +437,7 @@
       </div>
       <p class="card-desc">AI ghostwriter trained on viral patterns. API exposes tweet generation, auto-DM, and engagement scoring — Alfred can run your full X presence.</p>
       <div class="card-int"><span class="int-cmd">app.tweethunter.io/api</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/gregisenberg/status/1907946228857581958"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1907946228857581958"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">$49/mo</span><a class="card-link" href="https://tweethunter.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -456,11 +453,7 @@
       </div>
       <p class="card-desc">Full IMAP/SMTP email via CLI. Alfred can read, reply, compose with attachments, and search across multiple accounts — zero UI needed.</p>
       <div class="card-int"><span class="int-cmd">clawhub install himalaya</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/useapolloio/status/2000553200345059453"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="2000553200345059453"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://pimalaya.org/himalaya/" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="email" data-int="api">
@@ -470,11 +463,7 @@
       </div>
       <p class="card-desc">270M contact B2B database + email sequences. Full REST API — Alfred can search contacts, enrich leads, and trigger sequences without touching the UI.</p>
       <div class="card-int"><span class="int-cmd">api.apollo.io/v1/people/search</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/useapolloio/status/1949858410834325776"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1949858410834325776"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://apollo.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="email" data-int="api">
@@ -484,11 +473,7 @@
       </div>
       <p class="card-desc">Cold email at scale with bulletproof deliverability. API lets Alfred add leads, launch campaigns, and pull reply analytics — fully autonomous outbound.</p>
       <div class="card-int"><span class="int-cmd">api.instantly.ai/api/v1</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/NickAbraham12/status/1489613537244819461"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1489613537244819461"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">$37/mo</span><a class="card-link" href="https://instantly.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="email" data-int="api">
@@ -498,11 +483,7 @@
       </div>
       <p class="card-desc">Newsletter platform with full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
       <div class="card-int"><span class="int-cmd">api.beehiiv.com/v2/publications</span><span class="int-badge ib-api">API</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/SobkoYaroslav/status/1811058781536539020"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="1811058781536539020"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://beehiiv.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -518,11 +499,7 @@
       </div>
       <p class="card-desc">Extract frames and short clips from any video via ffmpeg. Alfred can grab thumbnails, generate GIF previews, or cut clip reels automatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install video-frames</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/FFmpeg/status/2004599109559496984"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="2004599109559496984"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://openclaw.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="video" data-int="api">
@@ -532,11 +509,7 @@
       </div>
       <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to 40+ languages, and download it in one shot.</p>
       <div class="card-int"><span class="int-cmd">api.heygen.com/v2/video/generate</span><span class="int-badge ib-api">API</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/joshua_xu_/status/2001311422278672462"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="2001311422278672462"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://heygen.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="video" data-int="clawhub">
@@ -546,11 +519,7 @@
       </div>
       <p class="card-desc">ElevenLabs TTS with mac-style CLI. Alfred already uses this for voice — also generates voiceovers for videos, ads, and demos programmatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install sag</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/MarioNawfal/status/1896162061606072528"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1896162061606072528"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://elevenlabs.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="video" data-int="api">
@@ -560,11 +529,7 @@
       </div>
       <p class="card-desc">Auto-clip long videos into viral shorts. API accepts a video URL and returns timestamped clips with captions — Alfred runs this on every recording.</p>
       <div class="card-int"><span class="int-cmd">api.opus.pro/v1/clips</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/JulianGoldieSEO/status/1991038732846444555"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1991038732846444555"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://opus.pro" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -580,11 +545,7 @@
       </div>
       <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP tracking. Alfred can run weekly audits and deliver reports automatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install seo-competitor-analysis</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/semrush/status/1960621558814192040"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="1960621558814192040"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://ahrefs.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="seo" data-int="clawhub">
@@ -594,11 +555,7 @@
       </div>
       <p class="card-desc">Generates SEO-optimized articles from a keyword list. Handles outline, NLP terms, internal links. Alfred can keep your blog on autopilot.</p>
       <div class="card-int"><span class="int-cmd">clawhub install seo-content-writer</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/JulianGoldieSEO/status/1919842970695827954"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1919842970695827954"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://surferseo.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="seo" data-int="clawhub">
@@ -608,11 +565,7 @@
       </div>
       <p class="card-desc">Pull real GSC data — impressions, clicks, CTR, rankings. Alfred monitors search performance and alerts on drops or wins automatically.</p>
       <div class="card-int"><span class="int-cmd">clawhub install google-search-console</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/PlausibleHQ/status/1927314006202540500"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1927314006202540500"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://search.google.com/search-console" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -628,11 +581,7 @@
       </div>
       <p class="card-desc">Query GA4 data via API. Alfred pulls traffic, conversion, and event data, generates daily digests, and alerts on anomalies — no dashboard needed.</p>
       <div class="card-int"><span class="int-cmd">clawhub install ga4-analytics</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/googleanalytics/status/1942592007156715642"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1942592007156715642"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://analytics.google.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="analytics" data-int="api">
@@ -642,11 +591,7 @@
       </div>
       <p class="card-desc">Product analytics with a full query API. Alfred pulls retention cohorts, funnel conversion, and feature usage — weekly product health reports, zero effort.</p>
       <div class="card-int"><span class="int-cmd">mixpanel.com/api/query/</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/mixpanel/status/1795878552610517058"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1795878552610517058"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://mixpanel.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -662,11 +607,7 @@
       </div>
       <p class="card-desc">Read file layouts, inspect components, extract design tokens. Alfred pulls Figma specs and hands them to code agents automatically.</p>
       <div class="card-int"><span class="int-cmd">smithery.ai/server/figma-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/figma/status/1915103817622024697"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1915103817622024697"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://figma.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="design" data-int="api">
@@ -676,11 +617,7 @@
       </div>
       <p class="card-desc">Fastest image generation API — Flux, SDXL, ControlNet. Alfred generates ad creative, product mockups, and social images in seconds from a text prompt.</p>
       <div class="card-int"><span class="int-cmd">fal.run/fal-ai/flux</span><span class="int-badge ib-api">API</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/emollick/status/1819893282777825370"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="1819893282777825370"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </a>
       <div class="card-footer"><span class="card-price">Pay/use</span><a class="card-link" href="https://fal.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
@@ -696,11 +633,7 @@
       </div>
       <p class="card-desc">Full programmatic control over Facebook/Instagram campaigns. Alfred creates campaigns, A/B tests creatives, adjusts budgets, and pulls ROAS — no ad manager UI.</p>
       <div class="card-int"><span class="int-cmd">graph.facebook.com/v19.0/act_</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/Adweek/status/1981316969748979905"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1981316969748979905"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">Self-serve</span><a class="card-link" href="https://business.facebook.com/overview" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ads" data-int="api">
@@ -710,11 +643,7 @@
       </div>
       <p class="card-desc">Generate scored ad creatives via API. Alfred produces 100 ad variants from your brief, scores them, and pushes the top performers to Meta automatically.</p>
       <div class="card-int"><span class="int-cmd">api.adcreative.ai/v1/generate</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/figma/status/1915098380331839541"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1915098380331839541"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price">$29/mo</span><a class="card-link" href="https://adcreative.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -730,11 +659,7 @@
       </div>
       <p class="card-desc">Managed OAuth for repos, issues, PRs, and commits. Alfred can create issues, review PRs, merge branches, and manage releases without touching the UI.</p>
       <div class="card-int"><span class="int-cmd">clawhub install github</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/github/status/1638541174611779584"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1638541174611779584"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://github.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="clawhub">
@@ -745,11 +670,7 @@
       </div>
       <p class="card-desc">Read, write, and query Notion databases and pages. Alfred uses Notion as memory store, CRM, content calendar, or project tracker — live.</p>
       <div class="card-int"><span class="int-cmd">clawhub install notion</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/jasonlk/status/2000755259610632688"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="2000755259610632688"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://notion.so" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="clawhub">
@@ -760,11 +681,7 @@
       </div>
       <p class="card-desc">Full Stripe billing control. Alfred checks MRR, creates payment links, manages subscriptions, issues refunds, and generates revenue reports autonomously.</p>
       <div class="card-int"><span class="int-cmd">clawhub install stripe-api</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/levelsio/status/1899596115210891751"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1899596115210891751"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free (per-txn)</span><a class="card-link" href="https://stripe.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="clawhub">
@@ -774,11 +691,7 @@
       </div>
       <p class="card-desc">GraphQL project management. Alfred creates issues from any trigger, updates sprint boards, and keeps engineering velocity visible in real time.</p>
       <div class="card-int"><span class="int-cmd">clawhub install linear</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/j_becke/status/1893424435526599033"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1893424435526599033"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://linear.app" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="mcp">
@@ -788,11 +701,7 @@
       </div>
       <p class="card-desc">Full browser automation via MCP. Alfred navigates any website, clicks, fills forms, scrapes data, and records sessions — headless or headed.</p>
       <div class="card-int"><span class="int-cmd">clawhub install playwright-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/_jaydeepkarale/status/2014167567682724350"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="2014167567682724350"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://playwright.dev" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="infra" data-int="clawhub">
@@ -802,11 +711,7 @@
       </div>
       <p class="card-desc">Alfred already deploys via Vercel CLI on every build. REST API also available for domain management, env vars, and deployment hooks from any script.</p>
       <div class="card-int"><span class="int-cmd">vercel --prod --yes</span><span class="int-badge ib-cli">CLI</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/vercel/status/1912588341973065972"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1912588341973065972"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://vercel.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -821,11 +726,7 @@
       </div>
       <p class="card-desc">Alfred is Claude. But you can also call the API from your tools, crons, and sub-agents — 200K context, best-in-class reasoning and writing.</p>
       <div class="card-int"><span class="int-cmd">api.anthropic.com/v1/messages</span><span class="int-badge ib-api">API</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/lennysan/status/1930711568385466577"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1930711568385466577"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://claude.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="api">
@@ -835,11 +736,7 @@
       </div>
       <p class="card-desc">Real-time web-grounded answers via API. Alfred uses Perplexity for tasks needing live sources — competitive intel, news monitoring, fact-checking.</p>
       <div class="card-int"><span class="int-cmd">api.perplexity.ai/chat/completions</span><span class="int-badge ib-api">API</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/perplexity_ai/status/1890452005472055673"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="1890452005472055673"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       <div class="card-footer"><span class="card-price">$5/1M tokens</span><a class="card-link" href="https://perplexity.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
@@ -849,11 +746,7 @@
       </div>
       <p class="card-desc">Self-hosted automation with 400+ integrations and MCP support. Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
       <div class="card-int"><span class="int-cmd">your-n8n.com/api/v1/workflows</span><span class="int-badge ib-api">API</span></div>
-      <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/NoahEpstein_/status/1957786797125013704"></a>
-        </blockquote>
-      </div>
+      <div class="card-tweet" data-tweet-id="1957786797125013704"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       <div class="card-footer"><span class="card-price price-free">Free / Self-host</span><a class="card-link" href="https://n8n.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
     <div class="card" data-cat="ai" data-int="clawhub">
@@ -863,11 +756,7 @@
       </div>
       <p class="card-desc">Secure API key management for OpenClaw. Store, list, test, and rotate keys for any service without exposing them in chat history or process args.</p>
       <div class="card-int"><span class="int-cmd">clawhub install ipeaky</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            <div class="card-tweet">
-        <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-conversation="none">
-          <a href="https://x.com/AnthropicAI/status/1849466471556038752"></a>
-        </blockquote>
-      </div>
+            <div class="card-tweet" data-tweet-id="1849466471556038752"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
 <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://openclaw.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
@@ -947,6 +836,76 @@
   })();
 })();
 </script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+// ── Live tweet cards via X API ──────────────────────────────────────────────
+(async function loadTweets() {
+  const cards = [...document.querySelectorAll('.card-tweet[data-tweet-id]')];
+  if (!cards.length) return;
+
+  const ids = cards.map(c => c.dataset.tweetId).join(',');
+
+  function fmt(n) {
+    if (!n) return '0';
+    if (n >= 1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'') + 'M';
+    if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K';
+    return String(n);
+  }
+
+  function renderCard(t) {
+    const tweetUrl = `https://x.com/${t.author_handle}/status/${t.id}`;
+    const avatarHtml = t.avatar
+      ? `<img class="tweet-avatar" src="${t.avatar.replace('_normal','_bigger')}" alt="${t.author_name}" loading="lazy">`
+      : `<div class="tweet-avatar"></div>`;
+    return `<div class="tweet-card">
+      <div class="tweet-header">
+        ${avatarHtml}
+        <div class="tweet-author">
+          <span class="tweet-name">${t.author_name}</span>
+          <span class="tweet-handle">@${t.author_handle}</span>
+        </div>
+        <svg class="tweet-x-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+      <div class="tweet-body">${t.text.replace(/https:\/\/t\.co\/\S+/g,'').trim()}</div>
+      <div class="tweet-stats">
+        <span class="tweet-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          ${fmt(t.likes)}
+        </span>
+        <span class="tweet-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          ${fmt(t.retweets)}
+        </span>
+        ${t.impressions ? `<span class="tweet-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          ${fmt(t.impressions)}
+        </span>` : ''}
+      </div>
+      <a href="${tweetUrl}" target="_blank" rel="noopener" class="tweet-link">View on X →</a>
+    </div>`;
+  }
+
+  try {
+    const resp = await fetch(`/api/tweets?ids=${ids}`);
+    const data = await resp.json();
+
+    cards.forEach(card => {
+      const tid = card.dataset.tweetId;
+      const tweet = data[tid];
+      if (tweet) {
+        card.innerHTML = renderCard(tweet);
+      } else {
+        card.innerHTML = '<div style="padding:14px;font-size:12px;color:#999">Tweet unavailable</div>';
+      }
+    });
+  } catch(e) {
+    console.warn('Tweet load failed:', e);
+    cards.forEach(card => {
+      card.innerHTML = '<div style="padding:14px;font-size:12px;color:#999">Could not load tweet</div>';
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
