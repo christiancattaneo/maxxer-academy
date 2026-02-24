@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maxxer Academy — The Founder's Growth Stack</title>
-  <meta name="description" content="Curated from viral X threads. The exact plug-and-play tools used by the fastest-growing founders.">
+  <title>Maxxer Academy — Agent-Ready Growth Stack</title>
+  <meta name="description" content="Tools your AI agent can actually control. ClawHub skills, MCP servers, and direct APIs — organized by category.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -18,141 +18,171 @@
       --ink-3: #777;
       --border: #e8e6e1;
       --radius: 14px;
-      --c-video:   #7c3aed;
-      --c-ads:     #ea580c;
-      --c-outreach:#2563eb;
-      --c-content: #16a34a;
-      --c-design:  #db2777;
-      --c-seo:     #ca8a04;
-      --c-analytics:#0891b2;
-      --c-ai:      #6366f1;
+      --c-social:   #1d4ed8;
+      --c-email:    #0891b2;
+      --c-video:    #7c3aed;
+      --c-seo:      #ca8a04;
+      --c-analytics:#16a34a;
+      --c-design:   #db2777;
+      --c-infra:    #374151;
+      --c-ai:       #6366f1;
+      --c-ads:      #ea580c;
+      /* integration badge colors */
+      --clawhub: #ff4d00;
+      --mcp: #8b5cf6;
+      --api: #0ea5e9;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); }
 
     /* ── Nav ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 32px; height: 58px;
-      background: rgba(248,247,244,.92); backdrop-filter: blur(12px);
+      background: rgba(248,247,244,.94); backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-weight: 700; font-size: 16px; letter-spacing: -.3px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
-    .nav-logo-badge { background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .5px; }
+    .nav-logo { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
+    .nav-badge { background: var(--ink); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .6px; }
     .nav-right { display: flex; align-items: center; gap: 12px; }
     .nav-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; }
     .nav-link:hover { color: var(--ink); }
-    .nav-cta { background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 8px; text-decoration: none; transition: opacity .15s; }
-    .nav-cta:hover { opacity: .8; }
+    .nav-cta { background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 8px; text-decoration: none; }
+    .nav-cta:hover { opacity: .82; }
 
     /* ── Hero ── */
-    .hero {
-      max-width: 860px; margin: 0 auto; padding: 80px 24px 48px;
-      text-align: center;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 12px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+    .hero { max-width: 820px; margin: 0 auto; padding: 72px 24px 48px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase;
       color: var(--ink-3); background: var(--surface); border: 1px solid var(--border);
-      padding: 5px 14px; border-radius: 20px; margin-bottom: 22px;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 24px;
     }
-    .hero-eyebrow-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
-    h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 700; line-height: 1.08; letter-spacing: -2px; color: var(--ink); margin-bottom: 18px; }
-    h1 em { font-style: normal; background: linear-gradient(135deg, #7c3aed, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-sub { font-size: 17px; color: var(--ink-3); line-height: 1.6; max-width: 560px; margin: 0 auto 36px; font-family: 'Inter', sans-serif; font-weight: 400; }
-    .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
-    .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
-    .hero-stat-label { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+    .eyebrow-dot { width: 6px; height: 6px; background: var(--clawhub); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
+    h1 { font-size: clamp(34px, 5.5vw, 58px); font-weight: 700; line-height: 1.09; letter-spacing: -2px; margin-bottom: 18px; }
+    h1 em { font-style: normal; background: linear-gradient(135deg, var(--clawhub), var(--mcp)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 16px; color: var(--ink-3); line-height: 1.65; max-width: 520px; margin: 0 auto 36px; font-weight: 400; }
+    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .hb {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 8px; border: 1.5px solid;
+    }
+    .hb-clawhub { background: #fff5f2; color: var(--clawhub); border-color: #ffd5c8; }
+    .hb-mcp     { background: #f5f3ff; color: var(--mcp); border-color: #ddd6fe; }
+    .hb-api     { background: #f0f9ff; color: var(--api); border-color: #bae6fd; }
+    .hb-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .hb-clawhub .hb-dot { background: var(--clawhub); }
+    .hb-mcp .hb-dot { background: var(--mcp); }
+    .hb-api .hb-dot { background: var(--api); }
 
-    /* ── Filter bar ── */
+    /* ── Filter ── */
     .filter-bar {
       position: sticky; top: 58px; z-index: 90;
-      background: rgba(248,247,244,.95); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 32px; display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto;
-      scrollbar-width: none;
+      background: rgba(248,247,244,.96); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); padding: 12px 32px;
+      display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
     }
     .filter-bar::-webkit-scrollbar { display: none; }
-    .filter-pill {
+    .pill {
       flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
       border: 1.5px solid var(--border); background: var(--surface); color: var(--ink-2);
-      cursor: pointer; transition: all .15s; white-space: nowrap;
-      font-family: 'Space Grotesk', sans-serif;
+      cursor: pointer; white-space: nowrap; font-family: inherit;
+      transition: all .15s;
     }
-    .filter-pill:hover { border-color: currentColor; }
-    .filter-pill.active { color: #fff; border-color: transparent; }
-    .filter-pill[data-cat="all"].active { background: var(--ink); }
-    .filter-pill[data-cat="video"].active   { background: var(--c-video); }
-    .filter-pill[data-cat="ads"].active     { background: var(--c-ads); }
-    .filter-pill[data-cat="outreach"].active{ background: var(--c-outreach); }
-    .filter-pill[data-cat="content"].active { background: var(--c-content); }
-    .filter-pill[data-cat="design"].active  { background: var(--c-design); }
-    .filter-pill[data-cat="seo"].active     { background: var(--c-seo); }
-    .filter-pill[data-cat="analytics"].active{ background: var(--c-analytics); }
-    .filter-pill[data-cat="ai"].active      { background: var(--c-ai); }
+    .pill:hover { background: var(--bg); }
+    .pill.active { color: #fff; border-color: transparent; }
+    .pill[data-cat="all"].active    { background: var(--ink); }
+    .pill[data-cat="social"].active { background: var(--c-social); }
+    .pill[data-cat="email"].active  { background: var(--c-email); }
+    .pill[data-cat="video"].active  { background: var(--c-video); }
+    .pill[data-cat="seo"].active    { background: var(--c-seo); }
+    .pill[data-cat="analytics"].active { background: var(--c-analytics); }
+    .pill[data-cat="design"].active { background: var(--c-design); }
+    .pill[data-cat="infra"].active  { background: var(--c-infra); }
+    .pill[data-cat="ai"].active     { background: var(--c-ai); }
+    .pill[data-cat="ads"].active    { background: var(--c-ads); }
+    .pill[data-int="clawhub"].active { background: var(--clawhub); }
+    .pill[data-int="mcp"].active    { background: var(--mcp); }
 
     /* ── Grid ── */
-    .grid-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
-    .section-label {
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+    .sec-label {
       font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--ink-3); margin: 40px 0 16px; display: flex; align-items: center; gap: 10px;
+      color: var(--ink-3); margin: 44px 0 16px; display: flex; align-items: center; gap: 10px;
     }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
 
-    /* ── Tool Card ── */
-    .tool-card {
+    /* ── Card ── */
+    .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 20px; display: flex; flex-direction: column; gap: 12px;
-      transition: box-shadow .2s, transform .2s;
-      position: relative; overflow: hidden;
+      padding: 18px; display: flex; flex-direction: column; gap: 10px;
+      transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden;
     }
-    .tool-card::before {
+    .card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       border-radius: var(--radius) var(--radius) 0 0;
     }
-    .tool-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .card:hover { box-shadow: 0 6px 28px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .card[data-cat="social"]::before    { background: var(--c-social); }
+    .card[data-cat="email"]::before     { background: var(--c-email); }
+    .card[data-cat="video"]::before     { background: var(--c-video); }
+    .card[data-cat="seo"]::before       { background: var(--c-seo); }
+    .card[data-cat="analytics"]::before { background: var(--c-analytics); }
+    .card[data-cat="design"]::before    { background: var(--c-design); }
+    .card[data-cat="infra"]::before     { background: var(--c-infra); }
+    .card[data-cat="ai"]::before        { background: var(--c-ai); }
+    .card[data-cat="ads"]::before       { background: var(--c-ads); }
+    .card.hidden { display: none; }
 
-    /* Category top border + hover accent */
-    .tool-card[data-cat="video"]::before    { background: var(--c-video); }
-    .tool-card[data-cat="ads"]::before      { background: var(--c-ads); }
-    .tool-card[data-cat="outreach"]::before { background: var(--c-outreach); }
-    .tool-card[data-cat="content"]::before  { background: var(--c-content); }
-    .tool-card[data-cat="design"]::before   { background: var(--c-design); }
-    .tool-card[data-cat="seo"]::before      { background: var(--c-seo); }
-    .tool-card[data-cat="analytics"]::before{ background: var(--c-analytics); }
-    .tool-card[data-cat="ai"]::before       { background: var(--c-ai); }
-
-    .tool-card.hidden { display: none; }
-
-    .card-top { display: flex; align-items: center; gap: 12px; }
+    .card-head { display: flex; align-items: center; gap: 11px; }
     .card-icon {
-      width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center;
-      justify-content: center; font-size: 22px; flex-shrink: 0; border: 1px solid var(--border);
-      background: var(--bg);
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; background: var(--bg); border: 1px solid var(--border);
     }
-    .card-name { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
-    .card-badge {
-      font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 20px; width: fit-content;
+    .card-title { font-weight: 700; font-size: 14.5px; letter-spacing: -.2px; }
+    .card-cat {
+      font-size: 9.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 20px; width: fit-content; margin-top: 2px;
     }
-    .badge-video    { background: #ede9fe; color: var(--c-video); }
-    .badge-ads      { background: #fff7ed; color: var(--c-ads); }
-    .badge-outreach { background: #eff6ff; color: var(--c-outreach); }
-    .badge-content  { background: #f0fdf4; color: var(--c-content); }
-    .badge-design   { background: #fdf2f8; color: var(--c-design); }
-    .badge-seo      { background: #fefce8; color: var(--c-seo); }
-    .badge-analytics{ background: #ecfeff; color: var(--c-analytics); }
-    .badge-ai       { background: #eef2ff; color: var(--c-ai); }
+    .cat-social    { background: #eff6ff; color: var(--c-social); }
+    .cat-email     { background: #ecfeff; color: var(--c-email); }
+    .cat-video     { background: #ede9fe; color: var(--c-video); }
+    .cat-seo       { background: #fefce8; color: var(--c-seo); }
+    .cat-analytics { background: #f0fdf4; color: var(--c-analytics); }
+    .cat-design    { background: #fdf2f8; color: var(--c-design); }
+    .cat-infra     { background: #f9fafb; color: var(--c-infra); }
+    .cat-ai        { background: #eef2ff; color: var(--c-ai); }
+    .cat-ads       { background: #fff7ed; color: var(--c-ads); }
 
-    .card-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; font-family: 'Inter', sans-serif; flex: 1; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .card-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.6; flex: 1; }
+
+    /* Integration block */
+    .card-int {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 9px 11px; display: flex; align-items: center; justify-content: space-between;
+      gap: 8px;
+    }
+    .int-cmd {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1;
+    }
+    .int-type {
+      flex-shrink: 0; font-size: 9px; font-weight: 700; letter-spacing: .5px;
+      text-transform: uppercase; padding: 2px 7px; border-radius: 20px; white-space: nowrap;
+    }
+    .int-clawhub { background: #fff5f2; color: var(--clawhub); border: 1px solid #ffd5c8; }
+    .int-mcp     { background: #f5f3ff; color: var(--mcp); border: 1px solid #ddd6fe; }
+    .int-api     { background: #f0f9ff; color: var(--api); border: 1px solid #bae6fd; }
+    .int-cli     { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
     .card-price {
-      font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px;
       background: var(--bg); color: var(--ink-3); border: 1px solid var(--border);
     }
     .price-free { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
@@ -160,830 +190,865 @@
     .card-x {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 11px; font-weight: 600; color: var(--ink-3);
-      text-decoration: none; padding: 5px 10px; border-radius: 7px;
+      text-decoration: none; padding: 4px 9px; border-radius: 6px;
       border: 1px solid var(--border); transition: all .15s;
     }
     .card-x:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .card-x svg { width: 11px; height: 11px; }
-    .card-x-icon { font-size: 13px; }
-
-    /* ── Pill viral badge ── */
-    .card-viral {
-      position: absolute; top: 14px; right: 14px;
-      font-size: 9px; font-weight: 700; letter-spacing: .5px;
+    .card-hot {
+      position: absolute; top: 13px; right: 13px;
+      font-size: 9px; font-weight: 700; letter-spacing: .4px;
       background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 20px;
       border: 1px solid #fde68a;
     }
 
+    /* ── Legend ── */
+    .legend {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px 8px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .legend-label { font-size: 11px; color: var(--ink-3); font-weight: 500; }
+    .leg { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; }
+    .leg-dot { width: 8px; height: 8px; border-radius: 2px; }
+
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border); padding: 32px; text-align: center;
-      font-size: 13px; color: var(--ink-3); background: var(--surface);
+      border-top: 1px solid var(--border); padding: 28px; text-align: center;
+      font-size: 12px; color: var(--ink-3); background: var(--surface);
     }
     footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
 
     @media(max-width: 600px) {
       nav { padding: 0 16px; }
       .hero { padding: 48px 16px 32px; }
-      h1 { letter-spacing: -1px; }
       .filter-bar { padding: 12px 16px; }
-      .grid-wrap { padding: 24px 16px 60px; }
+      .wrap { padding: 24px 16px 60px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="/">
-    Maxxer<span class="nav-logo-badge">ACADEMY</span>
-  </a>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">ACADEMY</span></a>
   <div class="nav-right">
     <a class="nav-link" href="https://maxxer.ai" target="_blank">maxxer.ai</a>
-    <a class="nav-cta" href="https://maxxer.ai/#waitlist" target="_blank">Get Early Access</a>
+    <a class="nav-cta" href="https://maxxer.ai/#waitlist" target="_blank">Early Access</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">
-    <span class="hero-eyebrow-dot"></span>
-    Updated weekly from viral X threads
-  </div>
-  <h1>The Founder's<br><em>Growth Stack</em></h1>
-  <p class="hero-sub">Plug-and-play tools used by the fastest-growing founders. Curated from viral X posts with thousands of likes.</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">40+</div>
-      <div class="hero-stat-label">Curated tools</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">8</div>
-      <div class="hero-stat-label">Categories</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">1M+</div>
-      <div class="hero-stat-label">X impressions tracked</div>
-    </div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span> OpenClaw + ClawHub Integration Stack</div>
+  <h1>Tools Your Agent<br>Can <em>Actually Control</em></h1>
+  <p class="hero-sub">Not just apps you use by hand. Every tool here has a ClawHub skill, MCP server, or direct API — so Alfred can operate it for you.</p>
+  <div class="hero-badges">
+    <div class="hb hb-clawhub"><div class="hb-dot"></div> ClawHub Skill — install via CLI</div>
+    <div class="hb hb-mcp"><div class="hb-dot"></div> MCP Server — agent-native protocol</div>
+    <div class="hb hb-api"><div class="hb-dot"></div> REST API — direct programmatic access</div>
   </div>
 </section>
 
-<!-- FILTER -->
 <div class="filter-bar">
-  <button class="filter-pill active" data-cat="all">All Tools</button>
-  <button class="filter-pill" data-cat="video">📹 Video</button>
-  <button class="filter-pill" data-cat="ads">📣 Paid Ads</button>
-  <button class="filter-pill" data-cat="outreach">🎯 Outreach</button>
-  <button class="filter-pill" data-cat="content">✍️ Content</button>
-  <button class="filter-pill" data-cat="design">🎨 Design</button>
-  <button class="filter-pill" data-cat="seo">🔍 SEO</button>
-  <button class="filter-pill" data-cat="analytics">📊 Analytics</button>
-  <button class="filter-pill" data-cat="ai">🤖 AI Stack</button>
+  <button class="pill active" data-cat="all">All</button>
+  <button class="pill" data-int="clawhub">🦞 ClawHub Only</button>
+  <button class="pill" data-int="mcp">⚡ MCP Only</button>
+  <button class="pill" data-cat="social">📢 Social / X</button>
+  <button class="pill" data-cat="email">📧 Email & Outreach</button>
+  <button class="pill" data-cat="video">📹 Video</button>
+  <button class="pill" data-cat="seo">🔍 SEO</button>
+  <button class="pill" data-cat="analytics">📊 Analytics</button>
+  <button class="pill" data-cat="design">🎨 Design</button>
+  <button class="pill" data-cat="ads">📣 Paid Ads</button>
+  <button class="pill" data-cat="infra">⚙️ Infrastructure</button>
+  <button class="pill" data-cat="ai">🤖 AI Models</button>
 </div>
 
-<!-- GRID -->
-<div class="grid-wrap">
+<div class="wrap">
 
-  <!-- VIDEO -->
-  <div class="section-label" data-section="video">📹 Video</div>
-  <div class="tool-grid">
+  <!-- SOCIAL / X -->
+  <div class="sec-label" data-section="social">📢 Social / X</div>
+  <div class="grid">
 
-    <div class="tool-card" data-cat="video">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🎭</div>
+    <div class="card" data-cat="social" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">𝕏</div>
         <div>
-          <div class="card-name">HeyGen</div>
-          <div class="card-badge badge-video">Video</div>
+          <div class="card-title">x-twitter</div>
+          <div class="card-cat cat-social">Social</div>
         </div>
       </div>
-      <p class="card-desc">Create AI avatar videos from a script in minutes. Translate any video to 40+ languages with lip sync. No camera, no studio.</p>
+      <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Alfred can draft and schedule tweets from any trigger — email, webhook, cron.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install x-twitter</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
       <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/HeyGen_Official" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <span class="card-price">OAuth 1.0a</span>
+        <a class="card-x" href="https://x.com/1955676588349206630" target="_blank">𝕏 Post</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="video">
-      <div class="card-top">
-        <div class="card-icon">✂️</div>
-        <div>
-          <div class="card-name">Descript</div>
-          <div class="card-badge badge-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">Edit video by editing the transcript. Delete filler words with one click. AI voice clone for overdubs. Podcasters swear by it.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/DescriptApp" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="video">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">✂️</div>
-        <div>
-          <div class="card-name">Opus Clip</div>
-          <div class="card-badge badge-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">Paste a long YouTube or Zoom video — AI finds the best 30–90s clips for TikTok, Reels, and Shorts. Adds captions automatically.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/opus_clip" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="video">
-      <div class="card-top">
-        <div class="card-icon">🎬</div>
-        <div>
-          <div class="card-name">Runway Gen-3</div>
-          <div class="card-badge badge-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">Text or image → cinematic AI video. Best-in-class for B-roll, product visuals, and social content without a production budget.</p>
-      <div class="card-footer">
-        <span class="card-price">$$$</span>
-        <a class="card-x" href="https://x.com/runwayml" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="video">
-      <div class="card-top">
-        <div class="card-icon">📱</div>
-        <div>
-          <div class="card-name">CapCut</div>
-          <div class="card-badge badge-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">The go-to short-form video editor. Auto-captions, trendy templates, AI background remover. Used by virtually every viral creator.</p>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/CapCut" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="video">
-      <div class="card-top">
-        <div class="card-icon">🎙️</div>
-        <div>
-          <div class="card-name">ElevenLabs</div>
-          <div class="card-badge badge-video">Video</div>
-        </div>
-      </div>
-      <p class="card-desc">Ultra-realistic AI voice for voiceovers, avatars, and podcasts. Clone your own voice in 1 minute. Powers HeyGen, Descript, and more.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/elevenlabsio" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ADS -->
-  <div class="section-label" data-section="ads">📣 Paid Ads</div>
-  <div class="tool-grid">
-
-    <div class="tool-card" data-cat="ads">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">📣</div>
-        <div>
-          <div class="card-name">Meta Ads</div>
-          <div class="card-badge badge-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">Still the single highest-ROI paid channel for most B2C businesses. Advantage+ campaigns now run near-autonomously with AI bidding.</p>
-      <div class="card-footer">
-        <span class="card-price">Self-serve</span>
-        <a class="card-x" href="https://x.com/MetaForBusiness" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ads">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🎨</div>
-        <div>
-          <div class="card-name">AdCreative.ai</div>
-          <div class="card-badge badge-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">Generate 100 high-converting ad creatives in minutes. Works for Meta, TikTok, Google, LinkedIn. Scores each creative before you launch.</p>
-      <div class="card-footer">
-        <span class="card-price">From $29/mo</span>
-        <a class="card-x" href="https://x.com/adcreativeai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ads">
-      <div class="card-top">
-        <div class="card-icon">💾</div>
-        <div>
-          <div class="card-name">Foreplay</div>
-          <div class="card-badge badge-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">Save competitor ads from Meta Ad Library, TikTok, and more. Build your own swipe file. Brief AI-generated ad concepts from winning angles.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/foreplay_co" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ads">
-      <div class="card-top">
-        <div class="card-icon">📊</div>
-        <div>
-          <div class="card-name">Motion</div>
-          <div class="card-badge badge-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">Creative analytics for performance marketers. See exactly which ads are fatiguing, which angles win, and where to double down — across all channels.</p>
-      <div class="card-footer">
-        <span class="card-price">$$$</span>
-        <a class="card-x" href="https://x.com/madebymotion" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ads">
-      <div class="card-top">
-        <div class="card-icon">🎵</div>
-        <div>
-          <div class="card-name">TikTok Ads</div>
-          <div class="card-badge badge-ads">Ads</div>
-        </div>
-      </div>
-      <p class="card-desc">The fastest-growing ad platform. Lower CPMs than Meta for many verticals. TopView and Spark Ads let you boost organic content that already works.</p>
-      <div class="card-footer">
-        <span class="card-price">Self-serve</span>
-        <a class="card-x" href="https://x.com/TikTokBusiness" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- OUTREACH -->
-  <div class="section-label" data-section="outreach">🎯 Outreach</div>
-  <div class="tool-grid">
-
-    <div class="tool-card" data-cat="outreach">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🧱</div>
-        <div>
-          <div class="card-name">Clay</div>
-          <div class="card-badge badge-outreach">Outreach</div>
-        </div>
-      </div>
-      <p class="card-desc">The data enrichment layer for hyper-personalized cold outreach. Pull from 50+ sources, run AI research, build custom lead lists at scale.</p>
-      <div class="card-footer">
-        <span class="card-price">From $149/mo</span>
-        <a class="card-x" href="https://x.com/clay" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="outreach">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🚀</div>
-        <div>
-          <div class="card-name">Apollo.io</div>
-          <div class="card-badge badge-outreach">Outreach</div>
-        </div>
-      </div>
-      <p class="card-desc">270M contact B2B database + built-in email sequences. Best all-in-one for solo founders who want to move fast without 5 separate tools.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/ApolloIO" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="outreach">
-      <div class="card-top">
-        <div class="card-icon">⚡</div>
-        <div>
-          <div class="card-name">Instantly</div>
-          <div class="card-badge badge-outreach">Outreach</div>
-        </div>
-      </div>
-      <p class="card-desc">Cold email at massive scale with bulletproof deliverability. Warmup infrastructure built-in. Pair with Clay for the ultimate outbound stack.</p>
-      <div class="card-footer">
-        <span class="card-price">From $37/mo</span>
-        <a class="card-x" href="https://x.com/instantly_ai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="outreach">
-      <div class="card-top">
-        <div class="card-icon">💼</div>
-        <div>
-          <div class="card-name">LinkedIn Sales Nav</div>
-          <div class="card-badge badge-outreach">Outreach</div>
-        </div>
-      </div>
-      <p class="card-desc">The deepest B2B prospecting database on the planet. Advanced filters, saved searches, and CRM sync. Still the best signal for intent.</p>
-      <div class="card-footer">
-        <span class="card-price">$$$</span>
-        <a class="card-x" href="https://x.com/LinkedInSales" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="outreach">
-      <div class="card-top">
-        <div class="card-icon">📬</div>
-        <div>
-          <div class="card-name">Smartlead</div>
-          <div class="card-badge badge-outreach">Outreach</div>
-        </div>
-      </div>
-      <p class="card-desc">Email sending infra with smart mailbox rotation and AI-powered warmup. Loved by agencies running outbound for dozens of clients simultaneously.</p>
-      <div class="card-footer">
-        <span class="card-price">From $39/mo</span>
-        <a class="card-x" href="https://x.com/smartleadai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CONTENT -->
-  <div class="section-label" data-section="content">✍️ Content</div>
-  <div class="tool-grid">
-
-    <div class="tool-card" data-cat="content">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">📝</div>
-        <div>
-          <div class="card-name">Typefully</div>
-          <div class="card-badge badge-content">Content</div>
-        </div>
-      </div>
-      <p class="card-desc">The cleanest X/Twitter drafting and scheduling tool. AI assistant trained on viral tweet patterns. Analytics show exactly what resonates.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/typefully" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="content">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">📧</div>
-        <div>
-          <div class="card-name">Beehiiv</div>
-          <div class="card-badge badge-content">Content</div>
-        </div>
-      </div>
-      <p class="card-desc">The newsletter platform built for growth. Free up to 2,500 subscribers, paid boosts, ad network, and the cleanest editor in the game.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/beehiiv" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="content">
-      <div class="card-top">
-        <div class="card-icon">🎙️</div>
-        <div>
-          <div class="card-name">Castmagic</div>
-          <div class="card-badge badge-content">Content</div>
-        </div>
-      </div>
-      <p class="card-desc">Upload any audio or video — get transcripts, show notes, tweets, LinkedIn posts, and newsletters in one click. Content repurposing on autopilot.</p>
-      <div class="card-footer">
-        <span class="card-price">From $39/mo</span>
-        <a class="card-x" href="https://x.com/castmagicio" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="content">
-      <div class="card-top">
+    <div class="card" data-cat="social" data-int="clawhub">
+      <div class="card-head">
         <div class="card-icon">📰</div>
         <div>
-          <div class="card-name">Perplexity</div>
-          <div class="card-badge badge-content">Content</div>
+          <div class="card-title">twitter-automation</div>
+          <div class="card-cat cat-social">Social</div>
         </div>
       </div>
-      <p class="card-desc">AI-powered research with cited sources. Best for content research, competitive intel, and rapid ideation. Replaces hours of Googling.</p>
+      <p class="card-desc">Automate full Twitter workflows — thread scheduling, auto-reply, follower outreach, viral content detection and boosting.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install twitter-automation</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/perplexity_ai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/TwitterDev" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="content">
-      <div class="card-top">
-        <div class="card-icon">🐦</div>
+    <div class="card" data-cat="social" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
+        <div class="card-icon">📝</div>
         <div>
-          <div class="card-name">Tweet Hunter</div>
-          <div class="card-badge badge-content">Content</div>
+          <div class="card-title">Typefully</div>
+          <div class="card-cat cat-social">Social</div>
         </div>
       </div>
-      <p class="card-desc">AI ghostwriter trained on millions of viral tweets. Idea generation, auto-DMs, engagement tracking, and CRM for X power users.</p>
+      <p class="card-desc">X/Twitter drafting, thread scheduling, and analytics. REST API lets Alfred queue posts, fetch analytics, and manage drafts programmatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.typefully.com/v1/drafts</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
-        <span class="card-price">From $49/mo</span>
-        <a class="card-x" href="https://x.com/TweetHunterIO" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/typefully" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="social" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">🐦</div>
+        <div>
+          <div class="card-title">Tweet Hunter</div>
+          <div class="card-cat cat-social">Social</div>
+        </div>
+      </div>
+      <p class="card-desc">AI ghostwriter trained on viral patterns. API exposes tweet generation, auto-DM, and engagement scoring — Alfred can run your whole X presence.</p>
+      <div class="card-int">
+        <span class="int-cmd">app.tweethunter.io/api</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">$49/mo</span>
+        <a class="card-x" href="https://x.com/TweetHunterIO" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
   </div>
 
-  <!-- DESIGN -->
-  <div class="section-label" data-section="design">🎨 Design</div>
-  <div class="tool-grid">
+  <!-- EMAIL & OUTREACH -->
+  <div class="sec-label" data-section="email">📧 Email & Outreach</div>
+  <div class="grid">
 
-    <div class="tool-card" data-cat="design">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🖼️</div>
+    <div class="card" data-cat="email" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">📬</div>
         <div>
-          <div class="card-name">Figma</div>
-          <div class="card-badge badge-design">Design</div>
+          <div class="card-title">himalaya</div>
+          <div class="card-cat cat-email">Email</div>
         </div>
       </div>
-      <p class="card-desc">The industry standard for UI/UX design and prototyping. Real-time collaboration, component libraries, and now AI-powered design generation.</p>
+      <p class="card-desc">Full IMAP/SMTP email via CLI. Alfred can read, reply, forward, compose with attachments, and search across multiple accounts — zero UI needed.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install himalaya</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free / OSS</span>
+        <a class="card-x" href="https://x.com/1955676588349206630" target="_blank">𝕏 Post</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="email" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
+        <div class="card-icon">🚀</div>
+        <div>
+          <div class="card-title">Apollo.io</div>
+          <div class="card-cat cat-email">Outreach</div>
+        </div>
+      </div>
+      <p class="card-desc">270M contact B2B database + email sequences. Full REST API — Alfred can search contacts, enrich leads, and trigger sequences without touching the UI.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.apollo.io/v1/people/search</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/figma" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/ApolloIO" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="design">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🎨</div>
-        <div>
-          <div class="card-name">Canva</div>
-          <div class="card-badge badge-design">Design</div>
-        </div>
-      </div>
-      <p class="card-desc">Zero design skills required. Social posts, pitch decks, video thumbnails, ad creatives — all in one tool with 1,000s of free templates.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/canva" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="design">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🌄</div>
-        <div>
-          <div class="card-name">Midjourney</div>
-          <div class="card-badge badge-design">Design</div>
-        </div>
-      </div>
-      <p class="card-desc">The best AI image generator for brand assets, ad creative concepts, and product visuals. Consistently produces the most aesthetically polished output.</p>
-      <div class="card-footer">
-        <span class="card-price">From $10/mo</span>
-        <a class="card-x" href="https://x.com/midjourney" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="design">
-      <div class="card-top">
-        <div class="card-icon">🌐</div>
-        <div>
-          <div class="card-name">Framer</div>
-          <div class="card-badge badge-design">Design</div>
-        </div>
-      </div>
-      <p class="card-desc">Design and ship websites with code-quality output. AI generates full pages from a prompt. Founders use it to launch landing pages in hours.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/framer" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="design">
-      <div class="card-top">
+    <div class="card" data-cat="email" data-int="api">
+      <div class="card-head">
         <div class="card-icon">⚡</div>
         <div>
-          <div class="card-name">v0 by Vercel</div>
-          <div class="card-badge badge-design">Design</div>
+          <div class="card-title">Instantly</div>
+          <div class="card-cat cat-email">Outreach</div>
         </div>
       </div>
-      <p class="card-desc">Prompt → production-ready React/Tailwind UI. Fastest way to go from idea to a coded component. Engineers and non-engineers both use it daily.</p>
+      <p class="card-desc">Cold email at scale with bulletproof deliverability. API lets Alfred add leads, launch campaigns, and pull reply analytics — fully autonomous outbound.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.instantly.ai/api/v1</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">$37/mo</span>
+        <a class="card-x" href="https://x.com/instantly_ai" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="email" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">📧</div>
+        <div>
+          <div class="card-title">Beehiiv</div>
+          <div class="card-cat cat-email">Newsletter</div>
+        </div>
+      </div>
+      <p class="card-desc">Newsletter platform with a full REST API. Alfred can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.beehiiv.com/v2/publications</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/v0" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/beehiiv" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="email" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">📤</div>
+        <div>
+          <div class="card-title">send-email</div>
+          <div class="card-cat cat-email">Email</div>
+        </div>
+      </div>
+      <p class="card-desc">Dead-simple skill for sending emails from OpenClaw. SMTP or provider-backed. Alfred can trigger email sends from any event, cron, or workflow.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install send-email</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VIDEO -->
+  <div class="sec-label" data-section="video">📹 Video</div>
+  <div class="grid">
+
+    <div class="card" data-cat="video" data-int="clawhub">
+      <div class="card-hot">Built-in Skill</div>
+      <div class="card-head">
+        <div class="card-icon">🎬</div>
+        <div>
+          <div class="card-title">video-frames</div>
+          <div class="card-cat cat-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Extract frames and short clips from any video using ffmpeg. Alfred can grab thumbnails, generate GIF previews, or create clip reels automatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install video-frames</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free / ffmpeg</span>
+        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">🎥</div>
+        <div>
+          <div class="card-title">demo-video</div>
+          <div class="card-cat cat-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Automated demo video creation — record a script, generate captions, assemble clips. Alfred can create product walkthroughs end-to-end with no human.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install demo-video</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
+        <div class="card-icon">🎭</div>
+        <div>
+          <div class="card-title">HeyGen</div>
+          <div class="card-cat cat-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">AI avatar videos from scripts. Full REST API — Alfred can generate a spokesperson video, translate it to any language, and download it in one shot.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.heygen.com/v2/video/generate</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/HeyGen_Official" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">🗣️</div>
+        <div>
+          <div class="card-title">sag (ElevenLabs)</div>
+          <div class="card-cat cat-video">Voice</div>
+        </div>
+      </div>
+      <p class="card-desc">ElevenLabs TTS with mac-style say UX. Alfred already uses this for voice — also generates voiceovers for videos, ads, and demos programmatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install sag</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/elevenlabsio" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">✂️</div>
+        <div>
+          <div class="card-title">Opus Clip</div>
+          <div class="card-cat cat-video">Video</div>
+        </div>
+      </div>
+      <p class="card-desc">Auto-clip long videos into viral shorts. API accepts a video URL and returns timestamped clips with captions — Alfred can run this on every recording.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.opus.pro/v1/clips</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/opus_clip" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
   </div>
 
   <!-- SEO -->
-  <div class="section-label" data-section="seo">🔍 SEO</div>
-  <div class="tool-grid">
+  <div class="sec-label" data-section="seo">🔍 SEO</div>
+  <div class="grid">
 
-    <div class="tool-card" data-cat="seo">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🔍</div>
+    <div class="card" data-cat="seo" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">🕵️</div>
         <div>
-          <div class="card-name">Ahrefs</div>
-          <div class="card-badge badge-seo">SEO</div>
+          <div class="card-title">seo-competitor-analysis</div>
+          <div class="card-cat cat-seo">SEO</div>
         </div>
       </div>
-      <p class="card-desc">The best all-in-one SEO suite. Backlink analysis, keyword research, content gap analysis, and site auditing. Founders and SEOs both use it.</p>
+      <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP position tracking. Alfred can run weekly audits and deliver reports automatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install seo-competitor-analysis</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
       <div class="card-footer">
-        <span class="card-price">From $129/mo</span>
-        <a class="card-x" href="https://x.com/ahrefs" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/ahrefs" target="_blank">𝕏 Ahrefs</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="seo">
-      <div class="card-top">
-        <div class="card-icon">🏄</div>
+    <div class="card" data-cat="seo" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">✍️</div>
         <div>
-          <div class="card-name">Surfer SEO</div>
-          <div class="card-badge badge-seo">SEO</div>
+          <div class="card-title">seo-content-writer</div>
+          <div class="card-cat cat-seo">SEO</div>
         </div>
       </div>
-      <p class="card-desc">Write content that ranks by scoring it against top SERP results in real time. AI outlines, NLP keyword suggestions, and one-click audits.</p>
-      <div class="card-footer">
-        <span class="card-price">From $89/mo</span>
-        <a class="card-x" href="https://x.com/SurferSEO" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+      <p class="card-desc">Generates SEO-optimized articles from a keyword list. Handles outline, NLP terms, internal links. Alfred can keep your blog on autopilot.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install seo-content-writer</span>
+        <span class="int-type int-clawhub">ClawHub</span>
       </div>
-    </div>
-
-    <div class="tool-card" data-cat="seo">
-      <div class="card-top">
-        <div class="card-icon">📡</div>
-        <div>
-          <div class="card-name">Semrush</div>
-          <div class="card-badge badge-seo">SEO</div>
-        </div>
-      </div>
-      <p class="card-desc">Full marketing intelligence platform. Competitive research, PPC analysis, social media tracking, and content marketing. More breadth than Ahrefs.</p>
-      <div class="card-footer">
-        <span class="card-price">From $139/mo</span>
-        <a class="card-x" href="https://x.com/semrush" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="seo">
-      <div class="card-top">
-        <div class="card-icon">🔎</div>
-        <div>
-          <div class="card-name">Google Search Console</div>
-          <div class="card-badge badge-seo">SEO</div>
-        </div>
-      </div>
-      <p class="card-desc">Free, official source of truth for search performance. Real impressions, clicks, CTR, average position. Start here before buying any paid SEO tool.</p>
       <div class="card-footer">
         <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/googlesearchc" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/SurferSEO" target="_blank">𝕏 Surfer</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="seo" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">📡</div>
+        <div>
+          <div class="card-title">google-search-console</div>
+          <div class="card-cat cat-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">Pull real GSC data — impressions, clicks, CTR, rankings — via the API. Alfred monitors search performance and alerts on drops or wins automatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install google-search-console</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/googlesearchc" target="_blank">𝕏 GSC</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="seo" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">🔍</div>
+        <div>
+          <div class="card-title">Ahrefs API</div>
+          <div class="card-cat cat-seo">SEO</div>
+        </div>
+      </div>
+      <p class="card-desc">Programmatic access to Ahrefs' backlink index, keyword data, and site audit. Alfred can build competitive reports, find broken links, and track rankings weekly.</p>
+      <div class="card-int">
+        <span class="int-cmd">ahrefs.com/api/v2/</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">$129/mo</span>
+        <a class="card-x" href="https://x.com/ahrefs" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
   </div>
 
   <!-- ANALYTICS -->
-  <div class="section-label" data-section="analytics">📊 Analytics</div>
-  <div class="tool-grid">
+  <div class="sec-label" data-section="analytics">📊 Analytics</div>
+  <div class="grid">
 
-    <div class="tool-card" data-cat="analytics">
-      <div class="card-top">
+    <div class="card" data-cat="analytics" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
         <div class="card-icon">📈</div>
         <div>
-          <div class="card-name">GA4</div>
-          <div class="card-badge badge-analytics">Analytics</div>
+          <div class="card-title">ga4-analytics</div>
+          <div class="card-cat cat-analytics">Analytics</div>
         </div>
       </div>
-      <p class="card-desc">Google Analytics 4. Free, powerful, and the standard web analytics tool. Event-based tracking, funnel analysis, and integration with every ad platform.</p>
+      <p class="card-desc">Query GA4 data via the API. Alfred can pull traffic, conversion, and event data, generate daily digests, and alert on anomalies — no dashboard needed.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install ga4-analytics</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">𝕏 GA</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="analytics">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">🔥</div>
+    <div class="card" data-cat="analytics" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">📊</div>
         <div>
-          <div class="card-name">Hotjar</div>
-          <div class="card-badge badge-analytics">Analytics</div>
+          <div class="card-title">google-analytics</div>
+          <div class="card-cat cat-analytics">Analytics</div>
         </div>
       </div>
-      <p class="card-desc">Heatmaps, session recordings, and user surveys. See exactly where users click, scroll, and drop off. Essential for CRO and landing page optimization.</p>
+      <p class="card-desc">Multi-property GA4 support with Search Console and Google Indexing integration. Alfred can monitor all your properties and trigger re-indexing on new pages.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install google-analytics</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
       <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/hotjar" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/googleanalytics" target="_blank">𝕏 GA</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="analytics">
-      <div class="card-top">
+    <div class="card" data-cat="analytics" data-int="api">
+      <div class="card-head">
         <div class="card-icon">🧪</div>
         <div>
-          <div class="card-name">Mixpanel</div>
-          <div class="card-badge badge-analytics">Analytics</div>
+          <div class="card-title">Mixpanel</div>
+          <div class="card-cat cat-analytics">Analytics</div>
         </div>
       </div>
-      <p class="card-desc">Product analytics for SaaS. Track user journeys, retention cohorts, feature adoption, and conversion funnels. Free up to 20M events/month.</p>
+      <p class="card-desc">Product analytics with a full query API. Alfred can pull retention cohorts, funnel conversion, and feature usage data — weekly product health report, zero effort.</p>
+      <div class="card-int">
+        <span class="int-cmd">mixpanel.com/api/query/</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/mixpanel" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="analytics">
-      <div class="card-top">
-        <div class="card-icon">🪟</div>
-        <div>
-          <div class="card-name">Microsoft Clarity</div>
-          <div class="card-badge badge-analytics">Analytics</div>
-        </div>
-      </div>
-      <p class="card-desc">Free Hotjar alternative from Microsoft. Unlimited session recordings, heatmaps, and rage-click detection. No traffic limits, fully free forever.</p>
-      <div class="card-footer">
-        <span class="card-price price-free">Free</span>
-        <a class="card-x" href="https://x.com/msclarityapp" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/mixpanel" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
   </div>
 
-  <!-- AI STACK -->
-  <div class="section-label" data-section="ai">🤖 AI Stack</div>
-  <div class="tool-grid">
+  <!-- DESIGN -->
+  <div class="sec-label" data-section="design">🎨 Design</div>
+  <div class="grid">
 
-    <div class="tool-card" data-cat="ai">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
+    <div class="card" data-cat="design" data-int="mcp">
+      <div class="card-hot">⚡ MCP</div>
+      <div class="card-head">
+        <div class="card-icon">🖼️</div>
+        <div>
+          <div class="card-title">Figma MCP</div>
+          <div class="card-cat cat-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">Read file layouts, inspect components, manage comments, and extract design tokens directly. Alfred can pull Figma specs and hand them to code agents automatically.</p>
+      <div class="card-int">
+        <span class="int-cmd">smithery.ai/server/figma-mcp</span>
+        <span class="int-type int-mcp">MCP Server</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/figma" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="design" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
+        <div class="card-icon">🌄</div>
+        <div>
+          <div class="card-title">fal.ai (Flux / SDXL)</div>
+          <div class="card-cat cat-design">Image Gen</div>
+        </div>
+      </div>
+      <p class="card-desc">The fastest image generation API — Flux, SDXL, ControlNet. Alfred can generate ad creative, product mockups, and social images in seconds from a text prompt.</p>
+      <div class="card-int">
+        <span class="int-cmd">fal.run/fal-ai/flux</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">Pay-per-use</span>
+        <a class="card-x" href="https://x.com/fal_ai" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="design" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">⚡</div>
+        <div>
+          <div class="card-title">v0 by Vercel</div>
+          <div class="card-cat cat-design">Design</div>
+        </div>
+      </div>
+      <p class="card-desc">Prompt → production React/Tailwind UI. API access lets Alfred generate UI components, iterate on designs, and export code directly into your repo.</p>
+      <div class="card-int">
+        <span class="int-cmd">v0.dev/api (beta)</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/v0" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAID ADS -->
+  <div class="sec-label" data-section="ads">📣 Paid Ads</div>
+  <div class="grid">
+
+    <div class="card" data-cat="ads" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
+        <div class="card-icon">📣</div>
+        <div>
+          <div class="card-title">Meta Marketing API</div>
+          <div class="card-cat cat-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Full programmatic control over Facebook/Instagram ad campaigns. Alfred can create campaigns, A/B test creatives, adjust budgets, and pull ROAS — zero ad manager UI.</p>
+      <div class="card-int">
+        <span class="int-cmd">graph.facebook.com/v19.0/act_</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">Self-serve</span>
+        <a class="card-x" href="https://x.com/MetaForBusiness" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ads" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">🎨</div>
+        <div>
+          <div class="card-title">AdCreative.ai</div>
+          <div class="card-cat cat-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Generate scored ad creatives via API. Alfred can produce 100 ad variants from your brief, score them, and push the top performers directly to Meta Ads.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.adcreative.ai/v1/generate</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">$29/mo</span>
+        <a class="card-x" href="https://x.com/adcreativeai" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ads" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">🎵</div>
+        <div>
+          <div class="card-title">TikTok Ads API</div>
+          <div class="card-cat cat-ads">Ads</div>
+        </div>
+      </div>
+      <p class="card-desc">Programmatic TikTok campaign management — create ad groups, upload creatives, bid adjustments, reporting. Alfred can run full TikTok Ads automation.</p>
+      <div class="card-int">
+        <span class="int-cmd">business-api.tiktok.com/open_api</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">Self-serve</span>
+        <a class="card-x" href="https://x.com/TikTokBusiness" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INFRASTRUCTURE -->
+  <div class="sec-label" data-section="infra">⚙️ Infrastructure</div>
+  <div class="grid">
+
+    <div class="card" data-cat="infra" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">🐙</div>
+        <div>
+          <div class="card-title">github</div>
+          <div class="card-cat cat-infra">Infra</div>
+        </div>
+      </div>
+      <p class="card-desc">Managed OAuth for repos, issues, PRs, and commits. Alfred can create issues, review PRs, merge branches, and manage releases without touching GitHub UI.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install github</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/github" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="infra" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">📓</div>
+        <div>
+          <div class="card-title">notion</div>
+          <div class="card-cat cat-infra">Infra</div>
+        </div>
+      </div>
+      <p class="card-desc">Read, write, and query Notion databases, pages, and blocks. Alfred can use Notion as a memory store, CRM, content calendar, or project tracker — live.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install notion</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/NotionHQ" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="infra" data-int="clawhub">
+      <div class="card-hot">🔥 Top Skill</div>
+      <div class="card-head">
+        <div class="card-icon">💳</div>
+        <div>
+          <div class="card-title">stripe-api</div>
+          <div class="card-cat cat-infra">Infra</div>
+        </div>
+      </div>
+      <p class="card-desc">Full Stripe billing control via skill. Alfred can check MRR, create payment links, manage subscriptions, issue refunds, and generate revenue reports autonomously.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install stripe-api</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free (pay-per-txn)</span>
+        <a class="card-x" href="https://x.com/stripe" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="infra" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">📋</div>
+        <div>
+          <div class="card-title">linear</div>
+          <div class="card-cat cat-infra">Infra</div>
+        </div>
+      </div>
+      <p class="card-desc">GraphQL-based project management. Alfred can create issues from Slack/email/cron, update sprint boards, and keep engineering velocity visible in real time.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install linear</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/linear" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="infra" data-int="mcp">
+      <div class="card-head">
+        <div class="card-icon">🌐</div>
+        <div>
+          <div class="card-title">Playwright MCP</div>
+          <div class="card-cat cat-infra">Browser</div>
+        </div>
+      </div>
+      <p class="card-desc">Full browser automation via MCP protocol. Alfred can navigate any website, click, fill forms, scrape data, and record sessions — headless or headed.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install playwright-mcp</span>
+        <span class="int-type int-mcp">MCP Server</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free / OSS</span>
+        <a class="card-x" href="https://x.com/playwrightweb" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="infra" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">▲</div>
+        <div>
+          <div class="card-title">Vercel CLI</div>
+          <div class="card-cat cat-infra">Deploy</div>
+        </div>
+      </div>
+      <p class="card-desc">Alfred already deploys via Vercel CLI on every build. REST API also available for domain management, env vars, and deployment hooks from any script.</p>
+      <div class="card-int">
+        <span class="int-cmd">vercel --prod --yes</span>
+        <span class="int-type int-cli">CLI</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-freemium">Freemium</span>
+        <a class="card-x" href="https://x.com/vercel" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI MODELS -->
+  <div class="sec-label" data-section="ai">🤖 AI Models</div>
+  <div class="grid">
+
+    <div class="card" data-cat="ai" data-int="api">
+      <div class="card-hot">🔥 Viral</div>
+      <div class="card-head">
         <div class="card-icon">🤖</div>
         <div>
-          <div class="card-name">Claude</div>
-          <div class="card-badge badge-ai">AI Stack</div>
+          <div class="card-title">Claude (Anthropic)</div>
+          <div class="card-cat cat-ai">AI Model</div>
         </div>
       </div>
-      <p class="card-desc">Best AI for writing, reasoning, and long-context analysis. Founders use it for contracts, investor memos, strategy docs, and complex research.</p>
+      <p class="card-desc">Alfred IS Claude. But you can also call Claude's API from your own tools, crons, and sub-agents — 200K context, best-in-class reasoning and writing.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.anthropic.com/v1/messages</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
         <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/AnthropicAI" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <a class="card-x" href="https://x.com/AnthropicAI" target="_blank">𝕏 Follow</a>
       </div>
     </div>
 
-    <div class="tool-card" data-cat="ai">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">💬</div>
-        <div>
-          <div class="card-name">ChatGPT</div>
-          <div class="card-badge badge-ai">AI Stack</div>
-        </div>
-      </div>
-      <p class="card-desc">The most widely used AI. GPT-4o for general tasks, o3 for deep reasoning. Image generation, browsing, and custom GPTs for your specific workflows.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/ChatGPTapp" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ai">
-      <span class="card-viral">🔥 Viral</span>
-      <div class="card-top">
-        <div class="card-icon">💻</div>
-        <div>
-          <div class="card-name">Cursor</div>
-          <div class="card-badge badge-ai">AI Stack</div>
-        </div>
-      </div>
-      <p class="card-desc">The AI-first code editor. Tab-complete entire functions, chat with your codebase, and apply multi-file edits in one go. Non-engineers ship with it.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/cursor_ai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ai">
-      <div class="card-top">
-        <div class="card-icon">🔮</div>
-        <div>
-          <div class="card-name">Notion AI</div>
-          <div class="card-badge badge-ai">AI Stack</div>
-        </div>
-      </div>
-      <p class="card-desc">Your whole company's brain — docs, wikis, projects, databases — plus AI that can search, summarize, and draft across everything you've written.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/NotionHQ" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ai">
-      <div class="card-top">
-        <div class="card-icon">🌊</div>
-        <div>
-          <div class="card-name">Windsurf</div>
-          <div class="card-badge badge-ai">AI Stack</div>
-        </div>
-      </div>
-      <p class="card-desc">Cursor alternative with autonomous "Cascade" agent mode. Writes, debugs, and deploys full features with minimal prompting. Growing fast in 2025.</p>
-      <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/windsurf_ai" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
-      </div>
-    </div>
-
-    <div class="tool-card" data-cat="ai">
-      <div class="card-top">
+    <div class="card" data-cat="ai" data-int="api">
+      <div class="card-head">
         <div class="card-icon">🔁</div>
         <div>
-          <div class="card-name">Zapier</div>
-          <div class="card-badge badge-ai">AI Stack</div>
+          <div class="card-title">n8n</div>
+          <div class="card-cat cat-ai">Automation</div>
         </div>
       </div>
-      <p class="card-desc">Connect any two tools without code. 6,000+ app integrations. AI Actions let you trigger Claude/ChatGPT inside any automated workflow.</p>
+      <p class="card-desc">Self-hosted automation with 400+ integrations. REST API + MCP support means Alfred can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
+      <div class="card-int">
+        <span class="int-cmd">your-n8n.com/api/v1/workflows</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
       <div class="card-footer">
-        <span class="card-price price-freemium">Freemium</span>
-        <a class="card-x" href="https://x.com/zapier" target="_blank">
-          <span class="card-x-icon">𝕏</span> Follow
-        </a>
+        <span class="card-price price-free">Free / Self-host</span>
+        <a class="card-x" href="https://x.com/n8n_io" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ai" data-int="api">
+      <div class="card-head">
+        <div class="card-icon">🔮</div>
+        <div>
+          <div class="card-title">Perplexity API</div>
+          <div class="card-cat cat-ai">AI Model</div>
+        </div>
+      </div>
+      <p class="card-desc">Real-time web-grounded answers via API. Alfred can use Perplexity for research tasks that need live sources — competitive intel, news monitoring, fact-checking.</p>
+      <div class="card-int">
+        <span class="int-cmd">api.perplexity.ai/chat/completions</span>
+        <span class="int-type int-api">REST API</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price">$5/1M tokens</span>
+        <a class="card-x" href="https://x.com/perplexity_ai" target="_blank">𝕏 Follow</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ai" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">🦞</div>
+        <div>
+          <div class="card-title">ipeaky</div>
+          <div class="card-cat cat-ai">Key Mgmt</div>
+        </div>
+      </div>
+      <p class="card-desc">Secure API key management for OpenClaw. Store, list, test, and rotate API keys for any service without exposing them in chat history or process args.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install ipeaky</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free / OSS</span>
+        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ai" data-int="clawhub">
+      <div class="card-head">
+        <div class="card-icon">🔍</div>
+        <div>
+          <div class="card-title">google-maps-b2b-extractor</div>
+          <div class="card-cat cat-ai">Lead Gen</div>
+        </div>
+      </div>
+      <p class="card-desc">Extract B2B leads from Google Maps — business names, phones, emails, websites, reviews. Alfred can build hyper-local lead lists for any niche on demand.</p>
+      <div class="card-int">
+        <span class="int-cmd">clawhub install google-maps-b2b-extractor</span>
+        <span class="int-type int-clawhub">ClawHub</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-price price-free">Free</span>
+        <a class="card-x" href="https://x.com/openclaw" target="_blank">𝕏 OpenClaw</a>
       </div>
     </div>
 
@@ -991,36 +1056,38 @@
 
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <p>Built by <a href="https://maxxer.ai" target="_blank">Maxxer</a> · The AI growth layer for ambitious founders</p>
-  <p style="margin-top:6px;font-size:11px;color:#aaa">Tools updated weekly from viral X threads · Not sponsored · Just what actually works</p>
+  <p>Built by <a href="https://maxxer.ai" target="_blank">Maxxer</a> · Every tool here is directly controllable by your AI agent</p>
+  <p style="margin-top:5px;color:#bbb;font-size:11px">Skills sourced from ClawHub · MCP servers via Smithery.ai · Not sponsored</p>
 </footer>
 
 <script>
-  // Category filter
-  const pills = document.querySelectorAll('.filter-pill');
-  const cards = document.querySelectorAll('.tool-card');
-  const sections = document.querySelectorAll('.section-label');
+  const pills = document.querySelectorAll('.pill');
+  const cards = document.querySelectorAll('.card');
+  const sections = document.querySelectorAll('.sec-label');
+
+  function applyFilter(cat, intType) {
+    cards.forEach(c => {
+      const catMatch = !cat || cat === 'all' || c.dataset.cat === cat;
+      const intMatch = !intType || c.dataset.int === intType;
+      c.classList.toggle('hidden', !(catMatch && intMatch));
+    });
+    sections.forEach(sec => {
+      const secCat = sec.dataset.section;
+      const grid = sec.nextElementSibling;
+      const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
+      sec.style.display = hasVisible ? '' : 'none';
+      if (grid) grid.style.display = hasVisible ? '' : 'none';
+    });
+  }
 
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       const cat = pill.dataset.cat;
-
-      cards.forEach(card => {
-        card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
-      });
-
-      sections.forEach(sec => {
-        const secCat = sec.dataset.section;
-        const hasVisible = [...cards].some(c => c.dataset.cat === secCat && !c.classList.contains('hidden'));
-        sec.style.display = (cat !== 'all' && !hasVisible) ? 'none' : '';
-        // Hide the grid after section label too
-        const grid = sec.nextElementSibling;
-        if (grid) grid.style.display = (cat !== 'all' && !hasVisible) ? 'none' : '';
-      });
+      const intType = pill.dataset.int;
+      applyFilter(cat, intType);
     });
   });
 </script>
