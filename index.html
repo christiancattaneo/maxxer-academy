@@ -34,6 +34,11 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); }
+    #bg-canvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    nav, .hero, .filter-bar, .wrap, footer { position: relative; z-index: 1; }
 
     /* ── Nav ── */
     nav {
@@ -226,6 +231,8 @@
   </style>
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
 
 <nav>
   <a class="nav-logo" href="/">Maxxer <span class="nav-badge">ACADEMY</span></a>
@@ -1090,6 +1097,160 @@
       applyFilter(cat, intType);
     });
   });
+</script>
+
+<script>
+// ── 3D Particle Network Background ───────────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  const FOV = 900;
+  const COUNT = window.innerWidth < 600 ? 55 : 110;
+  const MAX_DIST = 160;
+  const SPEED = 0.18;
+  const DEPTH = 700;
+
+  let W, H, cx, cy;
+  let mouse = { x: 0, y: 0 };
+  let tilt = { x: 0, y: 0 };
+  let rotY = 0, rotX = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    cx = W / 2; cy = H / 2;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Generate particles in 3D space
+  const pts = Array.from({ length: COUNT }, () => ({
+    x: (Math.random() - .5) * W * 1.8,
+    y: (Math.random() - .5) * H * 1.8,
+    z: (Math.random() - .5) * DEPTH * 2,
+    vx: (Math.random() - .5) * SPEED,
+    vy: (Math.random() - .5) * SPEED,
+    vz: (Math.random() - .5) * SPEED * .6,
+    r: Math.random() * 2 + 1,
+    hue: Math.random() < .5 ? 20 : 270,  // orange or purple family
+  }));
+
+  document.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  // Slow camera tilt toward mouse
+  function lerpTilt() {
+    const tx = ((mouse.x - cx) / cx) * 0.18;
+    const ty = ((mouse.y - cy) / cy) * 0.12;
+    tilt.x += (ty - tilt.x) * 0.04;
+    tilt.y += (tx - tilt.y) * 0.04;
+  }
+
+  // Project 3D → 2D with tilt
+  function project(p) {
+    // Apply camera tilt rotation
+    const cosY = Math.cos(tilt.y), sinY = Math.sin(tilt.y);
+    const cosX = Math.cos(tilt.x), sinX = Math.sin(tilt.x);
+    // Rotate around Y
+    const x1 = p.x * cosY - p.z * sinY;
+    const z1 = p.x * sinY + p.z * cosY;
+    // Rotate around X
+    const y1 = p.y * cosX - z1 * sinX;
+    const z2 = p.y * sinX + z1 * cosX;
+    // Perspective divide
+    const scale = FOV / (FOV + z2 + DEPTH);
+    return {
+      sx: cx + x1 * scale,
+      sy: cy + y1 * scale,
+      scale,
+      depth: z2,
+    };
+  }
+
+  let lastTime = 0;
+  function draw(ts) {
+    const dt = Math.min(ts - lastTime, 32);
+    lastTime = ts;
+
+    ctx.clearRect(0, 0, W, H);
+    lerpTilt();
+
+    // Slow global rotation
+    rotY += 0.00018;
+
+    // Update particles
+    pts.forEach(p => {
+      p.x += p.vx * dt * 0.3;
+      p.y += p.vy * dt * 0.3;
+      p.z += p.vz * dt * 0.3;
+      // Wrap
+      const bx = W * 0.95, by = H * 0.95, bz = DEPTH;
+      if (p.x >  bx) p.x = -bx; if (p.x < -bx) p.x = bx;
+      if (p.y >  by) p.y = -by; if (p.y < -by) p.y = by;
+      if (p.z >  bz) p.z = -bz; if (p.z < -bz) p.z = bz;
+    });
+
+    // Project all points
+    const projected = pts.map((p, i) => ({ ...project(p), p, i }));
+
+    // Draw connections
+    for (let i = 0; i < projected.length; i++) {
+      const a = projected[i];
+      if (a.sx < -100 || a.sx > W + 100 || a.sy < -100 || a.sy > H + 100) continue;
+      for (let j = i + 1; j < projected.length; j++) {
+        const b = projected[j];
+        const dx = a.sx - b.sx, dy = a.sy - b.sy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > MAX_DIST) continue;
+        const alpha = (1 - dist / MAX_DIST) * 0.22 * Math.min(a.scale, b.scale) * 2.5;
+        const avgScale = (a.scale + b.scale) / 2;
+        // Gradient line: orange → purple based on position
+        const t = (a.p.x + W) / (W * 2);
+        const r = Math.round(255 * (1 - t) * 0.85 + 139 * t);
+        const g = Math.round(77  * (1 - t) * 0.5  + 92  * t);
+        const bl = Math.round(0   * (1 - t)        + 246 * t);
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(${r},${g},${bl},${alpha})`;
+        ctx.lineWidth = avgScale * 0.7;
+        ctx.moveTo(a.sx, a.sy);
+        ctx.lineTo(b.sx, b.sy);
+        ctx.stroke();
+      }
+    }
+
+    // Draw nodes
+    projected.forEach(({ sx, sy, scale, p }) => {
+      if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) return;
+      const alpha = Math.min(0.75, scale * 0.9);
+      const t = (p.x + W) / (W * 2);
+      // Orange (#ff4d00) ↔ Purple (#8b5cf6)
+      const r = Math.round(255 * (1 - t) + 139 * t);
+      const g = Math.round(77  * (1 - t) + 92  * t);
+      const bl = Math.round(0   * (1 - t) + 246 * t);
+      const radius = p.r * scale * 1.4;
+
+      // Glow
+      const grd = ctx.createRadialGradient(sx, sy, 0, sx, sy, radius * 3);
+      grd.addColorStop(0, `rgba(${r},${g},${bl},${alpha * 0.25})`);
+      grd.addColorStop(1, `rgba(${r},${g},${bl},0)`);
+      ctx.beginPath();
+      ctx.fillStyle = grd;
+      ctx.arc(sx, sy, radius * 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Core dot
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${r},${g},${bl},${alpha})`;
+      ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
 </script>
 
 </body>
