@@ -8,25 +8,30 @@ export default async function handler(req, res) {
   const ids = req.query.ids;
   if (!ids) return res.status(400).json({ error: 'ids required' });
 
+  const bearerDirect = process.env.X_BEARER_TOKEN;
   const key = process.env.X_API_KEY;
   const secret = process.env.X_API_SECRET;
-  if (!key || !secret) return res.status(500).json({ error: 'X API creds not configured', hasKey: !!key, hasSecret: !!secret });
+  if (!bearerDirect && (!key || !secret)) return res.status(500).json({ error: 'X API creds not configured' });
 
   try {
-    // Get Bearer token via OAuth2 client_credentials
-    const basicAuth = Buffer.from(`${key}:${secret}`).toString('base64');
-    const authResp = await fetch('https://api.twitter.com/oauth2/token', {
-      method: 'POST',
-      headers: {
-        Authorization: `Basic ${basicAuth}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: 'grant_type=client_credentials',
-    });
-    const authBody = await authResp.json();
-    const access_token = authBody.access_token;
-    if (!access_token) {
-      return res.status(500).json({ error: 'auth failed', authStatus: authResp.status, authBody });
+    let access_token = bearerDirect;
+
+    // Fall back to OAuth2 client_credentials if no direct bearer token
+    if (!access_token && key && secret) {
+      const basicAuth = Buffer.from(`${key}:${secret}`).toString('base64');
+      const authResp = await fetch('https://api.twitter.com/oauth2/token', {
+        method: 'POST',
+        headers: {
+          Authorization: `Basic ${basicAuth}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'grant_type=client_credentials',
+      });
+      const authBody = await authResp.json();
+      access_token = authBody.access_token;
+      if (!access_token) {
+        return res.status(500).json({ error: 'auth failed', authStatus: authResp.status, authBody });
+      }
     }
 
     // Fetch tweets
