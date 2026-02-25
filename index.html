@@ -189,7 +189,7 @@
     .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 18px; display: flex; flex-direction: column; gap: 11px;
-      transition: opacity .35s ease, transform .35s ease, box-shadow .2s ease;
+      transition: opacity .3s ease, transform .3s ease, box-shadow .2s ease;
       position: relative; overflow: hidden;
       opacity: 0; transform: translateY(22px) scale(.98);
     }
@@ -895,14 +895,18 @@
 (function() {
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
   document.querySelectorAll('.sec-label').forEach(el => io.observe(el));
   document.querySelectorAll('.tool-grid').forEach(grid => {
     grid.querySelectorAll('.card').forEach((card, i) => {
-      card.style.transitionDelay = (i * 0.07) + 's';
+      card.style.transitionDelay = (i * 0.06) + 's';
       io.observe(card);
     });
   });
+  // Fallback: force-reveal everything after 1.6s
+  setTimeout(() => {
+    document.querySelectorAll('.sec-label:not(.in), .card:not(.in)').forEach(el => el.classList.add('in'));
+  }, 1600);
 })();
 
 // Ticker filter
@@ -919,7 +923,7 @@
       const intOk = !active.int || c.dataset.int === active.int;
       const show = catOk && intOk;
       if (!show) { c.classList.add('hidden'); c.classList.remove('in'); }
-      else { c.classList.remove('hidden'); setTimeout(() => c.classList.add('in'), 30); }
+      else { c.classList.remove('hidden'); requestAnimationFrame(() => c.classList.add('in')); }
     });
     sections.forEach(s => {
       const grid = s.nextElementSibling;
