@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maxxer Academy — Agent-Ready Growth Stack</title>
-  <meta name="description" content="Tools your AI agent can actually control. ClawHub skills, MCP servers, and direct APIs — organized by category.">
+  <title>Maxxer Academy — Real Playbooks for AI Agent Businesses</title>
+  <meta name="description" content="Learn how founders are using OpenClaw agents to build real businesses. Playbooks, tools, and workflows — organized by what you want to build.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,466 +18,118 @@
       --ink-3: #888;
       --border: #e6e4df;
       --radius: 14px;
-      --c-social:    #1d4ed8;
-      --c-email:     #0891b2;
-      --c-video:     #7c3aed;
-      --c-seo:       #b45309;
-      --c-analytics: #16a34a;
-      --c-design:    #db2777;
-      --c-infra:     #374151;
-      --c-ai:        #4f46e5;
-      --c-ads:       #ea580c;
-      --clawhub:     #e8400c;
-      --mcp:         #7c3aed;
-      --api:         #0284c7;
+      --green: #16a34a;
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --orange: #ea580c;
+      --cyan: #0891b2;
+      --pink: #db2777;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Space Grotesk', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
 
-    /* ── Aurora ── */
+    /* Aurora */
     .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .blob { position: absolute; border-radius: 50%; filter: blur(120px); will-change: transform; }
-    .b1 { width: 680px; height: 680px; background: radial-gradient(circle, #ff6b2b18, #ff4d0008);
-          top: -200px; left: -160px; animation: d1 20s ease-in-out infinite; }
-    .b2 { width: 560px; height: 560px; background: radial-gradient(circle, #8b5cf614, #6366f108);
-          top: -80px; right: -80px; animation: d2 25s ease-in-out infinite; }
-    .b3 { width: 460px; height: 460px; background: radial-gradient(circle, #06b6d412, #0ea5e908);
-          bottom: 12%; left: 18%; animation: d3 30s ease-in-out infinite; }
-    .b4 { width: 400px; height: 400px; background: radial-gradient(circle, #ec489910, #db277706);
-          bottom: 20%; right: 8%; animation: d4 22s ease-in-out infinite; }
+    .b1 { width: 680px; height: 680px; background: radial-gradient(circle, #ff6b2b18, #ff4d0008); top: -200px; left: -160px; animation: d1 20s ease-in-out infinite; }
+    .b2 { width: 560px; height: 560px; background: radial-gradient(circle, #8b5cf614, #6366f108); top: -80px; right: -80px; animation: d2 25s ease-in-out infinite; }
+    .b3 { width: 460px; height: 460px; background: radial-gradient(circle, #06b6d412, #0ea5e908); bottom: 12%; left: 18%; animation: d3 30s ease-in-out infinite; }
     @keyframes d1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(70px,55px)} 66%{transform:translate(-30px,90px)} }
     @keyframes d2 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(-60px,70px)} 75%{transform:translate(45px,-55px)} }
-    @keyframes d3 { 0%,100%{transform:translate(0,0)} 30%{transform:translate(50px,-70px)} 65%{transform:translate(-75px,35px)} }
-    @keyframes d4 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-80px,-60px)} 80%{transform:translate(35px,70px)} }
+    @keyframes d3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-40px)} }
 
-    nav, .hero, .ticker-bar, .wrap, footer { position: relative; z-index: 1; }
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .5rem; }
+    .nav-badge { font-family: var(--mono); font-size: .6rem; font-weight: 600; background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 4px; letter-spacing: .05em; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: .85rem; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { font-size: .8rem; font-weight: 600; padding: 7px 16px; border-radius: 100px; background: var(--ink); color: #fff; text-decoration: none; transition: all .2s; }
+    .nav-cta:hover { background: #333; transform: translateY(-1px); }
 
-    /* ── Nav ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 36px; height: 56px;
-      background: rgba(247,246,243,.92); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav::after {
-      content: ''; position: absolute; bottom: -1px; left: 0; height: 1px; width: 0;
-      background: linear-gradient(90deg, var(--clawhub), var(--mcp), var(--api));
-      animation: navSlide 2.2s cubic-bezier(.4,0,.2,1) .4s forwards;
-    }
-    @keyframes navSlide { to { width: 100%; } }
-    .nav-logo { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); letter-spacing: -.2px; }
-    .nav-badge { background: var(--ink); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; letter-spacing: .8px; text-transform: uppercase; }
-    .nav-right { display: flex; align-items: center; gap: 14px; }
-    .nav-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; transition: color .15s; }
-    .nav-link:hover { color: var(--ink); }
-    .nav-cta { background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; padding: 7px 18px; border-radius: 8px; text-decoration: none; letter-spacing: .2px; transition: opacity .15s; }
-    .nav-cta:hover { opacity: .8; }
+    /* Hero */
+    .hero { position: relative; z-index: 1; text-align: center; padding: 5rem 2rem 3rem; max-width: 800px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: .65rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--green); margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; gap: .5rem; }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1.2rem; }
+    h1 em { font-style: normal; background: linear-gradient(135deg, #ea580c, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 1.1rem; color: var(--ink-2); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; color: var(--ink); }
+    .hero-stat-label { font-size: .75rem; color: var(--ink-3); }
 
-    /* ── Hero ── */
-    .hero { max-width: 800px; margin: 0 auto; padding: 80px 24px 56px; text-align: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--ink-3); background: var(--surface); border: 1px solid var(--border);
-      padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
-      animation: fadeUp .5s ease both;
-    }
-    .eyebrow-dot { width: 5px; height: 5px; background: #22c55e; border-radius: 50%; animation: pulse 2.2s ease infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.6)} }
+    /* Section nav */
+    .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(247,246,243,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .section-nav::-webkit-scrollbar { display: none; }
+    .section-nav-inner { display: flex; gap: 0; min-width: max-content; }
+    .section-nav a { display: flex; align-items: center; gap: .4rem; padding: .8rem 1.2rem; font-size: .78rem; font-weight: 600; color: var(--ink-3); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: all .15s; }
+    .section-nav a:hover { color: var(--ink); }
+    .section-nav a .nav-dot { width: 6px; height: 6px; border-radius: 2px; flex-shrink: 0; }
 
-    h1 {
-      font-size: clamp(36px, 6vw, 62px); font-weight: 700; line-height: 1.06;
-      letter-spacing: -2.5px; margin-bottom: 20px;
-      animation: fadeUp .6s ease .1s both;
-    }
-    h1 em { font-style: normal; background: linear-gradient(135deg, var(--clawhub) 20%, var(--mcp) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    /* Wrap */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+    /* Playbook section */
+    .playbook-section { padding: 3rem 0 1rem; position: relative; z-index: 1; }
+    .section-header { display: flex; align-items: center; gap: .8rem; margin-bottom: .4rem; }
+    .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .section-icon svg { width: 18px; height: 18px; }
+    .section-title { font-size: 1.3rem; font-weight: 700; letter-spacing: -.5px; }
+    .section-desc { font-size: .9rem; color: var(--ink-2); margin-bottom: 1.5rem; max-width: 600px; }
 
-    .hero-sub {
-      font-size: 16px; color: var(--ink-3); line-height: 1.7; max-width: 500px;
-      margin: 0 auto 20px; font-weight: 400;
-      animation: fadeUp .6s ease .2s both;
-    }
-    .hero-byline {
-      font-size: 12px; color: var(--ink-3); margin: 0 auto 36px;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      animation: fadeUp .6s ease .25s both;
-    }
-    .hero-byline strong { color: var(--ink); font-weight: 600; }
-    .hero-byline a { color: var(--ink-3); text-decoration: none; font-weight: 500; }
-    .hero-byline a:hover { color: var(--ink); }
-    .hero-byline-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    /* Playbook card */
+    .playbook { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.2rem; transition: all .2s; }
+    .playbook:hover { border-color: #ccc; box-shadow: 0 4px 20px rgba(0,0,0,.04); }
+    .pb-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .pb-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; margin-bottom: .3rem; }
+    .pb-author { font-family: var(--mono); font-size: .75rem; color: var(--ink-3); }
+    .pb-result { font-family: var(--mono); font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .pb-body { font-size: .9rem; color: var(--ink-2); line-height: 1.7; margin-bottom: 1rem; }
+    .pb-body strong { color: var(--ink); font-weight: 600; }
 
-    .hero-legend {
-      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
-      animation: fadeUp .6s ease .3s both;
-    }
-    .hl {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 12px; font-weight: 600; color: var(--ink-2);
-    }
-    .hl-dot {
-      width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0;
-    }
+    /* Tool pills */
+    .pb-tools { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .tool-pill { font-family: var(--mono); font-size: .65rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; gap: 4px; }
+    .tp-clawhub { background: rgba(124,58,237,.1); color: #7c3aed; }
+    .tp-api { background: rgba(234,88,12,.1); color: #c2410c; }
+    .tp-mcp { background: rgba(37,99,235,.1); color: #2563eb; }
+    .tp-cli { background: rgba(22,163,74,.1); color: #15803d; }
 
-    /* ── Scrolling ticker filter ── */
-    .ticker-bar {
-      position: sticky; top: 56px; z-index: 90;
-      background: rgba(247,246,243,.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden; cursor: pointer; height: 48px;
-    }
-    .ticker-track {
-      display: flex; align-items: center; height: 100%;
-      width: max-content;
-      animation: tickerScroll 36s linear infinite;
-    }
-    .ticker-bar:hover .ticker-track { animation-play-state: paused; }
-    @keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    /* Tweet embed area */
+    .pb-tweet { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .pb-tweet a { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--mono); font-size: .75rem; font-weight: 500; color: var(--ink-3); text-decoration: none; transition: color .15s; }
+    .pb-tweet a:hover { color: var(--ink); }
+    .pb-tweet svg { width: 14px; height: 14px; }
 
-    .ticker-item {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 0 28px; height: 100%; white-space: nowrap;
-      font-size: 12px; font-weight: 600; color: var(--ink-3);
-      border: none; background: none; font-family: inherit; cursor: pointer;
-      transition: color .15s; position: relative;
-      letter-spacing: .1px;
-    }
-    .ticker-item::after {
-      content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-      height: 14px; width: 1px; background: var(--border);
-    }
-    .ticker-item:hover { color: var(--ink); }
-    .ticker-item.active { color: var(--ink); }
-    .ticker-item.active .ti-dot { opacity: 1; transform: scale(1); }
-    .ticker-item svg { width: 13px; height: 13px; flex-shrink: 0; opacity: .6; transition: opacity .15s; }
-    .ticker-item:hover svg, .ticker-item.active svg { opacity: 1; }
-    .ti-dot {
-      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
-      opacity: 0; transform: scale(0); transition: all .2s ease;
-      margin-left: -2px;
+    /* Tier badge */
+    .tier-label { font-family: var(--mono); font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; padding: 3px 8px; border-radius: 4px; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: .4rem; }
+    .tier-1 { background: rgba(234,179,8,.15); color: #a16207; }
+    .tier-2 { background: rgba(156,163,175,.15); color: #4b5563; }
+    .tier-3 { background: rgba(180,83,9,.12); color: #92400e; }
+
+    /* Footer */
+    footer { text-align: center; padding: 3rem 2rem; font-size: .8rem; color: var(--ink-3); position: relative; z-index: 1; }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.5rem 2rem; }
+      h1 { font-size: 2rem; }
+      .pb-header { flex-direction: column; }
+      .hero-stats { gap: 1.2rem; }
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
     }
 
-    /* ── Active indicator bar ── */
-    .ticker-bar::after {
-      content: attr(data-active); position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
-      font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
-      color: var(--ink-3); opacity: .5;
-      pointer-events: none;
-    }
-
-    /* ── Grid ── */
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 44px 24px 90px; }
-
-    .sec-label {
-      font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
-      color: var(--ink-3); margin: 48px 0 14px;
-      display: flex; align-items: center; gap: 10px;
-      opacity: 0; transform: translateX(-14px);
-      transition: opacity .4s ease, transform .4s ease;
-    }
-    .sec-label.in { opacity: 1; transform: none; }
-    .sec-label svg { width: 13px; height: 13px; opacity: .5; flex-shrink: 0; }
-    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
-
-    /* ── Card ── */
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 18px; display: flex; flex-direction: column; gap: 11px;
-      transition: opacity .3s ease, transform .3s ease, box-shadow .2s ease;
-      position: relative; overflow: hidden;
-      opacity: 0; transform: translateY(22px) scale(.98);
-    }
-    .card.in { opacity: 1; transform: none; }
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      border-radius: var(--radius) var(--radius) 0 0; opacity: .7;
-    }
-    .card:hover { transform: translateY(-2px); }
-    .card[data-cat="social"]::before    { background: var(--c-social); }
-    .card[data-cat="email"]::before     { background: var(--c-email); }
-    .card[data-cat="video"]::before     { background: var(--c-video); }
-    .card[data-cat="seo"]::before       { background: var(--c-seo); }
-    .card[data-cat="analytics"]::before { background: var(--c-analytics); }
-    .card[data-cat="design"]::before    { background: var(--c-design); }
-    .card[data-cat="infra"]::before     { background: var(--c-infra); }
-    .card[data-cat="ai"]::before        { background: var(--c-ai); }
-    .card[data-cat="ads"]::before       { background: var(--c-ads); }
-
-    .card[data-cat="social"]:hover    { box-shadow: 0 8px 32px rgba(29,78,216,.1); }
-    .card[data-cat="email"]:hover     { box-shadow: 0 8px 32px rgba(8,145,178,.1); }
-    .card[data-cat="video"]:hover     { box-shadow: 0 8px 32px rgba(124,58,237,.1); }
-    .card[data-cat="seo"]:hover       { box-shadow: 0 8px 32px rgba(180,83,9,.1); }
-    .card[data-cat="analytics"]:hover { box-shadow: 0 8px 32px rgba(22,163,74,.1); }
-    .card[data-cat="design"]:hover    { box-shadow: 0 8px 32px rgba(219,39,119,.1); }
-    .card[data-cat="infra"]:hover     { box-shadow: 0 8px 32px rgba(55,65,81,.1); }
-    .card[data-cat="ai"]:hover        { box-shadow: 0 8px 32px rgba(79,70,229,.1); }
-    .card[data-cat="ads"]:hover       { box-shadow: 0 8px 32px rgba(234,88,12,.1); }
-
-    .card.hiding { opacity: 0; transform: scale(.94) translateY(8px); pointer-events: none; }
-    .card.hidden { display: none; }
-
-    .card-head { display: flex; align-items: center; gap: 11px; }
-    .card-icon {
-      width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--bg); border: 1px solid var(--border);
-    }
-    .card-icon svg { width: 16px; height: 16px; }
-    .card-title { font-weight: 700; font-size: 14px; letter-spacing: -.2px; line-height: 1.2; }
-    .card-cat {
-      font-size: 9px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 20px; width: fit-content; margin-top: 3px;
-    }
-    .cat-social    { background: #eff6ff; color: var(--c-social); }
-    .cat-email     { background: #ecfeff; color: var(--c-email); }
-    .cat-video     { background: #ede9fe; color: var(--c-video); }
-    .cat-seo       { background: #fef3c7; color: var(--c-seo); }
-    .cat-analytics { background: #f0fdf4; color: var(--c-analytics); }
-    .cat-design    { background: #fdf2f8; color: var(--c-design); }
-    .cat-infra     { background: #f9fafb; color: var(--c-infra); border: 1px solid var(--border); }
-    .cat-ai        { background: #eef2ff; color: var(--c-ai); }
-    .cat-ads       { background: #fff7ed; color: var(--c-ads); }
-
-    .card-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.58; flex: 1; font-weight: 400; }
-
-    .card-int {
-      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
-      padding: 8px 11px; display: flex; align-items: center; gap: 8px;
-    }
-    .int-cmd {
-      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-2);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1;
-    }
-    .int-cmd::after { content: '▎'; margin-left: 1px; opacity: 1; animation: cur .9s step-start infinite; }
-    @keyframes cur { 0%,100%{opacity:1} 50%{opacity:0} }
-    .int-badge {
-      flex-shrink: 0; font-size: 8.5px; font-weight: 700; letter-spacing: .5px;
-      text-transform: uppercase; padding: 2px 7px; border-radius: 20px; white-space: nowrap;
-    }
-    .ib-clawhub { background: #fff0ec; color: var(--clawhub); border: 1px solid #ffd5c6; }
-    .ib-mcp     { background: #f5f0ff; color: var(--mcp); border: 1px solid #ddd6fe; }
-    .ib-api     { background: #f0f7ff; color: var(--api); border: 1px solid #bae6fd; }
-    .ib-cli     { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
-
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .card-price {
-      font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px;
-      background: var(--bg); color: var(--ink-3); border: 1px solid var(--border);
-    }
-    .price-free { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-    .price-fm   { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-    .card-link {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 11px; font-weight: 600; color: var(--ink-3);
-      text-decoration: none; padding: 4px 10px; border-radius: 7px;
-      border: 1px solid var(--border); transition: all .15s;
-    }
-    .card-link svg { width: 11px; height: 11px; }
-    .card-link:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .card-link:hover svg { fill: #fff; }
-
-    .card-top-badge {
-      position: absolute; top: 12px; right: 12px;
-      font-size: 9px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 20px;
-      background: #fefce8; color: #854d0e; border: 1px solid #fde68a;
-    }
-
-    /* ── Custom tweet card ── */
-    .card-tweet {
-      border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border); background: #fff;
-      padding: 14px 16px; font-family: -apple-system, sans-serif;
-    }
-    .tweet-card { display: flex; flex-direction: column; gap: 8px; }
-    .tweet-header { display: flex; align-items: center; gap: 9px; }
-    .tweet-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: var(--border); }
-    .tweet-author { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
-    .tweet-name { font-size: 13px; font-weight: 700; color: #0f1419; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .tweet-handle { font-size: 12px; color: #536471; }
-    .tweet-x-logo { width: 18px; height: 18px; flex-shrink: 0; }
-    .tweet-body { font-size: 13px; line-height: 1.55; color: #0f1419; }
-    .tweet-stats { display: flex; gap: 14px; margin-top: 2px; }
-    .tweet-stat { display: flex; align-items: center; gap: 4px; font-size: 11.5px; color: #536471; }
-    .tweet-stat svg { width: 13px; height: 13px; }
-    .tweet-link { font-size: 11px; color: #1d9bf0; text-decoration: none; margin-top: 2px; display: inline-block; }
-    .tweet-link:hover { text-decoration: underline; }
-    /* Skeleton loader */
-    .tweet-skeleton { padding: 4px 0; }
-    .ts-header { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
-    .ts-av { width: 36px; height: 36px; border-radius: 50%; background: var(--border); animation: shimmer 1.4s ease infinite; }
-    .ts-name { height: 12px; width: 100px; border-radius: 4px; background: var(--border); animation: shimmer 1.4s ease infinite; }
-    .ts-line { height: 10px; border-radius: 4px; background: var(--border); margin-bottom: 6px; animation: shimmer 1.4s ease infinite; }
-    .ts-line-short { width: 60%; }
-    @keyframes shimmer { 0%,100%{opacity:.4} 50%{opacity:1} }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border); padding: 32px 24px; text-align: center;
-      font-size: 12px; color: var(--ink-3); background: var(--surface);
-    }
-    footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
-    footer p + p { margin-top: 5px; color: #bbb; font-size: 11px; }
-
-    /* ═══════════════════════════════════════
-       MOBILE — full responsive overhaul
-       ═══════════════════════════════════════ */
-
-    /* Prevent horizontal overflow globally */
-    @media(max-width: 768px) {
-      html, body { overflow-x: hidden; }
-
-      /* Nav */
-      nav { padding: 0 16px; height: 52px; }
-      .nav-cta { padding: 6px 12px; font-size: 11px; }
-
-      /* Hero */
-      .hero { padding: 44px 16px 36px; }
-      h1 { letter-spacing: -1.5px; margin-bottom: 16px; }
-      .hero-sub { font-size: 14.5px; margin-bottom: 16px; }
-      .hero-legend { gap: 14px; }
-      .hl { font-size: 11px; }
-
-      /* Ticker: replace scroll animation with touch-scrollable row */
-      .ticker-bar {
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        cursor: default;
-        height: 52px;
-      }
-      .ticker-bar::-webkit-scrollbar { display: none; }
-      .ticker-track {
-        animation: none !important;
-        transform: none !important;
-        width: max-content;
-        padding: 0 6px;
-      }
-      .ticker-bar:hover .ticker-track { animation-play-state: running; }
-      .ticker-item { padding: 0 16px; font-size: 11.5px; }
-      .ticker-bar::after { display: none; }
-
-      /* Wrap */
-      .wrap { padding: 24px 14px 60px; }
-
-      /* Grid: force single column on narrow screens */
-      .tool-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      /* Card */
-      .card { padding: 16px; gap: 10px; }
-      .card:hover { transform: none; box-shadow: none; } /* no hover on touch */
-      .card-top-badge { font-size: 8px; padding: 2px 6px; }
-
-      /* int-cmd — prevent overflow */
-      .card-int { padding: 7px 10px; gap: 6px; }
-      .int-cmd { font-size: 9.5px; min-width: 0; }
-
-      /* Tweet card */
-      .card-tweet { padding: 12px 13px; }
-      .tweet-body { font-size: 12px; }
-      .tweet-name { font-size: 12px; }
-
-      /* Footer */
-      footer { padding: 24px 16px; }
-
-      /* Aurora — shrink blobs to prevent overflow */
-      .b1 { width: 300px; height: 300px; top: -100px; left: -80px; }
-      .b2 { width: 280px; height: 280px; top: -60px; right: -60px; }
-      .b3 { width: 220px; height: 220px; }
-      .b4 { width: 200px; height: 200px; }
-
-      /* Section labels */
-      .sec-label { font-size: 10px; margin: 36px 0 12px; }
-    }
-
-    /* Extra-small phones (< 400px) */
-    @media(max-width: 400px) {
-      h1 { font-size: 32px; letter-spacing: -1px; }
-      .nav-cta { display: none; } /* hide CTA on very small screens */
-      .int-cmd { font-size: 9px; }
-      .card-int { flex-wrap: wrap; gap: 5px; }
-      .int-badge { font-size: 7.5px; }
-      .card-price { font-size: 9.5px; }
-      .card-link { font-size: 10px; padding: 3px 8px; }
-    }
-  /* Featured Section */
-  .featured-section { padding: 2rem 0 2.5rem; max-width: 1260px; margin: 0 auto; }
-  .featured-section .wrap { padding: 0 2rem; }
-  .featured-label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink);
-    opacity: 0.5;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .featured-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #22c55e;
-    display: inline-block;
-    animation: pulse-dot 2s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  .featured-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .featured-card {
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 12px;
-    padding: 0.5rem;
-    backdrop-filter: blur(8px);
-  }
-  .featured-card .card-tweet { margin: 0; }
-  .featured-card .tweet-card { border: none; background: transparent; padding: 0.5rem; }
-  .featured-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    padding: 0.7rem 0.7rem 0.2rem;
-  }
-  .ft-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-  .ft-clawhub { background: rgba(168,85,247,0.12); color: #7c3aed; }
-  .ft-mcp { background: rgba(59,130,246,0.12); color: #2563eb; }
-  .ft-api { background: rgba(234,88,12,0.12); color: #c2410c; }
-  .ft-cli { background: rgba(21,128,61,0.12); color: #15803d; }
-
-  @media (max-width: 900px) {
-    .featured-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 600px) {
-    .featured-grid { grid-template-columns: 1fr; }
-    .featured-section .wrap { padding: 0 1rem; }
-  }
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -486,13 +138,16 @@
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
-  <div class="blob b4"></div>
 </div>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
-  <div class="nav-right">
+  <div class="nav-links">
+    <a href="#sales">Sales</a>
+    <a href="#content">Content</a>
+    <a href="#seo">SEO</a>
+    <a href="#ads">Ads</a>
+    <a href="#infra">Setup</a>
     <a class="nav-cta" href="https://alphahigh.school" target="_blank">Alpha Founders →</a>
   </div>
 </nav>
@@ -500,610 +155,704 @@
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow"><span class="eyebrow-dot"></span> For Alpha Founders Academy</div>
-  <h1>Tools Your Agent<br>Can <em>Actually Run</em></h1>
-  <p class="hero-sub">Not apps you open by hand — tools with ClawHub skills, MCP servers, and direct APIs so your agent operates them for you.</p>
-  <p class="hero-byline">
-    <span>Curated by <strong>Christian Cattaneo</strong></span>
-  </p>
-  <div class="hero-legend">
-    <div class="hl"><span class="hl-dot" style="background:var(--clawhub)"></span> ClawHub Skill</div>
-    <div class="hl"><span class="hl-dot" style="background:var(--mcp)"></span> MCP Server</div>
-    <div class="hl"><span class="hl-dot" style="background:var(--api)"></span> REST API</div>
-    <div class="hl"><span class="hl-dot" style="background:#15803d"></span> CLI</div>
+  <h1>Real Playbooks from<br>Founders Using <em>AI Agents</em></h1>
+  <p class="hero-sub">Not theory — real workflows from real people making real money with OpenClaw, Claude Code, and MCP tools. Organized by what you want to build.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-label">Playbooks</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">16+</div><div class="hero-stat-label">Tools covered</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">$73k</div><div class="hero-stat-label">Top monthly revenue</div></div>
   </div>
 </section>
 
-<!-- FEATURED: Real Founders Using These Tools -->
-<section class="featured-section">
-  <div class="wrap">
-    <div class="featured-label"><span class="featured-dot"></span> Founders using these tools right now</div>
-    <div class="featured-grid">
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-clawhub">OpenClaw</span>
-          <span class="ft-tag ft-api">Stripe API</span>
-          <span class="ft-tag ft-clawhub">himalaya</span>
-          <span class="ft-tag ft-clawhub">x-twitter</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2025995047729254701"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-clawhub">OpenClaw</span>
-          <span class="ft-tag ft-api">Google Search Console</span>
-          <span class="ft-tag ft-api">Posthog</span>
-          <span class="ft-tag ft-api">Chartmogul</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2018730076280586276"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-cli">Claude Code</span>
-          <span class="ft-tag ft-mcp">Vercel MCP</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2021601173191455104"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-clawhub">OpenClaw</span>
-          <span class="ft-tag ft-api">RevenueCat</span>
-          <span class="ft-tag ft-clawhub">video-frames</span>
-          <span class="ft-tag ft-clawhub">x-twitter</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2023776478446436696"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-clawhub">OpenClaw</span>
-          <span class="ft-tag ft-clawhub">x-twitter</span>
-          <span class="ft-tag ft-clawhub">sag</span>
-          <span class="ft-tag ft-api">HeyGen</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2027180168935362904"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-tools">
-          <span class="ft-tag ft-cli">Claude Code</span>
-          <span class="ft-tag ft-mcp">GitHub MCP</span>
-          <span class="ft-tag ft-api">Notion</span>
-        </div>
-        <div class="card-tweet" data-tweet-id="2017128005714530780"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SCROLLING TICKER FILTER -->
-<div class="ticker-bar" id="tickerBar">
-  <div class="ticker-track" id="tickerTrack">
-    <!-- Set 1 -->
-    <button class="ticker-item active" data-cat="all"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>All Tools<span class="ti-dot" style="background:var(--ink)"></span></button>
-    <button class="ticker-item" data-cat="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1ZM11.9 13.8H13.1L5.6 2.2H4.3L11.9 13.8Z"/></svg>Social / X<span class="ti-dot" style="background:var(--c-social)"></span></button>
-    <button class="ticker-item" data-cat="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach<span class="ti-dot" style="background:var(--c-email)"></span></button>
-    <button class="ticker-item" data-cat="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video<span class="ti-dot" style="background:var(--c-video)"></span></button>
-    <button class="ticker-item" data-cat="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO<span class="ti-dot" style="background:var(--c-seo)"></span></button>
-    <button class="ticker-item" data-cat="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics<span class="ti-dot" style="background:var(--c-analytics)"></span></button>
-    <button class="ticker-item" data-cat="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design<span class="ti-dot" style="background:var(--c-design)"></span></button>
-    <button class="ticker-item" data-cat="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads<span class="ti-dot" style="background:var(--c-ads)"></span></button>
-    <button class="ticker-item" data-cat="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure<span class="ti-dot" style="background:var(--c-infra)"></span></button>
-    <button class="ticker-item" data-cat="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models<span class="ti-dot" style="background:var(--c-ai)"></span></button>
-    <button class="ticker-item" data-int="clawhub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.8 1 4 2.6 4 4.5c0 .8.3 1.5.8 2.1L3 9H2a1 1 0 000 2h1l-.5 2.5A1 1 0 003.5 15h9a1 1 0 001-1.5L13 11h1a1 1 0 000-2h-1.8L10.2 6.6A3.5 3.5 0 008 1zm0 2a1.5 1.5 0 110 3A1.5 1.5 0 018 3z"/></svg>ClawHub Only<span class="ti-dot" style="background:var(--clawhub)"></span></button>
-    <button class="ticker-item" data-int="mcp"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5L5 9h3l-1.5 5.5 5.5-7H9l2-6z"/></svg>MCP Only<span class="ti-dot" style="background:var(--mcp)"></span></button>
-    <!-- Divider -->
-    <span style="padding:0 20px;color:var(--border);font-size:20px;line-height:48px">·</span>
-    <!-- Set 2 (duplicate for seamless loop) -->
-    <button class="ticker-item" data-cat="all"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>All Tools<span class="ti-dot" style="background:var(--ink)"></span></button>
-    <button class="ticker-item" data-cat="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1ZM11.9 13.8H13.1L5.6 2.2H4.3L11.9 13.8Z"/></svg>Social / X<span class="ti-dot" style="background:var(--c-social)"></span></button>
-    <button class="ticker-item" data-cat="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach<span class="ti-dot" style="background:var(--c-email)"></span></button>
-    <button class="ticker-item" data-cat="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video<span class="ti-dot" style="background:var(--c-video)"></span></button>
-    <button class="ticker-item" data-cat="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO<span class="ti-dot" style="background:var(--c-seo)"></span></button>
-    <button class="ticker-item" data-cat="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics<span class="ti-dot" style="background:var(--c-analytics)"></span></button>
-    <button class="ticker-item" data-cat="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design<span class="ti-dot" style="background:var(--c-design)"></span></button>
-    <button class="ticker-item" data-cat="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads<span class="ti-dot" style="background:var(--c-ads)"></span></button>
-    <button class="ticker-item" data-cat="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure<span class="ti-dot" style="background:var(--c-infra)"></span></button>
-    <button class="ticker-item" data-cat="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models<span class="ti-dot" style="background:var(--c-ai)"></span></button>
-    <button class="ticker-item" data-int="clawhub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.8 1 4 2.6 4 4.5c0 .8.3 1.5.8 2.1L3 9H2a1 1 0 000 2h1l-.5 2.5A1 1 0 003.5 15h9a1 1 0 001-1.5L13 11h1a1 1 0 000-2h-1.8L10.2 6.6A3.5 3.5 0 008 1zm0 2a1.5 1.5 0 110 3A1.5 1.5 0 018 3z"/></svg>ClawHub Only<span class="ti-dot" style="background:var(--clawhub)"></span></button>
-    <button class="ticker-item" data-int="mcp"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5L5 9h3l-1.5 5.5 5.5-7H9l2-6z"/></svg>MCP Only<span class="ti-dot" style="background:var(--mcp)"></span></button>
-    <span style="padding:0 20px;color:var(--border);font-size:20px;line-height:48px">·</span>
+<!-- SECTION NAV -->
+<div class="section-nav">
+  <div class="section-nav-inner">
+    <a href="#playbooks"><span class="nav-dot" style="background:var(--green)"></span>Start Here</a>
+    <a href="#sales"><span class="nav-dot" style="background:var(--blue)"></span>Sales & Leads</a>
+    <a href="#content"><span class="nav-dot" style="background:var(--purple)"></span>Content & Video</a>
+    <a href="#seo"><span class="nav-dot" style="background:var(--orange)"></span>SEO & Analytics</a>
+    <a href="#ads"><span class="nav-dot" style="background:var(--pink)"></span>Paid Ads</a>
+    <a href="#productivity"><span class="nav-dot" style="background:var(--cyan)"></span>Email & Productivity</a>
+    <a href="#infra"><span class="nav-dot" style="background:#374151"></span>Setup & Infrastructure</a>
   </div>
 </div>
 
-<!-- TOOL GRID -->
+<!-- ═══════════════════════════════════ -->
+<!-- TIER 1: START HERE -->
+<!-- ═══════════════════════════════════ -->
 <div class="wrap">
 
-  <!-- SOCIAL -->
-  <div class="sec-label" data-section="social"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg>Social / X</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="social" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6 1H14.8L10.1 6.4 15.5 15H11.3L8.1 10.7 4.4 15H2.2L7.2 9.2 2 1H6.3L9.2 4.9 12.6 1Z"/></svg></div>
-        <div><div class="card-title">x-twitter</div><div class="card-cat cat-social">Social</div></div>
-      </div>
-      <p class="card-desc">Post, read timelines, search hashtags, analyze engagement. Your agent can draft and schedule tweets from any trigger — email, webhook, or cron.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install x-twitter</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="2027740600192073864"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">OAuth 1.0a</span><a class="card-link" href="https://developer.twitter.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+<section class="playbook-section" id="playbooks">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(22,163,74,.1);color:var(--green)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     </div>
-    <div class="card" data-cat="social" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="9" rx="1.5"/><path d="M4 11v2M12 11v2M1 6h14"/></svg></div>
-        <div><div class="card-title">Typefully</div><div class="card-cat cat-social">Social</div></div>
-      </div>
-      <p class="card-desc">X/Twitter drafting, thread scheduling, and analytics. REST API lets your agent queue posts, pull analytics, and manage drafts programmatically.</p>
-      <div class="card-int"><span class="int-cmd">api.typefully.com/v1/drafts</span><span class="int-badge ib-api">API</span></div>
-
-      <div class="card-tweet" data-tweet-id="1529158946375602176"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://typefully.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="social" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
-        <div><div class="card-title">Tweet Hunter</div><div class="card-cat cat-social">Social</div></div>
-      </div>
-      <p class="card-desc">AI ghostwriter trained on viral patterns. API exposes tweet generation, auto-DM, and engagement scoring — Your agent can run your full X presence.</p>
-      <div class="card-int"><span class="int-cmd">app.tweethunter.io/api</span><span class="int-badge ib-api">API</span></div>
-            
-      <div class="card-tweet" data-tweet-id="1907778962841059424"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">$49/mo</span><a class="card-link" href="https://tweethunter.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
+    <div class="section-title">Start Here — Full Playbooks</div>
   </div>
+  <p class="section-desc">Complete step-by-step business models. If you're new, start with these.</p>
+  <span class="tier-label tier-1">🏆 Tier 1 — Complete Business Playbooks</span>
 
-  <!-- EMAIL -->
-  <div class="sec-label" data-section="email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg>Email & Outreach</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="email" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/></svg></div>
-        <div><div class="card-title">himalaya</div><div class="card-cat cat-email">Email</div></div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">How to Spin Up 24/7 Digital Employees</div>
+        <div class="pb-author">@gregisenberg</div>
       </div>
-      <p class="card-desc">Full IMAP/SMTP email via CLI. Your agent can read, reply, compose with attachments, and search across multiple accounts — zero UI needed.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install himalaya</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            
-      <div class="card-tweet" data-tweet-id="2008897333874893078"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://pimalaya.org/himalaya/" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+      <span class="pb-result" style="background:rgba(22,163,74,.1);color:#15803d">Full Playbook</span>
     </div>
-    <div class="card" data-cat="email" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5"/></svg></div>
-        <div><div class="card-title">Apollo.io</div><div class="card-cat cat-email">Outreach</div></div>
-      </div>
-      <p class="card-desc">270M contact B2B database + email sequences. Full REST API — Your agent can search contacts, enrich leads, and trigger sequences without touching the UI.</p>
-      <div class="card-int"><span class="int-cmd">api.apollo.io/v1/people/search</span><span class="int-badge ib-api">API</span></div>
-
-      <div class="card-tweet" data-tweet-id="1897813862050566207"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://apollo.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+    <div class="pb-body">
+      8-step playbook: <strong>Pick a boring workflow → map it tip-to-tail → use Claude Code to build the pipeline → productize as a bundle → use Upwork for leads → turn into a vertical workspace.</strong> This is an entire curriculum in one tweet thread.
     </div>
-    <div class="card" data-cat="email" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="14" y1="2" x2="7" y2="9"/><polygon points="14 2 10 14 7 9 2 6 14 2" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-        <div><div class="card-title">Instantly</div><div class="card-cat cat-email">Outreach</div></div>
-      </div>
-      <p class="card-desc">Cold email at scale with bulletproof deliverability. API lets your agent add leads, launch campaigns, and pull reply analytics — fully autonomous outbound.</p>
-      <div class="card-int"><span class="int-cmd">api.instantly.ai/api/v1</span><span class="int-badge ib-api">API</span></div>
-            
-      <div class="card-tweet" data-tweet-id="2024927382025765135"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">$37/mo</span><a class="card-link" href="https://instantly.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-cli">Claude Code</span>
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Upwork</span>
     </div>
-    <div class="card" data-cat="email" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5l7 5 7-5"/><path d="M5 10h6" stroke-dasharray="2 1"/></svg></div>
-        <div><div class="card-title">Beehiiv</div><div class="card-cat cat-email">Newsletter</div></div>
-      </div>
-      <p class="card-desc">Newsletter platform with full REST API. Your agent can create drafts, schedule sends, pull subscriber analytics, and manage segments automatically.</p>
-      <div class="card-int"><span class="int-cmd">api.beehiiv.com/v2/publications</span><span class="int-badge ib-api">API</span></div>
-
-      <div class="card-tweet" data-tweet-id="1778836430237970841"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://beehiiv.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-  </div>
-
-  <!-- VIDEO -->
-  <div class="sec-label" data-section="video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3a1 1 0 00-1 1v8a1 1 0 001.5.87l8-4a1 1 0 000-1.74l-8-4A1 1 0 003 3z"/></svg>Video</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="video" data-int="clawhub">
-      <div class="card-top-badge">Built-in</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="10" height="10" rx="1.5"/><path d="M11 6l4-2v8l-4-2"/></svg></div>
-        <div><div class="card-title">video-frames</div><div class="card-cat cat-video">Video</div></div>
-      </div>
-      <p class="card-desc">Extract frames and short clips from any video via ffmpeg. Your agent can grab thumbnails, generate GIF previews, or cut clip reels automatically.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install video-frames</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="1992114024239034813"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://openclaw.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="video" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M6 5.5l4 2.5-4 2.5V5.5z" fill="currentColor" stroke="none"/></svg></div>
-        <div><div class="card-title">HeyGen</div><div class="card-cat cat-video">Video</div></div>
-      </div>
-      <p class="card-desc">AI avatar videos from scripts. Full REST API — Your agent can generate a spokesperson video, translate it to 40+ languages, and download it in one shot.</p>
-      <div class="card-int"><span class="int-cmd">api.heygen.com/v2/video/generate</span><span class="int-badge ib-api">API</span></div>
-
-      <div class="card-tweet" data-tweet-id="1898102510205665707"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://heygen.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="video" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3a2 2 0 00-2 2v.5H4a1 1 0 000 2h.1l.9 5h6l.9-5H12a1 1 0 000-2h-2V5a2 2 0 00-2-2z"/></svg></div>
-        <div><div class="card-title">sag (ElevenLabs)</div><div class="card-cat cat-video">Voice</div></div>
-      </div>
-      <p class="card-desc">ElevenLabs TTS with mac-style CLI. Set it up once and your agent voices everything — video scripts, ads, and demos.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install sag</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="1932307032734105825"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://elevenlabs.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="video" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9V5l4-2h2l4 2v4l-4 4H7L3 9z"/></svg></div>
-        <div><div class="card-title">Opus Clip</div><div class="card-cat cat-video">Video</div></div>
-      </div>
-      <p class="card-desc">Auto-clip long videos into viral shorts. API accepts a video URL and returns timestamped clips with captions — Your agent runs this on every recording.</p>
-      <div class="card-int"><span class="int-cmd">api.opus.pro/v1/clips</span><span class="int-badge ib-api">API</span></div>
-            
-      <div class="card-tweet" data-tweet-id="1759955482901443029"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://opus.pro" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-  </div>
-
-  <!-- SEO -->
-  <div class="sec-label" data-section="seo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg>SEO</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="seo" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M10.5 10.5L14 14"/></svg></div>
-        <div><div class="card-title">seo-competitor-analysis</div><div class="card-cat cat-seo">SEO</div></div>
-      </div>
-      <p class="card-desc">Full competitive SEO intel — keyword gaps, backlink comparison, SERP tracking. Your agent can run weekly audits and deliver reports automatically.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install seo-competitor-analysis</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-      
-      <div class="card-tweet" data-tweet-id="1843862008372048141"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://ahrefs.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="seo" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13.5 1.5a1.5 1.5 0 012 2L6 13.5 2 14l.5-4L13.5 1.5z"/></svg></div>
-        <div><div class="card-title">seo-content-writer</div><div class="card-cat cat-seo">SEO</div></div>
-      </div>
-      <p class="card-desc">Generates SEO-optimized articles from a keyword list. Handles outline, NLP terms, internal links. Your agent can keep your blog on autopilot.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install seo-content-writer</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-            
-      <div class="card-tweet" data-tweet-id="1818282376385970470"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://surferseo.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="seo" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h14M8 1C5.3 1 3 4 3 8s2.3 7 5 7 5-3 5-7-2.3-7-5-7z"/></svg></div>
-        <div><div class="card-title">google-search-console</div><div class="card-cat cat-seo">SEO</div></div>
-      </div>
-      <p class="card-desc">Pull real GSC data — impressions, clicks, CTR, rankings. Your agent monitors search performance and alerts on drops or wins automatically.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install google-search-console</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="1950541161917005876"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://search.google.com/search-console" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-  </div>
-
-  <!-- ANALYTICS -->
-  <div class="sec-label" data-section="analytics"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg>Analytics</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="analytics" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="9" width="3" height="6" rx=".5"/><rect x="6" y="5" width="3" height="10" rx=".5"/><rect x="11" y="1" width="3" height="14" rx=".5"/></svg></div>
-        <div><div class="card-title">ga4-analytics</div><div class="card-cat cat-analytics">Analytics</div></div>
-      </div>
-      <p class="card-desc">Query GA4 data via API. Your agent pulls traffic, conversion, and event data, generates daily digests, and alerts on anomalies — no dashboard needed.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install ga4-analytics</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="2026694622945357858"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://analytics.google.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="analytics" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 12l4-4 3 3 4-5 3 2"/></svg></div>
-        <div><div class="card-title">Mixpanel</div><div class="card-cat cat-analytics">Analytics</div></div>
-      </div>
-      <p class="card-desc">Product analytics with a full query API. Your agent pulls retention cohorts, funnel conversion, and feature usage — weekly product health reports, zero effort.</p>
-      <div class="card-int"><span class="int-cmd">mixpanel.com/api/query/</span><span class="int-badge ib-api">API</span></div>
-            
-      <div class="card-tweet" data-tweet-id="2024921863651295556"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://mixpanel.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-  </div>
-
-  <!-- DESIGN -->
-  <div class="sec-label" data-section="design"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 2l3 3-8 8H3v-3l8-8z"/></svg>Design</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="design" data-int="mcp">
-      <div class="card-top-badge">MCP Server</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1l3 3-6 6H2v-3l6-6zM11 4l1 1"/><path d="M14 12h-4M12 10v4"/></svg></div>
-        <div><div class="card-title">Figma MCP</div><div class="card-cat cat-design">Design</div></div>
-      </div>
-      <p class="card-desc">Read file layouts, inspect components, extract design tokens. Your agent pulls Figma specs and hands them to code agents automatically.</p>
-      <div class="card-int"><span class="int-cmd">smithery.ai/server/figma-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
-
-      <div class="card-tweet" data-tweet-id="2023607847331000493"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://figma.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="design" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
-        <div><div class="card-title">fal.ai (Flux)</div><div class="card-cat cat-design">Image Gen</div></div>
-      </div>
-      <p class="card-desc">Fastest image generation API — Flux, SDXL, ControlNet. Your agent generates ad creative, product mockups, and social images in seconds from a text prompt.</p>
-      <div class="card-int"><span class="int-cmd">fal.run/fal-ai/flux</span><span class="int-badge ib-api">API</span></div>
+    <div class="pb-tweet">
+      <a href="https://x.com/gregisenberg/status/2024247983999521123" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
       </a>
-      
-      <div class="card-tweet" data-tweet-id="1819893282777825370"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">Pay/use</span><a class="card-link" href="https://fal.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
     </div>
   </div>
 
-  <!-- ADS -->
-  <div class="sec-label" data-section="ads"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>Paid Ads</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="ads" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 3c1.5.5 2.5 1.8 2.5 3.5S12.5 10 11 10.5"/><path d="M3 5h2l5-3v11l-5-3H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg></div>
-        <div><div class="card-title">Meta Marketing API</div><div class="card-cat cat-ads">Ads</div></div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">$73k/mo with 11 Apps + OpenClaw Agent "Eddie"</div>
+        <div class="pb-author">@ErnestoSOFTWARE</div>
       </div>
-      <p class="card-desc">Full programmatic control over Facebook/Instagram campaigns. Your agent creates campaigns, A/B tests creatives, adjusts budgets, and pulls ROAS — no ad manager UI.</p>
-      <div class="card-int"><span class="int-cmd">graph.facebook.com/v19.0/act_</span><span class="int-badge ib-api">API</span></div>
-
-      <div class="card-tweet" data-tweet-id="1995915940664328484"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">Self-serve</span><a class="card-link" href="https://business.facebook.com/overview" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+      <span class="pb-result" style="background:rgba(22,163,74,.1);color:#15803d">$73k/mo</span>
     </div>
-    <div class="card" data-cat="ads" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="14" height="8" rx="1.5"/><path d="M4 8h2M9 8h3"/></svg></div>
-        <div><div class="card-title">AdCreative.ai</div><div class="card-cat cat-ads">Ads</div></div>
+    <div class="pb-body">
+      Agent auto-posts across 4 accounts, <strong>content factory generates faceless content, drives app installs</strong>. Turning active income into passive income via automations. "Don't listen to the goons — this is making us REAL money."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">x-twitter</span>
+      <span class="tool-pill tp-api">App Store</span>
+      <span class="tool-pill tp-api">Postiz</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/ErnestoSOFTWARE/status/2027105511569809899" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- SALES & LEADS -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="sales">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(37,99,235,.1);color:var(--blue)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+    </div>
+    <div class="section-title">Sales & Lead Generation</div>
+  </div>
+  <p class="section-desc">Agents that find leads, send outreach, and close deals while you sleep.</p>
+  <span class="tier-label tier-1">🏆 Tier 1</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">6 Agents Selling Websites on Autopilot</div>
+        <div class="pb-author">@everestchris6</div>
       </div>
-      <p class="card-desc">Generate scored ad creatives via API. Your agent produces 100 ad variants from your brief, scores them, and pushes the top performers to Meta automatically.</p>
-      <div class="card-int"><span class="int-cmd">api.adcreative.ai/v1/generate</span><span class="int-badge ib-api">API</span></div>
-            
-      <div class="card-tweet" data-tweet-id="1857181987116929076"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">$29/mo</span><a class="card-link" href="https://adcreative.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+      <span class="pb-result" style="background:rgba(37,99,235,.1);color:#2563eb">4K likes · 1M views</span>
+    </div>
+    <div class="pb-body">
+      6 sequential agents: <strong>Scout</strong> (finds local businesses without websites), <strong>Builder</strong> (creates demo site), <strong>Pitcher</strong> (sends outreach with preview + payment link), <strong>Closer</strong> (handles objections), <strong>Collector</strong> (payment), <strong>Manager</strong> (reporting). Each agent = one skill.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Stripe</span>
+      <span class="tool-pill tp-api">Vercel</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/everestchris6/status/2025291876052738163" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
     </div>
   </div>
 
-  <!-- INFRASTRUCTURE -->
-  <div class="sec-label" data-section="infra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="14" height="4" rx="1"/><rect x="1" y="9" width="14" height="4" rx="1"/><circle cx="4" cy="4" r=".5" fill="currentColor"/><circle cx="4" cy="11" r=".5" fill="currentColor"/></svg>Infrastructure</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1C4.7 1 2 3.6 2 6.8c0 3 2 5.4 4.7 6l.3.2h2l.3-.2C11.9 12.2 14 9.8 14 6.8 14 3.6 11.3 1 8 1z"/><path d="M5.5 8.5l2 2 3-3"/></svg></div>
-        <div><div class="card-title">github</div><div class="card-cat cat-infra">Infra</div></div>
-      </div>
-      <p class="card-desc">Managed OAuth for repos, issues, PRs, and commits. Your agent can create issues, review PRs, merge branches, and manage releases without touching the UI.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install github</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+  <span class="tier-label tier-2">🥈 Tier 2</span>
 
-      <div class="card-tweet" data-tweet-id="1953299793645568231"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://github.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Full Sales Assistant via HubSpot CRM</div>
+        <div class="pb-author">@dashboardlim</div>
+      </div>
+      <span class="pb-result" style="background:rgba(37,99,235,.1);color:#2563eb">169 deals analyzed</span>
     </div>
-    <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 4h12v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/><path d="M2 4l6-2 6 2"/><path d="M6 9h4M8 7v4"/></svg></div>
-        <div><div class="card-title">notion</div><div class="card-cat cat-infra">Infra</div></div>
-      </div>
-      <p class="card-desc">Read, write, and query Notion databases and pages. Your agent uses Notion as memory store, CRM, content calendar, or project tracker — live.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install notion</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="1950246642050900252"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://notion.so" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+    <div class="pb-body">
+      Connected OpenClaw to HubSpot CRM. Asked "how many deals do I need to chase?" — got 169 open deals broken down by pipeline and stage in seconds. Then built an <strong>omni-channel follow-up sequence: email Day 1 → LinkedIn Day 2 → SMS Day 3 → call script Day 4</strong>.
     </div>
-    <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-top-badge">Top Skill</div>
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="14" height="9" rx="1.5"/><path d="M5 4V3a2 2 0 014 0v1"/><path d="M8 8v2"/></svg></div>
-        <div><div class="card-title">stripe-api</div><div class="card-cat cat-infra">Infra</div></div>
-      </div>
-      <p class="card-desc">Full Stripe billing control. Your agent checks MRR, creates payment links, manages subscriptions, issues refunds, and generates revenue reports autonomously.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install stripe-api</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="2026704225053356470"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free (per-txn)</span><a class="card-link" href="https://stripe.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">HubSpot</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
     </div>
-    <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1" width="14" height="7" rx="1"/><rect x="1" y="10" width="14" height="5" rx="1"/><path d="M4 4h.01M4 12h.01"/></svg></div>
-        <div><div class="card-title">linear</div><div class="card-cat cat-infra">Infra</div></div>
-      </div>
-      <p class="card-desc">GraphQL project management. Your agent creates issues from any trigger, updates sprint boards, and keeps engineering velocity visible in real time.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install linear</span><span class="int-badge ib-clawhub">ClawHub</span></div>
-
-      <div class="card-tweet" data-tweet-id="1947736603453231322"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://linear.app" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="infra" data-int="mcp">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="14" height="11" rx="1.5"/><path d="M4 9l2-2 2 2 4-4"/></svg></div>
-        <div><div class="card-title">Playwright MCP</div><div class="card-cat cat-infra">Browser</div></div>
-      </div>
-      <p class="card-desc">Full browser automation via MCP. Your agent navigates any website, clicks, fills forms, scrapes data, and records sessions — headless or headed.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install playwright-mcp</span><span class="int-badge ib-mcp">MCP</span></div>
-
-      <div class="card-tweet" data-tweet-id="1920873823491989867"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free</span><a class="card-link" href="https://playwright.dev" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="infra" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1l5 4v10H3V5l5-4z"/><path d="M6 15v-5h4v5"/></svg></div>
-        <div><div class="card-title">Vercel CLI</div><div class="card-cat cat-infra">Deploy</div></div>
-      </div>
-      <p class="card-desc">Your agent deploys via Vercel CLI on every build. REST API also available for domain management, env vars, and deployment hooks from any script.</p>
-      <div class="card-int"><span class="int-cmd">vercel --prod --yes</span><span class="int-badge ib-cli">CLI</span></div>
-
-      <div class="card-tweet" data-tweet-id="2019101224784785897"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://vercel.com" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+    <div class="pb-tweet">
+      <a href="https://x.com/dashboardlim/status/2024863642575896613" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
     </div>
   </div>
 
-  <!-- AI MODELS -->
-  <div class="sec-label" data-section="ai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 3.2l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>AI Models</div>
-  <div class="tool-grid">
-    <div class="card" data-cat="ai" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2C5 2 3 4 3 7c0 2 1 3.5 2.5 4.5V13h5v-1.5C12 10.5 13 9 13 7c0-3-2-5-5-5z"/><path d="M6 13v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V13"/></svg></div>
-        <div><div class="card-title">Claude (Anthropic)</div><div class="card-cat cat-ai">AI Model</div></div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Daily Deal Finder — Booked a Multi-Trillion Dollar Company</div>
+        <div class="pb-author">@ericosiu</div>
       </div>
-      <p class="card-desc">The same model powering the best AI agents. Call it from your tools, crons, and sub-agents — 200K context, best-in-class reasoning and code.</p>
-      <div class="card-int"><span class="int-cmd">api.anthropic.com/v1/messages</span><span class="int-badge ib-api">API</span></div>
+      <span class="pb-result" style="background:rgba(37,99,235,.1);color:#2563eb">Enterprise Sales</span>
+    </div>
+    <div class="pb-body">
+      Agent <strong>scans CRM + sales transcripts, identifies targets, crafts the angle, books meetings</strong>. Real enterprise sales use case — the agent found and booked a meeting with a multi-trillion dollar company.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">CRM API</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/ericosiu/status/2019542209780215899" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="card-tweet" data-tweet-id="1953299793645568231"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-fm">Freemium</span><a class="card-link" href="https://claude.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+<!-- ═══════════════════════════════════ -->
+<!-- CONTENT & VIDEO -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="content">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(124,58,237,.1);color:var(--purple)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
     </div>
-    <div class="card" data-cat="ai" data-int="api">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 6c0 4-3 7-6 8C5 13 2 10 2 6a6 6 0 0112 0z"/><path d="M8 4v4l2 2"/></svg></div>
-        <div><div class="card-title">Perplexity API</div><div class="card-cat cat-ai">AI Model</div></div>
-      </div>
-      <p class="card-desc">Real-time web-grounded answers via API. Pair it with your agent for tasks that need live sources — competitive intel, news monitoring, fact-checking.</p>
-      <div class="card-int"><span class="int-cmd">api.perplexity.ai/chat/completions</span><span class="int-badge ib-api">API</span></div>
-      
-      <div class="card-tweet" data-tweet-id="1939888692853878901"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price">$5/1M tokens</span><a class="card-link" href="https://perplexity.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="ai" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="12" height="4" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/><path d="M4.5 6v3M11.5 6v3"/></svg></div>
-        <div><div class="card-title">n8n</div><div class="card-cat cat-ai">Automation</div></div>
-      </div>
-      <p class="card-desc">Self-hosted automation with 400+ integrations and MCP support. Your agent can trigger n8n workflows, monitor runs, and chain actions across any tool stack.</p>
-      <div class="card-int"><span class="int-cmd">your-n8n.com/api/v1/workflows</span><span class="int-badge ib-api">API</span></div>
-      
-      <div class="card-tweet" data-tweet-id="1970542302625178030"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free / Self-host</span><a class="card-link" href="https://n8n.io" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
-    </div>
-    <div class="card" data-cat="ai" data-int="clawhub">
-      <div class="card-head">
-        <div class="card-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="4" width="9" height="8" rx="1"/><path d="M10 6l5-2v8l-5-2"/></svg></div>
-        <div><div class="card-title">ipeaky</div><div class="card-cat cat-ai">Key Mgmt</div></div>
-      </div>
-      <p class="card-desc">Secure API key management for AI agents. Store, list, test, and rotate keys for any service without leaking them to logs or process args.</p>
-      <div class="card-int"><span class="int-cmd">clawhub install ipeaky</span><span class="int-badge ib-clawhub">ClawHub</span></div>
+    <div class="section-title">Content & Video</div>
+  </div>
+  <p class="section-desc">Autonomous content creation, posting, and viral growth engines.</p>
+  <span class="tier-label tier-2">🥈 Tier 2</span>
 
-      <div class="card-tweet" data-tweet-id="1826601466095960414"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
-      <div class="card-footer"><span class="card-price price-free">Free / OSS</span><a class="card-link" href="https://openclaw.ai" target="_blank"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg> Visit →</a></div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">"Larry" Got 8M Views — Free TikTok Skill</div>
+        <div class="pb-author">@oliverhenry</div>
+      </div>
+      <span class="pb-result" style="background:rgba(124,58,237,.1);color:#7c3aed">8M views/week</span>
+    </div>
+    <div class="pb-body">
+      OpenClaw agent "Larry" generates <strong>photorealistic slideshows with GPT-Image, writes hooks, overlays text, researches trends, uploads drafts via Postiz</strong>. Tracks RevenueCat for conversion: "Most marketing tools stop at impressions. I follow the money all the way to the bank." <strong>Gave away the skill for free on ClawHub.</strong>
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">GPT-Image</span>
+      <span class="tool-pill tp-api">Postiz</span>
+      <span class="tool-pill tp-api">RevenueCat</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/oliverhenry/status/2023776478446436696" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
     </div>
   </div>
 
-</div>
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">AI Video from a Single Telegram Message</div>
+        <div class="pb-author">@mikefutia</div>
+      </div>
+      <span class="pb-result" style="background:rgba(124,58,237,.1);color:#7c3aed">32s production video</span>
+    </div>
+    <div class="pb-body">
+      Send one Telegram message → agent <strong>writes script → generates frames → animates with Veo 3 → adds voiceover → delivers finished video back to Telegram</strong>. 32-second production-quality video from a single prompt.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Veo 3</span>
+      <span class="tool-pill tp-clawhub">sag / ElevenLabs</span>
+      <span class="tool-pill tp-clawhub">video-frames</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/mikefutia/status/2025681529662533644" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">5-Agent Content Team Scraping Viral Content</div>
+        <div class="pb-author">@PrajwalTomar_</div>
+      </div>
+      <span class="pb-result" style="background:rgba(124,58,237,.1);color:#7c3aed">24/7 research</span>
+    </div>
+    <div class="pb-body">
+      Agent 1 <strong>scrapes X + YouTube → tracks velocity (views per hour, engagement, virality) → ranks the most viral content → sends top picks to Telegram</strong>. "I open Telegram, review what's trending, learn from it, and implement ideas myself."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">x-twitter</span>
+      <span class="tool-pill tp-api">YouTube API</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/PrajwalTomar_/status/2024823117563195838" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">$24k/mo → $100k/mo Replacing Content Hires</div>
+        <div class="pb-author">@alexcooldev</div>
+      </div>
+      <span class="pb-result" style="background:rgba(124,58,237,.1);color:#7c3aed">$24k/mo current</span>
+    </div>
+    <div class="pb-body">
+      "The biggest impact of OpenClaw is marketing automation. I'm slowly <strong>replacing the students I used to hire for content, automating more of the workflow, and scaling toward $50k–$100k/month</strong>."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">x-twitter</span>
+      <span class="tool-pill tp-api">Postiz</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/alexcooldev/status/2027180168935362904" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- SEO & ANALYTICS -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="seo">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(180,83,9,.1);color:var(--orange)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+    <div class="section-title">SEO & Analytics</div>
+  </div>
+  <p class="section-desc">Agents that handle keyword research, page generation, and performance tracking.</p>
+  <span class="tier-label tier-2">🥈 Tier 2</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Autonomous SEO Agent — 3 Skills</div>
+        <div class="pb-author">@EXM7777</div>
+      </div>
+      <span class="pb-result" style="background:rgba(180,83,9,.1);color:#92400e">SEO at Scale</span>
+    </div>
+    <div class="pb-body">
+      3 skills working together: <strong>programmatic SEO (generates pages at scale), site architecture management, keyword tracking</strong>. Context-first approach — the agent understands your niche before it acts.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Ahrefs</span>
+      <span class="tool-pill tp-api">Google Search Console</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/EXM7777/status/2025631181702893616" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Discord Bot + Ahrefs for Backlink Outreach</div>
+        <div class="pb-author">@michaelaubry</div>
+      </div>
+      <span class="pb-result" style="background:rgba(180,83,9,.1);color:#92400e">Charges for setup</span>
+    </div>
+    <div class="pb-body">
+      <strong>Scans Ahrefs for backlink opportunities, finds owner emails, pitches link swaps</strong>. Turned it into a consultation service — charges fee to set it up for other businesses.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Ahrefs</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/michaelaubry/status/2019911082601771315" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <span class="tier-label tier-3">🥉 Tier 3</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Built GA4 Skill in 20 Minutes → Published to ClawHub</div>
+        <div class="pb-author">@jdrhyne</div>
+      </div>
+      <span class="pb-result" style="background:rgba(180,83,9,.1);color:#92400e">clawhub install ga4</span>
+    </div>
+    <div class="pb-body">
+      Solved own problem → packaged it → published. <strong><code>clawhub install ga4</code> and start querying your analytics</strong>. "Pay it forward so the next person doesn't have to figure it out."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">GA4</span>
+      <span class="tool-pill tp-clawhub">ClawHub</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/jdrhyne/status/2012028725710192741" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- PAID ADS -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="ads">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(219,39,119,.1);color:var(--pink)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </div>
+    <div class="section-title">Paid Ads</div>
+  </div>
+  <p class="section-desc">Agent-managed ad accounts — creative, budgets, and optimization on autopilot.</p>
+  <span class="tier-label tier-1">🏆 Tier 1</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">$0/mo Meta Ad Management with OpenClaw</div>
+        <div class="pb-author">@TheMattBerman</div>
+      </div>
+      <span class="pb-result" style="background:rgba(219,39,119,.1);color:#be185d">$0/mo ad ops</span>
+    </div>
+    <div class="pb-body">
+      Names exact skills: <strong>meta-ads</strong> (daily checks + auto-pause), <strong>ad-creative-monitor</strong> (fatigue detection), <strong>budget-optimizer</strong> (efficiency scoring), <strong>ad-copy-generator</strong> (writes variations from winners), <strong>ad-upload</strong> (publishes directly to account). "Giving it away free."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">meta-ads</span>
+      <span class="tool-pill tp-clawhub">ad-creative-monitor</span>
+      <span class="tool-pill tp-clawhub">budget-optimizer</span>
+      <span class="tool-pill tp-clawhub">ad-copy-generator</span>
+      <span class="tool-pill tp-api">Meta Marketing API</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/TheMattBerman/status/2027220216409723296" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <span class="tier-label tier-2">🥈 Tier 2</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">4-Person AI Marketing Team — No Employees</div>
+        <div class="pb-author">@aiplaybookgen</div>
+      </div>
+      <span class="pb-result" style="background:rgba(219,39,119,.1);color:#be185d">4 agents</span>
+    </div>
+    <div class="pb-body">
+      Role 1: <strong>Ads Analyst</strong> (scrapes Meta Ads Library, scores hooks). Role 2: Content strategist. Role 3: Copywriter. Role 4: Reporting. No employees, no code.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Meta Ads Library</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/aiplaybookgen/status/2026992355518398909" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- EMAIL & PRODUCTIVITY -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="productivity">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(8,145,178,.1);color:var(--cyan)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+    </div>
+    <div class="section-title">Email & Productivity</div>
+  </div>
+  <p class="section-desc">Morning routines, email triage, and daily workflows on autopilot.</p>
+  <span class="tier-label tier-3">🥉 Tier 3</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Morning Cron: Email → Todos → Slack → Supabase</div>
+        <div class="pb-author">@DhruvalGolakiya</div>
+      </div>
+      <span class="pb-result" style="background:rgba(8,145,178,.1);color:#0e7490">Daily automation</span>
+    </div>
+    <div class="pb-body">
+      Every morning: <strong>reads 10 emails → summarizes → creates todos → sends to Slack → stores in Supabase</strong>. Built a macOS menu bar app on top. The daily startup routine, fully automated.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
+      <span class="tool-pill tp-api">Slack</span>
+      <span class="tool-pill tp-api">Supabase</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/DhruvalGolakiya/status/2010745968044732692" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- SETUP & INFRASTRUCTURE -->
+<!-- ═══════════════════════════════════ -->
+<section class="playbook-section" id="infra">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(55,65,81,.1);color:#374151">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+    </div>
+    <div class="section-title">Setup & Infrastructure</div>
+  </div>
+  <p class="section-desc">How to set up your agent environment, monitor it, and keep it secure.</p>
+  <span class="tier-label tier-2">🥈 Tier 2</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">"John Wick" Agent — GSC + Posthog + Chartmogul</div>
+        <div class="pb-author">@gouthamjay8</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Goal: $20K MRR</span>
+    </div>
+    <div class="pb-body">
+      Set up OpenClaw on an old M2 Mac mini, named it "John Wick." <strong>Gave access to Google Search Console, Posthog analytics & Chartmogul data. Goal: get to $20K MRR.</strong> "Today morning, the Baba Yaga created his own team."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Google Search Console</span>
+      <span class="tool-pill tp-api">Posthog</span>
+      <span class="tool-pill tp-api">Chartmogul</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/gouthamjay8/status/2018730076280586276" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Claude Code + Vercel MCP = Self-Healing DevOps</div>
+        <div class="pb-author">@jamesdevonport</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Production</span>
+    </div>
+    <div class="pb-body">
+      "Claude Code can directly <strong>read error logs from production using the Vercel MCP, come up with a fix and launch it</strong>. Getting very close to self-healing DevOps."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-cli">Claude Code</span>
+      <span class="tool-pill tp-mcp">Vercel MCP</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/jamesdevonport/status/2021601173191455104" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <span class="tier-label tier-3">🥉 Tier 3</span>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Safety-First OpenClaw Setup Guide</div>
+        <div class="pb-author">@anitakirkovska</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Best Practice</span>
+    </div>
+    <div class="pb-body">
+      The proper way: <strong>New Apple account, new Gmail, Google Cloud CLI for gmail/gdrive, Brave Search, Vercel CLI, mint phone number ($5), new Amazon account</strong>. Separate everything. "She got my groceries last week."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Google Cloud</span>
+      <span class="tool-pill tp-api">Vercel CLI</span>
+      <span class="tool-pill tp-api">Brave Search</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/anitakirkovska/status/2018316255082524954" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Real-Time Dashboard to Monitor Every OpenClaw Task</div>
+        <div class="pb-author">@GanimCorey</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Monitoring</span>
+    </div>
+    <div class="pb-body">
+      WebSocket dashboard: <strong>track sessions, skills called, system events, cost per session, approve elevated commands</strong>. ROI visualization per agent. Know exactly what your agents are doing and what they cost.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">WebSocket</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/GanimCorey/status/2020644661660910067" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Ultimate Clawdbot Toolkit — Pro Tips & Secret Tools</div>
+        <div class="pb-author">@milesdeutscher</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Guide</span>
+    </div>
+    <div class="pb-body">
+      Compiled guide: <strong>95% token savings skill, unlimited memory, security self-check, find-skills discovery</strong>. "Whether you're a beginner or advanced, you'll extract value."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">ClawHub Skills</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/milesdeutscher/status/2017300537323229458" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">50 Skills to Outperform 99% of People</div>
+        <div class="pb-author">@ziwenxu_</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Directory</span>
+    </div>
+    <div class="pb-body">
+      Complete directory: <strong>Larry TikTok, vercel-react-native, supabase-postgres, SkillGuard security, prompt-guard</strong>. Always use SkillGuard to ensure your environment stays secure while you scale.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">ClawHub</span>
+      <span class="tool-pill tp-clawhub">SkillGuard</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/ziwenxu_/status/2025452128957767761" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Browser + Email + Ad Accounts — Full Access Playbook</div>
+        <div class="pb-author">@ronakkadhi</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">GitHub Repo</span>
+    </div>
+    <div class="pb-body">
+      Full use-case repo: <strong>Mission Control pattern, sub-agents under a coordinator, MEMORY.md for long-term facts</strong>. "The more tools it has, the more useful it becomes." Running list of use cases on GitHub.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Browser</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
+      <span class="tool-pill tp-api">Meta Ads</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/ronakkadhi/status/2020897035919176092" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">One-Person Dev Team — Agent Swarm for B2B SaaS</div>
+        <div class="pb-author">@elvissun</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">SaaS / Dev</span>
+    </div>
+    <div class="pb-body">
+      OpenClaw + Codex/Claude Code agent swarm. <strong>Same-day feature requests → agent swarm implements → founder-led sales. Commits → MRR pipeline.</strong> One person running an entire B2B SaaS.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-cli">Claude Code</span>
+      <span class="tool-pill tp-cli">Codex</span>
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://x.com/elvissun/status/2025920521871716562" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full thread →
+      </a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
 
 <footer>
-  <p>Built for <strong>Alpha Founders Academy</strong> · Curated by Christian Cattaneo</p>
-  <p>Every tool here is directly controllable by your AI agent · Skills via ClawHub · Not sponsored</p>
+  Curated by <a href="https://x.com/christiancattaneo" target="_blank">Christian Cattaneo</a> · <a href="https://maxxer.ai" target="_blank">Maxxer</a> · 2026
 </footer>
 
 <script>
-// Scroll reveal
-(function() {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
-  document.querySelectorAll('.sec-label').forEach(el => io.observe(el));
-  document.querySelectorAll('.tool-grid').forEach(grid => {
-    grid.querySelectorAll('.card').forEach((card, i) => {
-      card.style.transitionDelay = (i * 0.06) + 's';
-      io.observe(card);
-    });
-  });
-  // Fallback: force-reveal everything after 1.6s
-  setTimeout(() => {
-    document.querySelectorAll('.sec-label:not(.in), .card:not(.in)').forEach(el => el.classList.add('in'));
-  }, 1600);
-})();
-
-// Ticker filter
-(function() {
-  const bar = document.getElementById('tickerBar');
-  const items = document.querySelectorAll('.ticker-item');
-  const cards = document.querySelectorAll('.card');
-  const sections = document.querySelectorAll('.sec-label[data-section]');
-  let active = { cat: 'all', int: null };
-
-  function filter() {
-    cards.forEach(c => {
-      const catOk = !active.cat || active.cat === 'all' || c.dataset.cat === active.cat;
-      const intOk = !active.int || c.dataset.int === active.int;
-      const show = catOk && intOk;
-      if (!show) { c.classList.add('hidden'); c.classList.remove('in'); }
-      else { c.classList.remove('hidden'); requestAnimationFrame(() => c.classList.add('in')); }
-    });
-    sections.forEach(s => {
-      const grid = s.nextElementSibling;
-      const has = [...cards].some(c => c.dataset.cat === s.dataset.section && !c.classList.contains('hidden'));
-      s.style.display = grid.style.display = has ? '' : 'none';
-    });
-  }
-
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      items.forEach(i => i.classList.remove('active'));
-      // Mark all duplicates with same data attrs active
-      const cat = item.dataset.cat, int_ = item.dataset.int;
-      document.querySelectorAll(cat ? `[data-cat="${cat}"].ticker-item` : `[data-int="${int_}"].ticker-item`)
-        .forEach(i => i.classList.add('active'));
-      active = { cat: cat || null, int: int_ || null };
-      filter();
-    });
-  });
-})();
-
-// Aurora mouse parallax
-(function() {
-  const blobs = document.querySelectorAll('.blob');
-  const f = [.014,.01,.018,.012];
-  let mx = innerWidth/2, my = innerHeight/2;
-  const c = blobs.map(() => ({x:0,y:0}));
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  (function tick() {
-    blobs.forEach((b, i) => {
-      const tx = (mx - innerWidth/2) * f[i], ty = (my - innerHeight/2) * f[i];
-      c[i].x += (tx - c[i].x) * .05; c[i].y += (ty - c[i].y) * .05;
-      b.style.transform = `translate(${c[i].x}px,${c[i].y}px)`;
-    });
-    requestAnimationFrame(tick);
-  })();
-})();
-</script>
-
-<script>
-// ── Baked tweet data (static, no API calls) ─────────────────────────────────
-(function renderTweets() {
-  const data = {"2025995047729254701": {"id": "2025995047729254701", "text": "My OpenClaw bot runs 6 AI agents 24/7:\n\n- Finds local businesses without a website\n- Builds a custom demo site for them automatically\n- Sends outreach with the preview + payment link\n- Handles objections and closes the sale\n\nMost local businesses don't have a website, this system finds them, pitches them, and collects payment automatically.", "author_name": "Chris", "author_handle": "everestchris6", "avatar": "https://pbs.twimg.com/profile_images/1970372109202530305/A5Axp4ih_normal.jpg", "likes": 4034, "retweets": 256, "impressions": 1026563, "replies": 2309}, "1800126743887708519": {"id": "1800126743887708519", "text": "Our @beehiiv newsletter, Cyber Corsairs, just reached another milestone of 25,000 subscribers and almost $40,000 in five months. 🥳\n\nI will share our growth and monetization tactics so every small newsletter can use them and achieve similar results. https://t.co/aygOXB0w3j", "author_name": "Captain YAR", "author_handle": "SobkoYaroslav", "avatar": "https://pbs.twimg.com/profile_images/1661388674985086982/69SL0EHS_normal.jpg", "likes": 106, "retweets": 7, "impressions": 20139, "replies": 28}, "1914706445817233507": {"id": "1914706445817233507", "text": "My AI avatar just hit 100,000 followers.\n\nThe videos you see below aren't actually me, it's an AI avatar of my face/voice.\n\nDespite this, each of these videos went viral with millions of views across platforms.\n\nSome raw thoughts on this experiment:\n\n1) People don't care it's https://t.co/nz2jtAFIoZ", "author_name": "Rowan Cheung", "author_handle": "rowancheung", "avatar": "https://pbs.twimg.com/profile_images/1711152452735774720/Cotttl-n_normal.jpg", "likes": 363, "retweets": 34, "impressions": 53210, "replies": 38}, "2019150062740455844": {"id": "2019150062740455844", "text": "Everyone knows ElevenLabs as the voice cloning company.\n\nThe $330M ARR tells a different story.\n\nI played around with ElevenLabs recently. I'm not an audio person. Don't know my way around sound design or voice production. Didn't matter. The product made me sound professional in https://t.co/ZuDNcLv1yq", "author_name": "Aadit Sheth", "author_handle": "aaditsh", "avatar": "https://pbs.twimg.com/profile_images/1989274279947694081/ggQkOhbP_normal.jpg", "likes": 88, "retweets": 4, "impressions": 20748, "replies": 16}, "2023607847331000493": {"id": "2023607847331000493", "text": "The @figma MCP is insanely good. First time I used it felt like AGI.\n\nFeed designs to the MCP, done. It reads frames, components, variables, layout, and generates close to pixel perfect code.\n\nI one-shotted my design in this 150 second video with @DevinAI. https://t.co/5u9eAdgXP6", "author_name": "nader dabit", "author_handle": "dabit3", "avatar": "https://pbs.twimg.com/profile_images/1951619597695672321/c1FsysWP_normal.jpg", "likes": 1034, "retweets": 46, "impressions": 115810, "replies": 42}, "1890195451699425471": {"id": "1890195451699425471", "text": "One more big congratulations to the small but super mighty team at @FAL, on their fresh round of growth capital (details below), and most importantly on quickly building the leading inference engine for generative media! \n\nLed by ML engineers and co-founders @burkaygur and https://t.co/VpICExWXz8", "author_name": "steve jang", "author_handle": "stevejang", "avatar": "https://pbs.twimg.com/profile_images/1636919451890118656/X34CSp6D_normal.jpg", "likes": 68, "retweets": 10, "impressions": 5378, "replies": 5}, "2024927382025765135": {"id": "2024927382025765135", "text": "ok so I finally got this working\n\nbulk facebook ads generator &gt; bulk upload to FB ads via facebook ads API &gt; analyze the FB ads data from the data warehouse in claude code &gt; turn off losing ads based on the data analysis \n\nso I created 100+ ad variations with my bulk ad generator https://t.co/ODFynygSqF", "author_name": "Cody Schneider", "author_handle": "codyschneiderxx", "avatar": "https://pbs.twimg.com/profile_images/1642293767846924288/SYK9ccXU_normal.jpg", "likes": 885, "retweets": 42, "impressions": 91528, "replies": 72}, "1692535821268853185": {"id": "1692535821268853185", "text": "GitHub Copilot 10x your code editor\n\n- a developer \n- a copywriter \n- available 24/7\n\nFor $10/mo it's a no brainer", "author_name": "Marc Lou", "author_handle": "marclou", "avatar": "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_normal.jpg", "likes": 136, "retweets": 5, "impressions": 27426, "replies": 49}, "1851247759267156359": {"id": "1851247759267156359", "text": "This is how I use Notion as my Second Brain. https://t.co/CaXymzqxJd", "author_name": "Easlo", "author_handle": "heyeaslo", "avatar": "https://pbs.twimg.com/profile_images/1484538965109907461/VaQu5_PI_normal.jpg", "likes": 945, "retweets": 114, "impressions": 475826, "replies": 23}, "1857181987116929076": {"id": "1857181987116929076", "text": "stripe just announced their AI agent SDK and it's a pretty big deal\n\nimagine agents that don't just read transaction data, but actually act on it\n\nthink about what this enables (3 ideas):\n\n1. AI support agent that can:\n\n- understand a refund request in any language\n- check https://t.co/YfBZX517jG", "author_name": "GREG ISENBERG", "author_handle": "gregisenberg", "avatar": "https://pbs.twimg.com/profile_images/1577116785656139776/5mi0qgTz_normal.jpg", "likes": 698, "retweets": 58, "impressions": 173095, "replies": 36}, "1940197916267986946": {"id": "1940197916267986946", "text": "I figured out how to add the official Playwright browser automation MCP to Claude Code. Run this before you start \"claude\":\n\n  claude mcp add playwright npx '@playwright/mcp@latest'\n\nNow Claude Code can use a Chrome browser directly!\n\nHere's my TIL: https://t.co/O5KcDe6U3M", "author_name": "Simon Willison", "author_handle": "simonw", "avatar": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_normal.jpeg", "likes": 1449, "retweets": 89, "impressions": 126107, "replies": 42}, "2016209953850327432": {"id": "2016209953850327432", "text": "We just shipped 𝚟𝚎𝚛𝚌𝚎𝚕 𝚊𝚙𝚒 for agents to have full access to the Vercel platform. No need to install MCPs. It follows the security &amp; auth model of the CLI you already have installed. https://t.co/F2rdsbea06 https://t.co/9kkRVNrQvX", "author_name": "Guillermo Rauch", "author_handle": "rauchg", "avatar": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_normal.jpg", "likes": 523, "retweets": 16, "impressions": 47607, "replies": 55}, "2024896611818897438": {"id": "2024896611818897438", "text": "My biggest takeaways from @bcherny:\n\n1. Coding is now “solved” for most use cases. Boris hasn’t written a single line of code by hand since November, with 100% of his work now authored by Claude Code. At the same time, he remains one of the most productive engineers at Anthropic, https://t.co/sS7VyDcDlj", "author_name": "Lenny Rachitsky", "author_handle": "lennysan", "avatar": "https://pbs.twimg.com/profile_images/1592990461517389824/iln8hi1f_normal.jpg", "likes": 1315, "retweets": 158, "impressions": 342451, "replies": 93}, "1711041579249775059": {"id": "1711041579249775059", "text": "This is pretty wild.\n\nA new paper by Google found that Perplexity and GPT-4 w/ prompting outperformed Google Search.\n\nAnecdotally, I've also noticed more non-tech people using Perplexity over other LLMs for search queries.\n\nIs Google search is slowly getting replaced? https://t.co/bbhL8ciVLA", "author_name": "Rowan Cheung", "author_handle": "rowancheung", "avatar": "https://pbs.twimg.com/profile_images/1711152452735774720/Cotttl-n_normal.jpg", "likes": 857, "retweets": 155, "impressions": 325641, "replies": 73}, "1970542302625178030": {"id": "1970542302625178030", "text": "Fuck it.\n\nI'm sharing the exact mega prompt that built my entire n8n automation empire.\n\nThis single prompt turns Claude into an n8n expert that designs, codes, and deploys AI agents from scratch.\n\nCopy, paste, watch magic happen.\n\n```\nYou are an expert n8n workflow automation https://t.co/qt6V4FP42a", "author_name": "Alex Prompter", "author_handle": "alex_prompter", "avatar": "https://pbs.twimg.com/profile_images/1923183416498880512/gD78SJmP_normal.jpg", "likes": 2847, "retweets": 294, "impressions": 259373, "replies": 51}, "1907946228857581958": {"id": "1907946228857581958", "text": "If I were starting a new startup in 2025, here's the optimal 5-person team I'd build:\n\n1. AI engineer who vibe-codes and ships fast\n2. Growth hacker obsessed with distribution\n3. Sales person who closes in DMs\n4. Designer who ships, not mocks\n5. Someone who has done it before", "author_name": "GREG ISENBERG", "author_handle": "gregisenberg", "avatar": "https://pbs.twimg.com/profile_images/1577116785656139776/5mi0qgTz_normal.jpg", "likes": 4200, "retweets": 540, "impressions": 389000, "replies": 210}, "1489613537244819461": {"id": "1489613537244819461", "text": "I've personally booked thousands of sales appointments using cold email alone.\n\nHere's the exact system I use:\n\n1. Find ideal buyer (ICP)\n2. Source verified emails\n3. Write a 3-line email with one CTA\n4. Follow up 3× over 2 weeks\n5. Book the call. Repeat.", "author_name": "Nick Abraham", "author_handle": "NickAbraham12", "avatar": null, "likes": 7800, "retweets": 1200, "impressions": 650000, "replies": 380}, "2001311422278672462": {"id": "2001311422278672462", "text": "HeyGen has now delivered over 100 million minutes of AI video in 2025.\n\nAI avatars speaking 175 languages. Zero studios. Zero crews.\n\nThe way the world communicates is changing — faster than anyone predicted.", "author_name": "Joshua Xu", "author_handle": "joshua_xu_", "avatar": null, "likes": 5400, "retweets": 680, "impressions": 520000, "replies": 290}, "1991038732846444555": {"id": "1991038732846444555", "text": "This creator is doing $47,000 a month on TikTok using AI brain-rot videos.\n\nHere's the exact system:\n\n1. Opus Clip cuts long-form → 60s clips automatically\n2. Add captions with CapCut AI\n3. Post 3× daily\n\nThe algorithm rewards consistency over quality.", "author_name": "Julian Goldie", "author_handle": "JulianGoldieSEO", "avatar": null, "likes": 3100, "retweets": 420, "impressions": 280000, "replies": 175}, "1919842970695827954": {"id": "1919842970695827954", "text": "Google AI Search is destroying 50% of website traffic.\n\nThis is the biggest SEO shift in 20 years.\n\nHere's what's happening and exactly what to do about it before it's too late:\n\nAI Overviews are now appearing on 47% of all searches. Click-through rates dropped 35% YoY.", "author_name": "Julian Goldie", "author_handle": "JulianGoldieSEO", "avatar": null, "likes": 4500, "retweets": 680, "impressions": 410000, "replies": 230}, "1943787579301888172": {"id": "1943787579301888172", "text": "I built a FREE AI agent that posts to Twitter while you sleep.\n\nSet it up once and it:\n→ Finds trending topics in your niche\n→ Writes original takes (not reposts)\n→ Schedules for peak engagement times\n→ Engages with replies automatically\n\nHere's how to clone it in 15 minutes:", "author_name": "Julian Goldie", "author_handle": "JulianGoldieSEO", "avatar": null, "likes": 5800, "retweets": 920, "impressions": 540000, "replies": 310}, "1852621670566998258": {"id": "1852621670566998258", "text": "How to create an AI Traffic Channel group in GA4.\n\nSince AI chatbots are now significant traffic sources, grouping them into a single channel is critical.\n\nAI traffic is currently lumped under 'referral' — here's how to fix that and actually measure it properly.", "author_name": "Himanshu Sharma", "author_handle": "analyticsnerd", "avatar": null, "likes": 1200, "retweets": 280, "impressions": 95000, "replies": 64}, "2024921863651295556": {"id": "2024921863651295556", "text": "Perplexity just admitted the Google ad model can't work in AI search. The math explains why.\n\nPerplexity hit ~$200M ARR by late 2025. Their 2026 target: $656M.\n\nThat's 230% growth — almost entirely from subscriptions, not ads. The old model is dead.", "author_name": "Aakash Gupta", "author_handle": "aakashgupta", "avatar": null, "likes": 2800, "retweets": 380, "impressions": 245000, "replies": 145}, "1819893282777825370": {"id": "1819893282777825370", "text": "Flux is very good and very fast and very free.\n\nUnder 10 seconds and quite high quality for generations. Probably good enough for most use cases.\n\nThis is the image generation inflection point everyone was waiting for.", "author_name": "Ethan Mollick", "author_handle": "emollick", "avatar": null, "likes": 14200, "retweets": 2100, "impressions": 890000, "replies": 430}, "1846207887770525934": {"id": "1846207887770525934", "text": "I asked an AI agent to analyze my Twitter personality. The result was both fascinating and humbling.\n\nThe agent read all my tweets and concluded:\n\n'You are relentlessly optimistic about startups, occasionally confused about AI, and definitely not as funny as you think you are.'\n\nFair.", "author_name": "Dharmesh Shah", "author_handle": "dharmesh", "avatar": null, "likes": 8900, "retweets": 740, "impressions": 620000, "replies": 520}, "1899596115210891751": {"id": "1899596115210891751", "text": "✨ https://t.co/6TyHKajGaJ has now gone from $0 to $1 million ARR in just 17 days! 💸\n\nRevenue update: $87,000 MRR (which is $1M ARR)\n\nMy first project ever to go up this fast 🤯", "author_name": "@levelsio", "author_handle": "levelsio", "avatar": "https://pbs.twimg.com/profile_images/1996831016720486400/vycHz0uG_normal.jpg", "likes": 21400, "retweets": 1850, "impressions": 2100000, "replies": 890}, "1893424435526599033": {"id": "1893424435526599033", "text": "We just migrated our entire startup from Notion to Linear.\n\nHere's what changed:\n\n✅ Sprint planning: 10 min → 2 min\n✅ Bug triage: async chaos → structured queue\n✅ Eng↔design sync: weekly doc → live board\n\n❌ One miss: Notion's flexibility for long-form docs\n\nOverall: 100% worth it.", "author_name": "j_becke", "author_handle": "j_becke", "avatar": null, "likes": 1800, "retweets": 240, "impressions": 145000, "replies": 88}, "1826601466095960414": {"id": "1826601466095960414", "text": "The state of indie hacking in 2024:\n\n- @dannypostmaa makes $106,000 in 24 hours\n- @tibo_maker sold his SaaS for $10M\n\nAnd this 👇", "author_name": "Marc Lou", "author_handle": "marc_louvion", "avatar": "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_normal.jpg", "likes": 2400, "retweets": 320, "impressions": 198000, "replies": 110}, "2027740600192073864": {"id": "2027740600192073864", "text": "WeeklyClaw #001 — 7 Releases, OpenAI Acquisition & What's Next for OpenClaw? The x-twitter skill ecosystem just keeps getting more useful.", "author_name": "Jordy", "author_handle": "jordymaui", "avatar": null, "likes": 45, "retweets": 8, "impressions": 4200, "replies": 12}, "1529158946375602176": {"id": "1529158946375602176", "text": "8 apps and tools I use to make better content:\n\n1. Notion\n2. Descript\n3. Canva\n4. Typefully\n5. Riverside\n6. Loom\n7. Figma\n8. Obsidian", "author_name": "Thomas Frank", "author_handle": "tomfrankly", "avatar": null, "likes": 73, "retweets": 12, "impressions": 15000, "replies": 18}, "1907778962841059424": {"id": "1907778962841059424", "text": "Built Tweet Hunter from scratch, grew to $1m ARR. Then did the same with Taplio. Together they grew to $8m ARR when I left.", "author_name": "Thibault Louis-Lucas", "author_handle": "tibo_maker", "avatar": null, "likes": 2400, "retweets": 180, "impressions": 320000, "replies": 95}, "2008897333874893078": {"id": "2008897333874893078", "text": "Built an email (Himalaya - CLI to manage email) SKILL for @openclaw yesterday and it felt good to contribute to OSS. This is just going to get more useful.", "author_name": "Daniel", "author_handle": "dantelex", "avatar": null, "likes": 2, "retweets": 0, "impressions": 135, "replies": 1}, "1778836430237970841": {"id": "1778836430237970841", "text": "I fucking love beehiiv. It makes my life and my product so much easier. Take my money, with pleasure.", "author_name": "Hiten Samtani", "author_handle": "hitsamty", "avatar": null, "likes": 28, "retweets": 2, "impressions": 3400, "replies": 5}, "1992114024239034813": {"id": "1992114024239034813", "text": "I use the Apple Vision Pro to transform my living room into a development studio. Here you see me testing a responsive design and optimising video files using ffmpeg.", "author_name": "Willem Middelkoop", "author_handle": "wlmiddelkoop", "avatar": null, "likes": 156, "retweets": 22, "impressions": 18000, "replies": 34}, "1898102510205665707": {"id": "1898102510205665707", "text": "Did you use Synthesia or HeyGen? Really impressive lip-sync. Even caught me off guard, and I use avatars every day to scale my Instagram channel.", "author_name": "Rowan Cheung", "author_handle": "rowancheung", "avatar": null, "likes": 42, "retweets": 3, "impressions": 8500, "replies": 8}, "1932307032734105825": {"id": "1932307032734105825", "text": "Built a functional TARS replica from Interstellar using no-code tools. Voice cloning the original actor using ElevenLabs — Setting up conversational AI with TARS personality and sarcasm.", "author_name": "Victor", "author_handle": "victor_explore", "avatar": null, "likes": 890, "retweets": 120, "impressions": 95000, "replies": 65}, "1759955482901443029": {"id": "1759955482901443029", "text": "One of the tools I'm using to scale my other platforms is @OpusClip. Here are 3 BEST Tips to Take Advantage of Repurposing Content and Scaling Short Form Video.", "author_name": "Roberto Blake", "author_handle": "robertoblake", "avatar": null, "likes": 245, "retweets": 38, "impressions": 42000, "replies": 22}, "1843862008372048141": {"id": "1843862008372048141", "text": "The new AI Overview tracking in Ahrefs is a game-changer for SEO analysis. My favourite use case for AIO filtering is within the 'Organic keywords' report.", "author_name": "Brodie Clark", "author_handle": "brodieseo", "avatar": null, "likes": 320, "retweets": 45, "impressions": 38000, "replies": 28}, "1818282376385970470": {"id": "1818282376385970470", "text": "This is my new favourite SEO tool: It's like Surfer SEO but with GSC recommendations added... and like 85% cheaper. I'm currently paying around $1,400 per year for Surfer SEO.", "author_name": "Jamie I.F.", "author_handle": "Jamie_IF", "avatar": null, "likes": 180, "retweets": 24, "impressions": 22000, "replies": 35}, "1950541161917005876": {"id": "1950541161917005876", "text": "My Google Search Console Analysis Strategy: How I find SEO wins faster than 99% of SEOs & marketers. Most people open GSC & click around aimlessly. Knowing there's GOLD, but unable to dig it out.", "author_name": "Connor Gillivan", "author_handle": "ConnorGillivan", "avatar": null, "likes": 410, "retweets": 62, "impressions": 48000, "replies": 30}, "2026694622945357858": {"id": "2026694622945357858", "text": "Google Analytics 4 is free. So is suffering. I've collected 150+ quotes from real users about GA4. Here's what they actually say: 'I have yet to find a single person who is not appalled by the interface.'", "author_name": "Hiten Shah", "author_handle": "hnshah", "avatar": null, "likes": 1800, "retweets": 280, "impressions": 195000, "replies": 120}, "1995915940664328484": {"id": "1995915940664328484", "text": "I just built this custom Facebook ads dashboard that has 9 charts in literally 2 minutes. Cost Per Purchase Over Time, Ad Spend Over Time, ROAS Over Time...", "author_name": "Cody Schneider", "author_handle": "codyschneiderxx", "avatar": null, "likes": 885, "retweets": 42, "impressions": 91528, "replies": 72}, "1953299793645568231": {"id": "1953299793645568231", "text": "Got nerdsniped by the new Claude Code security review tool. Anthropic implemented their own SAST tool as a Python wrapper around the Claude API. It can run locally or within Github actions to focus on PRs. It found Heartbleed!", "author_name": "solst", "author_handle": "IceSolst", "avatar": null, "likes": 620, "retweets": 85, "impressions": 72000, "replies": 45}, "1950246642050900252": {"id": "1950246642050900252", "text": "My biggest collab with Notion so far. So excited to add that much value to founders. MEGADROP: $50K in free AI tools (Notion, v0, Supabase...) + 2,000 Investors + 50 AI Pitch Decks.", "author_name": "Ruben Dominguez Ibar", "author_handle": "rdominguezibar", "avatar": null, "likes": 340, "retweets": 48, "impressions": 42000, "replies": 28}, "2026704225053356470": {"id": "2026704225053356470", "text": "Stripe is finished. I built my own payment gateway. All it took was: PCI level 1 certification, direct integrations with Visa & Mastercard, a small team of 500 lawyers... costs $2,000,000/month but I'm saving 1.5% on every $29 transaction from my 10 SaaS users.", "author_name": "Kyle Gawley", "author_handle": "kylegawley", "avatar": null, "likes": 4200, "retweets": 580, "impressions": 420000, "replies": 280}, "1947736603453231322": {"id": "1947736603453231322", "text": "Built in @lovable_dev using multi-agent AI pair programming. Everything runs off a lightweight Supabase chat endpoint that powers branching logic and scene progression.", "author_name": "Antara Basu", "author_handle": "anterface", "avatar": null, "likes": 85, "retweets": 12, "impressions": 9500, "replies": 8}, "1920873823491989867": {"id": "1920873823491989867", "text": "Blade can now be deployed to Vercel (Fluid) with zero config! My personal site is using it as well now! Getting started is as easy as...", "author_name": "Leo", "author_handle": "leo", "avatar": null, "likes": 120, "retweets": 18, "impressions": 14000, "replies": 10}, "2019101224784785897": {"id": "2019101224784785897", "text": "Claude Startup Program is also OPEN btw. API credits for early-stage startups (up to ~$25K). Actually friendly to bootstrapped founders.", "author_name": "Aditya", "author_handle": "adxtyahq", "avatar": null, "likes": 340, "retweets": 52, "impressions": 38000, "replies": 25}, "1939888692853878901": {"id": "1939888692853878901", "text": "A solo founder built this open-source alternative to Perplexity. Has 8.4K stars. Scira is a minimalistic AI-powered search engine. Powered by Vercel AI SDK!", "author_name": "Rohan Paul", "author_handle": "rohanpaul_ai", "avatar": null, "likes": 560, "retweets": 78, "impressions": 65000, "replies": 35}, "2018730076280586276": {"id": "2018730076280586276", "text": "I bet there are going to be startups built on top of OpenClaw.\n\nBefore I went to sleep, I set up @openclaw on my old M2 Mac mini. I named him \"John Wick\" & his task was to help this solo founder get to $20K MRR.\n\nGave access to my Google Search Console, Posthog analytics & Chartmogul data.\n\nToday morning, the Baba Yaga created his own team.", "author_name": "Goutham Jay", "author_handle": "gouthamjay8", "avatar": null, "likes": 1850, "retweets": 220, "impressions": 185000, "replies": 140}, "2021601173191455104": {"id": "2021601173191455104", "text": "Just been trying this out and it really is magic. Claude Code can directly read error logs from production using the Vercel MCP, come up with a fix and launch it. Getting very close to self-healing DevOps with this kind of stuff, nice.", "author_name": "James Devonport", "author_handle": "jamesdevonport", "avatar": null, "likes": 420, "retweets": 38, "impressions": 52000, "replies": 25}, "2023776478446436696": {"id": "2023776478446436696", "text": "My OpenClaw agent got me 8M views in just one week — So I'm giving away the skill for free.\n\nI check RevenueCat every single day — new subscribers, trial starts, churn, MRR. When I see downloads spike but nobody's converting to paid, I tell Ollie exactly what's wrong.\n\nMost marketing tools stop at impressions. I follow the money all the way to the bank.", "author_name": "Oliver Henry", "author_handle": "oliverhenry", "avatar": null, "likes": 2100, "retweets": 280, "impressions": 245000, "replies": 165}, "2027180168935362904": {"id": "2027180168935362904", "text": "The biggest impact of OpenClaw is marketing automation. And it's been genuinely effective for me. I'm slowly replacing the students I used to hire for content, automating more of the workflow, and scaling my apps toward $50k–$100k/month (currently at $24k/month).", "author_name": "Alex Nguyen", "author_handle": "alexcooldev", "avatar": null, "likes": 680, "retweets": 85, "impressions": 78000, "replies": 52}, "2017128005714530780": {"id": "2017128005714530780", "text": "How We Built an AI Project Manager Using Claude Code.\n\nClaude Code for non-technical work is going to sweep the world by storm in 2026. This is how we built Claudie, our internal project manager for the consulting business.", "author_name": "Nityesh", "author_handle": "nityeshaga", "avatar": null, "likes": 520, "retweets": 65, "impressions": 62000, "replies": 38}};
-  const cards = [...document.querySelectorAll('.card-tweet[data-tweet-id]')];
-  function fmt(n) {
-    if (!n) return '0';
-    if (n >= 1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'') + 'M';
-    if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K';
-    return String(n);
-  }
-  cards.forEach(card => {
-    const t = data[card.dataset.tweetId];
-    if (!t) { card.innerHTML = '<div style="padding:14px;font-size:12px;color:#999">Tweet unavailable</div>'; return; }
-    const url = `https://x.com/${t.author_handle}/status/${t.id}`;
-    const av = t.avatar ? `<img class="tweet-avatar" src="${t.avatar.replace('_normal','_bigger')}" alt="${t.author_name}" loading="lazy">` : '<div class="tweet-avatar"></div>';
-    const body = t.text.replace(/https:\/\/t\.co\/\S+/g,'').trim();
-    const bHtml = body ? `<div class="tweet-body">${body}</div>` : '<div class="tweet-body" style="color:#1d9bf0;font-style:italic">📸 Media post — view on X</div>';
-    card.innerHTML = `<div class="tweet-card"><div class="tweet-header">${av}<div class="tweet-author"><span class="tweet-name">${t.author_name}</span><span class="tweet-handle">@${t.author_handle}</span></div><svg class="tweet-x-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>${bHtml}<div class="tweet-stats"><span class="tweet-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>${fmt(t.likes)}</span><span class="tweet-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>${fmt(t.retweets)}</span>${t.impressions ? `<span class="tweet-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>${fmt(t.impressions)}</span>` : ''}</div><a href="${url}" target="_blank" rel="noopener" class="tweet-link">View on X →</a></div>`;
-  });
-})();
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
 
 </body>
