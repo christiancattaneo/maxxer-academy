@@ -451,6 +451,25 @@
   }
   .featured-card .card-tweet { margin: 0; }
   .featured-card .tweet-card { border: none; background: transparent; padding: 0.5rem; }
+  .featured-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.7rem 0.7rem 0.2rem;
+  }
+  .ft-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .ft-clawhub { background: rgba(168,85,247,0.12); color: #7c3aed; }
+  .ft-mcp { background: rgba(59,130,246,0.12); color: #2563eb; }
+  .ft-api { background: rgba(234,88,12,0.12); color: #c2410c; }
+  .ft-cli { background: rgba(21,128,61,0.12); color: #15803d; }
 
   @media (max-width: 900px) {
     .featured-grid { grid-template-columns: repeat(2, 1fr); }
@@ -501,26 +520,59 @@
     <div class="featured-grid">
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-clawhub">OpenClaw</span>
+          <span class="ft-tag ft-api">Stripe API</span>
+          <span class="ft-tag ft-clawhub">himalaya</span>
+          <span class="ft-tag ft-clawhub">x-twitter</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2025995047729254701"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-clawhub">OpenClaw</span>
+          <span class="ft-tag ft-api">Google Search Console</span>
+          <span class="ft-tag ft-api">Posthog</span>
+          <span class="ft-tag ft-api">Chartmogul</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2018730076280586276"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-cli">Claude Code</span>
+          <span class="ft-tag ft-mcp">Vercel MCP</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2021601173191455104"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-clawhub">OpenClaw</span>
+          <span class="ft-tag ft-api">RevenueCat</span>
+          <span class="ft-tag ft-clawhub">video-frames</span>
+          <span class="ft-tag ft-clawhub">x-twitter</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2023776478446436696"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-clawhub">OpenClaw</span>
+          <span class="ft-tag ft-clawhub">x-twitter</span>
+          <span class="ft-tag ft-clawhub">sag</span>
+          <span class="ft-tag ft-api">HeyGen</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2027180168935362904"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
       <div class="featured-card">
+        <div class="featured-tools">
+          <span class="ft-tag ft-cli">Claude Code</span>
+          <span class="ft-tag ft-mcp">GitHub MCP</span>
+          <span class="ft-tag ft-api">Notion</span>
+        </div>
         <div class="card-tweet" data-tweet-id="2017128005714530780"><div class="tweet-skeleton"><div class="ts-header"><div class="ts-av"></div><div class="ts-name"></div></div><div class="ts-line"></div><div class="ts-line ts-line-short"></div></div></div>
       </div>
 
