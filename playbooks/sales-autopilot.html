@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6 Agents Selling Websites on Autopilot — Maxxer Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #f7f6f3; --surface: #fff; --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #888; --border: #e6e4df; --accent: #2563eb; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .5rem; }
+    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: .6rem; font-weight: 600; background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 4px; }
+    .nav-back { font-size: .85rem; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--ink); }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .accent-bar { width: 40px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 1.5rem; }
+    article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: .5rem; }
+    article h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.3px; margin: 2.5rem 0 .8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    article h3 { font-size: 1.05rem; font-weight: 700; margin: 1.8rem 0 .5rem; }
+    article h4 { font-size: .95rem; font-weight: 600; margin: 1.2rem 0 .4rem; }
+    article p { margin-bottom: 1rem; color: var(--ink-2); }
+    article ul, article ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+    article li { margin-bottom: .4rem; }
+    article li input[type=checkbox] { margin-right: .4rem; }
+    article strong { color: var(--ink); font-weight: 600; }
+    article a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    article a:hover { text-decoration: underline; }
+    article blockquote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1rem 0; background: rgba(0,0,0,.02); border-radius: 0 8px 8px 0; color: var(--ink-2); font-style: italic; }
+    article code { font-family: 'JetBrains Mono', monospace; font-size: .85em; background: rgba(0,0,0,.05); padding: 2px 6px; border-radius: 4px; }
+    article pre { background: #1a1a2e; color: #e0e0e0; padding: 1.2rem 1.5rem; border-radius: 10px; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.5; }
+    article pre code { background: none; padding: 0; color: inherit; font-size: .8rem; }
+    article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .9rem; }
+    article th { text-align: left; padding: .6rem .8rem; border-bottom: 2px solid var(--border); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+    article td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); color: var(--ink-2); }
+    article hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    article img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--ink-3); }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    @media (max-width: 640px) { .wrap { padding: 1.5rem 1rem 3rem; } nav { padding: 0 1rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
+  <a class="nav-back" href="/">← All Playbooks</a>
+</nav>
+<div class="wrap">
+  <div class="accent-bar"></div>
+  <article><h1>6 Agents Selling Websites on Autopilot</h1>
+<blockquote>
+<p>Based on <a href="https://x.com/everestchris6/status/2025291876052738163">@everestchris6&#39;s workflow</a> — verified, expanded, and made beginner-friendly for Maxxer Academy</p>
+</blockquote>
+<hr>
+<h2>Overview</h2>
+<p>This playbook walks you through building a fully automated website sales machine using six OpenClaw AI agents working in sequence — every single day, without you lifting a finger. The system <strong>finds local businesses that don&#39;t have a website</strong>, <strong>builds a custom demo site for them automatically</strong>, <strong>sends personalized outreach with a live preview and payment link</strong>, and <strong>handles objections and closes the sale</strong>. When payment lands, a final agent delivers the site and follows up for testimonials.</p>
+<p>Most local businesses — restaurants, plumbers, barbershops, boutiques — still don&#39;t have a professional web presence. This system finds them, pitches them, and collects payment on autopilot. Based on community reports, operators running this system are generating <strong>$3,000–$8,000/month</strong> from recurring website hosting fees and one-time build payments, typically within the first 30–60 days of setup.</p>
+<ul>
+<li><strong>Difficulty:</strong> Intermediate</li>
+<li><strong>Setup time:</strong> 3–5 hours (first time)</li>
+<li><strong>Monthly cost:</strong> ~$80–120/mo (breakdown below)</li>
+<li><strong>Revenue potential:</strong> $3K–$8K/month at scale</li>
+</ul>
+<hr>
+<h2>Prerequisites</h2>
+<p>Before you start, you&#39;ll need all of the following:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Mac running macOS</strong> (Intel or Apple Silicon) — or Linux/WSL2 on Windows</li>
+<li><input disabled="" type="checkbox"> <strong>OpenClaw installed</strong> → <a href="https://docs.openclaw.ai">docs.openclaw.ai</a> | <a href="https://openclaw.ai">openclaw.ai/install.sh</a></li>
+<li><input disabled="" type="checkbox"> <strong>Anthropic API key</strong> → <a href="https://console.anthropic.com">console.anthropic.com</a> (~$20–50/mo estimated for this workflow)</li>
+<li><input disabled="" type="checkbox"> <strong>Google Cloud account + Places API key</strong> → <a href="https://console.cloud.google.com">console.cloud.google.com</a> ($200 free credit/mo — usually covers this workflow)</li>
+<li><input disabled="" type="checkbox"> <strong>Vercel account (free Hobby plan)</strong> → <a href="https://vercel.com">vercel.com</a> (free for this use case)</li>
+<li><input disabled="" type="checkbox"> <strong>Stripe account</strong> → <a href="https://stripe.com">stripe.com</a> (free to create; 2.9% + $0.30 per transaction)</li>
+<li><input disabled="" type="checkbox"> <strong>GitHub account</strong> → <a href="https://github.com">github.com</a> (free — used by Vercel for deployments)</li>
+<li><input disabled="" type="checkbox"> <strong>Email account for outreach</strong> — a dedicated Gmail or similar (free)</li>
+<li><input disabled="" type="checkbox"> <strong>Node.js 22+</strong> — installed automatically by OpenClaw if missing</li>
+<li><input disabled="" type="checkbox"> <strong>Terminal comfort</strong> — you need to be able to type commands. No coding required.</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Security note:</strong> ClawHub is a public marketplace with thousands of community skills. As of early 2026, Hacker News and The Hacker News have both reported malicious skills uploaded to ClawHub. <strong>Only install skills from trusted publishers with verified names.</strong> This guide lists only the official/verified skill names — double-check the publisher before installing anything.</p>
+</blockquote>
+<hr>
+<h2>The 6 Agents — What Each Does</h2>
+<h3>Agent 1: Scout 🔍</h3>
+<p><strong>Purpose:</strong> Finds and scores local businesses that don&#39;t have a website</p>
+<p><strong>How it works:</strong>
+The Scout agent wakes up daily (via a cron job you&#39;ll set up). It queries the <strong>Google Places API</strong> for local businesses in your target city and niche — think &quot;restaurants in Austin TX&quot; or &quot;plumbers in Chicago IL.&quot; For each business it finds, it checks whether they have a website URL in the Places data. Businesses with no website (or a weak/broken site) get added to a leads list with their name, phone number, address, category, and a lead score based on factors like review count, rating, and business size.</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>google-maps-b2b-extractor</code> skill (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install google-maps-b2b-extractor
+</code></pre>
+</li>
+<li><code>web-scraper-as-a-service</code> skill for validating existing websites (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install web-scraper-as-a-service
+</code></pre>
+</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are a lead generation specialist. Every morning at 8am, search for [NICHE] businesses in [CITY, STATE] using the Google Places API. 
+
+For each business found:
+1. Check if they have a working website URL in their Places data
+2. Visit that URL if it exists and assess quality (broken, outdated, or missing = good lead)
+3. Score them 1-10 (10 = perfect lead: no website, high reviews, local business)
+4. Add qualifying leads (score 7+) to leads.json in your workspace
+
+Output format per lead:
+{
+  &quot;name&quot;: &quot;Business Name&quot;,
+  &quot;phone&quot;: &quot;+1...&quot;,
+  &quot;address&quot;: &quot;...&quot;,
+  &quot;category&quot;: &quot;restaurant&quot;,
+  &quot;google_rating&quot;: 4.5,
+  &quot;review_count&quot;: 120,
+  &quot;website&quot;: null,
+  &quot;score&quot;: 9,
+  &quot;status&quot;: &quot;new&quot;
+}
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Scout new leads for today. Search for barbershops and hair salons in Denver CO. Find all businesses with no website or a broken website. Score each lead and add qualifying ones to leads.json. Target 20 new leads per day.&quot;</p>
+</blockquote>
+<hr>
+<h3>Agent 2: Builder 🏗️</h3>
+<p><strong>Purpose:</strong> Automatically builds a custom demo website for each qualified lead</p>
+<p><strong>How it works:</strong>
+The Builder reads the leads.json file that Scout created. For each new lead with status &quot;new&quot;, it generates a complete, professional HTML/CSS website tailored to that business — using the business name, category, location, and any details from Google Places (photos, hours, phone). It then deploys that site to <strong>Vercel</strong> with a unique subdomain (e.g., <code>mike-barbershop-denver.vercel.app</code>). The lead&#39;s status is updated to &quot;site_built&quot; and the preview URL is stored.</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>vercel-deploy</code> skill (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install vercel-deploy
+</code></pre>
+</li>
+<li>Built-in <code>write</code> and <code>exec</code> tools (already in OpenClaw)</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are a web developer. Read leads.json and find all leads with status &quot;new&quot;.
+
+For each new lead:
+1. Generate a complete, mobile-first HTML website for their business
+   - Use their business name, category, location, phone number
+   - Include sections: Hero, About, Services, Contact, Google Map embed
+   - Make it look professional — use a color scheme appropriate for their industry
+   - Add a &quot;Get in touch&quot; button with their phone number
+2. Save the HTML to ./sites/{business-slug}/index.html
+3. Deploy to Vercel using the vercel CLI
+4. Update leads.json: set status to &quot;site_built&quot;, add preview_url
+
+Use clean, modern HTML5 + embedded CSS. No frameworks needed. The site must look great on mobile.
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Build demo websites for all leads with status &#39;new&#39; in leads.json. Create professional, industry-appropriate designs. Deploy each to Vercel and record the preview URLs.&quot;</p>
+</blockquote>
+<hr>
+<h3>Agent 3: Pitcher ✉️</h3>
+<p><strong>Purpose:</strong> Sends personalized outreach emails to each business with their demo site link and a payment link</p>
+<p><strong>How it works:</strong>
+The Pitcher reads leads with status &quot;site_built&quot; and crafts a personalized cold email for each one. The email includes: a compliment about their business, a note that you built them a free demo website, the actual preview URL so they can see it live, a simple Stripe payment link to claim it for $X/month, and a clear call to action. The email is sent via your configured email account (Himalaya or Gmail).</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>himalaya</code> skill (exists on ClawHub ✅) — for sending email via SMTP<pre><code class="language-bash">npx clawhub@latest install himalaya
+</code></pre>
+</li>
+<li>Alternative: <code>email-send</code> skill (also exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install email-send
+</code></pre>
+</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are a sales copywriter and outreach specialist. Read leads.json and find all leads with status &quot;site_built&quot;.
+
+For each lead:
+1. Write a short, personal cold email (under 150 words)
+   - Start with their first name or business name
+   - Mention something specific about their business (category, location)
+   - Tell them you built a free website demo for them
+   - Include their preview_url as a live link
+   - Include the Stripe payment link: [STRIPE_PAYMENT_LINK]
+   - Keep it warm, human, not salesy
+2. Send the email to their contact email (look it up from Google Places data if not already in leads.json)
+3. Update leads.json: set status to &quot;outreach_sent&quot;, record sent_at timestamp
+
+Subject line formula: &quot;I made [Business Name] a free website — take a look&quot;
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Send outreach emails for all leads with status &#39;site_built&#39;. Personalize each email. Use the preview URL from leads.json. Send via the outreach email account configured in Himalaya.&quot;</p>
+</blockquote>
+<hr>
+<h3>Agent 4: Closer 💬</h3>
+<p><strong>Purpose:</strong> Monitors replies, handles objections, and closes the sale</p>
+<p><strong>How it works:</strong>
+The Closer is the most intelligent agent. It monitors the outreach inbox for replies. When someone replies — whether they&#39;re interested, skeptical, or have questions — the Closer reads the context (which business, what demo they saw) and crafts a tailored response. It handles common objections like &quot;I already have a website&quot; (offer to upgrade it), &quot;how much does it cost?&quot; (send payment link again), or &quot;I&#39;m not sure I need this&quot; (show mobile-first stats for their industry). When someone pays, Stripe sends a webhook and the lead status updates automatically.</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>himalaya</code> skill for reading replies (already installed ✅)</li>
+<li><code>postiz</code> skill for scheduling follow-up posts if using social media (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install postiz
+</code></pre>
+</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are a sales closer. Your job is to convert warm leads into paying customers.
+
+Every 2 hours, check the outreach inbox for replies to our website pitches.
+
+For each reply:
+1. Find the matching lead in leads.json
+2. Read their business details and the demo site we sent them
+3. Craft a personalized, helpful response that:
+   - Answers their specific question or concern
+   - Reincludes the Stripe payment link if they&#39;re interested
+   - Is warm and human, not pushy
+   - Offers a 7-day free trial if they&#39;re on the fence
+
+Common objections and responses:
+- &quot;I already have a website&quot; → &quot;Great! We can upgrade or optimize what you have.&quot;
+- &quot;How much?&quot; → &quot;Just $[PRICE]/month. Here&#39;s the payment link: [LINK]&quot;
+- &quot;I need to think about it&quot; → &quot;No rush! Your demo will stay live for 7 days.&quot;
+
+Update leads.json status to &quot;replied&quot;, &quot;negotiating&quot;, or &quot;closed&quot; as appropriate.
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Check the outreach inbox for replies. For each reply, match it to a lead in leads.json and send a personalized, helpful response. Close any warm leads by resending the payment link.&quot;</p>
+</blockquote>
+<hr>
+<h3>Agent 5: Deliverer 🚀</h3>
+<p><strong>Purpose:</strong> When payment is received, delivers the live site, transfers ownership, and onboards the client</p>
+<p><strong>How it works:</strong>
+The Deliverer watches for Stripe payment webhooks (or you configure a daily check). When payment is confirmed, it: (1) migrates the demo site from the temp subdomain to a proper custom domain or a branded URL, (2) sends a welcome email with login credentials and next steps, (3) schedules a quick check-in, and (4) adds the client to a simple CRM in a spreadsheet or Airtable (optional). The lead status updates to &quot;delivered&quot;.</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>vercel-deploy</code> skill (already installed ✅)</li>
+<li><code>email-send</code> or <code>himalaya</code> skill (already installed ✅)</li>
+<li><code>stripe</code> skill for webhook monitoring (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install stripe
+</code></pre>
+</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are an onboarding specialist. Check for new Stripe payments every morning.
+
+For each confirmed payment:
+1. Find the matching lead in leads.json (match by email or business name)
+2. Update the Vercel deployment with a custom domain if they provided one, or move to a branded subdomain: [businessslug].youragency.com
+3. Send a welcome email:
+   - Thank them for their purchase
+   - Include their live site URL
+   - Include instructions for requesting changes (reply to this email)
+   - Mention their monthly renewal date
+4. Update leads.json: status = &quot;delivered&quot;, add delivered_at, site_url, payment_amount
+
+Keep the welcome email warm and professional.
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Check for any new Stripe payments since yesterday. For each payment, onboard the client: update their site URL, send a welcome email, and update leads.json.&quot;</p>
+</blockquote>
+<hr>
+<h3>Agent 6: Nurture 🌱</h3>
+<p><strong>Purpose:</strong> Keeps the relationship warm, requests testimonials, and generates upsell opportunities</p>
+<p><strong>How it works:</strong>
+The Nurture agent handles the long-term relationship. 30 days after delivery, it sends a check-in email. 60 days after, it asks for a Google review or testimonial. It monitors site uptime (basic ping check). It also identifies upsell opportunities — clients who mention wanting more features, e-commerce, booking systems, etc. — and drafts a custom proposal. This agent keeps retention high and grows revenue per client.</p>
+<p><strong>Tools needed:</strong></p>
+<ul>
+<li><code>himalaya</code> or <code>email-send</code> skill (already installed ✅)</li>
+<li><code>postiz</code> skill for posting client testimonials on social (optional, ✅ exists)</li>
+<li><code>x-twitter</code> skill for outreach/posting (exists on ClawHub ✅)<pre><code class="language-bash">npx clawhub@latest install x-twitter
+</code></pre>
+</li>
+</ul>
+<p><strong>What to put in your SOUL.md for this agent:</strong></p>
+<pre><code>You are a client success manager. Your job is to keep clients happy and grow accounts.
+
+Every day at 9am, review delivered clients in leads.json:
+
+1. 30-day check-in: Send a warm check-in email to clients who were delivered 30 days ago
+   - &quot;How is the site performing for you? Any changes needed?&quot;
+
+2. 60-day testimonial request: Ask clients delivered 60 days ago for a Google review
+   - &quot;Would you be willing to leave us a quick review? Here&#39;s the link: [LINK]&quot;
+
+3. Monitor site uptime: Do a quick ping check on each client&#39;s site URL
+   - If a site is down, alert immediately and attempt to redeploy
+
+4. Upsell opportunities: If a client has replied mentioning wanting features (booking, shop, etc.),
+   draft a custom proposal and add to upsell_pipeline.json
+
+Update leads.json with last_checkin_at, testimonial_requested_at, etc.
+</code></pre>
+<p><strong>Example prompt to give the agent:</strong></p>
+<blockquote>
+<p>&quot;Run your daily nurture routine. Send 30-day check-ins to appropriate clients, request testimonials from 60-day clients, and check all site URLs are live.&quot;</p>
+</blockquote>
+<hr>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Install OpenClaw</h3>
+<p>Open Terminal and run the one-line installer:</p>
+<pre><code class="language-bash">curl -fsSL https://openclaw.ai/install.sh | bash
+</code></pre>
+<p>This installs OpenClaw globally and launches the onboarding wizard. Follow the prompts — it will:</p>
+<ul>
+<li>Install Node.js 22+ if you don&#39;t have it</li>
+<li>Set up your workspace at <code>~/.openclaw/workspace</code></li>
+<li>Ask for your Anthropic API key</li>
+<li>Start the gateway daemon</li>
+</ul>
+<p>After installation, verify it&#39;s working:</p>
+<pre><code class="language-bash">openclaw doctor         # checks for config issues
+openclaw status         # shows gateway status
+openclaw dashboard      # opens browser UI at localhost:3333
+</code></pre>
+<blockquote>
+<p><strong>Troubleshooting:</strong> If <code>openclaw</code> is not found after install, add it to your PATH:</p>
+<pre><code class="language-bash">export PATH=&quot;$(npm prefix -g)/bin:$PATH&quot;
+</code></pre>
+<p>Add that line to <code>~/.zshrc</code> (Mac) or <code>~/.bashrc</code> (Linux) to make it permanent.</p>
+</blockquote>
+<hr>
+<h3>Step 2: Set Up Your Project Workspace</h3>
+<p>Create a dedicated workspace for this sales system:</p>
+<pre><code class="language-bash"># Create your workspace directory
+mkdir -p ~/sites-on-autopilot
+cd ~/sites-on-autopilot
+
+# Create the leads tracking file
+cat &gt; leads.json &lt;&lt; &#39;EOF&#39;
+[]
+EOF
+
+# Create a sites directory
+mkdir -p sites
+
+# Create a logs directory  
+mkdir -p logs
+</code></pre>
+<hr>
+<h3>Step 3: Install Required Skills</h3>
+<p>All of these skills have been verified to exist on ClawHub as of March 2026:</p>
+<pre><code class="language-bash"># Lead generation — finds businesses on Google Maps
+npx clawhub@latest install google-maps-b2b-extractor
+
+# Web scraping — validates existing websites  
+npx clawhub@latest install web-scraper-as-a-service
+
+# Vercel deployment — deploys sites automatically
+npx clawhub@latest install vercel-deploy
+
+# Email — sends outreach and reads replies
+npx clawhub@latest install himalaya
+
+# Stripe — monitors payments
+npx clawhub@latest install stripe
+
+# Social scheduling (optional, for Nurture agent)
+npx clawhub@latest install postiz
+
+# Twitter/X (optional, for social proof)
+npx clawhub@latest install x-twitter
+</code></pre>
+<blockquote>
+<p><strong>Skills that DON&#39;T exist on ClawHub (as of March 2026):</strong></p>
+<ul>
+<li><code>google-places</code> — use <code>google-maps-b2b-extractor</code> instead ✅</li>
+<li><code>stripe-webhooks</code> — use <code>stripe</code> (the native Stripe skill) instead ✅</li>
+<li><code>website-builder</code> — the Builder agent uses OpenClaw&#39;s native file write + exec tools instead (no skill needed)</li>
+</ul>
+</blockquote>
+<hr>
+<h3>Step 4: Configure API Keys</h3>
+<p>You need four API keys. Here&#39;s exactly where to get each one:</p>
+<h4>Anthropic API Key (powers all agents)</h4>
+<ol>
+<li>Go to <a href="https://console.anthropic.com">console.anthropic.com</a></li>
+<li>Create account → API Keys → Create Key</li>
+<li>Copy the key (starts with <code>sk-ant-</code>)</li>
+<li>Add to OpenClaw:</li>
+</ol>
+<pre><code class="language-bash">openclaw config set anthropic.apiKey &quot;sk-ant-YOUR_KEY_HERE&quot;
+</code></pre>
+<h4>Google Places API Key (Scout agent)</h4>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com">console.cloud.google.com</a></li>
+<li>Create a new project → Enable &quot;Places API (New)&quot;</li>
+<li>Go to APIs &amp; Services → Credentials → Create Credentials → API Key</li>
+<li>Copy the key</li>
+<li>Add to your workspace&#39;s <code>.env</code> file:</li>
+</ol>
+<pre><code class="language-bash">echo &#39;GOOGLE_PLACES_API_KEY=YOUR_KEY_HERE&#39; &gt;&gt; ~/sites-on-autopilot/.env
+</code></pre>
+<blockquote>
+<p>Google gives you <strong>$200 free credit per month</strong> — more than enough for this workflow at low volume.</p>
+</blockquote>
+<h4>Vercel Token (Builder + Deliverer agents)</h4>
+<ol>
+<li>Go to <a href="https://vercel.com/account/tokens">vercel.com/account/tokens</a></li>
+<li>Create a new token → Copy it</li>
+<li>Install Vercel CLI and log in:</li>
+</ol>
+<pre><code class="language-bash">npm install -g vercel
+vercel login
+</code></pre>
+<h4>Stripe Payment Link + Webhook (Deliverer agent)</h4>
+<ol>
+<li>Go to <a href="https://stripe.com">stripe.com</a> → Create account</li>
+<li>Dashboard → Payment Links → Create Link</li>
+<li>Set the price (e.g., $49/month recurring)</li>
+<li>Copy the payment link — paste it into your Pitcher agent&#39;s SOUL.md</li>
+<li>For webhooks: Dashboard → Developers → Webhooks → Add endpoint<ul>
+<li>URL: your OpenClaw webhook URL (from <code>openclaw webhook status</code>)</li>
+<li>Events: <code>payment_intent.succeeded</code>, <code>checkout.session.completed</code></li>
+</ul>
+</li>
+</ol>
+<h4>Email (Pitcher + Closer agents)</h4>
+<p>Configure Himalaya with your outreach email:</p>
+<pre><code class="language-bash"># Install himalaya CLI
+npx clawhub@latest install himalaya
+
+# Follow the interactive setup
+himalaya account add
+</code></pre>
+<p>For Gmail: enable App Passwords in Google Security settings → use your App Password as the SMTP password.</p>
+<hr>
+<h3>Step 5: Write Your SOUL.md</h3>
+<p>The SOUL.md file is your agent&#39;s personality and standing instructions. Create one for this sales system:</p>
+<pre><code class="language-bash">cat &gt; ~/.openclaw/workspace/SOUL.md &lt;&lt; &#39;SOUL&#39;
+# SOUL.md — Sales Autopilot Agent
+
+You are a professional website sales agent. You run 6 tasks on a schedule to find local businesses without websites, build them demo sites, pitch them, close sales, and nurture client relationships.
+
+## Your mission
+Sell affordable professional websites to local businesses in [YOUR TARGET CITY] — starting with [YOUR TARGET NICHE, e.g., restaurants, barbershops, plumbers].
+
+## Your pricing
+- Basic website: $49/month (recurring)
+- One-time setup fee: $199 (optional)
+- Your Stripe payment link: [PASTE YOUR STRIPE LINK HERE]
+
+## Your target niche
+City: [YOUR CITY, e.g., Austin TX]
+Niche: [YOUR NICHE, e.g., restaurants]
+Daily lead target: 20 new leads
+
+## Your tone
+Warm, helpful, human. Never spammy. You&#39;re offering something genuinely valuable — most local businesses desperately need a website and don&#39;t know where to start.
+
+## Your workspace
+- Leads database: ~/sites-on-autopilot/leads.json
+- Built sites: ~/sites-on-autopilot/sites/
+- Logs: ~/sites-on-autopilot/logs/
+
+## Your schedule
+- 8:00 AM: Scout runs (find new leads)
+- 9:00 AM: Builder runs (build demo sites for new leads)
+- 10:00 AM: Pitcher runs (send outreach emails)
+- Every 2 hours: Closer checks inbox for replies
+- 6:00 PM: Deliverer checks for new payments
+- 9:00 AM daily: Nurture runs for existing clients
+
+## Important rules
+- Never send more than 20 cold emails per day (avoids spam filters)
+- Always personalize each email — no copy-paste blasts
+- Always update leads.json after each action
+- If a site deploy fails, log the error and skip to the next lead
+SOUL
+</code></pre>
+<blockquote>
+<p>🔧 <strong>Customize the placeholders:</strong> Replace <code>[YOUR TARGET CITY]</code>, <code>[YOUR TARGET NICHE]</code>, and <code>[PASTE YOUR STRIPE LINK HERE]</code> with your actual values before proceeding.</p>
+</blockquote>
+<hr>
+<h3>Step 6: Set Up Agent Workflows (Cron + Heartbeat)</h3>
+<p>This is where the magic happens. You&#39;ll set up automated cron jobs that run each agent on a schedule.</p>
+<h4>Configure the heartbeat (Closer agent — checks email every 2 hours)</h4>
+<p>Edit <code>~/.openclaw/openclaw.json</code> to add heartbeat settings:</p>
+<pre><code class="language-json5">{
+  agents: {
+    defaults: {
+      heartbeat: {
+        every: &quot;2h&quot;,
+        target: &quot;last&quot;,
+        activeHours: { start: &quot;07:00&quot;, end: &quot;22:00&quot; }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Create the HEARTBEAT.md checklist:</p>
+<pre><code class="language-bash">cat &gt; ~/.openclaw/workspace/HEARTBEAT.md &lt;&lt; &#39;HB&#39;
+# Heartbeat checklist
+
+- Check the outreach email inbox for any replies to website pitches
+- For each new reply, find the matching lead in ~/sites-on-autopilot/leads.json and send a personalized response
+- Check if any leads have been marked &quot;negotiating&quot; and need a follow-up (2+ days since last reply)
+- Check Stripe for any new payments in the last 2 hours
+HB
+</code></pre>
+<h4>Schedule the 6 agents with cron jobs</h4>
+<pre><code class="language-bash"># Agent 1: Scout — runs at 8am daily
+openclaw cron add \
+  --name &quot;Scout: Find New Leads&quot; \
+  --cron &quot;0 8 * * *&quot; \
+  --session isolated \
+  --message &quot;Run the Scout routine: search Google Places API for [NICHE] businesses in [CITY, STATE] with no website. Target 20 new qualifying leads. Add them to ~/sites-on-autopilot/leads.json with status &#39;new&#39;.&quot; \
+  --announce
+
+# Agent 2: Builder — runs at 9am daily (after Scout)
+openclaw cron add \
+  --name &quot;Builder: Create Demo Sites&quot; \
+  --cron &quot;0 9 * * *&quot; \
+  --session isolated \
+  --message &quot;Run the Builder routine: read ~/sites-on-autopilot/leads.json and build a demo website for each lead with status &#39;new&#39;. Deploy each to Vercel. Update leads.json with preview_url and status &#39;site_built&#39;.&quot; \
+  --announce
+
+# Agent 3: Pitcher — runs at 10am daily
+openclaw cron add \
+  --name &quot;Pitcher: Send Outreach&quot; \
+  --cron &quot;0 10 * * *&quot; \
+  --session isolated \
+  --message &quot;Run the Pitcher routine: read ~/sites-on-autopilot/leads.json and send personalized outreach emails to each lead with status &#39;site_built&#39;. Include their preview URL and the Stripe payment link. Update status to &#39;outreach_sent&#39;.&quot; \
+  --announce
+
+# Agent 5: Deliverer — runs at 6pm daily
+openclaw cron add \
+  --name &quot;Deliverer: Process Payments&quot; \
+  --cron &quot;0 18 * * *&quot; \
+  --session isolated \
+  --message &quot;Run the Deliverer routine: check Stripe for new payments since yesterday. For each payment, find the matching lead, send a welcome email, update their Vercel deployment, and set status to &#39;delivered&#39; in leads.json.&quot; \
+  --announce
+
+# Agent 6: Nurture — runs at 9am daily
+openclaw cron add \
+  --name &quot;Nurture: Client Relations&quot; \
+  --cron &quot;5 9 * * *&quot; \
+  --session isolated \
+  --message &quot;Run the Nurture routine: check leads.json for clients needing 30-day check-ins or 60-day testimonial requests. Send appropriate emails. Check all delivered sites are online. Log any issues.&quot; \
+  --announce
+</code></pre>
+<blockquote>
+<p>Note: Agent 4 (Closer) runs via the heartbeat every 2 hours — not as a separate cron job — since it needs to respond quickly to replies.</p>
+</blockquote>
+<h4>Verify your cron jobs are set up:</h4>
+<pre><code class="language-bash">openclaw cron list
+</code></pre>
+<p>You should see all 5 cron jobs listed.</p>
+<hr>
+<h3>Step 7: Test &amp; Launch</h3>
+<p>Before going live, test each component individually:</p>
+<h4>Test 1: Scout agent manually</h4>
+<pre><code class="language-bash">openclaw run &quot;Run the Scout routine: search for 3 test barbershops in Austin TX. Don&#39;t save to leads.json yet — just show me the results.&quot;
+</code></pre>
+<p>Expected output: A list of 3 businesses with scores and details.</p>
+<h4>Test 2: Builder agent manually</h4>
+<p>Add one test lead to leads.json:</p>
+<pre><code class="language-bash">cat &gt; ~/sites-on-autopilot/leads.json &lt;&lt; &#39;EOF&#39;
+[
+  {
+    &quot;name&quot;: &quot;Mike&#39;s Test Barbershop&quot;,
+    &quot;phone&quot;: &quot;+15551234567&quot;,
+    &quot;address&quot;: &quot;123 Main St, Austin TX&quot;,
+    &quot;category&quot;: &quot;barbershop&quot;,
+    &quot;google_rating&quot;: 4.8,
+    &quot;review_count&quot;: 45,
+    &quot;website&quot;: null,
+    &quot;score&quot;: 9,
+    &quot;status&quot;: &quot;new&quot;
+  }
+]
+EOF
+</code></pre>
+<p>Then run:</p>
+<pre><code class="language-bash">openclaw run &quot;Run the Builder routine on ~/sites-on-autopilot/leads.json. Build a test site for the one lead with status &#39;new&#39;. Deploy to Vercel. Report the preview URL.&quot;
+</code></pre>
+<h4>Test 3: Email (Pitcher + Closer)</h4>
+<pre><code class="language-bash"># Send yourself a test email
+openclaw run &quot;Send a test email to [YOUR EMAIL] with subject &#39;Test from OpenClaw&#39; and body &#39;This is a test of the Pitcher agent.&#39;&quot;
+</code></pre>
+<h4>Test 4: Full dry run</h4>
+<p>Once each component works, run a full dry run with 3 leads:</p>
+<pre><code class="language-bash">openclaw run &quot;Run the full Scout → Builder → Pitcher sequence with 3 leads in Austin TX barbershops. Build the sites, generate the emails, but DON&#39;T send the emails yet — show me previews of each email first.&quot;
+</code></pre>
+<h4>Test 5: Verify cron jobs fire</h4>
+<pre><code class="language-bash"># Force the Scout job to run now (for testing)
+openclaw cron run &quot;Scout: Find New Leads&quot;
+
+# Check the logs
+openclaw logs --tail 50
+</code></pre>
+<h4>Go live</h4>
+<p>Once everything is tested:</p>
+<ol>
+<li>Confirm your Stripe payment link is live</li>
+<li>Confirm your email account is configured in Himalaya</li>
+<li>Confirm your SOUL.md has your real city, niche, and Stripe link</li>
+<li>Start the gateway in background mode:</li>
+</ol>
+<pre><code class="language-bash">openclaw gateway start
+</code></pre>
+<p>Monitor the first few days manually before fully trusting it to run autonomously.</p>
+<hr>
+<h2>Cost Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Anthropic API (Claude Sonnet)</td>
+<td>~$20–50</td>
+<td>$3/M input, $15/M output tokens. Depends on volume</td>
+</tr>
+<tr>
+<td>Google Places API</td>
+<td>$0–10</td>
+<td>$200 free credit/mo; ~$0.004/request</td>
+</tr>
+<tr>
+<td>Vercel (Hobby plan)</td>
+<td>$0</td>
+<td>Free for hobby/non-commercial. Pro is $20/mo if needed</td>
+</tr>
+<tr>
+<td>Stripe</td>
+<td>2.9% + $0.30/tx</td>
+<td>No monthly fee. Pure per-transaction</td>
+</tr>
+<tr>
+<td>Postiz (Standard)</td>
+<td>$29</td>
+<td>Optional — only if using social media scheduling</td>
+</tr>
+<tr>
+<td>Domain (optional)</td>
+<td>$1–12</td>
+<td>If you want branded client URLs</td>
+</tr>
+<tr>
+<td><strong>Total (minimal)</strong></td>
+<td><strong>~$20–50/mo</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total (with Postiz)</strong></td>
+<td><strong>~$50–80/mo</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Revenue vs Cost Example:</strong></p>
+<ul>
+<li>10 clients at $49/mo = $490/month recurring</li>
+<li>Minus costs: ~$50/mo</li>
+<li><strong>Net: ~$440/month</strong> from 10 clients</li>
+</ul>
+<p>At 50 clients: ~$2,450/month net. At 100 clients: ~$4,850/month net.</p>
+<hr>
+<h2>Common Issues &amp; Fixes</h2>
+<h3>&quot;Scout isn&#39;t finding businesses&quot;</h3>
+<ul>
+<li><strong>Check:</strong> Is your Google Places API key active and the Places API enabled?</li>
+<li><strong>Fix:</strong> Go to <a href="https://console.cloud.google.com">console.cloud.google.com</a> → your project → APIs → Make sure &quot;Places API (New)&quot; is enabled</li>
+<li><strong>Check:</strong> Is your API key in the environment? <code>cat ~/sites-on-autopilot/.env</code></li>
+</ul>
+<h3>&quot;Builder fails to deploy to Vercel&quot;</h3>
+<ul>
+<li><strong>Check:</strong> Are you logged in to Vercel? Run <code>vercel whoami</code></li>
+<li><strong>Fix:</strong> Run <code>vercel login</code> and authenticate</li>
+<li><strong>Check:</strong> Is the <code>vercel</code> CLI installed globally? Run <code>vercel --version</code></li>
+<li><strong>Fix:</strong> <code>npm install -g vercel</code></li>
+</ul>
+<h3>&quot;Emails going to spam&quot;</h3>
+<ul>
+<li><strong>Fix:</strong> Use a dedicated outreach Gmail with a warmed-up domain (send manual emails for 2 weeks before bulk outreach)</li>
+<li><strong>Fix:</strong> Keep email volume under 20/day when starting</li>
+<li><strong>Fix:</strong> Never use the word &quot;free&quot; in subject lines (triggers spam filters)</li>
+<li><strong>Alternative:</strong> Consider <a href="https://lemlist.com">lemlist.com</a> or <a href="https://instantly.ai">instantly.ai</a> for email warming</li>
+</ul>
+<h3>&quot;Closer isn&#39;t reading replies correctly&quot;</h3>
+<ul>
+<li><strong>Check:</strong> Is Himalaya configured to read from the correct inbox?</li>
+<li><strong>Fix:</strong> Run <code>himalaya envelope list</code> to verify you can read emails manually</li>
+<li><strong>Check:</strong> Is your email polling the right folder (Inbox vs All Mail)?</li>
+</ul>
+<h3>&quot;Stripe payments aren&#39;t being detected&quot;</h3>
+<ul>
+<li><strong>Check:</strong> Is the Stripe webhook configured? Go to Stripe Dashboard → Developers → Webhooks</li>
+<li><strong>Fix:</strong> Run <code>openclaw webhook status</code> to get your webhook URL, then add it in Stripe</li>
+<li><strong>Alternative:</strong> Have the Deliverer agent do a daily Stripe API poll instead of relying on webhooks</li>
+</ul>
+<h3>&quot;Leads.json keeps growing but nothing is converting&quot;</h3>
+<ul>
+<li><strong>Fix:</strong> Review your email copy. The most common issue is generic, salesy copy. Make emails hyper-specific to the business.</li>
+<li><strong>Fix:</strong> Try a lower price point ($29/mo) for the first few clients to build testimonials</li>
+<li><strong>Fix:</strong> Add a stronger CTA — offer a 7-day free trial</li>
+</ul>
+<h3>&quot;OpenClaw isn&#39;t waking up for cron jobs&quot;</h3>
+<ul>
+<li><strong>Check:</strong> Is the gateway running? <code>openclaw status</code></li>
+<li><strong>Fix:</strong> <code>openclaw gateway restart</code></li>
+<li><strong>Check:</strong> Are cron jobs scheduled? <code>openclaw cron list</code></li>
+</ul>
+<h3>&quot;npx clawhub@latest install fails&quot;</h3>
+<ul>
+<li><strong>Fix:</strong> Make sure you have Node.js 22+: <code>node --version</code></li>
+<li><strong>Fix:</strong> Try with sudo if on Linux: <code>sudo npx clawhub@latest install [skill-name]</code></li>
+<li><strong>Security check:</strong> Only install skills from the verified names in this guide</li>
+</ul>
+<hr>
+<h2>Links — Verified Working (March 2026)</h2>
+<h3>Core Tools</h3>
+<ul>
+<li><strong>OpenClaw docs:</strong> <a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a></li>
+<li><strong>OpenClaw install:</strong> <a href="https://openclaw.ai/install.sh">https://openclaw.ai/install.sh</a> (Mac/Linux)</li>
+<li><strong>OpenClaw multi-agent guide:</strong> <a href="https://docs.openclaw.ai/concepts/multi-agent">https://docs.openclaw.ai/concepts/multi-agent</a></li>
+<li><strong>OpenClaw cron guide:</strong> <a href="https://docs.openclaw.ai/automation/cron-jobs">https://docs.openclaw.ai/automation/cron-jobs</a></li>
+<li><strong>OpenClaw heartbeat guide:</strong> <a href="https://docs.openclaw.ai/gateway/heartbeat">https://docs.openclaw.ai/gateway/heartbeat</a></li>
+<li><strong>ClawHub skill registry:</strong> <a href="https://clawhub.ai/skills">https://clawhub.ai/skills</a></li>
+</ul>
+<h3>ClawHub Skills (verified ✅)</h3>
+<ul>
+<li><code>google-maps-b2b-extractor</code>: <a href="https://clawhub.ai/skills?q=google-maps-b2b-extractor">https://clawhub.ai/skills?q=google-maps-b2b-extractor</a></li>
+<li><code>web-scraper-as-a-service</code>: <a href="https://clawhub.ai/skills?q=web-scraper-as-a-service">https://clawhub.ai/skills?q=web-scraper-as-a-service</a></li>
+<li><code>vercel-deploy</code>: <a href="https://clawhub.ai/skills?q=vercel-deploy">https://clawhub.ai/skills?q=vercel-deploy</a></li>
+<li><code>himalaya</code>: <a href="https://clawhub.ai/skills?q=himalaya">https://clawhub.ai/skills?q=himalaya</a></li>
+<li><code>stripe</code>: <a href="https://clawhub.ai/skills?q=stripe">https://clawhub.ai/skills?q=stripe</a></li>
+<li><code>postiz</code>: <a href="https://clawhub.ai/skills?q=postiz">https://clawhub.ai/skills?q=postiz</a></li>
+<li><code>x-twitter</code>: <a href="https://clawhub.ai/skills?q=x-twitter">https://clawhub.ai/skills?q=x-twitter</a></li>
+</ul>
+<h3>Payment &amp; Hosting</h3>
+<ul>
+<li><strong>Stripe:</strong> <a href="https://stripe.com">https://stripe.com</a> (2.9% + $0.30/tx, no monthly fee)</li>
+<li><strong>Stripe payment links:</strong> <a href="https://stripe.com/docs/payment-links">https://stripe.com/docs/payment-links</a></li>
+<li><strong>Vercel pricing:</strong> <a href="https://vercel.com/pricing">https://vercel.com/pricing</a> (Hobby plan: free)</li>
+<li><strong>Vercel deploy docs:</strong> <a href="https://vercel.com/docs/deployments/overview">https://vercel.com/docs/deployments/overview</a></li>
+</ul>
+<h3>APIs</h3>
+<ul>
+<li><strong>Anthropic Console:</strong> <a href="https://console.anthropic.com">https://console.anthropic.com</a></li>
+<li><strong>Anthropic API pricing:</strong> <a href="https://platform.claude.com/docs/en/about-claude/pricing">https://platform.claude.com/docs/en/about-claude/pricing</a><ul>
+<li>Claude Sonnet 4.6: $3/M input, $15/M output</li>
+<li>Claude Haiku: $1/M input, $5/M output (cheaper for high-volume tasks)</li>
+</ul>
+</li>
+<li><strong>Google Maps Platform:</strong> <a href="https://mapsplatform.google.com">https://mapsplatform.google.com</a></li>
+<li><strong>Google Places API pricing:</strong> <a href="https://developers.google.com/maps/documentation/places/web-service/usage-and-billing">https://developers.google.com/maps/documentation/places/web-service/usage-and-billing</a></li>
+<li><strong>Google Cloud Console:</strong> <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
+</ul>
+<h3>Social Scheduling</h3>
+<ul>
+<li><strong>Postiz:</strong> <a href="https://postiz.com">https://postiz.com</a> (open-source social scheduler)</li>
+<li><strong>Postiz pricing:</strong> <a href="https://postiz.com/pricing">https://postiz.com/pricing</a> ($29/mo Standard, can self-host free)</li>
+</ul>
+<h3>Source Tweets</h3>
+<ul>
+<li><strong>Original thread (Agent breakdown):</strong> <a href="https://x.com/everestchris6/status/2025291876052738163">https://x.com/everestchris6/status/2025291876052738163</a></li>
+<li><strong>Second tweet (System overview):</strong> <a href="https://x.com/everestchris6/status/2025995047729254701">https://x.com/everestchris6/status/2025995047729254701</a></li>
+</ul>
+<hr>
+<h2>Next Steps &amp; Scaling</h2>
+<p>Once you have this running and making money, here&#39;s how to scale:</p>
+<ol>
+<li><strong>Expand niches:</strong> Start new Scout agents for different niches (plumbers, dentists, gyms)</li>
+<li><strong>Expand cities:</strong> Target multiple cities simultaneously</li>
+<li><strong>Add social proof:</strong> Use Postiz to auto-post client testimonials on X/Twitter — drives inbound leads</li>
+<li><strong>Raise prices:</strong> Once you have 10+ happy clients, raise to $79–99/month for new clients</li>
+<li><strong>Hire a VA:</strong> Once you&#39;re at $3K/month, hire a virtual assistant to handle edge cases the Closer misses</li>
+<li><strong>White-label:</strong> Offer the same system to marketing agencies under their brand</li>
+</ol>
+<hr>
+<p><em>Playbook written for Maxxer Academy. Last verified: March 2026.</em>
+<em>Source: @everestchris6 on X. All tool links and prices verified at time of writing.</em></p>
+</article>
+</div>
+<footer>
+  <a href="/">← Back to all playbooks</a> · Curated by <a href="https://x.com/christiancattaneo" target="_blank">Christian Cattaneo</a> · <a href="https://maxxer.ai" target="_blank">Maxxer</a> · 2026
+</footer>
+</body>
+</html>

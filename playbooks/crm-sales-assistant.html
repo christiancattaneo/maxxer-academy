@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM Sales Assistant — Automated Deal Tracking & Outreach — Maxxer Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #f7f6f3; --surface: #fff; --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #888; --border: #e6e4df; --accent: #2563eb; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .5rem; }
+    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: .6rem; font-weight: 600; background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 4px; }
+    .nav-back { font-size: .85rem; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--ink); }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .accent-bar { width: 40px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 1.5rem; }
+    article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: .5rem; }
+    article h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.3px; margin: 2.5rem 0 .8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    article h3 { font-size: 1.05rem; font-weight: 700; margin: 1.8rem 0 .5rem; }
+    article h4 { font-size: .95rem; font-weight: 600; margin: 1.2rem 0 .4rem; }
+    article p { margin-bottom: 1rem; color: var(--ink-2); }
+    article ul, article ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+    article li { margin-bottom: .4rem; }
+    article li input[type=checkbox] { margin-right: .4rem; }
+    article strong { color: var(--ink); font-weight: 600; }
+    article a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    article a:hover { text-decoration: underline; }
+    article blockquote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1rem 0; background: rgba(0,0,0,.02); border-radius: 0 8px 8px 0; color: var(--ink-2); font-style: italic; }
+    article code { font-family: 'JetBrains Mono', monospace; font-size: .85em; background: rgba(0,0,0,.05); padding: 2px 6px; border-radius: 4px; }
+    article pre { background: #1a1a2e; color: #e0e0e0; padding: 1.2rem 1.5rem; border-radius: 10px; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.5; }
+    article pre code { background: none; padding: 0; color: inherit; font-size: .8rem; }
+    article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .9rem; }
+    article th { text-align: left; padding: .6rem .8rem; border-bottom: 2px solid var(--border); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+    article td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); color: var(--ink-2); }
+    article hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    article img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--ink-3); }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    @media (max-width: 640px) { .wrap { padding: 1.5rem 1rem 3rem; } nav { padding: 0 1rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
+  <a class="nav-back" href="/">← All Playbooks</a>
+</nav>
+<div class="wrap">
+  <div class="accent-bar"></div>
+  <article><h1>CRM Sales Assistant — Automated Deal Tracking &amp; Outreach</h1>
+<blockquote>
+<p>Based on workflows by <a href="https://x.com/dashboardlim/status/2024863642575896613">@dashboardlim</a> and <a href="https://x.com/ericosiu/status/2019542209780215899">@ericosiu</a></p>
+</blockquote>
+<hr>
+<h2>Overview</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>What</strong></td>
+<td>An OpenClaw agent connected to your CRM that analyzes your entire pipeline, identifies stale deals, builds prioritized follow-up lists, and executes personalized outreach sequences — all from a single conversation</td>
+</tr>
+<tr>
+<td><strong>Results</strong></td>
+<td>169 open deals analyzed and broken down by pipeline stage in seconds; enterprise meetings booked with multi-trillion dollar companies</td>
+</tr>
+<tr>
+<td><strong>Difficulty</strong></td>
+<td>Intermediate</td>
+</tr>
+<tr>
+<td><strong>Setup time</strong></td>
+<td>2–3 hours</td>
+</tr>
+<tr>
+<td><strong>Monthly cost</strong></td>
+<td>$0 (HubSpot Free + local AI model) or ~$20–50/month (HubSpot Starter + API usage)</td>
+</tr>
+</tbody></table>
+<h3>The Two Workflows This Combines</h3>
+<p><strong>@dashboardlim&#39;s Sales Pipeline Assistant:</strong></p>
+<blockquote>
+<p>&quot;we just turned openclaw into a full sales assistant connected it to HubSpot CRM and asked &#39;how many deals do i need to chase?&#39; it came back with 169 open deals broken down by pipeline and stage in seconds&quot;</p>
+<p>Dashboard Lim Sales Pipeline: 39 deals → 15 in &quot;follow-up in 3 months&quot; → 12 in &quot;follow-up required&quot; → 3 in discovery call → 3 no-shows</p>
+<p>Then asked it to build an automated follow-up system.</p>
+</blockquote>
+<p><strong>@ericosiu&#39;s Daily Deal Finder:</strong></p>
+<blockquote>
+<p>&quot;This @openclaw agent looked through my connections, came up with an angle, and booked a meeting with a multi-trillion dollar company. It&#39;s called the Daily Deal Finder. OpenClaw goes through our CRM, sales transcripts and based on our goals, figures out the right people to talk to and what the angle is.&quot;</p>
+</blockquote>
+<hr>
+<h2>Prerequisites</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>OpenClaw installed</strong> — <a href="https://www.getopenclaw.ai">getopenclaw.ai</a> (macOS or Linux)</li>
+<li><input disabled="" type="checkbox"> <strong>HubSpot account (free tier works!)</strong> — <a href="https://app.hubspot.com/signup">app.hubspot.com/signup</a> — No credit card needed</li>
+<li><input disabled="" type="checkbox"> <strong>HubSpot Private App token</strong> — covered in Step 2 below</li>
+<li><input disabled="" type="checkbox"> <strong><code>himalaya</code> email skill</strong> — for sending follow-up emails → <a href="https://clawhub.ai/lamelas/himalaya">clawhub.ai/lamelas/himalaya</a></li>
+<li><input disabled="" type="checkbox"> <strong>Super Admin or App Marketplace Access</strong> in your HubSpot account</li>
+</ul>
+<hr>
+<h2>What the Agent Does</h2>
+<h3>Deal Analysis</h3>
+<p>The agent connects directly to the HubSpot CRM API and can answer questions like:</p>
+<ul>
+<li><em>&quot;How many deals do I need to chase?&quot;</em></li>
+<li><em>&quot;Show me all deals with no activity in 30+ days&quot;</em></li>
+<li><em>&quot;What&#39;s my total pipeline value by stage?&quot;</em></li>
+<li><em>&quot;Which deals are closing this month?&quot;</em></li>
+</ul>
+<p>Under the hood, it calls HubSpot&#39;s <code>/crm/v3/objects/deals</code> API, filters by <code>dealstage</code>, <code>hs_lastmodifieddate</code>, and <code>amount</code>, then formats results into a prioritized action list.</p>
+<p><strong>What it pulls per deal:</strong></p>
+<ul>
+<li>Deal name, stage, pipeline</li>
+<li>Associated contact and company</li>
+<li>Deal value and projected close date</li>
+<li>Last activity date (to flag stale deals)</li>
+<li>Owner (for team handoffs)</li>
+</ul>
+<h3>Automated Follow-Up Sequences</h3>
+<p>Once stale deals are identified, the agent drafts and (optionally) sends a personalized sequence:</p>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Channel</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Day 1</td>
+<td>Email</td>
+<td>Personal recap of last conversation + soft CTA</td>
+</tr>
+<tr>
+<td>Day 2</td>
+<td>LinkedIn</td>
+<td>Connection request + short context note</td>
+</tr>
+<tr>
+<td>Day 3</td>
+<td>SMS</td>
+<td>Permission-based short check-in (if you have their number)</td>
+</tr>
+<tr>
+<td>Day 4</td>
+<td>Phone</td>
+<td>Call script + voicemail drop text prepared</td>
+</tr>
+</tbody></table>
+<p>Email sending uses the <code>himalaya</code> skill via IMAP/SMTP. The agent composes the email, you approve it, and <code>himalaya</code> sends it — logged back to HubSpot automatically.</p>
+<h3>Daily Deal Finder (Eric Siu&#39;s Approach)</h3>
+<p>A daily cron job that runs through your entire CRM + any sales transcripts you have on disk:</p>
+<ol>
+<li><strong>Scans</strong> all contacts and companies in your CRM</li>
+<li><strong>Cross-references</strong> your stated goals (ICP, revenue targets, partnership needs)</li>
+<li><strong>Identifies</strong> 3–5 high-priority targets you haven&#39;t touched in a while</li>
+<li><strong>Crafts</strong> a personalized angle for each (based on their role, company news, last interaction)</li>
+<li><strong>Drafts</strong> outreach — or books a meeting via your calendar link</li>
+<li><strong>Notifies</strong> you on Telegram/WhatsApp with the day&#39;s hit list</li>
+</ol>
+<hr>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Set Up HubSpot Free Account</h3>
+<p><strong>URL:</strong> <a href="https://app.hubspot.com/signup">https://app.hubspot.com/signup</a></p>
+<ol>
+<li>Go to <code>app.hubspot.com/signup</code></li>
+<li>Sign up with your work email (Google SSO works)</li>
+<li>Select <strong>&quot;Marketing, Sales, or Service&quot;</strong> as your use case</li>
+<li>Choose <strong>&quot;1 person&quot;</strong> or your team size</li>
+<li>Select <strong>Free plan</strong> (no credit card required)</li>
+<li>Skip the onboarding wizard or complete it — your choice</li>
+</ol>
+<p><strong>What the Free Plan includes (relevant to this setup):</strong></p>
+<ul>
+<li>✅ Unlimited contacts</li>
+<li>✅ Up to 1,000,000 contacts stored</li>
+<li>✅ Deal pipeline (1 pipeline, unlimited deals)</li>
+<li>✅ Contact &amp; company records</li>
+<li>✅ Activity logging (calls, emails, notes)</li>
+<li>✅ API access via Private Apps</li>
+<li>⚠️ No email sequences (requires Sales Hub Starter — $20/seat/month)</li>
+<li>⚠️ No custom reporting (Professional — $90/seat/month)</li>
+</ul>
+<p><strong>Enable what you need:</strong></p>
+<ul>
+<li>Go to <strong>Settings → Objects → Deals</strong> and make sure your pipeline is set up</li>
+<li>Go to <strong>Settings → Properties</strong> to see what data fields you have</li>
+</ul>
+<hr>
+<h3>Step 2: Create a HubSpot Private App</h3>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> Legacy API keys are fully deprecated as of 2024. Private App tokens are the only supported authentication method. Never commit your token to git.</p>
+</blockquote>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>In HubSpot, click the <strong>Settings gear</strong> (top-right)</li>
+<li>In the left sidebar, go to <strong>Integrations → Private Apps</strong></li>
+<li>Click <strong>&quot;Create a private app&quot;</strong></li>
+<li>Give it a name: <code>OpenClaw Integration</code></li>
+<li>Add a description: <code>OpenClaw AI assistant — deal tracking and outreach</code></li>
+<li>Click the <strong>Scopes</strong> tab and enable:</li>
+</ol>
+<p><strong>Essential scopes (free tier):</strong></p>
+<pre><code>crm.objects.contacts.read
+crm.objects.contacts.write
+crm.objects.companies.read
+crm.objects.companies.write
+crm.objects.deals.read
+crm.objects.deals.write
+crm.objects.owners.read
+</code></pre>
+<p><strong>For full features (add if you have the relevant Hub):</strong></p>
+<pre><code>sales-email-read          # Read sent emails
+crm.objects.notes.read    # Read activity notes
+crm.objects.notes.write   # Log notes programmatically
+automation                # Trigger workflows (requires Marketing/Sales Hub)
+tickets                   # Service Hub tickets
+</code></pre>
+<ol start="7">
+<li>Click <strong>&quot;Create app&quot;</strong></li>
+<li>HubSpot shows your access token <strong>once</strong> — copy it immediately!<ul>
+<li>Format: <code>pat-na1-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></li>
+<li>Store it in a password manager or your <code>.env</code> file</li>
+<li>If you lose it, you can generate a new one (old one is invalidated)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Rate limits to know:</strong></p>
+<ul>
+<li>Free/Starter: 100 API calls per 10 seconds</li>
+<li>Professional: 150 calls per 10 seconds</li>
+<li>Enterprise: 200 calls per 10 seconds</li>
+<li>Normal conversational use will never hit these limits</li>
+</ul>
+<hr>
+<h3>Step 3: Install Required Skills</h3>
+<p><strong>Install <code>himalaya</code> for email sending:</strong></p>
+<pre><code class="language-bash">clawhub install himalaya
+</code></pre>
+<p>ClawHub page: <a href="https://clawhub.ai/lamelas/himalaya">https://clawhub.ai/lamelas/himalaya</a></p>
+<p>After installing, configure himalaya with your email account. The skill supports IMAP/SMTP, so it works with Gmail, Outlook, Fastmail, ProtonMail (bridge), and any standard email provider.</p>
+<p><strong>Configure himalaya for Gmail (example):</strong></p>
+<pre><code class="language-toml"># ~/.config/himalaya/config.toml
+[accounts.work]
+email = &quot;you@yourcompany.com&quot;
+display-name = &quot;Your Name&quot;
+backend.type = &quot;imap&quot;
+backend.host = &quot;imap.gmail.com&quot;
+backend.port = 993
+backend.encryption = &quot;tls&quot;
+backend.login = &quot;you@yourcompany.com&quot;
+backend.passwd.cmd = &quot;security find-internet-password -s imap.gmail.com -w&quot;
+sender.type = &quot;smtp&quot;
+sender.host = &quot;smtp.gmail.com&quot;
+sender.port = 587
+sender.encryption = &quot;start-tls&quot;
+sender.login = &quot;you@yourcompany.com&quot;
+sender.passwd.cmd = &quot;security find-internet-password -s smtp.gmail.com -w&quot;
+</code></pre>
+<blockquote>
+<p>💡 For Gmail, you&#39;ll need to create an App Password (if 2FA is on) at <a href="https://myaccount.google.com/apppasswords">myaccount.google.com/apppasswords</a></p>
+</blockquote>
+<p><strong>Check for a HighLevel skill (if you use HighLevel instead of HubSpot):</strong></p>
+<pre><code class="language-bash">clawhub search crm
+clawhub search highlevel
+clawhub search hubspot
+</code></pre>
+<p>A community HighLevel skill exists for CRM automation. If none appear, the HubSpot integration is handled natively via OpenClaw&#39;s config (see Step 4).</p>
+<hr>
+<h3>Step 4: Configure OpenClaw for CRM Access</h3>
+<p>Add your HubSpot credentials to your OpenClaw config file:</p>
+<p><strong>Config location:</strong> <code>~/.config/openclaw/config.yaml</code></p>
+<pre><code class="language-yaml">hubspot:
+  accessToken: &quot;pat-na1-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;
+
+  # Optional: restrict which objects the assistant can access
+  enabledObjects:
+    - contacts
+    - companies
+    - deals
+    - tasks
+    - notes
+
+  # Optional: default pipeline for deal creation
+  defaults:
+    pipelineId: &quot;default&quot;
+    ownerId: &quot;YOUR_OWNER_ID&quot;   # Find in HubSpot: Settings → Users &amp; Teams
+
+  # Optional: Enterprise custom objects (requires HubSpot Enterprise)
+  customObjects:
+    - name: &quot;projects&quot;
+      displayName: &quot;Projects&quot;
+</code></pre>
+<p><strong>Restart the gateway:</strong></p>
+<pre><code class="language-bash">openclaw gateway restart
+</code></pre>
+<p><strong>Test your connection:</strong></p>
+<pre><code>Ask your assistant: &quot;How many contacts are in my HubSpot?&quot;
+Or: &quot;What deals do I have in my pipeline right now?&quot;
+</code></pre>
+<hr>
+<h3>Step 5: Write Your Deal Criteria (SOUL.md / Context Template)</h3>
+<p>Tell your agent what a good deal looks like by adding CRM context to your <code>SOUL.md</code> or a dedicated <code>CRM_CONTEXT.md</code> file that you reference in your SOUL:</p>
+<p><strong>Create <code>~/CRM_CONTEXT.md</code>:</strong></p>
+<pre><code class="language-markdown"># CRM Context — Deal Criteria
+
+## My Ideal Customer Profile (ICP)
+- Company size: 50–500 employees
+- Industry: SaaS, tech, or professional services
+- Geography: US or EU
+- Decision maker: VP Sales, CRO, Founder
+- Budget signal: funded startup or $10M+ ARR
+
+## Deal Quality Signals
+- High priority: Deal value &gt; $10k, last activity &lt; 14 days
+- Medium priority: Deal value $5k–$10k, last activity 14–30 days
+- Stale: No activity in 30+ days — flag for follow-up
+
+## My Goals This Quarter
+- Close 5 enterprise deals (&gt;$50k each)
+- Reactivate 20 stale deals from Q4
+- Book 15 new discovery calls with Series A+ startups
+
+## Pipeline Stages (in order)
+1. New Lead
+2. Discovery Call Scheduled
+3. Demo Completed
+4. Proposal Sent
+5. Negotiation
+6. Closed Won / Closed Lost
+
+## Follow-Up Rules
+- Deals in &quot;Proposal Sent&quot; for &gt;7 days → trigger follow-up sequence
+- Deals in &quot;Discovery Call Scheduled&quot; with no show → re-book within 48 hours
+- Deals marked &quot;Follow-up in 3 months&quot; → review monthly
+
+## Sales Transcripts Location
+~/Documents/sales-calls/   ← Gong exports, Otter.ai transcripts, etc.
+</code></pre>
+<p><strong>Reference this in your SOUL.md:</strong></p>
+<pre><code class="language-markdown">## CRM Context
+Read ~/CRM_CONTEXT.md for deal criteria, ICP, and pipeline stage definitions.
+Always use this when analyzing deals or crafting outreach.
+</code></pre>
+<hr>
+<h3>Step 6: Set Up Daily Deal Finder Cron</h3>
+<p>This is Eric Siu&#39;s &quot;Daily Deal Finder&quot; — a scheduled agent run every morning that scans your CRM and hands you a prioritized hit list.</p>
+<p><strong>Option A: Daily cron job (isolated session, precise timing)</strong></p>
+<pre><code class="language-bash">openclaw cron add \
+  --name &quot;Daily Deal Finder&quot; \
+  --cron &quot;0 8 * * 1-5&quot; \
+  --tz &quot;America/New_York&quot; \
+  --session isolated \
+  --message &quot;You are my sales assistant. Read ~/CRM_CONTEXT.md for my ICP and goals.
+
+Today&#39;s task:
+1. Pull all open deals from HubSpot CRM
+2. Identify the top 5 deals to focus on today based on: deal value, last activity date, and stage
+3. For stale deals (no activity 30+ days), draft a follow-up email via himalaya
+4. Scan ~/Documents/sales-calls/ for any recent transcripts — extract follow-up commitments I made
+5. Identify 3 contacts in my CRM who match my ICP but haven&#39;t been contacted in 60+ days
+6. For each, craft a personalized outreach angle based on their company/role
+7. Send me a summary with today&#39;s hit list and draft outreach
+
+Format your response as:
+🔥 TOP DEALS TO CHASE TODAY
+🔄 STALE DEALS NEEDING FOLLOW-UP
+🎯 NEW OUTREACH TARGETS
+📋 COMMITMENTS FROM RECENT CALLS&quot; \
+  --model opus \
+  --thinking high \
+  --announce \
+  --channel telegram
+</code></pre>
+<p><strong>Option B: Heartbeat integration (add to HEARTBEAT.md)</strong></p>
+<p>If you prefer lighter-weight daily checks integrated into your heartbeat cycle, add to <code>~/HEARTBEAT.md</code>:</p>
+<pre><code class="language-markdown"># Heartbeat Checklist
+
+## CRM Check (run on weekday mornings 8–10am only)
+- Check HubSpot for any deals with no activity in 30+ days
+- Flag any deals in &quot;Proposal Sent&quot; for more than 7 days
+- If critical deals found, notify immediately
+</code></pre>
+<p>Then configure your heartbeat:</p>
+<pre><code class="language-json5">// In openclaw config
+{
+  agents: {
+    defaults: {
+      heartbeat: {
+        every: &quot;30m&quot;,
+        target: &quot;telegram&quot;,
+        activeHours: { start: &quot;08:00&quot;, end: &quot;22:00&quot; }
+      }
+    }
+  }
+}
+</code></pre>
+<p><strong>Option C: Manual trigger (on-demand)</strong></p>
+<p>No cron needed — just ask your agent anytime:</p>
+<pre><code>&quot;Run the daily deal finder&quot;
+&quot;Show me my stale deals&quot;
+&quot;Which deals should I chase today?&quot;
+&quot;Draft a follow-up for the Acme deal&quot;
+</code></pre>
+<hr>
+<h2>Sample Prompts to Get Started</h2>
+<p>Once set up, try these immediately:</p>
+<pre><code>&quot;How many deals do I have open right now? Break them down by pipeline stage.&quot;
+
+&quot;Which deals haven&#39;t had any activity in the last 30 days? List them with deal value.&quot;
+
+&quot;Brief me on the top 5 deals by value that are closing this quarter.&quot;
+
+&quot;Draft a follow-up email to [Contact Name] at [Company] — we last spoke about [topic].&quot;
+
+&quot;Look up Sarah Johnson at TechCorp — what&#39;s the deal status and last activity?&quot;
+
+&quot;Which contacts in my CRM match my ICP but haven&#39;t been approached yet?&quot;
+
+&quot;Log a call with Mike Chen at Acme — we discussed the enterprise renewal, he needs board approval by end of March.&quot;
+
+&quot;Update the Zenith deal to &#39;Proposal Sent&#39; and add a note about their security requirements.&quot;
+</code></pre>
+<hr>
+<h2>CRM Alternatives</h2>
+<p>HubSpot isn&#39;t the only option. OpenClaw&#39;s conversational interface can connect to any CRM with a REST API.</p>
+<h3>Pipedrive</h3>
+<ul>
+<li><strong>Free trial:</strong> 14 days, then from $14/user/month</li>
+<li><strong>API docs:</strong> <a href="https://developers.pipedrive.com/docs/api/v1">developers.pipedrive.com/docs/api/v1</a></li>
+<li><strong>Auth:</strong> Personal API token or OAuth 2.0</li>
+<li><strong>Get token:</strong> Settings → Personal Preferences → API</li>
+<li><strong>OpenClaw config key:</strong> <code>pipedrive.apiToken</code></li>
+<li><strong>Best for:</strong> Sales-focused teams who find HubSpot overwhelming</li>
+</ul>
+<h3>Salesforce</h3>
+<ul>
+<li><strong>Pricing:</strong> From $25/user/month (Starter Suite)</li>
+<li><strong>API docs:</strong> <a href="https://developer.salesforce.com/docs/apis">developer.salesforce.com/docs/apis</a></li>
+<li><strong>Auth:</strong> Connected App with OAuth 2.0</li>
+<li><strong>Complexity:</strong> Higher — requires Connected App setup and understanding of SOQL</li>
+<li><strong>Best for:</strong> Enterprise teams already on Salesforce</li>
+</ul>
+<h3>HighLevel (GoHighLevel)</h3>
+<ul>
+<li><strong>Pricing:</strong> From $97/month (agency plan)</li>
+<li><strong>API docs:</strong> <a href="https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview">highlevel.stoplight.io/docs</a></li>
+<li><strong>Auth:</strong> API key from Settings → Integrations</li>
+<li><strong>ClawHub skill:</strong> Search <code>clawhub search highlevel</code></li>
+<li><strong>Best for:</strong> Marketing agencies managing multiple clients&#39; CRMs</li>
+</ul>
+<h3>Notion as a Lightweight CRM</h3>
+<ul>
+<li><strong>Pricing:</strong> Free tier available, Plus from $10/user/month</li>
+<li><strong>API docs:</strong> <a href="https://developers.notion.com">developers.notion.com</a></li>
+<li><strong>Auth:</strong> Integration token from notion.so/my-integrations</li>
+<li><strong>Best for:</strong> Solo founders or tiny teams who already live in Notion</li>
+<li><strong>Limitation:</strong> No native pipeline views — you build them in Notion databases</li>
+</ul>
+<hr>
+<h2>Cost Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenClaw</td>
+<td>Free</td>
+<td>Open source, self-hosted</td>
+</tr>
+<tr>
+<td>HubSpot Free CRM</td>
+<td>$0/month</td>
+<td>Unlimited contacts, 1 pipeline</td>
+</tr>
+<tr>
+<td>HubSpot Starter</td>
+<td>$20/seat/month</td>
+<td>Adds email sequences, more pipelines</td>
+</tr>
+<tr>
+<td>HubSpot Professional</td>
+<td>$90/seat/month</td>
+<td>Advanced reporting, workflows</td>
+</tr>
+<tr>
+<td>himalaya skill</td>
+<td>Free</td>
+<td>Open source email client</td>
+</tr>
+<tr>
+<td>AI model (local Ollama)</td>
+<td>$0/month</td>
+<td>Run locally, no API costs</td>
+</tr>
+<tr>
+<td>AI model (Claude API)</td>
+<td>~$5–30/month</td>
+<td>Depends on usage volume</td>
+</tr>
+<tr>
+<td><strong>Total (free setup)</strong></td>
+<td><strong>$0/month</strong></td>
+<td>HubSpot Free + local model</td>
+</tr>
+<tr>
+<td><strong>Total (recommended)</strong></td>
+<td><strong>~$20–50/month</strong></td>
+<td>HubSpot Starter + Claude API</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Common Issues</h2>
+<h3>&quot;I can&#39;t find Private Apps in my HubSpot settings&quot;</h3>
+<ul>
+<li>Make sure you have <strong>Super Admin</strong> permissions (or your admin grants you App Marketplace Access)</li>
+<li>Go to: Settings → Users &amp; Teams → your user → scroll to &quot;Permissions&quot; → enable &quot;App Marketplace Access&quot;</li>
+<li>Private Apps are available on <strong>all HubSpot tiers including Free</strong></li>
+</ul>
+<h3>&quot;My API token is not working&quot;</h3>
+<ul>
+<li>Double-check you copied the full token (starts with <code>pat-na1-</code>)</li>
+<li>Verify the scopes include <code>crm.objects.deals.read</code> at minimum</li>
+<li>Try regenerating the token in HubSpot → Settings → Integrations → Private Apps → your app → &quot;Rotate token&quot;</li>
+<li>Run <code>openclaw gateway restart</code> after updating the token in config</li>
+</ul>
+<h3>&quot;The agent can see contacts but not deals&quot;</h3>
+<ul>
+<li>Your Private App is missing the <code>crm.objects.deals.read</code> scope</li>
+<li>Edit your Private App in HubSpot → add the missing scope → rotate the token → update config</li>
+</ul>
+<h3>&quot;himalaya isn&#39;t sending emails&quot;</h3>
+<ul>
+<li>Test himalaya independently: <code>himalaya send -t &quot;you@email.com&quot; -s &quot;Test&quot; &lt;&lt;&lt; &quot;Hello&quot;</code></li>
+<li>For Gmail: ensure you&#39;ve created an App Password (Google 2FA must be on)</li>
+<li>For Outlook: enable SMTP AUTH in your Microsoft 365 admin settings</li>
+</ul>
+<h3>&quot;The Daily Deal Finder cron isn&#39;t running&quot;</h3>
+<ul>
+<li>Check cron list: <code>openclaw cron list</code></li>
+<li>Check logs: <code>openclaw cron logs &quot;Daily Deal Finder&quot;</code></li>
+<li>Verify gateway is running: <code>openclaw gateway status</code></li>
+</ul>
+<h3>&quot;The agent is hitting API rate limits&quot;</h3>
+<ul>
+<li>Free/Starter HubSpot: 100 calls per 10 seconds — normal use won&#39;t hit this</li>
+<li>If running large batch analyses (1000+ deals), add delays between requests</li>
+<li>Upgrade to HubSpot Professional for higher limits if needed</li>
+</ul>
+<h3>&quot;I don&#39;t have sales transcripts to analyze&quot;</h3>
+<ul>
+<li>Use Otter.ai (free tier available) to record and transcribe your sales calls</li>
+<li>Gong, Chorus, or Fireflies.ai for team-wide transcript management</li>
+<li>Even rough notes in Markdown files work — the agent can parse unstructured text</li>
+</ul>
+<hr>
+<h2>Links (Verified)</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HubSpot Free Signup</td>
+<td><a href="https://app.hubspot.com/signup">https://app.hubspot.com/signup</a></td>
+</tr>
+<tr>
+<td>HubSpot Private Apps Docs</td>
+<td><a href="https://developers.hubspot.com/docs/api/private-apps">https://developers.hubspot.com/docs/api/private-apps</a></td>
+</tr>
+<tr>
+<td>HubSpot CRM Deals API</td>
+<td><a href="https://developers.hubspot.com/docs/api/crm/deals">https://developers.hubspot.com/docs/api/crm/deals</a></td>
+</tr>
+<tr>
+<td>HubSpot API Scopes Reference</td>
+<td><a href="https://developers.hubspot.com/docs/api/oauth/scopes">https://developers.hubspot.com/docs/api/oauth/scopes</a></td>
+</tr>
+<tr>
+<td>ClawHub (skill registry)</td>
+<td><a href="https://clawhub.ai">https://clawhub.ai</a></td>
+</tr>
+<tr>
+<td>himalaya skill on ClawHub</td>
+<td><a href="https://clawhub.ai/lamelas/himalaya">https://clawhub.ai/lamelas/himalaya</a></td>
+</tr>
+<tr>
+<td>OpenClaw HubSpot Integration Guide</td>
+<td><a href="https://www.getopenclaw.ai/integrations/hubspot">https://www.getopenclaw.ai/integrations/hubspot</a></td>
+</tr>
+<tr>
+<td>OpenClaw Cron vs Heartbeat Docs</td>
+<td><a href="https://docs.openclaw.ai/automation/cron-vs-heartbeat">https://docs.openclaw.ai/automation/cron-vs-heartbeat</a></td>
+</tr>
+<tr>
+<td>Pipedrive API Docs</td>
+<td><a href="https://developers.pipedrive.com/docs/api/v1">https://developers.pipedrive.com/docs/api/v1</a></td>
+</tr>
+<tr>
+<td>Salesforce Developer Docs</td>
+<td><a href="https://developer.salesforce.com/docs/apis">https://developer.salesforce.com/docs/apis</a></td>
+</tr>
+<tr>
+<td>HighLevel API Docs</td>
+<td><a href="https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview">https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview</a></td>
+</tr>
+<tr>
+<td>Notion API Docs</td>
+<td><a href="https://developers.notion.com">https://developers.notion.com</a></td>
+</tr>
+<tr>
+<td>@dashboardlim original tweet</td>
+<td><a href="https://x.com/dashboardlim/status/2024863642575896613">https://x.com/dashboardlim/status/2024863642575896613</a></td>
+</tr>
+<tr>
+<td>@ericosiu original tweet</td>
+<td><a href="https://x.com/ericosiu/status/2019542209780215899">https://x.com/ericosiu/status/2019542209780215899</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Quick Reference Card</h2>
+<pre><code># Test your setup
+&quot;How many contacts are in my HubSpot?&quot;
+
+# Daily deal finder (manual)
+&quot;Run the daily deal finder — show me today&#39;s hit list&quot;
+
+# Pipeline analysis
+&quot;Show me all deals with no activity in 30+ days, sorted by value&quot;
+
+# Outreach drafting
+&quot;Draft a follow-up for the [Company] deal — last touch was [date] about [topic]&quot;
+
+# Activity logging
+&quot;Log a call with [Name] at [Company] — discussed [topic], next step is [action]&quot;
+
+# Deal updates
+&quot;Move the [Company] deal to Proposal Sent and note they need [requirement]&quot;
+</code></pre>
+<hr>
+<p><em>Last updated: March 2026 | Based on @dashboardlim and @ericosiu&#39;s OpenClaw workflows</em></p>
+</article>
+</div>
+<footer>
+  <a href="/">← Back to all playbooks</a> · Curated by <a href="https://x.com/christiancattaneo" target="_blank">Christian Cattaneo</a> · <a href="https://maxxer.ai" target="_blank">Maxxer</a> · 2026
+</footer>
+</body>
+</html>

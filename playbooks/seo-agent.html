@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autonomous SEO Agent — Maxxer Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #f7f6f3; --surface: #fff; --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #888; --border: #e6e4df; --accent: #ea580c; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .5rem; }
+    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: .6rem; font-weight: 600; background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 4px; }
+    .nav-back { font-size: .85rem; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--ink); }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .accent-bar { width: 40px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 1.5rem; }
+    article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: .5rem; }
+    article h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.3px; margin: 2.5rem 0 .8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    article h3 { font-size: 1.05rem; font-weight: 700; margin: 1.8rem 0 .5rem; }
+    article h4 { font-size: .95rem; font-weight: 600; margin: 1.2rem 0 .4rem; }
+    article p { margin-bottom: 1rem; color: var(--ink-2); }
+    article ul, article ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+    article li { margin-bottom: .4rem; }
+    article li input[type=checkbox] { margin-right: .4rem; }
+    article strong { color: var(--ink); font-weight: 600; }
+    article a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    article a:hover { text-decoration: underline; }
+    article blockquote { border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1rem 0; background: rgba(0,0,0,.02); border-radius: 0 8px 8px 0; color: var(--ink-2); font-style: italic; }
+    article code { font-family: 'JetBrains Mono', monospace; font-size: .85em; background: rgba(0,0,0,.05); padding: 2px 6px; border-radius: 4px; }
+    article pre { background: #1a1a2e; color: #e0e0e0; padding: 1.2rem 1.5rem; border-radius: 10px; overflow-x: auto; margin: 1rem 0 1.5rem; line-height: 1.5; }
+    article pre code { background: none; padding: 0; color: inherit; font-size: .8rem; }
+    article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .9rem; }
+    article th { text-align: left; padding: .6rem .8rem; border-bottom: 2px solid var(--border); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+    article td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); color: var(--ink-2); }
+    article hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    article img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--ink-3); }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    @media (max-width: 640px) { .wrap { padding: 1.5rem 1rem 3rem; } nav { padding: 0 1rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
+  <a class="nav-back" href="/">← All Playbooks</a>
+</nav>
+<div class="wrap">
+  <div class="accent-bar"></div>
+  <article><h1>Autonomous SEO Agent</h1>
+<blockquote>
+<p>Based on <a href="https://x.com/EXM7777/status/2025631181702893616">@EXM7777</a> and <a href="https://x.com/michaelaubry/status/2019911082601771315">@michaelaubry</a>&#39;s workflows</p>
+</blockquote>
+<hr>
+<h2>Overview</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>What</strong></td>
+<td>An OpenClaw agent that autonomously handles programmatic SEO, keyword tracking, site architecture, and backlink outreach — 24/7, without you lifting a finger</td>
+</tr>
+<tr>
+<td><strong>Results</strong></td>
+<td>Keyword-optimized pages at scale, automated backlink pitch campaigns, continuous GSC monitoring, weekly performance reports to Telegram</td>
+</tr>
+<tr>
+<td><strong>Who</strong></td>
+<td>Affiliate marketers, SaaS companies, agencies, content site builders</td>
+</tr>
+<tr>
+<td><strong>Difficulty</strong></td>
+<td>Intermediate–Advanced</td>
+</tr>
+<tr>
+<td><strong>Setup time</strong></td>
+<td>3–5 hours</td>
+</tr>
+<tr>
+<td><strong>Monthly cost</strong></td>
+<td>~$20–50 (without Ahrefs) · ~$130–170 (with Ahrefs Lite plan subscription)</td>
+</tr>
+</tbody></table>
+<h3>What This Agent Does</h3>
+<pre><code>[Google Search Console] ──► keyword gaps ──► [Content Agent] ──► publish to CMS
+        │                                                              │
+        │                                                              ▼
+[Ahrefs/DataForSEO] ──► backlink targets ──► [Outreach Bot] ──► email via himalaya
+        │                                                              │
+        └──────────────────── weekly Telegram report ◄────────────────┘
+</code></pre>
+<p>@EXM7777&#39;s original insight:</p>
+<blockquote>
+<p>&quot;how to build an autonomous SEO agent inside OpenClaw: first... give it everything about your business &gt; your site analytics &gt; current keyword positions &gt; what you&#39;re selling &gt; where you want to be in 6 months — don&#39;t skip this part, context is the entire game — then you build 3 skills&quot;</p>
+</blockquote>
+<p>@michaelaubry&#39;s addition:</p>
+<blockquote>
+<p>&quot;Built a discord bot that uses openclaw, it scans ahrefs for backlink opps, it finds emails of owners, and pitches them a link swap offer&quot;</p>
+</blockquote>
+<hr>
+<h2>Prerequisites</h2>
+<ul>
+<li><input disabled="" type="checkbox"> OpenClaw installed and running (<code>openclaw --version</code>)</li>
+<li><input disabled="" type="checkbox"> Telegram connected to your OpenClaw agent (for commands + reports)</li>
+<li><input disabled="" type="checkbox"> Anthropic API key configured in OpenClaw (Claude Sonnet or Opus)</li>
+<li><input disabled="" type="checkbox"> Google Search Console account with your domain verified</li>
+<li><input disabled="" type="checkbox"> A domain/website with a CMS that has an API (WordPress, Ghost, Webflow, Strapi, etc.)</li>
+<li><input disabled="" type="checkbox"> Ahrefs account <strong>OR</strong> a free alternative (see <a href="#alternatives-to-ahrefs">Alternatives to Ahrefs</a>)</li>
+<li><input disabled="" type="checkbox"> A dedicated email address for outreach (Gmail or SMTP — don&#39;t use your primary)</li>
+<li><input disabled="" type="checkbox"> Node.js 18+ installed (for skill installation via <code>npx</code>)</li>
+</ul>
+<hr>
+<h2>Three SEO Skills</h2>
+<p>Based on @EXM7777&#39;s framework, you build <strong>three modular skills</strong> that work together:</p>
+<h3>Skill 1: Programmatic SEO (Pages at Scale)</h3>
+<p><strong>What it does:</strong> Pulls keyword data from Google Search Console, finds content gaps by analyzing competitor SERP results, generates data-driven content briefs, writes full articles, and publishes to your CMS automatically. Runs on a weekly/daily schedule via cron.</p>
+<p><strong>Core loop:</strong></p>
+<pre><code>GSC API → ranking data → find &quot;striking distance&quot; keywords (pos 10-20)
+     → scrape top-10 SERP competitors → extract heading structures
+     → identify content gaps → write brief → write article → publish draft
+</code></pre>
+<p><strong>Tools needed:</strong> GSC API, web browsing (octolens skill), your CMS API</p>
+<p><strong>Cron:</strong> Weekly keyword research (Monday 9am) + Daily article generation</p>
+<hr>
+<h3>Skill 2: Site Architecture Manager</h3>
+<p><strong>What it does:</strong> Manages your internal linking graph, generates/updates your sitemap, monitors crawl errors, audits schema markup, and keeps your site architecture healthy. Runs as a background maintenance agent.</p>
+<p><strong>Core loop:</strong></p>
+<pre><code>Crawl site → map internal links → identify orphan pages
+     → suggest internal link additions → update sitemap → submit to GSC
+     → audit schema markup → generate JSON-LD fixes
+</code></pre>
+<p><strong>Tools needed:</strong> GSC API (Sitemaps + URL Inspection), schema-markup skill, fs-architect skill</p>
+<p><strong>Cron:</strong> Site crawl + architecture check (weekly, Sundays)</p>
+<hr>
+<h3>Skill 3: Backlink Outreach Bot</h3>
+<p><strong>What it does:</strong> Scans Ahrefs (or DataForSEO) for backlink opportunities, identifies domains that link to your competitors but not you, finds contact emails for site owners, sends personalized pitches, and follows up at day 3 and day 7. Based directly on @michaelaubry&#39;s Discord bot.</p>
+<p><strong>Core loop:</strong></p>
+<pre><code>Ahrefs API → competitors&#39; backlink profiles → find prospects
+     → filter by DA/DR threshold → find owner emails (Hunter.io or scraping)
+     → craft personalized pitch (not a template) → send via himalaya
+     → log in tracking file → follow up automatically
+</code></pre>
+<p><strong>Tools needed:</strong> Ahrefs API (Enterprise) OR DataForSEO Backlinks API ($50 min), himalaya (email skill), Hunter.io API (optional, for email finding)</p>
+<p><strong>Cron:</strong> Outreach (Mon/Wed/Fri, 10am) + Follow-ups (daily check)</p>
+<hr>
+<h2>Step-by-Step Setup</h2>
+<h3>Step 1: Install OpenClaw Skills</h3>
+<p>Open your terminal and install the required skills:</p>
+<pre><code class="language-bash"># Core SEO analysis skill
+npx clawdhub@latest install programmatic-seo
+
+# Web browsing for SERP scraping
+npx clawdhub@latest install octolens
+
+# File system operations
+npx clawdhub@latest install fs-architect
+
+# Schema markup auditor
+npx clawdhub@latest install schema-markup
+
+# Email client for outreach
+openclaw skill install himalaya
+
+# Verify installs
+openclaw skill list
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The <code>himalaya</code> skill is pre-installed with OpenClaw. The others come via <code>clawdhub</code>.</p>
+</blockquote>
+<hr>
+<h3>Step 2: Set Up Google Search Console API (OAuth)</h3>
+<p>GSC is <strong>free</strong> and gives you real click/impression/position data for every keyword your site ranks for. This is your ground truth.</p>
+<h4>2a. Create a Google Cloud Project</h4>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com">console.cloud.google.com</a></li>
+<li>Click <strong>New Project</strong> → name it something like <code>openclaw-seo</code></li>
+<li>Click <strong>Enable APIs and Services</strong></li>
+<li>Search for <strong>&quot;Google Search Console API&quot;</strong> → Enable it</li>
+</ol>
+<h4>2b. Create OAuth 2.0 Credentials</h4>
+<ol>
+<li>In the left sidebar: <strong>APIs &amp; Services → Credentials</strong></li>
+<li>Click <strong>+ Create Credentials → OAuth client ID</strong></li>
+<li>Application type: <strong>Desktop app</strong> (easier for local agent)</li>
+<li>Name: <code>openclaw-seo-agent</code></li>
+<li>Click <strong>Create</strong> → Download the JSON file</li>
+<li>Save it to: <code>~/.openclaw/workspace/gsc-credentials.json</code></li>
+</ol>
+<h4>2c. Configure OAuth Consent Screen</h4>
+<ol>
+<li>Go to <strong>APIs &amp; Services → OAuth consent screen</strong></li>
+<li>User type: <strong>External</strong> (unless you have Google Workspace)</li>
+<li>App name: <code>OpenClaw SEO Agent</code></li>
+<li>Scopes to add: <code>https://www.googleapis.com/auth/webmasters.readonly</code></li>
+<li>Add your email as a test user</li>
+</ol>
+<h4>2d. Get Your Refresh Token</h4>
+<p>Run this one-time auth flow (Node.js):</p>
+<pre><code class="language-bash"># Install Google auth library
+npm install -g googleapis
+
+# Run this script to get your refresh token
+node -e &quot;
+const {google} = require(&#39;googleapis&#39;);
+const fs = require(&#39;fs&#39;);
+const creds = JSON.parse(fs.readFileSync(&#39;~/.openclaw/workspace/gsc-credentials.json&#39;));
+const oauth2Client = new google.auth.OAuth2(
+  creds.installed.client_id,
+  creds.installed.client_secret,
+  &#39;urn:ietf:params:oauth:2.0:oob&#39;
+);
+const url = oauth2Client.generateAuthUrl({
+  access_type: &#39;offline&#39;,
+  scope: [&#39;https://www.googleapis.com/auth/webmasters.readonly&#39;]
+});
+console.log(&#39;Visit this URL and paste the code back:&#39;);
+console.log(url);
+&quot;
+</code></pre>
+<p>Visit the URL → authorize → copy the code → run:</p>
+<pre><code class="language-bash">node -e &quot;
+const {google} = require(&#39;googleapis&#39;);
+const fs = require(&#39;fs&#39;);
+const creds = JSON.parse(fs.readFileSync(&#39;~/.openclaw/workspace/gsc-credentials.json&#39;));
+const oauth2Client = new google.auth.OAuth2(
+  creds.installed.client_id,
+  creds.installed.client_secret,
+  &#39;urn:ietf:params:oauth:2.0:oob&#39;
+);
+oauth2Client.getToken(&#39;PASTE_YOUR_CODE_HERE&#39;, (err, token) =&gt; {
+  console.log(&#39;REFRESH TOKEN:&#39;, token.refresh_token);
+  fs.writeFileSync(&#39;~/.openclaw/workspace/gsc-token.json&#39;, JSON.stringify(token));
+});
+&quot;
+</code></pre>
+<p>Save the refresh token somewhere safe. Set it in OpenClaw:</p>
+<pre><code class="language-bash">openclaw config set GSC_CLIENT_ID &quot;your-client-id&quot;
+openclaw config set GSC_CLIENT_SECRET &quot;your-client-secret&quot;
+openclaw config set GSC_REFRESH_TOKEN &quot;your-refresh-token&quot;
+openclaw config set GSC_SITE_URL &quot;https://yourdomain.com/&quot;
+</code></pre>
+<h4>2e. What You Can Pull from GSC API</h4>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>searchAnalytics/query</code></td>
+<td>Clicks, impressions, CTR, position per keyword/page</td>
+</tr>
+<tr>
+<td><code>sitemaps/list</code></td>
+<td>All submitted sitemaps + status</td>
+</tr>
+<tr>
+<td><code>sitemaps/submit</code></td>
+<td>Submit new/updated sitemap</td>
+</tr>
+<tr>
+<td><code>urlInspection/index</code></td>
+<td>Index status, crawl errors, canonical</td>
+</tr>
+<tr>
+<td><code>sites/list</code></td>
+<td>All verified properties</td>
+</tr>
+</tbody></table>
+<p><strong>Example: Pull top keywords (curl)</strong></p>
+<pre><code class="language-bash">curl -X POST \
+  &quot;https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fyourdomain.com%2F/searchAnalytics/query&quot; \
+  -H &quot;Authorization: Bearer YOUR_ACCESS_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+    &quot;startDate&quot;: &quot;2026-01-01&quot;,
+    &quot;endDate&quot;: &quot;2026-03-01&quot;,
+    &quot;dimensions&quot;: [&quot;query&quot;],
+    &quot;rowLimit&quot;: 100,
+    &quot;dimensionFilterGroups&quot;: [{
+      &quot;filters&quot;: [{
+        &quot;dimension&quot;: &quot;position&quot;,
+        &quot;operator&quot;: &quot;lessThan&quot;,
+        &quot;expression&quot;: &quot;21&quot;
+      }]
+    }]
+  }&#39;
+</code></pre>
+<hr>
+<h3>Step 3: Set Up Ahrefs API (OR Alternative — see below)</h3>
+<blockquote>
+<p>⚠️ <strong>Important pricing note:</strong> Ahrefs API v3 requires <strong>Enterprise plan only</strong> — $1,499/month (annual). The old Lite plan ($99/mo) does <strong>not</strong> include API access. API v2 was discontinued November 2025. <strong>Most people should skip Ahrefs and use DataForSEO instead</strong> (see <a href="#alternatives-to-ahrefs">Alternatives</a>).</p>
+</blockquote>
+<h4>If you have Ahrefs Enterprise:</h4>
+<ol>
+<li>Log in to <a href="https://app.ahrefs.com">app.ahrefs.com</a></li>
+<li>Go to <strong>Account Settings → API</strong></li>
+<li>Enable API access</li>
+<li>Generate your API token</li>
+<li>Set it in OpenClaw:</li>
+</ol>
+<pre><code class="language-bash">openclaw config set AHREFS_API_TOKEN &quot;your-token-here&quot;
+</code></pre>
+<p><strong>Available Ahrefs API v3 Endpoints:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>What You Can Pull</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Site Explorer</td>
+<td>Backlinks, referring domains, organic keywords, domain rating</td>
+</tr>
+<tr>
+<td>Keywords Explorer</td>
+<td>Search volume, keyword difficulty, SERP features, CPC</td>
+</tr>
+<tr>
+<td>SERP Overview</td>
+<td>Top 10 results for any keyword with metrics</td>
+</tr>
+<tr>
+<td>Rank Tracker</td>
+<td>Position history for tracked keywords</td>
+</tr>
+<tr>
+<td>Site Audit</td>
+<td>Technical issues, broken links, crawl data</td>
+</tr>
+<tr>
+<td>Brand Radar</td>
+<td>Brand mentions across the web</td>
+</tr>
+</tbody></table>
+<p><strong>Example: Get backlinks for a competitor</strong></p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $AHREFS_API_TOKEN&quot; \
+  &quot;https://api.ahrefs.com/v3/site-explorer/backlinks?select=url_from,url_to,domain_rating_source,anchor&amp;target=competitor.com&amp;mode=domain&amp;limit=100&quot;
+</code></pre>
+<p><strong>Unit costs:</strong> Most endpoints cost 50+ API units per request. Budget carefully.</p>
+<h4>Using DataForSEO instead (recommended for most):</h4>
+<pre><code class="language-bash">openclaw config set DATAFORSEO_LOGIN &quot;your@email.com&quot;
+openclaw config set DATAFORSEO_PASSWORD &quot;your-api-password&quot;
+</code></pre>
+<p><strong>DataForSEO Backlinks API example:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.dataforseo.com/v3/backlinks/backlinks/live&quot; \
+  -H &quot;Authorization: Basic $(echo -n &#39;login:pass&#39; | base64)&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;[{
+    &quot;target&quot;: &quot;competitor.com&quot;,
+    &quot;mode&quot;: &quot;as_is&quot;,
+    &quot;filters&quot;: [&quot;dofollow&quot;,&quot;=&quot;,true],
+    &quot;order_by&quot;: [&quot;rank,desc&quot;],
+    &quot;limit&quot;: 100
+  }]&#39;
+</code></pre>
+<hr>
+<h3>Step 4: Configure Himalaya for Outreach Email</h3>
+<p>The himalaya skill handles all outreach emails. Use a <strong>dedicated email</strong> — not your main inbox.</p>
+<pre><code class="language-bash"># Configure himalaya with your outreach email
+# Edit ~/.config/himalaya/config.toml
+
+[accounts.outreach]
+email = &quot;outreach@yourdomain.com&quot;
+display-name = &quot;Your Name&quot;
+default = true
+
+[accounts.outreach.imap]
+host = &quot;imap.gmail.com&quot;
+port = 993
+ssl = true
+login = &quot;outreach@yourdomain.com&quot;
+passwd-cmd = &quot;echo your-app-password&quot;
+
+[accounts.outreach.smtp]
+host = &quot;smtp.gmail.com&quot;
+port = 465
+ssl = true
+login = &quot;outreach@yourdomain.com&quot;
+passwd-cmd = &quot;echo your-app-password&quot;
+</code></pre>
+<blockquote>
+<p><strong>Gmail users:</strong> Use an App Password (not your main password). Go to myaccount.google.com → Security → App Passwords.</p>
+</blockquote>
+<p>Test it:</p>
+<pre><code class="language-bash">himalaya list --account outreach
+himalaya send --account outreach &lt;&lt;EOF
+From: outreach@yourdomain.com
+To: test@example.com
+Subject: Test
+
+Hello
+EOF
+</code></pre>
+<hr>
+<h3>Step 5: Prime Your Agent&#39;s Context (Don&#39;t Skip This)</h3>
+<p>This is @EXM7777&#39;s most important point: <strong>context is the entire game.</strong> Before your agent does anything, give it a complete picture of your business and goals.</p>
+<p>Create <code>/Users/you/Projects/your-site/SEO_CONTEXT.md</code>:</p>
+<pre><code class="language-markdown"># SEO Context — [Your Site Name]
+
+## Business Overview
+- What we sell: [product/service]
+- Target customer: [description]
+- Main competitors: [competitor1.com, competitor2.com, competitor3.com]
+- Domain: yourdomain.com (DR: X, Age: X years)
+- CMS: [WordPress/Ghost/Webflow/etc]
+
+## Current State
+- Total indexed pages: X
+- Keywords on page 1: X
+- Monthly organic clicks: X
+- Top 3 performing pages: [URLs]
+
+## 6-Month Goals
+- Target monthly organic clicks: X
+- Target keywords on page 1: X
+- Priority topic clusters: [list them]
+- Target DR: X
+
+## Content Strategy
+- Avg article length: 1,500–2,500 words
+- Tone: [professional/casual/technical]
+- Internal linking hub: [main pillar pages]
+- Publish cadence: X articles/week
+
+## Backlink Strategy
+- Min DR for outreach targets: 30
+- Preferred link types: guest posts, resource pages, link swaps
+- Topics to pitch: [list]
+- Avoid: [competitor direct links, PBNs, etc]
+</code></pre>
+<p>Then tell your agent via Telegram:</p>
+<blockquote>
+<p>&quot;Read /Projects/your-site/SEO_CONTEXT.md — this is your complete brief. All SEO decisions should be made with this context in mind.&quot;</p>
+</blockquote>
+<hr>
+<h3>Step 6: Set Up the Three Skills via Telegram</h3>
+<h4>Skill 1: Programmatic SEO</h4>
+<p>Message your OpenClaw agent:</p>
+<pre><code>Set up a programmatic SEO workflow with these rules:
+
+1. Every Monday at 9am: Pull my top 100 keywords from GSC where position is between 10-20 (&quot;striking distance&quot;). Save to ~/seo/keyword-queue.md
+
+2. Every day at 11am: Pick the top-priority keyword from the queue. Scrape the top 10 Google results for it. Extract all H2 headings. Cross-reference with &quot;People Also Ask&quot; questions. Identify 3 content gaps competitors missed.
+
+3. Generate a content brief and full 2000-word article covering those gaps. Include: meta title, meta description, slug, 3 internal link suggestions.
+
+4. Save as draft to ~/seo/articles/[slug].md
+
+5. Publish to WordPress via REST API as draft status (I&#39;ll review before publish).
+
+WordPress credentials: URL=[your-wp-url], username=[user], app-password=[pass]
+GSC site: https://yourdomain.com/
+</code></pre>
+<h4>Skill 2: Site Architecture Manager</h4>
+<pre><code>Set up a site architecture maintenance workflow:
+
+Every Sunday at 2am:
+1. Crawl all pages on yourdomain.com (use web_fetch in sequence)
+2. Map internal links — find pages with fewer than 3 inbound internal links (orphans)
+3. For each orphan, suggest 2 existing pages that should link to it
+4. Generate sitemap.xml and submit to GSC
+5. Run schema audit on the 5 most recently published pages — check for missing FAQ, Article, or HowTo schema
+6. Send me a report via Telegram with: orphan pages found, sitemap status, schema issues
+
+Save all findings to ~/seo/architecture-report.md
+</code></pre>
+<h4>Skill 3: Backlink Outreach Bot</h4>
+<pre><code>Set up a backlink outreach workflow using DataForSEO (not Ahrefs — too expensive):
+
+Every Monday, Wednesday, Friday at 10am:
+1. Pull backlink profiles for competitor1.com and competitor2.com via DataForSEO API
+2. Find domains that link to them but NOT to yourdomain.com
+3. Filter: DR &gt; 30, dofollow only, not in our existing outreach log
+4. For each prospect:
+   - Find the contact/about page
+   - Extract email (look for mailto: links or contact forms)
+   - Note the specific article that links to our competitor
+5. Write a personalized pitch email (not a template):
+   - Reference their specific article
+   - Mention what&#39;s unique about their site
+   - Offer genuine value (guest post, resource addition, link swap)
+6. Send via himalaya from outreach@yourdomain.com
+7. Log to ~/seo/outreach-log.md with: domain, email, date, status=sent
+
+Every day at 9am: Check for replies to outreach emails. Log responses. For no-reply after 3 days: send follow-up. For no-reply after 7 days: mark closed.
+
+Max 15 new outreach emails per day. Quality &gt; volume.
+</code></pre>
+<hr>
+<h3>Step 7: Set Up Cron Jobs</h3>
+<p>Tell your agent to schedule everything:</p>
+<pre><code>Set up these cron jobs for the SEO agent:
+
+# Keyword research (Monday 9am)
+0 9 * * 1 [keyword research workflow]
+
+# Article generation (Daily 11am)  
+0 11 * * * [article generation workflow]
+
+# Backlink outreach (Mon/Wed/Fri 10am)
+0 10 * * 1,3,5 [outreach workflow]
+
+# Follow-up check (Daily 9am)
+0 9 * * * [follow-up check]
+
+# Site architecture audit (Sunday 2am)
+0 2 * * 0 [architecture audit]
+
+# Weekly SEO report to Telegram (Friday 5pm)
+0 17 * * 5 [compile and send weekly report]
+</code></pre>
+<hr>
+<h3>Step 8: Weekly Telegram Report</h3>
+<p>Your agent should send you a weekly report every Friday:</p>
+<pre><code>📊 SEO Report — Week [N]
+
+New articles published: X
+Total indexed pages: X
+Keywords on page 1: X (+/- from last week)
+Keywords on page 2: X
+Organic clicks: X (+X% WoW)
+
+New backlinks acquired: X
+Outreach emails sent: X
+Response rate: X%
+
+Top mover: &quot;[keyword]&quot;
+→ Position X → Position Y (+Z)
+
+Action needed: [anything requiring human review]
+
+Full report: ~/seo/weekly-report-[date].md
+</code></pre>
+<hr>
+<h2>Cost Breakdown</h2>
+<h3>Without Ahrefs (Recommended starting point)</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenClaw</td>
+<td>Free</td>
+<td>Self-hosted, open source</td>
+</tr>
+<tr>
+<td>Anthropic API (Claude Sonnet)</td>
+<td>~$20–50/mo</td>
+<td>~2-4 articles/week + daily tasks</td>
+</tr>
+<tr>
+<td>DataForSEO Backlinks API</td>
+<td>~$20–50/mo</td>
+<td>Pay-as-you-go, $50 min top-up never expires</td>
+</tr>
+<tr>
+<td>Google Search Console</td>
+<td>Free</td>
+<td>—</td>
+</tr>
+<tr>
+<td>VPS (if not running on Mac mini)</td>
+<td>~$6/mo</td>
+<td>DigitalOcean Droplet</td>
+</tr>
+<tr>
+<td>Hunter.io (email finding)</td>
+<td>$0–49/mo</td>
+<td>Free tier: 25 searches/mo</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~$46–155/mo</strong></td>
+<td>Scales with usage</td>
+</tr>
+</tbody></table>
+<h3>With Ahrefs Enterprise</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ahrefs Enterprise</td>
+<td>$1,499/mo</td>
+<td>Annual commitment only — ouch</td>
+</tr>
+<tr>
+<td>Anthropic API</td>
+<td>~$20–50/mo</td>
+<td></td>
+</tr>
+<tr>
+<td>Google Search Console</td>
+<td>Free</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~$1,520–1,550/mo</strong></td>
+<td>Only makes sense at agency scale</td>
+</tr>
+</tbody></table>
+<h3>With Ahrefs Lite (no API access — manual data only)</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ahrefs Lite</td>
+<td>$99/mo</td>
+<td>UI access only, no API v3</td>
+</tr>
+<tr>
+<td>DataForSEO</td>
+<td>~$20–50/mo</td>
+<td>For backlinks API in the agent</td>
+</tr>
+<tr>
+<td>Anthropic API</td>
+<td>~$20–50/mo</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~$139–199/mo</strong></td>
+<td>Use Ahrefs for strategy, DataForSEO for agent</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> Ahrefs Lite ($99/mo) gives you the Ahrefs web UI but <strong>no API access</strong>. API requires Enterprise ($1,499/mo). For most people, use DataForSEO for programmatic backlink data and Ahrefs Lite for manual research.</p>
+</blockquote>
+<hr>
+<h2>Alternatives to Ahrefs</h2>
+<p>Ranked by cost/value for programmatic use (agent automation):</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Monthly Cost</th>
+<th>API Access</th>
+<th>Best For</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DataForSEO</strong></td>
+<td>$50 min (PAYG)</td>
+<td>✅ Yes</td>
+<td>Everything</td>
+<td>Best for agents. 15+ APIs. Pay per request. Backlinks, SERP, keywords. Highly recommended.</td>
+</tr>
+<tr>
+<td><strong>Moz API</strong></td>
+<td>Free–$5+/mo</td>
+<td>✅ Yes</td>
+<td>Link analysis</td>
+<td>Free tier (50 rows/mo). Domain Authority. Great entry point.</td>
+</tr>
+<tr>
+<td><strong>SE Ranking</strong></td>
+<td>$119/mo annual</td>
+<td>✅ Yes</td>
+<td>Full SEO stack</td>
+<td>5.4B keywords, 2.2B domains. Good mid-tier option.</td>
+</tr>
+<tr>
+<td><strong>Majestic</strong></td>
+<td>$49.99/mo</td>
+<td>✅ Yes ($399.99/mo API plan)</td>
+<td>Backlinks only</td>
+<td>Historical data since 2006. Trust Flow metric.</td>
+</tr>
+<tr>
+<td><strong>SpyFu</strong></td>
+<td>$58/mo annual</td>
+<td>✅ Yes (Pro plan)</td>
+<td>Competitor research</td>
+<td>19 years of SERP history. Strong on PPC data.</td>
+</tr>
+<tr>
+<td><strong>Semrush</strong></td>
+<td>$499/mo Business</td>
+<td>✅ Yes (add-on units)</td>
+<td>Comprehensive</td>
+<td>Most expensive alternative. Units don&#39;t roll over.</td>
+</tr>
+<tr>
+<td><strong>Ahrefs Lite</strong></td>
+<td>$99/mo</td>
+<td>❌ No API</td>
+<td>Manual research</td>
+<td>Great UI. No programmatic access at this tier.</td>
+</tr>
+<tr>
+<td><strong>Google Search Console</strong></td>
+<td>Free</td>
+<td>✅ Yes</td>
+<td>Your own site data</td>
+<td>Best source for your own keyword/click data</td>
+</tr>
+</tbody></table>
+<h3>Free Options</h3>
+<ul>
+<li><strong>Google Search Console</strong> — Free, your own site&#39;s data, perfect for keyword monitoring</li>
+<li><strong>Moz Free API</strong> — 50 rows/month, good for testing</li>
+<li><strong>DataForSEO trial</strong> — $50 top-up that never expires (pay per request)</li>
+<li><strong>Common Crawl</strong> — Free raw crawl data (complex to use)</li>
+<li><strong>Screaming Frog</strong> — Free up to 500 URLs for site crawling</li>
+</ul>
+<h3>The Recommended Stack (Budget-Conscious)</h3>
+<pre><code>Programmatic agent:  DataForSEO ($20-50/mo PAYG)
+Manual research:     Google Search Console (free) + Ahrefs Lite UI ($99/mo)
+Your own site data:  GSC API (free)
+Email outreach:      himalaya skill (free)
+Content generation:  Anthropic API (~$20-30/mo)
+─────────────────────────────────────────────
+Total: ~$139–180/mo  (vs. $1,500+/mo with Ahrefs Enterprise)
+</code></pre>
+<hr>
+<h2>Common Issues</h2>
+<h3>&quot;My agent keeps looping / API bill exploded&quot;</h3>
+<p><strong>Always set API budget caps.</strong> In your Anthropic console, set a monthly spend limit. One user reported a $200 bill from a single weekend loop.</p>
+<pre><code class="language-bash"># Set a max monthly Anthropic budget in their console:
+# console.anthropic.com → Settings → Usage Limits → Set monthly limit
+</code></pre>
+<p>Also cap DataForSEO spend in their dashboard.</p>
+<h3>&quot;GSC API returns 403 / permission denied&quot;</h3>
+<ul>
+<li>Make sure your OAuth consent screen has your site&#39;s email as a test user</li>
+<li>Verify the site is actually verified in GSC under the same Google account</li>
+<li>The scope needed is: <code>https://www.googleapis.com/auth/webmasters.readonly</code></li>
+<li>Refresh tokens expire if unused for 6 months — re-auth if needed</li>
+</ul>
+<h3>&quot;Outreach emails going to spam&quot;</h3>
+<ul>
+<li>Use a dedicated sending domain, not your main domain</li>
+<li>Warm up the email address for 2–3 weeks before bulk sending</li>
+<li>Max 15 emails/day to start (agent should be configured with this limit)</li>
+<li>Add SPF, DKIM, DMARC records to your sending domain</li>
+<li>Personalize each email — no copy-paste templates</li>
+</ul>
+<h3>&quot;Articles are generic / not ranking&quot;</h3>
+<ul>
+<li>Give the agent your <code>SEO_CONTEXT.md</code> before anything else (Step 5)</li>
+<li>Use the Topology Constraints technique: tell it &quot;Do not use bullet points. Map content logic as a flowchart first.&quot;</li>
+<li>Always have the agent analyze top-10 competitors first before writing</li>
+<li>Set word count targets based on competitor average, not arbitrary numbers</li>
+<li>Review drafts before publishing — switch to auto-publish only when you trust quality</li>
+</ul>
+<h3>&quot;Ahrefs API v2 stopped working&quot;</h3>
+<p>Correct — API v2 was fully discontinued November 1, 2025. You must use API v3 (Enterprise only) or migrate to DataForSEO.</p>
+<h3>&quot;DataForSEO results seem off&quot;</h3>
+<ul>
+<li>Use the <code>live</code> endpoints for real-time data (slightly more expensive than standard queue)</li>
+<li>For backlinks, the Backlinks API requires a $100/month minimum top-up to use</li>
+<li>Results are cached for 30 days — factor this in when pulling fresh data</li>
+</ul>
+<h3>&quot;himalaya not sending emails&quot;</h3>
+<pre><code class="language-bash"># Test the connection
+himalaya send --debug
+
+# Common fix for Gmail: enable &quot;Less secure app access&quot; OR use App Passwords
+# App Passwords: myaccount.google.com → Security → App Passwords
+</code></pre>
+<h3>&quot;Site architecture audit takes too long&quot;</h3>
+<ul>
+<li>Limit initial crawl depth to 3 levels</li>
+<li>Add a crawl delay (1-2 seconds between requests) to avoid triggering your own bot protection</li>
+<li>For large sites (1000+ pages), run the audit monthly instead of weekly</li>
+</ul>
+<hr>
+<h2>Links</h2>
+<h3>Original Sources</h3>
+<ul>
+<li><a href="https://x.com/EXM7777/status/2025631181702893616">@EXM7777 tweet thread</a> — &quot;how to build an autonomous SEO agent inside OpenClaw&quot;</li>
+<li><a href="https://x.com/michaelaubry/status/2019911082601771315">@michaelaubry tweet</a> — &quot;Built a discord bot that uses openclaw, it scans ahrefs for backlink opps&quot;</li>
+</ul>
+<h3>Julian Goldie SEO (@JulianGoldieSEO)</h3>
+<ul>
+<li><a href="https://x.com/JulianGoldieSEO/status/2025275817648103593">Free stack: Qwen 3.5 + OpenClaw + Ollama</a> — run everything locally for $0</li>
+<li><a href="https://x.com/JulianGoldieSEO/status/2027316606368612773">OpenClaw multi-agent update</a> — spin up multiple agents that talk to each other</li>
+</ul>
+<h3>OpenClaw Documentation</h3>
+<ul>
+<li><a href="https://openclawmarketing.com/openclaw-seo">OpenClaw SEO Guide (openclawmarketing.com)</a> — complete automation guide with install commands</li>
+<li><a href="https://lobsterlair.xyz/blog/autonomous-seo-openclaw">Autonomous SEO with OpenClaw (lobsterlair.xyz)</a> — full 6-phase system breakdown</li>
+<li><a href="https://docs.openclaw.ai/channels/discord">OpenClaw Discord Channel docs</a></li>
+</ul>
+<h3>Skills &amp; Tools</h3>
+<ul>
+<li><a href="https://playbooks.com/skills/openclaw/skills/seo-audit">programmatic-seo skill</a> — install via <code>npx clawdhub@latest install programmatic-seo</code></li>
+<li><a href="https://agentskill.sh/@openclaw/ahrefs-connection">Ahrefs MCP skill</a> — <code>@ahrefs/mcp</code> for Claude Code/MCP users</li>
+<li><a href="https://github.com/AgriciDaniel/claude-seo">claude-seo (GitHub)</a> — universal SEO skill integrating Ahrefs MCP, Semrush MCP, DataForSEO</li>
+</ul>
+<h3>APIs</h3>
+<ul>
+<li><a href="https://developers.google.com/webmaster-tools/v1/api_reference_index">Google Search Console API Reference</a></li>
+<li><a href="https://developers.google.com/identity/protocols/oauth2">GSC OAuth Setup Guide</a></li>
+<li><a href="https://developers.google.com/webmaster-tools/v1/searchanalytics/query">searchAnalytics/query endpoint</a></li>
+<li><a href="https://docs.ahrefs.com/docs/api/reference/introduction">Ahrefs API v3 Docs</a> — Enterprise only</li>
+<li><a href="https://dataforseo.com/">DataForSEO API</a> — pay-as-you-go, $50 min</li>
+<li><a href="https://moz.com/products/api">Moz API</a> — free tier available</li>
+<li><a href="https://seranking.com/">SE Ranking API</a> — $119/mo annual</li>
+</ul>
+<h3>Cost Research</h3>
+<ul>
+<li><a href="https://seobotai.com/blog/ahrefs-api-alternatives/">Ahrefs API Alternatives Compared (seobotai.com)</a> — detailed pricing breakdown of all alternatives</li>
+<li><a href="https://dataforseo.com/blog/backlink-api-comparison-dataforseo-ahrefs-semrush">DataForSEO vs Ahrefs vs Semrush Backlinks</a></li>
+</ul>
+<hr>
+<h2>Quick-Start TL;DR</h2>
+<pre><code class="language-bash"># 1. Install skills
+npx clawdhub@latest install programmatic-seo octolens fs-architect schema-markup
+
+# 2. Set your API keys
+openclaw config set GSC_CLIENT_ID &quot;...&quot;
+openclaw config set GSC_CLIENT_SECRET &quot;...&quot;
+openclaw config set GSC_REFRESH_TOKEN &quot;...&quot;
+openclaw config set GSC_SITE_URL &quot;https://yourdomain.com/&quot;
+openclaw config set DATAFORSEO_LOGIN &quot;...&quot;
+openclaw config set DATAFORSEO_PASSWORD &quot;...&quot;
+
+# 3. Prime the agent context
+# Write SEO_CONTEXT.md (see Step 5)
+
+# 4. Message your agent on Telegram
+# &quot;Read SEO_CONTEXT.md, then set up the 3 SEO workflows (programmatic pages, architecture, outreach)&quot;
+
+# 5. Verify crons are scheduled
+openclaw cron list
+
+# 6. Wait for Friday — first Telegram report incoming 📊
+</code></pre>
+<hr>
+<p><em>Last updated: March 2026 | Based on @EXM7777 and @michaelaubry workflows | Maxxer Academy</em></p>
+</article>
+</div>
+<footer>
+  <a href="/">← Back to all playbooks</a> · Curated by <a href="https://x.com/christiancattaneo" target="_blank">Christian Cattaneo</a> · <a href="https://maxxer.ai" target="_blank">Maxxer</a> · 2026
+</footer>
+</body>
+</html>
