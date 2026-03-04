@@ -92,7 +92,7 @@ The 5 questions:
 ```bash
 clawhub install meta-ads
 ```
-✅ **Verified on ClawHub** — exists at [clawhub.ai/skills/meta-ads](https://clawhub.ai/skills/meta-ads) (published by zachgodsell93, v1.0.0, updated Feb 2026). Also bundled in Matt Berman's [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit).
+[ok] **Verified on ClawHub** — exists at [clawhub.ai/skills/meta-ads](https://clawhub.ai/skills/meta-ads) (published by zachgodsell93, v1.0.0, updated Feb 2026). Also bundled in Matt Berman's [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit).
 
 **Configuration needed:**
 ```json
@@ -134,9 +134,9 @@ When triggered, it: flags the creative, writes an observation to a workspace log
 ```bash
 clawhub install ad-creative-monitor
 ```
-✅ **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-creative-monitor](https://clawhub.ai/skills/ad-creative-monitor). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-creative-monitor).
+[ok] **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-creative-monitor](https://clawhub.ai/skills/ad-creative-monitor). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-creative-monitor).
 
-**⚠️ Caveat:** The `clawhub inspect` CLI command returned no result for this slug, but the ClawHub web page resolves and the skill is included in Matt Berman's open-source kit. Install via the kit or the web URL if `clawhub install` fails.
+**[!] Caveat:** The `clawhub inspect` CLI command returned no result for this slug, but the ClawHub web page resolves and the skill is included in Matt Berman's open-source kit. Install via the kit or the web URL if `clawhub install` fails.
 
 **Configuration needed:**
 - `max_frequency` threshold (default: 3.5)
@@ -155,9 +155,9 @@ Budget shifts are **always approval-required** (by design). The agent presents t
 ```bash
 clawhub install budget-optimizer
 ```
-✅ **Verified on ClawHub** — exists at [clawhub.ai/skills/budget-optimizer](https://clawhub.ai/skills/budget-optimizer). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/budget-optimizer).
+[ok] **Verified on ClawHub** — exists at [clawhub.ai/skills/budget-optimizer](https://clawhub.ai/skills/budget-optimizer). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/budget-optimizer).
 
-**⚠️ Caveat:** Same as above — `clawhub inspect` CLI returned empty, but web page resolves. Use the kit install path if needed.
+**[!] Caveat:** Same as above — `clawhub inspect` CLI returned empty, but web page resolves. Use the kit install path if needed.
 
 **Configuration needed:**
 - Your benchmarks (target CPA, target ROAS) from `ad-config.json`
@@ -191,7 +191,7 @@ Output format example:
 ```bash
 clawhub install ad-copy-generator
 ```
-✅ **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-copy-generator](https://clawhub.ai/skills/ad-copy-generator). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-copy-generator).
+[ok] **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-copy-generator](https://clawhub.ai/skills/ad-copy-generator). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-copy-generator).
 
 **Configuration needed:**
 - Brand voice guidelines (write them in plain English to the agent)
@@ -211,7 +211,7 @@ This is the last step in the closed loop: Monitor → Detect Fatigue → Optimiz
 ```bash
 clawhub install ad-upload
 ```
-✅ **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-upload](https://clawhub.ai/skills/ad-upload). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-upload).
+[ok] **Verified on ClawHub** — exists at [clawhub.ai/skills/ad-upload](https://clawhub.ai/skills/ad-upload). Also bundled in the [meta-ads-kit](https://github.com/TheMattBerman/meta-ads-kit/tree/main/skills/ad-upload).
 
 **Configuration needed:**
 - Ad account ID (`act_XXXXXXXXX`)
@@ -679,38 +679,38 @@ The ClawHub web pages for all 5 skills resolve correctly, but the CLI's vector s
 
 | Resource | URL | Status |
 |----------|-----|--------|
-| Original tweet | https://x.com/TheMattBerman/status/2027220216409723296 | ✅ Live |
-| BigPlayers breakdown | https://www.bigplayers.co/p/this-openclaw-agent-runs-your-meta-ads | ✅ Live |
-| meta-ads-kit (GitHub) | https://github.com/TheMattBerman/meta-ads-kit | ✅ Live (38 stars) |
-| social-flow CLI (GitHub) | https://github.com/vishalgojha/social-flow | ✅ Live |
-| social-flow (npm) | https://www.npmjs.com/package/@vishalgojha/social-flow | ✅ v0.2.17 |
-| OpenClaw | https://openclaw.ai | ✅ Live |
-| ClawHub | https://clawhub.ai | ✅ Live |
-| meta-ads skill | https://clawhub.ai/skills/meta-ads | ✅ Verified |
-| ad-creative-monitor skill | https://clawhub.ai/skills/ad-creative-monitor | ✅ Verified |
-| budget-optimizer skill | https://clawhub.ai/skills/budget-optimizer | ✅ Verified |
-| ad-copy-generator skill | https://clawhub.ai/skills/ad-copy-generator | ✅ Verified |
-| ad-upload skill | https://clawhub.ai/skills/ad-upload | ✅ Verified |
-| Meta Business | https://business.facebook.com | ✅ Live |
-| Meta Developers (App creation) | https://developers.facebook.com/apps | ✅ Live |
-| Meta Graph API Explorer | https://developers.facebook.com/tools/explorer | ✅ Live |
-| Meta Marketing API docs | https://developers.facebook.com/docs/marketing-api | ✅ Live |
-| Anthropic API keys | https://console.anthropic.com/keys | ✅ Live |
+| Original tweet | https://x.com/TheMattBerman/status/2027220216409723296 | [ok] Live |
+| BigPlayers breakdown | https://www.bigplayers.co/p/this-openclaw-agent-runs-your-meta-ads | [ok] Live |
+| meta-ads-kit (GitHub) | https://github.com/TheMattBerman/meta-ads-kit | [ok] Live (38 stars) |
+| social-flow CLI (GitHub) | https://github.com/vishalgojha/social-flow | [ok] Live |
+| social-flow (npm) | https://www.npmjs.com/package/@vishalgojha/social-flow | [ok] v0.2.17 |
+| OpenClaw | https://openclaw.ai | [ok] Live |
+| ClawHub | https://clawhub.ai | [ok] Live |
+| meta-ads skill | https://clawhub.ai/skills/meta-ads | [ok] Verified |
+| ad-creative-monitor skill | https://clawhub.ai/skills/ad-creative-monitor | [ok] Verified |
+| budget-optimizer skill | https://clawhub.ai/skills/budget-optimizer | [ok] Verified |
+| ad-copy-generator skill | https://clawhub.ai/skills/ad-copy-generator | [ok] Verified |
+| ad-upload skill | https://clawhub.ai/skills/ad-upload | [ok] Verified |
+| Meta Business | https://business.facebook.com | [ok] Live |
+| Meta Developers (App creation) | https://developers.facebook.com/apps | [ok] Live |
+| Meta Graph API Explorer | https://developers.facebook.com/tools/explorer | [ok] Live |
+| Meta Marketing API docs | https://developers.facebook.com/docs/marketing-api | [ok] Live |
+| Anthropic API keys | https://console.anthropic.com/keys | [ok] Live |
 
 ---
 
 ## Skill Verification Notes
 
 **Verified via ClawHub CLI (`clawhub inspect meta-ads`):**
-- `meta-ads` — ✅ Confirmed on ClawHub. Owner: zachgodsell93. v1.0.0. Published Feb 2026.
+- `meta-ads` — [ok] Confirmed on ClawHub. Owner: zachgodsell93. v1.0.0. Published Feb 2026.
 
 **Verified via ClawHub web (URL resolves with correct page title):**
-- `ad-creative-monitor` — ✅ Page title "ad-creative-monitor — ClawHub"
-- `budget-optimizer` — ✅ Page title "budget-optimizer — ClawHub"
-- `ad-copy-generator` — ✅ Page title "ad-copy-generator — ClawHub"
-- `ad-upload` — ✅ Page title "ad-upload — ClawHub"
+- `ad-creative-monitor` — [ok] Page title "ad-creative-monitor — ClawHub"
+- `budget-optimizer` — [ok] Page title "budget-optimizer — ClawHub"
+- `ad-copy-generator` — [ok] Page title "ad-copy-generator — ClawHub"
+- `ad-upload` — [ok] Page title "ad-upload — ClawHub"
 
-**⚠️ Important note on ClawHub CLI search:** The `clawhub search` command uses vector similarity — searching "ad-creative-monitor" returns unrelated skills because the registry uses semantic matching, not exact slug lookup. The `clawhub install <slug>` command uses exact slug matching. For these 4 skills, if `clawhub install` fails, clone the [meta-ads-kit repo](https://github.com/TheMattBerman/meta-ads-kit) and use the bundled `skills/` folder directly — they're identical.
+**[!] Important note on ClawHub CLI search:** The `clawhub search` command uses vector similarity — searching "ad-creative-monitor" returns unrelated skills because the registry uses semantic matching, not exact slug lookup. The `clawhub install <slug>` command uses exact slug matching. For these 4 skills, if `clawhub install` fails, clone the [meta-ads-kit repo](https://github.com/TheMattBerman/meta-ads-kit) and use the bundled `skills/` folder directly — they're identical.
 
 **Note on "ad-copy-generator" and "ad-upload" — the tweet vs. the article:**
 Matt Berman's original tweet mentioned 5 skills. His BigPlayers newsletter (the full breakdown) confirmed only 3 skills are in the "core" kit (`meta-ads`, `ad-creative-monitor`, `budget-optimizer`) — plus `ad-copy-generator` and `ad-upload` for the creative loop. The GitHub repo confirms all 5 exist. This playbook covers all 5.

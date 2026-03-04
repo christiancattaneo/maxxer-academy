@@ -250,7 +250,7 @@ curl -X POST \
 
 ### Step 3: Set Up Ahrefs API (OR Alternative — see below)
 
-> ⚠️ **Important pricing note:** Ahrefs API v3 requires **Enterprise plan only** — $1,499/month (annual). The old Lite plan ($99/mo) does **not** include API access. API v2 was discontinued November 2025. **Most people should skip Ahrefs and use DataForSEO instead** (see [Alternatives](#alternatives-to-ahrefs)).
+> [!] **Important pricing note:** Ahrefs API v3 requires **Enterprise plan only** — $1,499/month (annual). The old Lite plan ($99/mo) does **not** include API access. API v2 was discontinued November 2025. **Most people should skip Ahrefs and use DataForSEO instead** (see [Alternatives](#alternatives-to-ahrefs)).
 
 #### If you have Ahrefs Enterprise:
 
@@ -495,7 +495,7 @@ Set up these cron jobs for the SEO agent:
 Your agent should send you a weekly report every Friday:
 
 ```
-📊 SEO Report — Week [N]
+ SEO Report — Week [N]
 
 New articles published: X
 Total indexed pages: X
@@ -549,7 +549,7 @@ Full report: ~/seo/weekly-report-[date].md
 | Anthropic API | ~$20–50/mo | |
 | **Total** | **~$139–199/mo** | Use Ahrefs for strategy, DataForSEO for agent |
 
-> ⚠️ **Important:** Ahrefs Lite ($99/mo) gives you the Ahrefs web UI but **no API access**. API requires Enterprise ($1,499/mo). For most people, use DataForSEO for programmatic backlink data and Ahrefs Lite for manual research.
+> [!] **Important:** Ahrefs Lite ($99/mo) gives you the Ahrefs web UI but **no API access**. API requires Enterprise ($1,499/mo). For most people, use DataForSEO for programmatic backlink data and Ahrefs Lite for manual research.
 
 ---
 
@@ -559,14 +559,14 @@ Ranked by cost/value for programmatic use (agent automation):
 
 | Tool | Monthly Cost | API Access | Best For | Notes |
 |------|-------------|-----------|---------|-------|
-| **DataForSEO** | $50 min (PAYG) | ✅ Yes | Everything | Best for agents. 15+ APIs. Pay per request. Backlinks, SERP, keywords. Highly recommended. |
-| **Moz API** | Free–$5+/mo | ✅ Yes | Link analysis | Free tier (50 rows/mo). Domain Authority. Great entry point. |
-| **SE Ranking** | $119/mo annual | ✅ Yes | Full SEO stack | 5.4B keywords, 2.2B domains. Good mid-tier option. |
-| **Majestic** | $49.99/mo | ✅ Yes ($399.99/mo API plan) | Backlinks only | Historical data since 2006. Trust Flow metric. |
-| **SpyFu** | $58/mo annual | ✅ Yes (Pro plan) | Competitor research | 19 years of SERP history. Strong on PPC data. |
-| **Semrush** | $499/mo Business | ✅ Yes (add-on units) | Comprehensive | Most expensive alternative. Units don't roll over. |
-| **Ahrefs Lite** | $99/mo | ❌ No API | Manual research | Great UI. No programmatic access at this tier. |
-| **Google Search Console** | Free | ✅ Yes | Your own site data | Best source for your own keyword/click data |
+| **DataForSEO** | $50 min (PAYG) | [ok] Yes | Everything | Best for agents. 15+ APIs. Pay per request. Backlinks, SERP, keywords. Highly recommended. |
+| **Moz API** | Free–$5+/mo | [ok] Yes | Link analysis | Free tier (50 rows/mo). Domain Authority. Great entry point. |
+| **SE Ranking** | $119/mo annual | [ok] Yes | Full SEO stack | 5.4B keywords, 2.2B domains. Good mid-tier option. |
+| **Majestic** | $49.99/mo | [ok] Yes ($399.99/mo API plan) | Backlinks only | Historical data since 2006. Trust Flow metric. |
+| **SpyFu** | $58/mo annual | [ok] Yes (Pro plan) | Competitor research | 19 years of SERP history. Strong on PPC data. |
+| **Semrush** | $499/mo Business | [ok] Yes (add-on units) | Comprehensive | Most expensive alternative. Units don't roll over. |
+| **Ahrefs Lite** | $99/mo | [x] No API | Manual research | Great UI. No programmatic access at this tier. |
+| **Google Search Console** | Free | [ok] Yes | Your own site data | Best source for your own keyword/click data |
 
 ### Free Options
 
@@ -712,7 +712,7 @@ openclaw config set DATAFORSEO_PASSWORD "..."
 # 5. Verify crons are scheduled
 openclaw cron list
 
-# 6. Wait for Friday — first Telegram report incoming 📊
+# 6. Wait for Friday — first Telegram report incoming 
 ```
 
 ---

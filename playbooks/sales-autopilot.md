@@ -32,24 +32,24 @@ Before you start, you'll need all of the following:
 - [ ] **Node.js 22+** — installed automatically by OpenClaw if missing
 - [ ] **Terminal comfort** — you need to be able to type commands. No coding required.
 
-> ⚠️ **Security note:** ClawHub is a public marketplace with thousands of community skills. As of early 2026, Hacker News and The Hacker News have both reported malicious skills uploaded to ClawHub. **Only install skills from trusted publishers with verified names.** This guide lists only the official/verified skill names — double-check the publisher before installing anything.
+> [!] **Security note:** ClawHub is a public marketplace with thousands of community skills. As of early 2026, Hacker News and The Hacker News have both reported malicious skills uploaded to ClawHub. **Only install skills from trusted publishers with verified names.** This guide lists only the official/verified skill names — double-check the publisher before installing anything.
 
 ---
 
 ## The 6 Agents — What Each Does
 
-### Agent 1: Scout 🔍
+### Agent 1: Scout 
 **Purpose:** Finds and scores local businesses that don't have a website
 
 **How it works:**
 The Scout agent wakes up daily (via a cron job you'll set up). It queries the **Google Places API** for local businesses in your target city and niche — think "restaurants in Austin TX" or "plumbers in Chicago IL." For each business it finds, it checks whether they have a website URL in the Places data. Businesses with no website (or a weak/broken site) get added to a leads list with their name, phone number, address, category, and a lead score based on factors like review count, rating, and business size.
 
 **Tools needed:**
-- `google-maps-b2b-extractor` skill (exists on ClawHub ✅)
+- `google-maps-b2b-extractor` skill (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install google-maps-b2b-extractor
   ```
-- `web-scraper-as-a-service` skill for validating existing websites (exists on ClawHub ✅)
+- `web-scraper-as-a-service` skill for validating existing websites (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install web-scraper-as-a-service
   ```
@@ -90,7 +90,7 @@ Output format per lead:
 The Builder reads the leads.json file that Scout created. For each new lead with status "new", it generates a complete, professional HTML/CSS website tailored to that business — using the business name, category, location, and any details from Google Places (photos, hours, phone). It then deploys that site to **Vercel** with a unique subdomain (e.g., `mike-barbershop-denver.vercel.app`). The lead's status is updated to "site_built" and the preview URL is stored.
 
 **Tools needed:**
-- `vercel-deploy` skill (exists on ClawHub ✅)
+- `vercel-deploy` skill (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install vercel-deploy
   ```
@@ -125,11 +125,11 @@ Use clean, modern HTML5 + embedded CSS. No frameworks needed. The site must look
 The Pitcher reads leads with status "site_built" and crafts a personalized cold email for each one. The email includes: a compliment about their business, a note that you built them a free demo website, the actual preview URL so they can see it live, a simple Stripe payment link to claim it for $X/month, and a clear call to action. The email is sent via your configured email account (Himalaya or Gmail).
 
 **Tools needed:**
-- `himalaya` skill (exists on ClawHub ✅) — for sending email via SMTP
+- `himalaya` skill (exists on ClawHub [ok]) — for sending email via SMTP
   ```bash
   npx clawhub@latest install himalaya
   ```
-- Alternative: `email-send` skill (also exists on ClawHub ✅)
+- Alternative: `email-send` skill (also exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install email-send
   ```
@@ -164,8 +164,8 @@ Subject line formula: "I made [Business Name] a free website — take a look"
 The Closer is the most intelligent agent. It monitors the outreach inbox for replies. When someone replies — whether they're interested, skeptical, or have questions — the Closer reads the context (which business, what demo they saw) and crafts a tailored response. It handles common objections like "I already have a website" (offer to upgrade it), "how much does it cost?" (send payment link again), or "I'm not sure I need this" (show mobile-first stats for their industry). When someone pays, Stripe sends a webhook and the lead status updates automatically.
 
 **Tools needed:**
-- `himalaya` skill for reading replies (already installed ✅)
-- `postiz` skill for scheduling follow-up posts if using social media (exists on ClawHub ✅)
+- `himalaya` skill for reading replies (already installed [ok])
+- `postiz` skill for scheduling follow-up posts if using social media (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install postiz
   ```
@@ -198,16 +198,16 @@ Update leads.json status to "replied", "negotiating", or "closed" as appropriate
 
 ---
 
-### Agent 5: Deliverer 🚀
+### Agent 5: Deliverer 
 **Purpose:** When payment is received, delivers the live site, transfers ownership, and onboards the client
 
 **How it works:**
 The Deliverer watches for Stripe payment webhooks (or you configure a daily check). When payment is confirmed, it: (1) migrates the demo site from the temp subdomain to a proper custom domain or a branded URL, (2) sends a welcome email with login credentials and next steps, (3) schedules a quick check-in, and (4) adds the client to a simple CRM in a spreadsheet or Airtable (optional). The lead status updates to "delivered".
 
 **Tools needed:**
-- `vercel-deploy` skill (already installed ✅)
-- `email-send` or `himalaya` skill (already installed ✅)
-- `stripe` skill for webhook monitoring (exists on ClawHub ✅)
+- `vercel-deploy` skill (already installed [ok])
+- `email-send` or `himalaya` skill (already installed [ok])
+- `stripe` skill for webhook monitoring (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install stripe
   ```
@@ -241,9 +241,9 @@ Keep the welcome email warm and professional.
 The Nurture agent handles the long-term relationship. 30 days after delivery, it sends a check-in email. 60 days after, it asks for a Google review or testimonial. It monitors site uptime (basic ping check). It also identifies upsell opportunities — clients who mention wanting more features, e-commerce, booking systems, etc. — and drafts a custom proposal. This agent keeps retention high and grows revenue per client.
 
 **Tools needed:**
-- `himalaya` or `email-send` skill (already installed ✅)
-- `postiz` skill for posting client testimonials on social (optional, ✅ exists)
-- `x-twitter` skill for outreach/posting (exists on ClawHub ✅)
+- `himalaya` or `email-send` skill (already installed [ok])
+- `postiz` skill for posting client testimonials on social (optional, [ok] exists)
+- `x-twitter` skill for outreach/posting (exists on ClawHub [ok])
   ```bash
   npx clawhub@latest install x-twitter
   ```
@@ -357,8 +357,8 @@ npx clawhub@latest install x-twitter
 ```
 
 > **Skills that DON'T exist on ClawHub (as of March 2026):**
-> - `google-places` — use `google-maps-b2b-extractor` instead ✅
-> - `stripe-webhooks` — use `stripe` (the native Stripe skill) instead ✅
+> - `google-places` — use `google-maps-b2b-extractor` instead [ok]
+> - `stripe-webhooks` — use `stripe` (the native Stripe skill) instead [ok]
 > - `website-builder` — the Builder agent uses OpenClaw's native file write + exec tools instead (no skill needed)
 
 ---
@@ -465,7 +465,7 @@ Warm, helpful, human. Never spammy. You're offering something genuinely valuable
 SOUL
 ```
 
-> 🔧 **Customize the placeholders:** Replace `[YOUR TARGET CITY]`, `[YOUR TARGET NICHE]`, and `[PASTE YOUR STRIPE LINK HERE]` with your actual values before proceeding.
+>  **Customize the placeholders:** Replace `[YOUR TARGET CITY]`, `[YOUR TARGET NICHE]`, and `[PASTE YOUR STRIPE LINK HERE]` with your actual values before proceeding.
 
 ---
 
@@ -706,7 +706,7 @@ At 50 clients: ~$2,450/month net. At 100 clients: ~$4,850/month net.
 - **OpenClaw heartbeat guide:** https://docs.openclaw.ai/gateway/heartbeat
 - **ClawHub skill registry:** https://clawhub.ai/skills
 
-### ClawHub Skills (verified ✅)
+### ClawHub Skills (verified [ok])
 - `google-maps-b2b-extractor`: https://clawhub.ai/skills?q=google-maps-b2b-extractor
 - `web-scraper-as-a-service`: https://clawhub.ai/skills?q=web-scraper-as-a-service
 - `vercel-deploy`: https://clawhub.ai/skills?q=vercel-deploy

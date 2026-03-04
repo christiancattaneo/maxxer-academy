@@ -97,14 +97,14 @@ A daily cron job that runs through your entire CRM + any sales transcripts you h
 6. Skip the onboarding wizard or complete it — your choice
 
 **What the Free Plan includes (relevant to this setup):**
-- ✅ Unlimited contacts
-- ✅ Up to 1,000,000 contacts stored
-- ✅ Deal pipeline (1 pipeline, unlimited deals)
-- ✅ Contact & company records
-- ✅ Activity logging (calls, emails, notes)
-- ✅ API access via Private Apps
-- ⚠️ No email sequences (requires Sales Hub Starter — $20/seat/month)
-- ⚠️ No custom reporting (Professional — $90/seat/month)
+- [ok] Unlimited contacts
+- [ok] Up to 1,000,000 contacts stored
+- [ok] Deal pipeline (1 pipeline, unlimited deals)
+- [ok] Contact & company records
+- [ok] Activity logging (calls, emails, notes)
+- [ok] API access via Private Apps
+- [!] No email sequences (requires Sales Hub Starter — $20/seat/month)
+- [!] No custom reporting (Professional — $90/seat/month)
 
 **Enable what you need:**
 - Go to **Settings → Objects → Deals** and make sure your pipeline is set up
@@ -114,7 +114,7 @@ A daily cron job that runs through your entire CRM + any sales transcripts you h
 
 ### Step 2: Create a HubSpot Private App
 
-> ⚠️ **Important:** Legacy API keys are fully deprecated as of 2024. Private App tokens are the only supported authentication method. Never commit your token to git.
+> [!] **Important:** Legacy API keys are fully deprecated as of 2024. Private App tokens are the only supported authentication method. Never commit your token to git.
 
 **Step-by-step:**
 
@@ -192,7 +192,7 @@ sender.login = "you@yourcompany.com"
 sender.passwd.cmd = "security find-internet-password -s smtp.gmail.com -w"
 ```
 
-> 💡 For Gmail, you'll need to create an App Password (if 2FA is on) at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+> Note: For Gmail, you'll need to create an App Password (if 2FA is on) at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 
 **Check for a HighLevel skill (if you use HighLevel instead of HubSpot):**
 
@@ -324,10 +324,10 @@ Today's task:
 7. Send me a summary with today's hit list and draft outreach
 
 Format your response as:
-🔥 TOP DEALS TO CHASE TODAY
-🔄 STALE DEALS NEEDING FOLLOW-UP
-🎯 NEW OUTREACH TARGETS
-📋 COMMITMENTS FROM RECENT CALLS" \
+* TOP DEALS TO CHASE TODAY
+ STALE DEALS NEEDING FOLLOW-UP
+* NEW OUTREACH TARGETS
+ COMMITMENTS FROM RECENT CALLS" \
   --model opus \
   --thinking high \
   --announce \

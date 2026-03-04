@@ -85,7 +85,7 @@ OpenClaw needs an AI "brain." Anthropic's Claude is the recommended starting poi
 - Medium use (~500 messages/day): ~$20–40/month
 - Heavy use (agent workflows): ~$50–100/month
 
-> **⚠️ Always set a spending cap.** Go to Billing → Usage Limits and set a hard limit of $50/month until you understand your usage patterns.
+> **[!] Always set a spending cap.** Go to Billing → Usage Limits and set a hard limit of $50/month until you understand your usage patterns.
 
 ---
 
@@ -157,7 +157,7 @@ This opens `the URL shown by `openclaw dashboard`` in your browser — you can a
 
 ---
 
-## Step 4: Connect to Telegram ⭐ Recommended
+## Step 4: Connect to Telegram  Recommended
 
 Telegram is the easiest and most powerful channel. Once connected, you can message your agent from your phone from anywhere in the world.
 
@@ -302,7 +302,7 @@ What's my agent's current configuration?
 
 ---
 
-## Step 7: Set Up Safety ⚠️ Important!
+## Step 7: Set Up Safety [!] Important!
 
 **Do this before you give your agent access to anything sensitive.**
 
@@ -519,22 +519,22 @@ What skills do you have installed?
 
 ## Common Mistakes (Don't Do These)
 
-### ❌ Mistake 1: Giving your agent access to your real email
+### [x] Mistake 1: Giving your agent access to your real email
 Your main email contains passwords, bank statements, and 2FA codes. Create a new Gmail account specifically for agent access. If your agent ever gets prompted to forward something, you don't want it touching your real inbox.
 
-### ❌ Mistake 2: Not setting API spending limits
+### [x] Mistake 2: Not setting API spending limits
 Without limits, a runaway agent loop or accidentally public bot can rack up hundreds in API costs overnight. Set a $50 hard cap before anything else.
 
-### ❌ Mistake 3: Using Opus for everything
+### [x] Mistake 3: Using Opus for everything
 Claude Opus 4.6 is brilliant but expensive. For simple tasks like "what's the weather?" or "draft a quick reply," use Haiku — it's 25× cheaper and nearly as good for routine work.
 
-### ❌ Mistake 4: Installing skills without reading them
+### [x] Mistake 4: Installing skills without reading them
 Every skill modifies how your agent behaves. Run `cat ~/.openclaw/workspace/skills/SKILLNAME/SKILL.md` before installing anything. A malicious skill (rare but possible) could instruct your agent to exfiltrate data.
 
-### ❌ Mistake 5: Using `dmPolicy: "open"` on your Telegram bot
+### [x] Mistake 5: Using `dmPolicy: "open"` on your Telegram bot
 If your bot is set to "open," anyone who finds your bot can use your AI (and your API credits). Always use `"pairing"` or `"allowlist"`.
 
-### ❌ Mistake 6: Trying to build everything at once
+### [x] Mistake 6: Trying to build everything at once
 Pick one workflow. Build it well. Prove the value. Then expand. The agents who win are the ones who solve one problem perfectly, not ten problems halfway.
 
 ---
@@ -587,20 +587,20 @@ Once you have your agent running, level up with these playbooks:
 
 | Resource | URL | Status |
 |----------|-----|--------|
-| OpenClaw Official Site | https://openclaw.ai | ✅ Live |
-| OpenClaw Documentation | https://docs.openclaw.ai | ✅ Live |
-| Getting Started Guide | https://docs.openclaw.ai/start/getting-started | ✅ Live |
-| Install Guide | https://docs.openclaw.ai/install | ✅ Live |
-| Telegram Channel Setup | https://docs.openclaw.ai/channels/telegram | ✅ Live |
-| ClawHub Skill Registry | https://clawhub.ai | ✅ Live |
-| ClawHub Docs (OpenClaw) | https://docs.openclaw.ai/tools/clawhub | ✅ Live |
-| Anthropic Developer Platform | https://platform.claude.com | ✅ Live |
-| Anthropic API Pricing | https://docs.anthropic.com/en/docs/about-claude/pricing | ✅ Live |
-| OpenRouter | https://openrouter.ai | ✅ Live |
-| OpenClaw GitHub | https://github.com/openclaw/openclaw | ✅ Live |
-| ClawHub GitHub | https://github.com/openclaw/clawhub | ✅ Live |
-| FreeCodeCamp Tutorial | https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/ | ✅ Live |
-| DigitalOcean Deploy Guide | https://www.digitalocean.com/community/tutorials/how-to-run-openclaw | ✅ Live |
+| OpenClaw Official Site | https://openclaw.ai | [ok] Live |
+| OpenClaw Documentation | https://docs.openclaw.ai | [ok] Live |
+| Getting Started Guide | https://docs.openclaw.ai/start/getting-started | [ok] Live |
+| Install Guide | https://docs.openclaw.ai/install | [ok] Live |
+| Telegram Channel Setup | https://docs.openclaw.ai/channels/telegram | [ok] Live |
+| ClawHub Skill Registry | https://clawhub.ai | [ok] Live |
+| ClawHub Docs (OpenClaw) | https://docs.openclaw.ai/tools/clawhub | [ok] Live |
+| Anthropic Developer Platform | https://platform.claude.com | [ok] Live |
+| Anthropic API Pricing | https://docs.anthropic.com/en/docs/about-claude/pricing | [ok] Live |
+| OpenRouter | https://openrouter.ai | [ok] Live |
+| OpenClaw GitHub | https://github.com/openclaw/openclaw | [ok] Live |
+| ClawHub GitHub | https://github.com/openclaw/clawhub | [ok] Live |
+| FreeCodeCamp Tutorial | https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/ | [ok] Live |
+| DigitalOcean Deploy Guide | https://www.digitalocean.com/community/tutorials/how-to-run-openclaw | [ok] Live |
 
 ---
 

@@ -373,23 +373,23 @@ Don't make before-state rooms look derelict. Add:
 
 | Resource | URL | Status |
 |----------|-----|--------|
-| Original tweet by @oliverhenry | [x.com/oliverhenry/status/2023776478446436696](https://x.com/oliverhenry/status/2023776478446436696) | ✅ Live |
-| Reddit full guide (r/micro_saas) | [reddit.com/r/micro_saas/comments/1r4r66y](https://www.reddit.com/r/micro_saas/comments/1r4r66y/how_an_openclaw_agent_larry_got_millions_of/) | ✅ Live |
-| Larry skill on ClawHub | [clawhub.ai/oliverhenry/larry](https://clawhub.ai/oliverhenry/larry) | ✅ Live |
-| RevenueCat skill on ClawHub | [clawhub.ai/jeiting/revenuecat](https://clawhub.ai/jeiting/revenuecat) | ✅ Live |
-| OpenClaw homepage | [openclaw.ai](https://openclaw.ai) | ✅ Live |
-| ClawHub skills registry | [clawhub.ai](https://clawhub.ai) | ✅ Live |
-| ClawHub CLI docs | [docs.openclaw.ai/tools/clawhub](https://docs.openclaw.ai/tools/clawhub) | ✅ Live |
-| Postiz (Oliver's affiliate link) | [postiz.com](https://postiz.com) | ✅ Live |
-| Postiz pricing | [postiz.com/pricing](https://postiz.com/pricing) | ✅ Live |
-| Postiz TikTok docs | [docs.postiz.com/providers/tiktok](https://docs.postiz.com/providers/tiktok) | ✅ Live |
-| OpenAI API pricing | [openai.com/api/pricing](https://openai.com/api/pricing/) | ✅ Live |
-| OpenAI platform (get API key) | [platform.openai.com](https://platform.openai.com) | ✅ Live |
-| OpenAI Batch API docs | [platform.openai.com/docs/guides/batch](https://platform.openai.com/docs/guides/batch) | ✅ Live |
-| RevenueCat pricing | [revenuecat.com/pricing](https://www.revenuecat.com/pricing/) | ✅ Live |
-| Larry X account | [x.com/@LarryClawerence](https://x.com/@LarryClawerence) | ✅ Live |
-| YouTube short (Larry demo) | [youtube.com/shorts/ZJZlQcTFNas](https://www.youtube.com/shorts/ZJZlQcTFNas) | ✅ Live |
-| TikTok Developer Portal | [developers.tiktok.com/apps](https://developers.tiktok.com/apps) | ✅ Live |
+| Original tweet by @oliverhenry | [x.com/oliverhenry/status/2023776478446436696](https://x.com/oliverhenry/status/2023776478446436696) | [ok] Live |
+| Reddit full guide (r/micro_saas) | [reddit.com/r/micro_saas/comments/1r4r66y](https://www.reddit.com/r/micro_saas/comments/1r4r66y/how_an_openclaw_agent_larry_got_millions_of/) | [ok] Live |
+| Larry skill on ClawHub | [clawhub.ai/oliverhenry/larry](https://clawhub.ai/oliverhenry/larry) | [ok] Live |
+| RevenueCat skill on ClawHub | [clawhub.ai/jeiting/revenuecat](https://clawhub.ai/jeiting/revenuecat) | [ok] Live |
+| OpenClaw homepage | [openclaw.ai](https://openclaw.ai) | [ok] Live |
+| ClawHub skills registry | [clawhub.ai](https://clawhub.ai) | [ok] Live |
+| ClawHub CLI docs | [docs.openclaw.ai/tools/clawhub](https://docs.openclaw.ai/tools/clawhub) | [ok] Live |
+| Postiz (Oliver's affiliate link) | [postiz.com](https://postiz.com) | [ok] Live |
+| Postiz pricing | [postiz.com/pricing](https://postiz.com/pricing) | [ok] Live |
+| Postiz TikTok docs | [docs.postiz.com/providers/tiktok](https://docs.postiz.com/providers/tiktok) | [ok] Live |
+| OpenAI API pricing | [openai.com/api/pricing](https://openai.com/api/pricing/) | [ok] Live |
+| OpenAI platform (get API key) | [platform.openai.com](https://platform.openai.com) | [ok] Live |
+| OpenAI Batch API docs | [platform.openai.com/docs/guides/batch](https://platform.openai.com/docs/guides/batch) | [ok] Live |
+| RevenueCat pricing | [revenuecat.com/pricing](https://www.revenuecat.com/pricing/) | [ok] Live |
+| Larry X account | [x.com/@LarryClawerence](https://x.com/@LarryClawerence) | [ok] Live |
+| YouTube short (Larry demo) | [youtube.com/shorts/ZJZlQcTFNas](https://www.youtube.com/shorts/ZJZlQcTFNas) | [ok] Live |
+| TikTok Developer Portal | [developers.tiktok.com/apps](https://developers.tiktok.com/apps) | [ok] Live |
 
 ---
 
