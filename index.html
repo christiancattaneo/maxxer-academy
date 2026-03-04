@@ -41,13 +41,14 @@
     @keyframes d3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-40px)} }
 
     /* Nav */
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 0 2rem; height: 56px; background: rgba(247,246,243,.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 860px; }
     .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .5rem; }
     .nav-badge { font-family: var(--mono); font-size: .6rem; font-weight: 600; background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 4px; letter-spacing: .05em; }
     .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a { font-size: .85rem; color: var(--ink-2); text-decoration: none; font-weight: 500; }
     .nav-links a:hover { color: var(--ink); }
-    .nav-cta { font-size: .8rem; font-weight: 600; padding: 7px 16px; border-radius: 100px; background: var(--ink); color: #fff; text-decoration: none; transition: all .2s; }
+    .nav-cta { font-size: .8rem; font-weight: 600; padding: 7px 16px; border-radius: 100px; background: var(--ink); color: #fff !important; text-decoration: none; transition: all .2s; }
     .nav-cta:hover { background: #333; transform: translateY(-1px); }
 
     /* Hero */
@@ -141,9 +142,11 @@
 </div>
 
 <nav>
-  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
-  <div class="nav-links">
-    <a class="nav-cta" href="https://alphahigh.school" target="_blank">Alpha Founders ↗</a>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
+    <div class="nav-links">
+      <a class="nav-cta" href="https://alphahigh.school" target="_blank">Alpha Founders ↗</a>
+    </div>
   </div>
 </nav>
 
@@ -156,24 +159,76 @@
   <div class="hero-stats">
     <div class="hero-stat"><div class="hero-stat-num">23</div><div class="hero-stat-label">Playbooks</div></div>
     <div class="hero-stat"><div class="hero-stat-num">16+</div><div class="hero-stat-label">Tools covered</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">$73k</div><div class="hero-stat-label">Top monthly revenue</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Stack categories</div></div>
   </div>
 </section>
 
-<!-- AI STACK BANNER -->
-<div style="max-width:860px;margin:0 auto 0;padding:0 2rem 2rem">
-  <a href="/playbooks/ai-stack.html" style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #7c3aed;border-radius:14px;padding:18px 22px;text-decoration:none;transition:box-shadow .2s;box-shadow:0 2px 12px rgba(124,58,237,.08)" onmouseover="this.style.boxShadow='0 4px 24px rgba(124,58,237,.18)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(124,58,237,.08)'">
-    <div style="width:36px;height:36px;flex-shrink:0;background:rgba(124,58,237,.1);border-radius:8px;display:flex;align-items:center;justify-content:center">
-      <svg viewBox="0 0 20 20" fill="none" stroke="#7c3aed" stroke-width="1.8" width="18" height="18"><polygon points="10 2 12.5 7 18 7.6 14 11.4 15.1 17 10 14.3 4.9 17 6 11.4 2 7.6 7.5 7"/></svg>
+<!-- AI STACK SECTION -->
+<div id="ai-stack" style="max-width:860px;margin:0 auto;padding:0 2rem 2.5rem">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.2rem">
+    <div>
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:4px">AI Stack 2026</div>
+      <div style="font-size:1.3rem;font-weight:700;color:#0f0f0f;letter-spacing:-.3px">Best tool per category. No affiliate links.</div>
     </div>
-    <div style="flex:1;min-width:0">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:2px">New — March 2026</div>
-      <div style="font-size:1rem;font-weight:700;color:#0f0f0f;margin-bottom:3px">The AI Stack 2026 — Best Tool Per Category</div>
-      <div style="font-size:.85rem;color:#3a3a3a;line-height:1.5">One winner for video, image, writing, music, voice, coding, automation, SEO, and more. Researched from benchmarks + X creator consensus. No affiliate links.</div>
-    </div>
-    <span style="flex-shrink:0;font-size:.85rem;font-weight:600;color:#7c3aed;white-space:nowrap">See the stack →</span>
-  </a>
+    <a href="/playbooks/ai-stack.html" style="font-size:.8rem;font-weight:600;color:#7c3aed;text-decoration:none;white-space:nowrap;margin-left:1rem">Full breakdown →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px" class="stack-inline-grid">
+    <a href="/playbooks/ai-stack.html#video" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Video</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Seedance 2.0</div>
+      <div style="font-size:.72rem;color:#888">ByteDance</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#image" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Image</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Midjourney v7</div>
+      <div style="font-size:.72rem;color:#888">Midjourney</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#writing" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Writing</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Claude Sonnet</div>
+      <div style="font-size:.72rem;color:#888">Anthropic</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#music" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Music</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Suno v4</div>
+      <div style="font-size:.72rem;color:#888">Suno</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#voice" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Voice</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">ElevenLabs</div>
+      <div style="font-size:.72rem;color:#888">ElevenLabs</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#coding" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Coding</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Cursor</div>
+      <div style="font-size:.72rem;color:#888">Anysphere</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#automation" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Automation</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">n8n</div>
+      <div style="font-size:.72rem;color:#888">n8n GmbH</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#seo" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">SEO</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Semrush</div>
+      <div style="font-size:.72rem;color:#888">Semrush</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#presentations" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Slides</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Gamma</div>
+      <div style="font-size:.72rem;color:#888">Gamma App</div>
+    </a>
+    <a href="/playbooks/ai-stack.html#social" style="background:#fff;border:1px solid #e6e4df;border-radius:10px;padding:14px 12px;text-decoration:none;transition:border-color .15s,box-shadow .15s" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 2px 12px rgba(124,58,237,.1)'" onmouseout="this.style.borderColor='#e6e4df';this.style.boxShadow='none'">
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px">Social</div>
+      <div style="font-size:.9rem;font-weight:700;color:#0f0f0f;margin-bottom:2px">Postiz</div>
+      <div style="font-size:.72rem;color:#888">Postiz</div>
+    </a>
+  </div>
 </div>
+<style>
+  @media(max-width:640px) { .stack-inline-grid { grid-template-columns: repeat(2,1fr) !important; } }
+  @media(max-width:400px) { .stack-inline-grid { grid-template-columns: 1fr 1fr !important; } }
+</style>
 
 <!-- SECTION NAV -->
 <div class="section-nav">
@@ -202,34 +257,6 @@
     <div class="section-title">Start Here — Full Playbooks</div>
   </div>
   <p class="section-desc">Complete step-by-step business models. If you're new, start with these.</p>
-
-  <!-- AI STACK FEATURED CARD -->
-  <div class="playbook reveal" style="border-color:var(--purple);background:linear-gradient(135deg,rgba(124,58,237,.04) 0%,transparent 60%)">
-    <div class="pb-header">
-      <div>
-        <div class="pb-title">The AI Stack 2026 — Best Tool Per Category</div>
-        <div class="pb-author">Maxxer Academy Research</div>
-      </div>
-      <span class="pb-result" style="background:rgba(124,58,237,.1);color:var(--purple)">Reference Guide</span>
-    </div>
-    <div class="pb-body">
-      Stop wasting time testing inferior tools. We researched every major AI category — video, image, writing, music, voice, coding, automation, SEO, presentations, and social — and picked <strong>one clear winner per use case</strong>, based on benchmarks, X creator consensus, and independent testing. No affiliate links.
-    </div>
-    <div class="pb-tools">
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">Seedance 2.0</span>
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">Midjourney v7</span>
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">Claude Sonnet</span>
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">Cursor</span>
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">n8n</span>
-      <span class="tool-pill" style="background:rgba(124,58,237,.08);color:var(--purple);border-color:rgba(124,58,237,.2)">+6 more</span>
-    </div>
-    <div class="pb-tweet">
-      <a href="/playbooks/ai-stack.html" style="display:inline-flex;align-items:center;gap:.4rem;font-weight:600;color:var(--purple);text-decoration:none">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" style="vertical-align:-2px"><path d="M2 2h4l2 2 2-2h4v11H9.5L8 14.5 6.5 13H2V2z"/><path d="M8 4v10"/></svg>
-        See the full stack →
-      </a>
-    </div>
-  </div>
 
   <span class="tier-label tier-1"><svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" style="vertical-align:-1px"><polygon points="8 1 10.1 5.3 15 6 11.5 9.4 12.3 14.3 8 12 3.7 14.3 4.5 9.4 1 6 5.9 5.3"/></svg> Tier 1 — Complete Business Playbooks</span>
 
