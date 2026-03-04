@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Stack — Best Tool Per Category (March 2026) — Maxxer Academy</title>
+<meta name="description" content="The definitive AI tool stack for 2026. One winner per category — video, image, writing, music, voice, coding, automation, SEO, and more. No fluff, no affiliate links.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f6f3;--surface:#fff;--ink:#0f0f0f;--ink-2:#3a3a3a;--ink-3:#888;--border:#e6e4df;--accent:#7c3aed;--accent-bg:rgba(124,58,237,.07);--green:#059669;--yellow:#d97706}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;background:rgba(247,246,243,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.nav-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;background:var(--ink);color:#fff;padding:2px 7px;border-radius:4px}
+.nav-back{font-size:.85rem;color:var(--ink-2);text-decoration:none;font-weight:500}
+.nav-back:hover{color:var(--ink)}
+
+.wrap{max-width:900px;margin:0 auto;padding:2.5rem 2rem 5rem}
+.accent-bar{width:40px;height:4px;border-radius:2px;background:var(--accent);margin-bottom:1.5rem}
+.page-header{margin-bottom:2.5rem}
+.page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:.6rem}
+.page-header p{font-size:1rem;color:var(--ink-2);max-width:580px;line-height:1.65}
+.meta{font-size:.8rem;color:var(--ink-3);margin-top:.8rem;font-family:'JetBrains Mono',monospace}
+
+/* Stack grid */
+.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:2.5rem 0}
+@media(max-width:640px){.stack-grid{grid-template-columns:1fr}}
+
+.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .2s,box-shadow .2s;display:flex;flex-direction:column;gap:10px}
+.stack-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(124,58,237,.08)}
+
+.stack-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.stack-winner-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge-winner{font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px;background:var(--accent);color:#fff;letter-spacing:.04em;white-space:nowrap}
+.badge-budget{font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;background:#dcfce7;color:#166534;letter-spacing:.04em;white-space:nowrap}
+.tool-name{font-size:17px;font-weight:700;color:var(--ink)}
+.tool-by{font-size:11px;color:var(--ink-3);margin-left:auto}
+.tool-why{font-size:13px;color:var(--ink-2);line-height:1.6;flex:1}
+.tool-alts{display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:12px;color:var(--ink-3)}
+.tool-alts strong{font-weight:500;margin-right:2px}
+.alt-chip{background:var(--bg);border:1px solid var(--border);padding:1px 8px;border-radius:5px;font-size:11px;font-weight:500}
+.tool-note{font-size:12px;color:var(--yellow);font-weight:600;padding:6px 10px;background:rgba(217,119,6,.07);border-radius:6px;border-left:3px solid var(--yellow)}
+
+/* Section headers */
+.section-title{font-size:1rem;font-weight:700;letter-spacing:-.2px;margin:2.5rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+
+/* TL;DR box */
+.tldr{background:var(--accent-bg);border:1px solid rgba(124,58,237,.15);border-radius:12px;padding:20px 24px;margin:1.5rem 0 2.5rem}
+.tldr h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:10px}
+.tldr ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tldr li{font-size:.9rem;color:var(--ink-2);padding-left:1.2em;position:relative}
+.tldr li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+
+/* Skip list */
+.skip-box{background:#fff5f5;border:1px solid #fecaca;border-radius:12px;padding:18px 22px;margin:1rem 0}
+.skip-box h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#dc2626;margin-bottom:8px}
+.skip-box ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.skip-box li{font-size:.85rem;color:#7f1d1d;background:#fef2f2;border:1px solid #fecaca;padding:3px 10px;border-radius:6px}
+
+footer{text-align:center;padding:2rem;font-size:.8rem;color:var(--ink-3)}
+footer a{color:var(--ink-2);text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a>
+  <a class="nav-back" href="/">← All Playbooks</a>
+</nav>
+
+<div class="wrap">
+  <div class="accent-bar"></div>
+
+  <div class="page-header">
+    <h1>The AI Stack 2026</h1>
+    <h2 style="font-size:1.1rem;font-weight:500;color:var(--ink-2);margin-bottom:.8rem">One winner per category. Stop wasting time on inferior tools.</h2>
+    <p>We researched every major AI tool category — benchmarks, X/Twitter creator consensus, independent testing — and picked one clear winner per use case. This is the stack we tell every founder to start with.</p>
+    <div class="meta">Updated March 2026 &nbsp;·&nbsp; Researched across X, Reddit, Artificial Analysis leaderboard &nbsp;·&nbsp; No affiliate links</div>
+  </div>
+
+  <div class="tldr">
+    <h3>TL;DR — The Core Stack</h3>
+    <ul>
+      <li><strong>Think / Write:</strong> Claude Sonnet 4.6 — sounds most human, best long-form</li>
+      <li><strong>Code:</strong> Cursor + Claude Sonnet as model — deep multi-file context</li>
+      <li><strong>Images:</strong> Midjourney v7 — quality + speed. Ideogram 2.0 for text-on-image</li>
+      <li><strong>Video:</strong> Seedance 2.0 (waitlist) / Runway Gen-4.5 now — best sync</li>
+      <li><strong>Music:</strong> Suno v4 — best features. Udio for vocal quality</li>
+      <li><strong>Voice:</strong> ElevenLabs — best quality/cloning. Cartesia for real-time agents</li>
+      <li><strong>Automation:</strong> n8n — only tool with AI as first-class primitive</li>
+      <li><strong>SEO:</strong> Semrush + Surfer SEO — research + content optimization paired</li>
+      <li><strong>Presentations:</strong> Gamma — fastest AI-first deck creation</li>
+      <li><strong>Social:</strong> Postiz + Opus Clip — schedule + repurpose</li>
+    </ul>
+  </div>
+
+  <!-- CREATION TOOLS -->
+  <div class="section-title">🎨 Creation Tools</div>
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <div class="stack-cat">🎬 Video Generation</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Best Overall</span>
+        <span class="tool-name">Seedance 2.0</span>
+        <span class="tool-by">ByteDance</span>
+      </div>
+      <div class="tool-note">⚠️ Still waitlisted — use Runway Gen-4.5 in the meantime</div>
+      <p class="tool-why">Best audio-visual synchronization of any model. Accepts up to 12 files simultaneously (images + video + audio as reference). Stable output for the full 15-second clip — competitors like Kling show face drift and background warping past 30 seconds.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Runway Gen-4.5</span> <span class="alt-chip">Sora 2</span> <span class="alt-chip">Kling 3.0</span> <span class="alt-chip">Veo 3.1</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Use Kling 3.0 specifically for 5-minute long-form avatar consistency — unmatched there. Sora 2 for physics simulation (water, gravity, cloth). Veo 3.1 for 4K output if you have Google Cloud access.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">🖼 Image Generation</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Best Overall</span>
+        <span class="tool-name">Midjourney v7</span>
+        <span class="tool-by">Midjourney</span>
+      </div>
+      <p class="tool-why">Best artistic quality and iteration speed of any image model. Strong community means prompt libraries everywhere. <strong>Exception:</strong> if you need readable text in your images, use Ideogram 2.0 — it's the only model that reliably renders text. DALL-E, MJ, and SD all fail at this.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Ideogram 2.0 (text)</span> <span class="alt-chip">Flux 2 (free)</span> <span class="alt-chip">Firefly 3 (commercial)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Adobe Firefly 3 for anything commercial/brand-safe — trained on licensed content. Flux 2 via Fal.ai for free budget use.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">🎵 Music Generation</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 For Creators</span>
+        <span class="tool-name">Suno v4</span>
+        <span class="tool-by">Suno</span>
+      </div>
+      <p class="tool-why">Most fun and feature-complete for non-musicians. Lyrics → full produced song in seconds. Best stem export for remixing. The tool to start with.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Udio (vocal quality)</span> <span class="alt-chip">Lyria 3</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Udio has slightly more emotionally authentic vocals — choose it if you're producing professionally and quality > speed. For producers needing stems, Udio's separation is cleaner.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">🖥 Presentations</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Fastest</span>
+        <span class="tool-name">Gamma</span>
+        <span class="tool-by">Gamma App</span>
+      </div>
+      <p class="tool-why">Type a topic or paste content → polished deck that looks human-designed. Fastest AI-first presentation tool. The gap between Gamma and everything else is surprisingly large for speed.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Beautiful.ai (brand control)</span> <span class="alt-chip">Canva AI (free)</span> <span class="alt-chip">Gemini + Slides</span></div>
+    </div>
+
+  </div>
+
+  <!-- LANGUAGE TOOLS -->
+  <div class="section-title">🧠 Language & Voice</div>
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <div class="stack-cat">✍️ Writing & Copywriting</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Human Voice</span>
+        <span class="tool-name">Claude Sonnet 4.6</span>
+        <span class="tool-by">Anthropic</span>
+      </div>
+      <p class="tool-why">Sounds most human. Best for long-form content, brand voice, anything where tone matters. Consistently wins head-to-head writing comparisons. Use Claude in SurferSEO for the most effective SEO content workflow.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">ChatGPT GPT-5.2 (volume)</span> <span class="alt-chip">Gemini 2.0 (all-round)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">ChatGPT for high-volume drafts, brainstorming, and tasks needing visual elements. Gemini 2.0 if you want one consistent tool that never bombs — reliable second place across every benchmark.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">🔊 Voice / TTS</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Quality</span>
+        <span class="tool-name">ElevenLabs</span>
+        <span class="tool-by">ElevenLabs</span>
+      </div>
+      <p class="tool-why">Best voice quality, best voice cloning, most languages, most versatile. Tops every quality benchmark. For voice cloning with real character, nothing else is close.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Cartesia Sonic 3 (real-time)</span> <span class="alt-chip">PlayHT (variety)</span> <span class="alt-chip">Deepgram (enterprise)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px"><strong>Important:</strong> if you're building real-time conversational AI agents, use <strong>Cartesia Sonic 3</strong> instead — 40-90ms time-to-first-audio (ElevenLabs is ~200ms). That 150ms difference is huge for live conversation feel. Deepgram for enterprise reliability and deployment.</p>
+    </div>
+
+  </div>
+
+  <!-- BUILDER TOOLS -->
+  <div class="section-title">🛠 Builder Tools</div>
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <div class="stack-cat">💻 Coding Assistant</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 Complex Projects</span>
+        <span class="tool-name">Cursor</span>
+        <span class="tool-by">Anysphere</span>
+      </div>
+      <p class="tool-why">Best for multi-file projects. Composer mode gives it unmatched codebase understanding. The learning curve pays off fast. Pair with Claude Sonnet as the underlying model for best results.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Claude Code</span> <span class="alt-chip">Windsurf (agent mode)</span> <span class="alt-chip">GitHub Copilot ($10/mo)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Windsurf Cascade for deep cross-file agent mode. GitHub Copilot if you're budget-conscious and just need autocomplete in your existing editor. Claude Code (via OpenClaw) for terminal-based agent tasks.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">⚙️ Automation & Workflows</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 AI-Native</span>
+        <span class="tool-name">n8n</span>
+        <span class="tool-by">n8n GmbH</span>
+      </div>
+      <p class="tool-why">The only automation tool that treats AI as a first-class primitive — native agent loops, tool calling, memory management, and RAG pipelines built in. Self-hostable means no per-task pricing at scale.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Zapier (no-code teams)</span> <span class="alt-chip">Make (visual + mid-power)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Zapier and Make treat AI as another integration. n8n treats it as the foundation. <strong>Best combo:</strong> OpenClaw as the brain + n8n as the hands — they complement each other, not compete. Use Zapier if your team is non-technical.</p>
+    </div>
+
+  </div>
+
+  <!-- GROWTH TOOLS -->
+  <div class="section-title">📈 Growth & Distribution</div>
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <div class="stack-cat">📊 SEO</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 All-in-One</span>
+        <span class="tool-name">Semrush</span>
+        <span class="tool-by">Semrush</span>
+      </div>
+      <p class="tool-why">Best keyword research, competitor intelligence, LLM visibility monitoring, and PPC analysis in one platform. Semrush One bundle gives the best value. For content optimization pair with Surfer SEO — they're complementary, not competing.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Surfer SEO (content)</span> <span class="alt-chip">Ahrefs (backlinks)</span> <span class="alt-chip">XFunnel (AI visibility)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Ahrefs has a slightly better backlink index but falls behind on everything else. XFunnel is a new entrant worth watching — focuses on testing how your brand appears in AI answers specifically.</p>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">📱 Social Scheduling & TikTok</div>
+      <div class="stack-winner-row">
+        <span class="badge-winner">#1 TikTok API</span>
+        <span class="tool-name">Postiz</span>
+        <span class="tool-by">Postiz</span>
+      </div>
+      <p class="tool-why">Best API access for TikTok draft posting — essential for automated carousel workflows. Pair with GPT-image-1 for fully automated slide generation. $29/mo paid plan includes full API.</p>
+      <div class="tool-alts"><strong>Also consider:</strong> <span class="alt-chip">Opus Clip (repurposing)</span> <span class="alt-chip">Buffer (simple scheduling)</span></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Opus Clip is the best tool for automatically clipping long-form video into shorts — essential if you're doing YouTube → TikTok repurposing. Later and Hootsuite don't have AI generation — just scheduling.</p>
+    </div>
+
+  </div>
+
+  <!-- WHAT TO SKIP -->
+  <div class="skip-box">
+    <h3>❌ Tools to Skip</h3>
+    <ul>
+      <li>Jasper / Copy.ai</li>
+      <li>Pika (budget only)</li>
+      <li>AWS Polly / Google TTS</li>
+      <li>Tabnine</li>
+      <li>Moz (stagnant)</li>
+      <li>Later / Hootsuite (no AI gen)</li>
+      <li>Tome (pivoting)</li>
+      <li>DALL-E 3.5 (mediocre + expensive)</li>
+    </ul>
+  </div>
+  <p style="font-size:13px;color:var(--ink-3);margin-top:.5rem">Jasper and Copy.ai are GPT wrappers at 3× the price. AWS Polly / Google TTS are robotic — no character. Tabnine is legacy. Skip anything that hasn't shipped a meaningful update in 6 months.</p>
+
+  <div style="margin-top:3rem;padding:24px;background:var(--accent-bg);border-radius:14px;border:1px solid rgba(124,58,237,.15)">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:.5rem">The 80/20 Rule for AI Tools</h3>
+    <p style="font-size:.9rem;color:var(--ink-2);line-height:1.65">Don't add a new tool until you've maxed out the one you have. <strong>The best stack is the smallest one that works.</strong> Start with Claude + Cursor + Midjourney. Add video and voice when you need them. Add automation when the manual version is proven. Every tool you add is a new login, a new billing line, a new failure point.</p>
+    <p style="font-size:.9rem;color:var(--ink-2);line-height:1.65;margin-top:.8rem">This list updates every quarter. The tools that fall off are usually the ones that got popular on X but stopped shipping.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">← Maxxer Academy</a> &nbsp;·&nbsp; Updated March 2026 &nbsp;·&nbsp; No affiliate links
+</footer>
+</body></html>
