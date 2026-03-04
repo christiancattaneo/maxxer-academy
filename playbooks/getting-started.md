@@ -153,7 +153,7 @@ openclaw gateway status
 ```bash
 openclaw dashboard
 ```
-This opens `http://127.0.0.1:18789/` in your browser — you can already chat with your agent here.
+This opens `the URL shown by `openclaw dashboard`` in your browser — you can already chat with your agent here.
 
 ---
 
@@ -575,11 +575,11 @@ openclaw config set agents.defaults.model.primary "anthropic/claude-haiku-4-5"
 
 Once you have your agent running, level up with these playbooks:
 
-- **Sales Playbook** → How to sell OpenClaw services on Upwork and to local businesses *(coming soon)*
-- **TikTok Content Playbook** → Auto-generate and schedule TikTok content with your agent *(coming soon)*
-- **Meta Ads Playbook** → Research, write, and monitor Facebook/Instagram ad campaigns with AI *(coming soon)*
-- **Customer Service Playbook** → Build a 24/7 email responder for any business *(coming soon)*
-- **Real Estate Playbook** → Automate listing syndication, lead follow-up, and market reports *(coming soon)*
+- **Sales Playbook** → How to sell OpenClaw services on Upwork and to local businesses *([Available now](/))*
+- **TikTok Content Playbook** → Auto-generate and schedule TikTok content with your agent *([Available now](/))*
+- **Meta Ads Playbook** → Research, write, and monitor Facebook/Instagram ad campaigns with AI *([Available now](/))*
+- **Customer Service Playbook** → Build a 24/7 email responder for any business *([Available now](/))*
+- **Real Estate Playbook** → Automate listing syndication, lead follow-up, and market reports *([Available now](/))*
 
 ---
 
@@ -595,7 +595,7 @@ Once you have your agent running, level up with these playbooks:
 | ClawHub Skill Registry | https://clawhub.ai | ✅ Live |
 | ClawHub Docs (OpenClaw) | https://docs.openclaw.ai/tools/clawhub | ✅ Live |
 | Anthropic Developer Platform | https://platform.claude.com | ✅ Live |
-| Anthropic API Pricing | https://www.anthropic.com/pricing | ✅ Live |
+| Anthropic API Pricing | https://docs.anthropic.com/en/docs/about-claude/pricing | ✅ Live |
 | OpenRouter | https://openrouter.ai | ✅ Live |
 | OpenClaw GitHub | https://github.com/openclaw/openclaw | ✅ Live |
 | ClawHub GitHub | https://github.com/openclaw/clawhub | ✅ Live |

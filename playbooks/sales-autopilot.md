@@ -295,7 +295,7 @@ After installation, verify it's working:
 ```bash
 openclaw doctor         # checks for config issues
 openclaw status         # shows gateway status
-openclaw dashboard      # opens browser UI at localhost:3333
+openclaw dashboard      # opens browser UI at the URL shown by `openclaw dashboard`
 ```
 
 > **Troubleshooting:** If `openclaw` is not found after install, add it to your PATH:

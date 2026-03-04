@@ -24,7 +24,7 @@
 - [ ] [OpenClaw](https://openclaw.ai) installed and configured
 - [ ] [OpenAI API key](https://platform.openai.com) — for GPT-image-1.5 image generation (~$0.04–$0.17 per image; **~$0.50 per full 6-slide post** at medium quality; ~$0.25 with Batch API)
 - [ ] TikTok account (personal or business)
-- [ ] [Postiz](https://affiliate.postiz.com/ollie-warren) account with API access — **Standard plan starts at $29/mo** (API included on all paid plans)
+- [ ] [Postiz](https://postiz.com) account with API access — **Standard plan starts at $29/mo** (API included on all paid plans)
 - [ ] [RevenueCat](https://www.revenuecat.com) account *(optional — only if you have a mobile app with in-app purchases to track)*
 
 ---
@@ -54,10 +54,10 @@ If you haven't already:
 
 ```bash
 # macOS
-brew install openclaw
+curl -fsSL https://openclaw.ai/install.sh | bash
 
 # Or follow the full guide:
-# https://openclaw.ai/docs/getting-started
+# https://docs.openclaw.ai/install
 ```
 
 Set up your agent with an identity (SOUL.md), memory folder, and at minimum an Anthropic (Claude) or OpenAI API key for the agent's brain.
@@ -107,7 +107,7 @@ Postiz is the social scheduling tool Larry uses to upload slideshows to TikTok a
 
 Go to [postiz.com](https://postiz.com) and sign up. The **Standard plan ($29/mo)** is sufficient for most indie developers (5 channels, 400 posts/month, API included).
 
-> Oliver's affiliate link (supports the project): [affiliate.postiz.com/ollie-warren](https://affiliate.postiz.com/ollie-warren)
+> Oliver's affiliate link (supports the project): [postiz.com](https://postiz.com)
 
 **3b. Connect TikTok to Postiz**
 
@@ -380,7 +380,7 @@ Don't make before-state rooms look derelict. Add:
 | OpenClaw homepage | [openclaw.ai](https://openclaw.ai) | ✅ Live |
 | ClawHub skills registry | [clawhub.ai](https://clawhub.ai) | ✅ Live |
 | ClawHub CLI docs | [docs.openclaw.ai/tools/clawhub](https://docs.openclaw.ai/tools/clawhub) | ✅ Live |
-| Postiz (Oliver's affiliate link) | [affiliate.postiz.com/ollie-warren](https://affiliate.postiz.com/ollie-warren) | ✅ Live |
+| Postiz (Oliver's affiliate link) | [postiz.com](https://postiz.com) | ✅ Live |
 | Postiz pricing | [postiz.com/pricing](https://postiz.com/pricing) | ✅ Live |
 | Postiz TikTok docs | [docs.postiz.com/providers/tiktok](https://docs.postiz.com/providers/tiktok) | ✅ Live |
 | OpenAI API pricing | [openai.com/api/pricing](https://openai.com/api/pricing/) | ✅ Live |
