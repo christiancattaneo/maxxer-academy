@@ -50,6 +50,7 @@
 ### Deployment
 - Git commit: `5c166c9`
 - Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-5an7td4h0-christiancattaneos-projects.vercel.app
 - Deployed to: https://maxxer.academy (Vercel prod)
 - Deploy URL: https://maxxer-academy-971we12y3-christiancattaneos-projects.vercel.app
 
@@ -98,6 +99,7 @@
 - **Link:** aws.amazon.com/blogs/aws/introducing-openclaw-on-amazon-lightsail...
 
 ### Deployment
-- Git commit: (see below)
+- Git commit: 0471792
 - Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-5an7td4h0-christiancattaneos-projects.vercel.app
 - Deployed to: https://maxxer.academy (Vercel prod)
