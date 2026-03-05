@@ -551,6 +551,32 @@
   <div class="playbook reveal">
     <div class="pb-header">
       <div>
+        <div class="pb-title">13-Agent Podcast COO — 20hrs/week → 30 Minutes</div>
+        <div class="pb-author">Florian Darroman (@profitfounder) — March 4, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(124,58,237,.1);color:#7c3aed">20hrs → 30 min/week</span>
+    </div>
+    <div class="pb-body">
+      Solo podcast founder who records twice a week. <strong>Everything else runs on a $600 Mac Mini: 13 named agents, 30+ cron jobs, two daily "war rooms."</strong> Marc (COO) coordinates the full team. Dan posts to X 3×/day with native video. Claude picks the 3 best transcript moments at 2AM. Adrien auto-edits clips overnight via Whisper. Jimmy researches guests. Mona Lisa finds sponsors. Billy manages the Skool community. Cost: ~$200–250/mo. "You don't need 13 agents on day one. Start with one job. Automate it. Add the next."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">openai-whisper</span>
+      <span class="tool-pill tp-api">Typefully</span>
+      <span class="tool-pill tp-api">Skool</span>
+      <span class="tool-pill tp-api">YouTube API</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://florian-darroman.medium.com/im-good-at-one-thing-so-my-openclaw-agent-marc-automated-the-other-100-things-918599ca0583" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full breakdown →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
         <div class="pb-title">Agency Holding Co — 5-Format Content Engine + $5K/mo Ad Dashboard</div>
         <div class="pb-author">r/AgencyGrowthHacks</div>
       </div>
@@ -1036,6 +1062,56 @@
       <a href="https://www.stackone.com/blog/rebuilding-marketing-site-claude-code-cloudflare/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Read the full post →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">24/7 Blogging Agent — Writes, Images, Git, Deploys, Notifies</div>
+        <div class="pb-author">@clawhost (Hacker News) — March 2, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Fully autonomous</span>
+    </div>
+    <div class="pb-body">
+      Gave an OpenClaw agent full SSH access to a VPS + git + APIs. Now it runs 24/7: <strong>writes blog articles → generates images with Nano Banana 2 → branches, merges, deploys via git → triggers Vercel rebuild → sends Telegram notification for every action.</strong> Zero manual intervention. "What makes this work is giving the agent a real environment to operate in. Full SSH access, no sandbox restrictions." The recursive twist: the agent is now contributing to the very platform that hosts it. Entire pipeline runs on ClawHost for ~$10/mo.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">ClawHost VPS</span>
+      <span class="tool-pill tp-api">Nano Banana 2</span>
+      <span class="tool-pill tp-mcp">Vercel MCP</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://news.ycombinator.com/item?id=47214461" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the HN discussion →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">OpenClaw Now Official on AWS Lightsail — One-Click Deploy</div>
+        <div class="pb-author">AWS News Blog — March 4, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">GA · Bedrock built-in</span>
+    </div>
+    <div class="pb-body">
+      Amazon Web Services shipped official OpenClaw support on Lightsail. <strong>Pick the OpenClaw blueprint, choose a 4GB instance (~$20/mo), and your agent is running in minutes</strong> — pre-configured with Amazon Bedrock as the default model provider. No manual install, no security config from scratch. Bring your own Anthropic/third-party model via AWS Marketplace. "As someone who has experienced installing OpenClaw directly on my home device, I learned this is not easy and there are many security considerations." AWS solved both problems. Best option if you want a cloud-hosted agent without touching a VPS.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Amazon Lightsail</span>
+      <span class="tool-pill tp-api">Amazon Bedrock</span>
+      <span class="tool-pill tp-mcp">AWS Marketplace</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://aws.amazon.com/blogs/aws/introducing-openclaw-on-amazon-lightsail-to-run-your-autonomous-private-ai-agents/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the AWS announcement →
       </a>
     </div>
   </div>

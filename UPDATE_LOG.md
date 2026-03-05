@@ -52,3 +52,52 @@
 - Pushed to: github.com/christiancattaneo/maxxer-academy
 - Deployed to: https://maxxer.academy (Vercel prod)
 - Deploy URL: https://maxxer-academy-971we12y3-christiancattaneos-projects.vercel.app
+
+---
+
+## 2026-03-05 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 1 – Mar 5, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow
+**Sources checked:** X/Twitter (via web search), Medium, Reddit, Hacker News, AWS News Blog
+
+### Posts Found & Assessed
+
+| # | Source | Author | Topic | Quality | Action |
+|---|--------|--------|-------|---------|--------|
+| 1 | Medium | Florian Darroman (@profitfounder) | 13 named OpenClaw agents running a podcast — 20hrs/week → 30 min, $200/mo cost | ✅ High | Added |
+| 2 | Hacker News / ClawHost | @clawhost | 24/7 blogging agent with full SSH + git + Nano Banana 2 + Vercel deploy | ✅ High | Added |
+| 3 | AWS News Blog | AWS | OpenClaw officially ships on Amazon Lightsail with one-click Bedrock deploy (Mar 4) | ✅ High | Added |
+| 4 | Reddit r/SideProject | LikeClaw founders | B2B AI platform ships consumer version in 7 days after OpenClaw goes viral | ⚠️ Medium — product launch story, not actionable workflow | Skipped |
+| 5 | Odaily / ecosystem data | Ecosystem report | 129 OpenClaw startups generating $283K cumulative/month | ⚠️ Aggregate stats — not a specific founder workflow | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Content & Video section (new Tier 2 card)
+- **Title:** 13-Agent Podcast COO — 20hrs/week → 30 Minutes
+- **Author:** Florian Darroman (@profitfounder) — March 4, 2026
+- **Result badge:** 20hrs → 30 min/week
+- **Key takeaway:** Solo podcast founder runs a 13-agent team on a $600 Mac Mini. Marc (COO) orchestrates war rooms; Dan posts to X 3×/day; Claude picks transcript highlights at 2AM; Adrien auto-edits clips via Whisper; Mona Lisa handles sponsorships; Billy runs Skool community. ~$200-250/mo total cost.
+- **Tools:** OpenClaw, openai-whisper, Typefully, Skool, YouTube API
+- **Link:** florian-darroman.medium.com/...
+
+#### 2. Setup & Infrastructure section (new Tier 3 card)
+- **Title:** 24/7 Blogging Agent — Writes, Images, Git, Deploys, Notifies
+- **Author:** @clawhost (Hacker News) — March 2, 2026
+- **Result badge:** Fully autonomous
+- **Key takeaway:** Agent with full VPS SSH access writes articles, generates images via Nano Banana 2, handles git branch/merge/deploy, triggers Vercel rebuild, notifies on Telegram. Runs on ClawHost for ~$10/mo. "What makes this work is giving the agent a real environment to operate in."
+- **Tools:** OpenClaw, ClawHost VPS, Nano Banana 2, Vercel MCP
+- **Link:** news.ycombinator.com/item?id=47214461
+
+#### 3. Setup & Infrastructure section (new Tier 3 card)
+- **Title:** OpenClaw Now Official on AWS Lightsail — One-Click Deploy
+- **Author:** AWS News Blog — March 4, 2026
+- **Result badge:** GA · Bedrock built-in
+- **Key takeaway:** OpenClaw now ships as an official AWS Lightsail blueprint (4GB plan recommended, ~$20/mo). Pre-configured with Amazon Bedrock as default model provider. Best cloud-hosted option that avoids the VPS security/config headache.
+- **Tools:** OpenClaw, Amazon Lightsail, Amazon Bedrock, AWS Marketplace
+- **Link:** aws.amazon.com/blogs/aws/introducing-openclaw-on-amazon-lightsail...
+
+### Deployment
+- Git commit: (see below)
+- Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deployed to: https://maxxer.academy (Vercel prod)
