@@ -2,6 +2,56 @@
 
 ---
 
+## 2026-03-09 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 5 – Mar 9, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow
+**Sources checked:** X/Twitter (via web search), Medium, Every.to, Seller Labs blog, DEV.to, Substack (Build to Launch)
+
+### Posts Found & Assessed
+
+| # | Source | Author | Topic | Quality | Action |
+|---|--------|--------|-------|---------|--------|
+| 1 | Medium | @rithikmotupalli | 7-agent solo founder marketing OS — Axis orchestrator + 6 specialist agents, zero context-switching | ✅ High | Added |
+| 2 | Every.to (Source Code) | Brandon Gell, Nat Eliason, Austin Tedesco, Claire Vo | OpenClaw Camp live event — 500 attendees, 4 named agents with named founders and real use cases | ✅ High | Added |
+| 3 | Seller Labs blog | Seller Labs | Claude Code + Seller Labs MCP for Amazon sellers — screenshot-to-fix workflow, $2K–$8K/mo profit leaks | ✅ High | Added |
+| 4 | DEV.to | @jan_lucasandmann | Claude Code to AI OS blueprint — CLAUDE.md + skills + hooks + sub-agents setup | ⚠️ Medium — good tech walkthrough but more setup tutorial than founder revenue story | Skipped |
+| 5 | Build to Launch Substack | Jenny Ouyang | Best MCP servers for Claude Code — Perplexity, Stripe, Gumroad, Notion, NotebookLM tested | ⚠️ Medium — useful list but not a specific founder business outcome story | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Content & Video section (new Tier 2 card)
+- **Title:** 7-Agent Solo Founder Marketing OS — Runs While You Code
+- **Author:** @rithikmotupalli (Medium) — March 7, 2026
+- **Result badge:** Zero context-switching
+- **Key takeaway:** Solo indie dev built 7-agent chain: Axis (orchestrator) → trend-intel (200 tweets/day) → medium-research (Reddit pain signals) → medium-writer (full drafts + images) → content-repurposer (thread + 5 tweets) → tweet-gen (trending topics) → engagement-intel (3–5 reply opportunities/day). Each agent has exactly one job.
+- **Tools:** OpenClaw, Stability AI, X/Twitter, Reddit (Xpoz), Medium
+- **Link:** medium.com/@rithikmotupalli/how-i-built-a-7-agent-ai-marketing-team...
+
+#### 2. Setup & Infrastructure section (new Tier 2 card)
+- **Title:** OpenClaw Camp: 4 Named Agents, 500 Founders, One Live Demo
+- **Author:** Every.to (Brandon Gell, Nat Eliason, Austin Tedesco, Claire Vo) — March 7, 2026
+- **Result badge:** 500 live attendees
+- **Key takeaway:** Felix (own Twitter/bank/crypto, launched profitable product), Zosia (nanny hours/groceries/date nights via iMessage), Judd (performance metrics + task reminders), Polly (ChatPRD founder assistant). Setup rules: start on laptop, give agent its own accounts, never share your credentials.
+- **Tools:** OpenClaw, imsg, X/Twitter, Stripe/Crypto Wallet
+- **Link:** every.to/source-code/openclaw-setting-up-your-first-personal-ai-agent
+
+#### 3. Sales & Leads section (new Tier 2 card)
+- **Title:** Amazon Seller + Claude Code MCP — Screenshot → Fix → $2K–$8K/mo Found
+- **Author:** Seller Labs — March 4, 2026
+- **Result badge:** $2K–$8K/mo profit leaks
+- **Key takeaway:** Screenshot a Seller Central error → Claude Code identifies and fixes it → "generalize and save to memory." Via Seller Labs MCP Server: live access to margins/inventory/ad performance. 5 real prompts: find PPC waste, predict stockouts 14 days out, fix suppressed listings, analyze COGS, rewrite listings for conversion.
+- **Tools:** Claude Code, Seller Labs MCP, Amazon Seller Central
+- **Link:** sellerlabs.com/blog/claude-code-amazon-seller-developer/
+
+### Deployment
+- Git commit: `8a7602b`
+- Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-89dgb2usx-christiancattaneos-projects.vercel.app
+- Deployed to: https://maxxer.academy (Vercel prod)
+
+---
+
 ## 2026-03-03 — Auto-Update (cron: maxxer-academy-x-scanner)
 
 **Search window:** Last 4 days (Feb 27 – Mar 3, 2026)
