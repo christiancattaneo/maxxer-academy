@@ -2,6 +2,56 @@
 
 ---
 
+## 2026-03-12 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 8 – Mar 12, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow
+**Sources checked:** X/Twitter (via web search), Markaicode.com, Stormy.ai, Cognitive Revolution podcast, Reddit r/microsaas, Substack, DEV.to
+
+### Posts Found & Assessed
+
+| # | Source | Author | Topic | Quality | Action |
+|---|--------|--------|-------|---------|--------|
+| 1 | Stormy.ai | Stormy.ai | 7 OpenClaw skill files for Meta Ads — Performance Auditor, Creative Analyst, Bid Manager, Audience Architect, Competitor Auditor, Reporting Assistant, Landing Page Auditor — 22% ROAS increase from creative fatigue detection | ✅ High | Added |
+| 2 | Cognitive Revolution Podcast | Jesse Genet (former YC founder, Lumi) | 5 named OpenClaw agents on 5 Mac Minis — Claire/Sylvie/Cole/Theo/Finn — zero coding background, onboard like employees | ✅ High | Added |
+| 3 | Markaicode.com | Markaicode | 5 revenue-generating automations with real code + cost breakdowns: Client Comm Manager ($800–$1.5K/mo), Content Repurposing ($600–$1.2K/mo), Lead Gen ($1.5K–$3K/mo), E-commerce Support, Financial Reporting | ✅ High | Added |
+| 4 | Reddit r/microsaas | Anonymous | ClawWrapper starter kit — $6.3K in 3 weeks, $149 one-time product, Next.js + Supabase + Stripe + Fly.io | ⚠️ Medium — "picks and shovels" meta-play, not a direct agent workflow | Skipped |
+| 5 | Medium | @rentierdigital | 21 advanced OpenClaw automations (sequel to 33 Automations post) — personal VPS stack, n8n + Convex + Supabase integration patterns | ⚠️ Medium — more of a dev automation list, not a specific revenue outcome story | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Paid Ads section (new Tier 2 card)
+- **Title:** 7 OpenClaw Skills for Meta Ads — 22% ROAS Increase
+- **Author:** Stormy.ai — March 2026
+- **Result badge:** +22% ROAS
+- **Key takeaway:** 7 modular .md skill files replacing a full-time media buyer: Performance Auditor (24/7 budget leak detection), Creative Analyst (CTR decay monitoring, +22% ROAS from agencies using it), Bid & Budget Manager (10-20% Rule scaling), Audience Architect (overlap detection), Competitor Auditor (Meta Ad Library scraping → Slack), Reporting Assistant (GA4 + Meta MCP → Telegram plain-English summaries), Landing Page Auditor (auto-pause on broken buy buttons). Never hardcode API keys in skill .md files — always use env vars.
+- **Tools:** OpenClaw, Meta Ads API, GA4 MCP, Meta Ad Library, Slack
+- **Link:** stormy.ai/blog/2026-guide-meta-ads-automation-openclaw-ai-agents
+
+#### 2. Setup & Infrastructure section (new Tier 2 card)
+- **Title:** 5 Named Agents on 5 Mac Minis — Zero Coding Background
+- **Author:** Jesse Genet (Cognitive Revolution Podcast) — March 8, 2026
+- **Result badge:** 5 agents · no code
+- **Key takeaway:** Former YC founder (Lumi, DTC packaging) who'd never opened Terminal until 6 months ago now runs Claire (Chief of Staff), Sylvie (curriculum planner), Cole (software developer agent), Theo (content/TikTok), Finn (family finance) — each on its own Mac Mini. Key mental model: onboard agents like employees (docs, job descriptions, check-ins). Total cost ~$100/mo. Episode on Cognitive Revolution with Nathan Labenz.
+- **Tools:** OpenClaw, Mac Mini × 5, Claude Code, TikTok API
+- **Link:** cognitiverevolution.ai/try-this-at-home-jesse-genet-on-openclaw-agents-for-homeschool...
+
+#### 3. Sales & Leads section (new Tier 2 card)
+- **Title:** 5 OpenClaw Automations That Actually Make Money — With Code
+- **Author:** Markaicode.com — March 12, 2026
+- **Result badge:** $800–$3K/mo/client
+- **Key takeaway:** Five production-ready automations with code snippets, troubleshooting steps, and revenue models: Client Comm Manager (30 min → 3 min response via memory, $800–$1.5K/mo), Content Repurposing (1 URL → 15+ posts, $600–$1.2K/mo), Lead Gen via Apollo.io (50-100 qualified leads/mo, $1.5K–$3K/mo), E-commerce Support ($300–$800/mo), Financial Reporting via QuickBooks/Stripe MCP ($100–$500/mo). Key stat: businesses pay $500–$5K/mo for 10+ hrs/week saved; OpenClaw delivers at $50/mo in API costs.
+- **Tools:** OpenClaw, Apollo.io, Slack, QuickBooks/Stripe, MCP
+- **Link:** markaicode.com/openclaw-money-making-automations-2026/
+
+### Deployment
+- Git commit: `5b245c4`
+- Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-focfcs190-christiancattaneos-projects.vercel.app
+- Deployed to: https://maxxer.academy (Vercel prod)
+
+---
+
 ## 2026-03-09 — Auto-Update (cron: maxxer-academy-x-scanner)
 
 **Search window:** Last 4 days (Mar 5 – Mar 9, 2026)
