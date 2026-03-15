@@ -97,6 +97,7 @@ export default function ToolsPage() {
   const [requesting, setRequesting] = useState<string | null>(null);
   const [requestReason, setRequestReason] = useState("");
   const [requested, setRequested] = useState<Set<string>>(new Set());
+  const [showKey, setShowKey] = useState<Set<string>>(new Set());
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isAdmin = session && (session as any).isAdmin === true;
@@ -277,28 +278,70 @@ export default function ToolsPage() {
                 {tool.description}
               </p>
 
-              <div
-                style={{
-                  background: "#0f0f0f",
+              {/* Usage hint */}
+              <p style={{ fontSize: ".75rem", color: "var(--ink-3, #888)", marginBottom: ".6rem", fontStyle: "italic" }}>
+                {tool.command}
+              </p>
+
+              {/* API Key display */}
+              {keys[tool.envKey] ? (
+                <div style={{ marginBottom: ".8rem" }}>
+                  <div style={{ fontSize: ".65rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-3, #888)", marginBottom: ".3rem" }}>
+                    API Key
+                  </div>
+                  <div style={{
+                    background: "#0f0f0f",
+                    borderRadius: 8,
+                    padding: ".6rem .8rem",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: ".75rem",
+                    color: "#a3e635",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: ".5rem",
+                  }}>
+                    <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {showKey.has(tool.envKey) ? keys[tool.envKey] : "•".repeat(Math.min(keys[tool.envKey].length, 32))}
+                    </span>
+                    <div style={{ display: "flex", gap: ".3rem", flexShrink: 0 }}>
+                      <button
+                        onClick={() => setShowKey(prev => {
+                          const next = new Set(prev);
+                          if (next.has(tool.envKey)) next.delete(tool.envKey);
+                          else next.add(tool.envKey);
+                          return next;
+                        })}
+                        style={{ fontSize: ".65rem", padding: "3px 8px", borderRadius: 6, background: "#1a1a1a", color: "#888", border: "1px solid #333", cursor: "pointer", fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        {showKey.has(tool.envKey) ? "Hide" : "Show"}
+                      </button>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(keys[tool.envKey]);
+                          setCopied(tool.envKey);
+                          setTimeout(() => setCopied(null), 2000);
+                        }}
+                        style={{ fontSize: ".65rem", padding: "3px 8px", borderRadius: 6, background: copied === tool.envKey ? "#16a34a" : "#1a1a1a", color: copied === tool.envKey ? "#fff" : "#888", border: "1px solid #333", cursor: "pointer", fontFamily: "'Space Grotesk', sans-serif", transition: "all .2s" }}
+                      >
+                        {copied === tool.envKey ? "✓ Copied" : "Copy"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div style={{
+                  padding: ".6rem .8rem",
                   borderRadius: 8,
-                  padding: ".8rem 1rem",
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: ".72rem",
-                  color: "#a3e635",
-                  overflowX: "auto",
+                  background: "var(--ink, #0f0f0f)08",
+                  border: "1px dashed var(--border, #e6e4df)",
+                  fontSize: ".78rem",
+                  color: "var(--ink-3, #888)",
                   marginBottom: ".8rem",
-                  lineHeight: 1.6,
-                  whiteSpace: "pre-wrap",
-                  wordBreak: "break-all",
-                }}
-              >
-                {tool.command.replace(
-                  "KEY",
-                  keys[tool.envKey]
-                    ? keys[tool.envKey].slice(0, 8) + "..."
-                    : "<KEY>"
-                )}
-              </div>
+                }}>
+                  🔒 Key not set yet
+                </div>
+              )}
 
               <div
                 style={{
@@ -307,25 +350,6 @@ export default function ToolsPage() {
                   alignItems: "center",
                 }}
               >
-                <button
-                  onClick={() => handleCopy(tool)}
-                  style={{
-                    fontSize: ".78rem",
-                    fontWeight: 600,
-                    padding: "6px 14px",
-                    borderRadius: 100,
-                    background:
-                      copied === tool.envKey ? "#16a34a" : "var(--ink, #0f0f0f)",
-                    color: "#fff",
-                    border: "none",
-                    cursor: "pointer",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    transition: "all .2s",
-                  }}
-                >
-                  {copied === tool.envKey ? "Copied!" : "Copy Command"}
-                </button>
-
                 {isAdmin && editing !== tool.envKey && (
                   <button
                     onClick={() => {
