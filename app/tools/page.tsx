@@ -15,46 +15,74 @@ interface ToolDef {
 
 const TOOLS: ToolDef[] = [
   {
-    name: "Pinata",
-    envKey: "TOOL_KEY_PINATA",
-    command: "npx pinata-security-cli analyze . --verify --api-key KEY",
-    description: "AI-powered SAST scanner",
-    color: "#7c3aed",
+    name: "Claude (Opus 4.6)",
+    envKey: "TOOL_KEY_CLAUDE",
+    command: "Use API key at console.anthropic.com or in Claude Code / Cursor",
+    description: "Best-in-class AI for writing & reasoning",
+    color: "#d97706",
   },
   {
-    name: "Crowbar",
-    envKey: "TOOL_KEY_CROWBAR",
-    command: "npx crowbar-security scan URL --anthropic-key KEY",
-    description: "Autonomous penetration testing",
+    name: "Codex (OpenAI)",
+    envKey: "TOOL_KEY_OPENAI",
+    command: "Use API key at platform.openai.com or in Codex CLI",
+    description: "AI coding agent — pair with Opus for max output",
+    color: "#10a37f",
+  },
+  {
+    name: "ElevenLabs",
+    envKey: "TOOL_KEY_ELEVENLABS",
+    command: "Use API key at elevenlabs.io/docs or in voice apps",
+    description: "Voice synthesis & cloning — best quality TTS",
+    color: "#6366f1",
+  },
+  {
+    name: "DataForSEO",
+    envKey: "TOOL_KEY_DATAFORSEO",
+    command: "API docs at dataforseo.com — SERP, keyword, backlink data",
+    description: "SEO data API — rankings, keywords, competitors",
     color: "#2563eb",
   },
   {
-    name: "Whackamole",
-    envKey: "TOOL_KEY_WHACKAMOLE",
-    command: "npx whackamole agent --url URL",
-    description: "Attack + verified fix generation",
-    color: "#ea580c",
+    name: "Postiz",
+    envKey: "TOOL_KEY_POSTIZ",
+    command: "Use API key at postiz.com — social media scheduling",
+    description: "Social media automation & scheduling",
+    color: "#ec4899",
   },
   {
-    name: "Slopometer",
-    envKey: "TOOL_KEY_SLOPOMETER",
-    command: "npx slopometer scan .",
-    description: "Code quality / slop detector",
+    name: "fal.ai",
+    envKey: "TOOL_KEY_FALAI",
+    command: "Use API key at fal.ai — image/video generation",
+    description: "Fast AI content generation — images, video, audio",
+    color: "#f97316",
+  },
+  {
+    name: "Gamma",
+    envKey: "TOOL_KEY_GAMMA",
+    command: "Use at gamma.app — AI-powered presentations",
+    description: "AI slide deck & presentation generator",
+    color: "#8b5cf6",
+  },
+  {
+    name: "Suno",
+    envKey: "TOOL_KEY_SUNO",
+    command: "Use at suno.com — AI music generation",
+    description: "AI music creation — v4 with full songs",
+    color: "#ef4444",
+  },
+  {
+    name: "Seedance 2.0",
+    envKey: "TOOL_KEY_SEEDANCE",
+    command: "ByteDance video generation API",
+    description: "AI video generation — best quality 2026",
+    color: "#06b6d4",
+  },
+  {
+    name: "Nano Banana 2",
+    envKey: "TOOL_KEY_NANOBANANA",
+    command: "Google image generation model",
+    description: "Google's best image generation model",
     color: "#16a34a",
-  },
-  {
-    name: "Padlock",
-    envKey: "TOOL_KEY_PADLOCK",
-    command: "npx padlock-cli audit .",
-    description: "Database security auditor",
-    color: "#0891b2",
-  },
-  {
-    name: "Pitchfork",
-    envKey: "TOOL_KEY_PITCHFORK",
-    command: "npx pitchfork-load storm URL",
-    description: "Load testing",
-    color: "#db2777",
   },
 ];
 
@@ -168,7 +196,7 @@ export default function ToolsPage() {
               marginBottom: ".5rem",
             }}
           >
-            Security Toolkit
+            AI Stack 2026
           </div>
           <h1
             style={{
@@ -179,7 +207,7 @@ export default function ToolsPage() {
               marginBottom: ".8rem",
             }}
           >
-            Security & Quality Tools
+            AI Stack — API Keys
           </h1>
           <p
             style={{
@@ -189,8 +217,8 @@ export default function ToolsPage() {
               lineHeight: 1.6,
             }}
           >
-            Copy the command, paste into your terminal, and run. Each tool has a
-            shared API key pre-configured for the academy.
+            Best tool per category. Shared API keys for academy students. 
+            No affiliate links — just the best tools for 2026.
           </p>
         </div>
 
