@@ -53,9 +53,56 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: "Invalid key" }, { status: 400 });
   }
 
-  // For v0.1, update in-memory env var (persists until restart)
-  // In production, you'd write to a database or .env file
+  // Update in-memory for immediate reads
   process.env[key] = value;
+
+  // Persist to Vercel env vars (survives cold starts + deploys)
+  const vercelToken = process.env.VERCEL_API_TOKEN;
+  const projectId = process.env.VERCEL_PROJECT_ID;
+
+  if (vercelToken && projectId) {
+    try {
+      // Remove existing env var
+      const listRes = await fetch(
+        `https://api.vercel.com/v9/projects/${projectId}/env`,
+        { headers: { Authorization: `Bearer ${vercelToken}` } }
+      );
+      const listData = await listRes.json();
+      const existing = (listData.envs || []).find(
+        (e: { key: string }) => e.key === key
+      );
+      if (existing) {
+        await fetch(
+          `https://api.vercel.com/v9/projects/${projectId}/env/${existing.id}`,
+          {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${vercelToken}` },
+          }
+        );
+      }
+
+      // Create new env var
+      await fetch(
+        `https://api.vercel.com/v10/projects/${projectId}/env`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${vercelToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            key,
+            value,
+            type: "encrypted",
+            target: ["production", "preview"],
+          }),
+        }
+      );
+    } catch (err) {
+      console.error("[tools] Failed to persist to Vercel:", err);
+      // Still succeeds — in-memory update works for current instance
+    }
+  }
 
   return NextResponse.json({ success: true });
 }

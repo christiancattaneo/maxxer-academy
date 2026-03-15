@@ -151,17 +151,29 @@ export default function ToolsPage() {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const handleSave = async (envKey: string) => {
+  const handleSave = async (envKey: string, val?: string) => {
+    const saveValue = val ?? editValue;
+    if (!saveValue.trim()) return;
     setSaving(true);
     await fetch("/api/tools", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ key: envKey, value: editValue }),
+      body: JSON.stringify({ key: envKey, value: saveValue.trim() }),
     });
-    setKeys((prev) => ({ ...prev, [envKey]: editValue }));
+    setKeys((prev) => ({ ...prev, [envKey]: saveValue.trim() }));
     setEditing(null);
     setEditValue("");
     setSaving(false);
+  };
+
+  // Auto-save on paste
+  const handleKeyPaste = (envKey: string) => (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const pasted = e.clipboardData.getData("text").trim();
+    if (pasted) {
+      setEditValue(pasted);
+      // Save immediately after paste
+      setTimeout(() => handleSave(envKey, pasted), 100);
+    }
   };
 
   const handleRequestAccess = async (toolName: string) => {
@@ -482,7 +494,9 @@ export default function ToolsPage() {
                     type="text"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
-                    placeholder="Enter API key..."
+                    onPaste={handleKeyPaste(tool.envKey)}
+                    placeholder="Paste API key — saves automatically"
+                    autoFocus
                     style={{
                       width: "100%",
                       padding: "8px 12px",
