@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Getting Started — Your First OpenClaw Business Agent — Maxxer Academy</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#f7f6f3;--surface:#fff;--ink:#0f0f0f;--ink-2:#3a3a3a;--ink-3:#888;--border:#e6e4df;--accent:#16a34a}html{scroll-behavior:smooth}body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;background:rgba(247,246,243,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}.nav-logo{font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem}.nav-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;background:var(--ink);color:#fff;padding:2px 7px;border-radius:4px}.nav-back{font-size:.85rem;color:var(--ink-2);text-decoration:none;font-weight:500}.nav-back:hover{color:var(--ink)}.wrap{max-width:780px;margin:0 auto;padding:2.5rem 2rem 4rem}.accent-bar{width:40px;height:4px;border-radius:2px;background:var(--accent);margin-bottom:1.5rem}article h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:.5rem}article h2{font-size:1.3rem;font-weight:700;letter-spacing:-.3px;margin:2.5rem 0 .8rem;padding-top:1.5rem;border-top:1px solid var(--border)}article h3{font-size:1.05rem;font-weight:700;margin:1.8rem 0 .5rem}article h4{font-size:.95rem;font-weight:600;margin:1.2rem 0 .4rem}article p{margin-bottom:1rem;color:var(--ink-2)}article ul,article ol{margin:0 0 1rem 1.5rem;color:var(--ink-2)}article li{margin-bottom:.4rem}article strong{color:var(--ink);font-weight:600}article a{color:var(--accent);text-decoration:none;font-weight:500}article a:hover{text-decoration:underline}article blockquote{border-left:3px solid var(--accent);padding:.8rem 1.2rem;margin:1rem 0;background:rgba(0,0,0,.02);border-radius:0 8px 8px 0;color:var(--ink-2);font-style:italic}article code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:rgba(0,0,0,.05);padding:2px 6px;border-radius:4px}article pre{background:#1a1a2e;color:#e0e0e0;padding:1.2rem 1.5rem;border-radius:10px;overflow-x:auto;margin:1rem 0 1.5rem;line-height:1.5}article pre code{background:none;padding:0;color:inherit;font-size:.8rem}article table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.9rem}article th{text-align:left;padding:.6rem .8rem;border-bottom:2px solid var(--border);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}article td{padding:.6rem .8rem;border-bottom:1px solid var(--border);color:var(--ink-2)}article hr{border:none;border-top:1px solid var(--border);margin:2rem 0}article img{max-width:100%;border-radius:8px;margin:1rem 0}footer{text-align:center;padding:2rem;font-size:.8rem;color:var(--ink-3)}footer a{color:var(--ink-2);text-decoration:none}@media(max-width:640px){.wrap{padding:1.5rem 1rem 3rem}nav{padding:0 1rem}}</style></head><body><nav><a class="nav-logo" href="/">Maxxer <span class="nav-badge">Academy</span></a><a class="nav-back" href="/">← All Playbooks</a></nav><div class="wrap"><div class="accent-bar"></div><article><h1>Getting Started — Your First OpenClaw Business Agent</h1>
+<blockquote>
+<p><strong>The complete beginner&#39;s guide.</strong> Follow these 8 steps and you&#39;ll have a personal AI agent running in 30 minutes — one you can message from Telegram, WhatsApp, or Discord, anywhere in the world.</p>
+</blockquote>
+<hr>
+<h2>What is OpenClaw?</h2>
+<p>OpenClaw is a <strong>free, open-source personal AI assistant</strong> that runs on your own computer and connects to the chat apps you already use — Telegram, WhatsApp, Discord, and more. Instead of paying $20/month for a capped AI subscription, you run your own self-hosted &quot;gateway&quot; that gives you an AI available 24/7 from your phone, with full control over your data, costs, and capabilities.</p>
+<p>Think of it as: <em>your own private AI employee that lives in your messages and never sleeps.</em></p>
+<hr>
+<h2>What You Need</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A Mac (M-series or Intel)</td>
+<td>Or a Linux machine / VPS</td>
+</tr>
+<tr>
+<td>Node.js 22 or newer</td>
+<td>The installer handles this automatically</td>
+</tr>
+<tr>
+<td>An AI API key</td>
+<td>Anthropic or OpenRouter (details below)</td>
+</tr>
+<tr>
+<td>A Telegram account</td>
+<td>Free — recommended for easiest setup</td>
+</tr>
+<tr>
+<td>30 minutes</td>
+<td>Seriously, that&#39;s all</td>
+</tr>
+</tbody></table>
+<p><strong>Hardware tip:</strong> A Mac Mini M4 ($599) is ideal — it runs 24/7 cheaply, stays quiet, and handles any model you throw at it. But your existing Mac laptop works fine to start.</p>
+<hr>
+<h2>Step 1: Install OpenClaw</h2>
+<p>Open <strong>Terminal</strong> (search &quot;Terminal&quot; in Spotlight with <code>⌘ Space</code>) and paste this single command:</p>
+<p><strong>macOS / Linux:</strong></p>
+<pre><code class="language-bash">curl -fsSL https://openclaw.ai/install.sh | bash
+</code></pre>
+<p><strong>Windows (PowerShell — run as Administrator):</strong></p>
+<pre><code class="language-powershell">iwr -useb https://openclaw.ai/install.ps1 | iex
+</code></pre>
+<blockquote>
+<p><strong>What this does:</strong> Downloads the OpenClaw CLI, installs it globally via npm, checks for Node.js (installs it if missing), and launches the setup wizard.</p>
+</blockquote>
+<p><strong>Expected output:</strong></p>
+<pre><code>✓ Detected macOS arm64
+✓ Node 22.x found
+✓ Installing openclaw@latest...
+✓ OpenClaw installed successfully
+→ Launching onboarding wizard...
+</code></pre>
+<p>If you see <code>openclaw: command not found</code> after install, close and reopen Terminal, then try again.</p>
+<p><strong>Alternative install via npm</strong> (if you already have Node 22+):</p>
+<pre><code class="language-bash">npm install -g openclaw@latest
+openclaw onboard --install-daemon
+</code></pre>
+<hr>
+<h2>Step 2: Create Your Anthropic API Key</h2>
+<p>OpenClaw needs an AI &quot;brain.&quot; Anthropic&#39;s Claude is the recommended starting point.</p>
+<ol>
+<li>Go to <strong><a href="https://platform.claude.com">https://platform.claude.com</a></strong></li>
+<li>Sign up or log in (Google account works)</li>
+<li>Click <strong>&quot;API Keys&quot;</strong> in the left sidebar</li>
+<li>Click <strong>&quot;Create Key&quot;</strong> — give it a name like &quot;openclaw-agent&quot;</li>
+<li><strong>Copy the key immediately</strong> — you won&#39;t see it again</li>
+<li>Go to <strong>&quot;Plans &amp; Billing&quot;</strong> → set a monthly spend limit ($20–50 is safe to start)</li>
+</ol>
+<p><strong>API pricing (as of March 2026):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Input</th>
+<th>Output</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Haiku 4.5</td>
+<td>$1/MTok</td>
+<td>$5/MTok</td>
+<td>Simple tasks, routing, quick replies</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.6</td>
+<td>$3/MTok</td>
+<td>$15/MTok</td>
+<td><strong>Best daily driver</strong> — balanced quality/cost</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6</td>
+<td>$5/MTok</td>
+<td>$25/MTok</td>
+<td>Complex reasoning, deep research</td>
+</tr>
+</tbody></table>
+<p><strong>What does this cost in practice?</strong></p>
+<ul>
+<li>Light use (~100 messages/day): ~$5–15/month</li>
+<li>Medium use (~500 messages/day): ~$20–40/month</li>
+<li>Heavy use (agent workflows): ~$50–100/month</li>
+</ul>
+<blockquote>
+<p><strong>[!] Always set a spending cap.</strong> Go to Billing → Usage Limits and set a hard limit of $50/month until you understand your usage patterns.</p>
+</blockquote>
+<hr>
+<h3>Cheaper Alternative: OpenRouter</h3>
+<p><a href="https://openrouter.ai">OpenRouter</a> is a <strong>model aggregator</strong> — one API key gives you access to 300+ models from Anthropic, OpenAI, Google, Mistral, and more. It&#39;s the smart move for cost optimization.</p>
+<p><strong>Why OpenRouter beats going direct:</strong></p>
+<ul>
+<li>Access cheaper models for simple tasks (DeepSeek V3.2: $0.25/$0.38 per MTok — that&#39;s 20× cheaper than Sonnet)</li>
+<li>Automatic fallback if one provider goes down</li>
+<li>Pay-as-you-go, no monthly minimums</li>
+<li>Same API format as Anthropic</li>
+</ul>
+<p><strong>OpenRouter setup:</strong></p>
+<ol>
+<li>Go to <strong><a href="https://openrouter.ai">https://openrouter.ai</a></strong> and sign up</li>
+<li>Go to <strong>Keys</strong> → <strong>Create Key</strong></li>
+<li>Add $10–20 in credits to start</li>
+<li>Use model IDs like <code>anthropic/claude-sonnet-4-6</code> or <code>deepseek/deepseek-v3</code> in OpenClaw config</li>
+</ol>
+<p><strong>Cost comparison (same Sonnet model):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Anthropic direct</td>
+<td>$3/MTok</td>
+<td>$15/MTok</td>
+</tr>
+<tr>
+<td>OpenRouter</td>
+<td>~$3.20/MTok</td>
+<td>~$15.60/MTok</td>
+</tr>
+</tbody></table>
+<p>For Anthropic models, prices are similar. The savings come from using <em>cheaper models</em> for simpler tasks.</p>
+<p><strong>Recommendation:</strong> Start with Anthropic direct (simpler), switch to OpenRouter once you understand your usage.</p>
+<hr>
+<h2>Step 3: Configure OpenClaw (Onboarding Wizard)</h2>
+<p>The installer should have already launched the wizard. If not, run:</p>
+<pre><code class="language-bash">openclaw onboard --install-daemon
+</code></pre>
+<p>The wizard will ask you:</p>
+<ol>
+<li><strong>Model/Auth</strong> — choose &quot;Anthropic&quot; and paste your API key when prompted</li>
+<li><strong>Default model</strong> — choose <code>claude-sonnet-4-6</code> (good balance of cost/quality)</li>
+<li><strong>Workspace</strong> — press Enter to accept the default (<code>~/.openclaw/workspace</code>)</li>
+<li><strong>Gateway</strong> — press Enter to accept the default port (run <code>openclaw dashboard</code> to open the control panel — don't rely on a hardcoded port number)</li>
+<li><strong>Channels</strong> — choose Telegram (we&#39;ll set this up in Step 4)</li>
+<li><strong>Install as daemon</strong> — say YES so it starts automatically when your Mac boots</li>
+</ol>
+<p>To set your API key via config after setup:</p>
+<pre><code class="language-bash">openclaw config set agents.defaults.model.primary &quot;anthropic/claude-sonnet-4-6&quot;
+</code></pre>
+<p>Or to use OpenRouter instead of Anthropic:</p>
+<pre><code class="language-bash">openclaw config set agents.defaults.model.primary &quot;openrouter/anthropic/claude-sonnet-4-6&quot;
+</code></pre>
+<p><strong>Check the gateway is running:</strong></p>
+<pre><code class="language-bash">openclaw gateway status
+</code></pre>
+<p><strong>Open the web control panel (no channel needed):</strong></p>
+<pre><code class="language-bash">openclaw dashboard
+</code></pre>
+<p>This opens the dashboard URL in your browser — you can already chat with your agent here.</p>
+<hr>
+<h2>Step 4: Connect to Telegram  Recommended</h2>
+<p>Telegram is the easiest and most powerful channel. Once connected, you can message your agent from your phone from anywhere in the world.</p>
+<h3>4a. Create a Telegram Bot</h3>
+<ol>
+<li>Open Telegram on your phone or desktop</li>
+<li>Search for <strong>@BotFather</strong> (must be verified with a blue checkmark)</li>
+<li>Send: <code>/newbot</code></li>
+<li>When asked for a name, type something like: <code>My AI Agent</code></li>
+<li>When asked for a username, type something like: <code>myagent_yourname_bot</code> (must end in <code>bot</code>)</li>
+<li>BotFather will give you a token like: <code>1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ</code></li>
+<li><strong>Copy that token</strong></li>
+</ol>
+<h3>4b. Add Token to OpenClaw Config</h3>
+<p>Edit your config file:</p>
+<pre><code class="language-bash">nano ~/.openclaw/openclaw.json
+</code></pre>
+<p>Add or update the Telegram section:</p>
+<pre><code class="language-json5">{
+  channels: {
+    telegram: {
+      enabled: true,
+      botToken: &quot;1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ&quot;,
+      dmPolicy: &quot;pairing&quot;
+    }
+  }
+}
+</code></pre>
+<p>Or use the CLI shortcut:</p>
+<pre><code class="language-bash">openclaw config set channels.telegram.enabled true
+openclaw config set channels.telegram.botToken &quot;YOUR_BOT_TOKEN_HERE&quot;
+openclaw config set channels.telegram.dmPolicy &quot;pairing&quot;
+</code></pre>
+<h3>4c. Restart Gateway and Approve Your First Message</h3>
+<pre><code class="language-bash">openclaw gateway status
+# If not running:
+openclaw gateway start
+</code></pre>
+<p>Now open Telegram, find your bot by its username (<code>@yourbot_name</code>), and send it <code>/start</code>.</p>
+<p>In your terminal, you&#39;ll see a pairing request. Approve it:</p>
+<pre><code class="language-bash">openclaw pairing list telegram
+openclaw pairing approve telegram &lt;CODE&gt;
+</code></pre>
+<p>The pairing code expires after 1 hour, so do this promptly.</p>
+<blockquote>
+<p><strong>After pairing:</strong> Your bot will only respond to approved users. This is a security feature — nobody can hijack your agent by guessing your bot name.</p>
+</blockquote>
+<hr>
+<h2>Step 5: Install Your First Skills</h2>
+<p>Skills are <strong>add-on capabilities</strong> for your agent — like apps for a smartphone. They&#39;re installed from ClawHub, the free skill registry.</p>
+<p><strong>Install the ClawHub CLI:</strong></p>
+<pre><code class="language-bash">npm i -g clawhub
+</code></pre>
+<p><strong>Search for skills:</strong></p>
+<pre><code class="language-bash">clawhub search &quot;web search&quot;
+clawhub search &quot;email&quot;
+clawhub search &quot;weather&quot;
+</code></pre>
+<p><strong>Install your first essential skills:</strong></p>
+<pre><code class="language-bash"># Check the weather from anywhere
+clawhub install weather
+
+# Summarize articles, PDFs, YouTube videos
+clawhub install summarize
+
+# Manage GitHub repos and issues
+clawhub install github
+
+# Get the latest news and web info
+clawhub install xurl
+</code></pre>
+<p><strong>List what you&#39;ve installed:</strong></p>
+<pre><code class="language-bash">clawhub list
+</code></pre>
+<p><strong>Update all installed skills:</strong></p>
+<pre><code class="language-bash">clawhub update --all
+</code></pre>
+<blockquote>
+<p><strong>How skills work:</strong> After installing, restart your agent session (or just send <code>/reset</code> to your bot). Skills inject instructions into your agent&#39;s context, teaching it new behaviors and workflows.</p>
+</blockquote>
+<p><strong>Read a skill before installing it:</strong></p>
+<pre><code class="language-bash">cat ~/.openclaw/workspace/skills/weather/SKILL.md
+</code></pre>
+<p>Always know what you&#39;re installing.</p>
+<hr>
+<h2>Step 6: Talk to Your Agent</h2>
+<p>Send your bot a message on Telegram. Try these to get started:</p>
+<pre><code>What can you do?
+</code></pre>
+<pre><code>What&#39;s the weather in Chicago?
+</code></pre>
+<pre><code>Summarize this article: [paste a URL]
+</code></pre>
+<pre><code>Help me write a cold email to a restaurant owner offering my AI services
+</code></pre>
+<pre><code>Search the web for &quot;openclaw business use cases&quot;
+</code></pre>
+<pre><code>What&#39;s my agent&#39;s current configuration?
+</code></pre>
+<p><strong>Power user commands (send these to your bot):</strong></p>
+<ul>
+<li><code>/status</code> — see gateway health</li>
+<li><code>/model</code> — switch between AI models</li>
+<li><code>/reset</code> — start a fresh conversation</li>
+<li><code>/help</code> — see all available commands</li>
+</ul>
+<hr>
+<h2>Step 7: Set Up Safety [!] Important!</h2>
+<p><strong>Do this before you give your agent access to anything sensitive.</strong></p>
+<p>Based on best practices from the OpenClaw community:</p>
+<h3>7a. Use a Dedicated Account for Agent Access</h3>
+<ul>
+<li>Create a <strong>new Google account</strong> (e.g., <code>yourname.agent@gmail.com</code>) for anything your agent can access</li>
+<li>Give it access to a <strong>secondary calendar</strong>, not your main one</li>
+<li>Use a <strong>forwarding rule</strong> from your main email to the agent email if you want email processing</li>
+<li><strong>Never</strong> give your agent your main Apple ID or primary bank login</li>
+</ul>
+<h3>7b. Set API Spending Limits (CRITICAL)</h3>
+<p>On Anthropic:</p>
+<ol>
+<li>Go to <a href="https://platform.claude.com">platform.claude.com</a> → Billing → Usage Limits</li>
+<li>Set a <strong>hard monthly cap</strong> (start with $50)</li>
+<li>Set up <strong>email alerts</strong> at 50% and 80% of your budget</li>
+</ol>
+<p>On OpenRouter:</p>
+<ol>
+<li>Go to openrouter.ai → Settings → Limits</li>
+<li>Set a monthly credit limit</li>
+<li>Enable email notifications</li>
+</ol>
+<h3>7c. Use Haiku for Cheap Tasks</h3>
+<p>Don&#39;t run every request through Sonnet or Opus. Configure routing:</p>
+<pre><code class="language-bash">openclaw config set agents.defaults.model.primary &quot;anthropic/claude-haiku-4-5&quot;
+</code></pre>
+<p>Then switch to Sonnet only when needed by telling your agent:</p>
+<pre><code>/model sonnet
+</code></pre>
+<p>This can cut your costs by <strong>5–10×</strong> for simple tasks.</p>
+<h3>7d. Restrict Gateway Access</h3>
+<p>Your gateway config should have:</p>
+<pre><code class="language-json5">{
+  channels: {
+    telegram: {
+      dmPolicy: &quot;pairing&quot;,       // Only approved users can talk to your agent
+      allowFrom: [&quot;YOUR_ID&quot;]     // Add your Telegram numeric user ID here
+    }
+  }
+}
+</code></pre>
+<p>To find your Telegram user ID:</p>
+<pre><code class="language-bash">openclaw logs --follow
+</code></pre>
+<p>Then send a message to your bot and look for <code>from.id</code> in the logs.</p>
+<h3>7e. Safety Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> API spending limit set (Anthropic/OpenRouter)</li>
+<li><input disabled="" type="checkbox"> Telegram pairing mode enabled (not &quot;open&quot;)</li>
+<li><input disabled="" type="checkbox"> Agent using a dedicated email account (not your main)</li>
+<li><input disabled="" type="checkbox"> No access to real financial accounts in first 30 days</li>
+<li><input disabled="" type="checkbox"> Agent workspace backed up (copy <code>~/.openclaw/workspace</code>)</li>
+<li><input disabled="" type="checkbox"> Run <code>openclaw doctor</code> weekly to catch config issues</li>
+</ul>
+<hr>
+<h2>Step 8: Your First Business Workflow</h2>
+<p>Here&#39;s the proven framework for turning your agent into revenue:</p>
+<h3>The Framework (Based on Community Best Practices)</h3>
+<p><strong>1. Pick ONE boring workflow in ONE industry</strong></p>
+<p>Don&#39;t try to build everything. Pick something small and painful:</p>
+<ul>
+<li>A dentist&#39;s office manually booking appointments via email</li>
+<li>A real estate agent copy-pasting listings into social media</li>
+<li>A law firm manually billing time from handwritten notes</li>
+<li>A plumber answering the same 10 questions by phone all day</li>
+</ul>
+<p><strong>2. Map the workflow tip-to-tail</strong></p>
+<p>Write out every step the human currently does. Be specific:</p>
+<pre><code>1. Customer emails with question
+2. Staff reads email (5 min)
+3. Staff looks up answer in FAQ doc (3 min)
+4. Staff writes reply (5 min)
+5. Staff sends email (1 min)
+= 14 minutes per inquiry × 20 per day = 4.5 hours/day
+</code></pre>
+<p><strong>3. Build or find the skill for it</strong></p>
+<pre><code class="language-bash">clawhub search &quot;email reply&quot;
+clawhub search &quot;customer service&quot;
+</code></pre>
+<p>Or describe what you want to your agent:</p>
+<pre><code>I want to build a skill that auto-drafts email replies for a plumbing company using 
+their FAQ document. How would I structure this?
+</code></pre>
+<p><strong>4. Test for a full week with real data</strong></p>
+<p>Don&#39;t skip this. Run the workflow manually with your agent assisting, measure:</p>
+<ul>
+<li>Time saved per task</li>
+<li>Error rate</li>
+<li>Customer satisfaction (if visible)</li>
+</ul>
+<p><strong>5. Offer it to 3 businesses for free</strong></p>
+<p>Post on Upwork, local Facebook groups, or cold email:</p>
+<blockquote>
+<p>&quot;I&#39;m testing an AI tool that handles [specific task] for [industry]. I&#39;m offering it free for one month to 3 businesses in exchange for feedback. Takes 2 hours to set up. Interested?&quot;</p>
+</blockquote>
+<p><strong>6. Once proven, charge</strong></p>
+<p>Once you have:</p>
+<ul>
+<li>Documented time savings (e.g., &quot;saves 4.5 hours/day&quot;)</li>
+<li>Happy beta users</li>
+<li>Repeatable setup process</li>
+</ul>
+<p>Price it at <strong>$500–1,500/month</strong> depending on value delivered. A business saving $5,000/month in labor will happily pay $1,000/month for the solution.</p>
+<hr>
+<h2>Essential Skills to Install</h2>
+<p>These are the most useful skills for beginners — all verified to exist in the ClawHub registry:</p>
+<pre><code class="language-bash"># Weather forecasts and current conditions
+clawhub install weather
+
+# Summarize URLs, PDFs, YouTube videos, and long documents
+clawhub install summarize
+
+# GitHub repo management, issues, PRs — great for tech clients
+clawhub install github
+
+# Web browsing and URL content extraction
+clawhub install xurl
+
+# Email management via IMAP/SMTP
+clawhub install himalaya
+
+# iMessage sending/reading (macOS only)
+clawhub install imsg
+
+# Generate images via OpenAI
+clawhub install openai-image-gen
+
+# Speech-to-text transcription via Whisper API
+clawhub install openai-whisper-api
+
+# Make and receive phone calls
+clawhub install voice-call
+</code></pre>
+<p><strong>Power user skills:</strong></p>
+<pre><code class="language-bash"># Spawn coding agents (Codex, Claude Code) for dev work
+clawhub install coding-agent
+
+# GitHub Issues → automated PR workflow
+clawhub install gh-issues
+
+# Security hardening and health checks
+clawhub install healthcheck
+
+# Create and publish your own skills
+clawhub install skill-creator
+</code></pre>
+<p><strong>After installing, restart your session:</strong></p>
+<pre><code>/reset
+</code></pre>
+<p>Then ask your agent:</p>
+<pre><code>What skills do you have installed?
+</code></pre>
+<hr>
+<h2>How Much Does This Cost?</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenClaw</td>
+<td><strong>Free</strong></td>
+<td>Open source, MIT license</td>
+</tr>
+<tr>
+<td>ClawHub Skills</td>
+<td><strong>Free</strong></td>
+<td>All public skills are free</td>
+</tr>
+<tr>
+<td>Anthropic API</td>
+<td><strong>$5–50/mo</strong></td>
+<td>Light = $5–15, Heavy = $50+</td>
+</tr>
+<tr>
+<td>OpenRouter</td>
+<td><strong>Pay-as-you-go</strong></td>
+<td>Only pay for what you use</td>
+</tr>
+<tr>
+<td>Telegram</td>
+<td><strong>Free</strong></td>
+<td>Bot API has no usage fees</td>
+</tr>
+<tr>
+<td>Brave Search API</td>
+<td><strong>Free tier</strong></td>
+<td>2,000 searches/month free</td>
+</tr>
+<tr>
+<td>Mac Mini M4 (if buying)</td>
+<td><strong>$599 one-time</strong></td>
+<td>Optional — works on any Mac</td>
+</tr>
+<tr>
+<td>VPS Alternative</td>
+<td><strong>$6–12/mo</strong></td>
+<td>DigitalOcean, Hetzner, etc.</td>
+</tr>
+</tbody></table>
+<p><strong>Realistic budget to get started:</strong> $20–40/month all-in (API costs only if you already have a Mac).</p>
+<p><strong>Cost optimization tips:</strong></p>
+<ul>
+<li>Use <code>claude-haiku-4-5</code> for simple tasks (5× cheaper than Sonnet)</li>
+<li>Set up model fallbacks in config — Haiku for routing, Sonnet for complex work</li>
+<li><code>web_fetch</code> is free; <code>web_search</code> needs a Brave API key for more than basic usage</li>
+<li>Review your spending weekly for the first month at platform.claude.com</li>
+</ul>
+<hr>
+<h2>Common Mistakes (Don&#39;t Do These)</h2>
+<h3>[x] Mistake 1: Giving your agent access to your real email</h3>
+<p>Your main email contains passwords, bank statements, and 2FA codes. Create a new Gmail account specifically for agent access. If your agent ever gets prompted to forward something, you don&#39;t want it touching your real inbox.</p>
+<h3>[x] Mistake 2: Not setting API spending limits</h3>
+<p>Without limits, a runaway agent loop or accidentally public bot can rack up hundreds in API costs overnight. Set a $50 hard cap before anything else.</p>
+<h3>[x] Mistake 3: Using Opus for everything</h3>
+<p>Claude Opus 4.6 is brilliant but expensive. For simple tasks like &quot;what&#39;s the weather?&quot; or &quot;draft a quick reply,&quot; use Haiku — it&#39;s 25× cheaper and nearly as good for routine work.</p>
+<h3>[x] Mistake 4: Installing skills without reading them</h3>
+<p>Every skill modifies how your agent behaves. Run <code>cat ~/.openclaw/workspace/skills/SKILLNAME/SKILL.md</code> before installing anything. A malicious skill (rare but possible) could instruct your agent to exfiltrate data.</p>
+<h3>[x] Mistake 5: Using <code>dmPolicy: &quot;open&quot;</code> on your Telegram bot</h3>
+<p>If your bot is set to &quot;open,&quot; anyone who finds your bot can use your AI (and your API credits). Always use <code>&quot;pairing&quot;</code> or <code>&quot;allowlist&quot;</code>.</p>
+<h3>[x] Mistake 6: Trying to build everything at once</h3>
+<p>Pick one workflow. Build it well. Prove the value. Then expand. The agents who win are the ones who solve one problem perfectly, not ten problems halfway.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>&quot;openclaw: command not found&quot;</strong></p>
+<pre><code class="language-bash"># Check if npm global bin is in your PATH
+npm prefix -g
+# Add to ~/.zshrc:
+export PATH=&quot;$(npm prefix -g)/bin:$PATH&quot;
+source ~/.zshrc
+</code></pre>
+<p><strong>Bot not responding in Telegram</strong></p>
+<pre><code class="language-bash">openclaw gateway status      # is it running?
+openclaw logs --follow       # watch live logs
+openclaw channels status     # check Telegram connection
+</code></pre>
+<p><strong>Config validation error at startup</strong></p>
+<pre><code class="language-bash">openclaw doctor              # diagnose issues
+openclaw doctor --fix        # auto-fix common problems
+</code></pre>
+<p><strong>High API costs</strong></p>
+<pre><code class="language-bash"># Switch to Haiku for daily use
+openclaw config set agents.defaults.model.primary &quot;anthropic/claude-haiku-4-5&quot;
+</code></pre>
+<hr>
+<h2>Next Steps</h2>
+<p>Once you have your agent running, level up with these playbooks:</p>
+<ul>
+<li><strong>Sales Playbook</strong> → How to sell OpenClaw services on Upwork and to local businesses <em>(<a href="/playbooks/sales-autopilot.html">Read the playbook →</a>)</em></li>
+<li><strong>TikTok Content Playbook</strong> → Auto-generate and schedule TikTok content with your agent <em>(<a href="/playbooks/tiktok-growth-engine.html">Read the playbook →</a>)</em></li>
+<li><strong>Meta Ads Playbook</strong> → Research, write, and monitor Facebook/Instagram ad campaigns with AI <em>(<a href="/playbooks/meta-ads-autopilot.html">Read the playbook →</a>)</em></li>
+<li><strong>Customer Service Playbook</strong> → Build a 24/7 email responder for any business <em>(<a href="/">Available now</a>)</em></li>
+<li><strong>Real Estate Playbook</strong> → Automate listing syndication, lead follow-up, and market reports <em>(<a href="/">Available now</a>)</em></li>
+</ul>
+<hr>
+<h2>Verified Links</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>URL</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenClaw Official Site</td>
+<td><a href="https://openclaw.ai">https://openclaw.ai</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>OpenClaw Documentation</td>
+<td><a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>Getting Started Guide</td>
+<td><a href="https://docs.openclaw.ai/start/getting-started">https://docs.openclaw.ai/start/getting-started</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>Install Guide</td>
+<td><a href="https://docs.openclaw.ai/install">https://docs.openclaw.ai/install</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>Telegram Channel Setup</td>
+<td><a href="https://docs.openclaw.ai/channels/telegram">https://docs.openclaw.ai/channels/telegram</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>ClawHub Skill Registry</td>
+<td><a href="https://clawhub.ai">https://clawhub.ai</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>ClawHub Docs (OpenClaw)</td>
+<td><a href="https://docs.openclaw.ai/tools/clawhub">https://docs.openclaw.ai/tools/clawhub</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>Anthropic Developer Platform</td>
+<td><a href="https://platform.claude.com">https://platform.claude.com</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>Anthropic API Pricing</td>
+<td><a href="https://docs.anthropic.com/en/docs/about-claude/pricing">https://docs.anthropic.com/en/docs/about-claude/pricing</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>OpenRouter</td>
+<td><a href="https://openrouter.ai">https://openrouter.ai</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>OpenClaw GitHub</td>
+<td><a href="https://github.com/openclaw/openclaw">https://github.com/openclaw/openclaw</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>ClawHub GitHub</td>
+<td><a href="https://github.com/openclaw/clawhub">https://github.com/openclaw/clawhub</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>FreeCodeCamp Tutorial</td>
+<td><a href="https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/">https://www.freecodecamp.org/news/openclaw-full-tutorial-for-beginners/</a></td>
+<td>[ok] Live</td>
+</tr>
+<tr>
+<td>DigitalOcean Deploy Guide</td>
+<td><a href="https://www.digitalocean.com/community/tutorials/how-to-run-openclaw">https://www.digitalocean.com/community/tutorials/how-to-run-openclaw</a></td>
+<td>[ok] Live</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Quick Reference Card</h2>
+<p>Save this — you&#39;ll use it constantly:</p>
+<pre><code class="language-bash"># Start/stop/check gateway
+openclaw gateway start
+openclaw gateway stop
+openclaw gateway status
+
+# Open browser control panel
+openclaw dashboard
+
+# View live logs (great for debugging)
+openclaw logs --follow
+
+# Fix config problems
+openclaw doctor
+openclaw doctor --fix
+
+# Skills
+clawhub search &quot;something&quot;
+clawhub install skill-name
+clawhub update --all
+clawhub list
+
+# Config shortcuts
+openclaw config get agents.defaults.model.primary
+openclaw config set channels.telegram.enabled true
+
+# Pairing
+openclaw pairing list telegram
+openclaw pairing approve telegram &lt;CODE&gt;
+</code></pre>
+<hr>
+<p><em>Last updated: March 2026 | Based on OpenClaw docs at docs.openclaw.ai</em></p>
+<p><em>This guide is part of the <a href="/">Maxxer Academy</a> series. Share it, but don&#39;t sell it.</em></p>
+</article></div><footer><a href="/">← Back to all playbooks</a> · Curated by <a href="https://x.com/christiancattaneo" target="_blank">Christian Cattaneo</a> · <a href="https://maxxer.ai" target="_blank">Maxxer</a> · 2026</footer></body></html>
