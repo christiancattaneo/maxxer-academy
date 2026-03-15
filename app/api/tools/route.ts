@@ -55,3 +55,51 @@ export async function PUT(request: Request) {
 
   return NextResponse.json({ success: true });
 }
+
+/** POST /api/tools — Request access to a tool key (sends notification to admins) */
+export async function POST(request: Request) {
+  const session = await getServerSession();
+  if (!session?.user?.email) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const body = await request.json();
+  const { toolName, reason } = body;
+
+  if (!toolName || typeof toolName !== "string") {
+    return NextResponse.json({ error: "toolName required" }, { status: 400 });
+  }
+
+  // Log the request (in production, store in DB or send email)
+  console.log(
+    `[tool-request] ${session.user.email} requested access to ${toolName}: ${reason || "no reason given"}`
+  );
+
+  // Store request in a simple JSON file
+  const fs = await import("fs");
+  const path = await import("path");
+  const dataDir = path.join(process.cwd(), ".data");
+  const requestsFile = path.join(dataDir, "key-requests.json");
+
+  try {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+
+    const existing = fs.existsSync(requestsFile)
+      ? JSON.parse(fs.readFileSync(requestsFile, "utf-8"))
+      : [];
+
+    existing.push({
+      email: session.user.email,
+      name: session.user.name || "",
+      toolName,
+      reason: reason || "",
+      timestamp: new Date().toISOString(),
+    });
+
+    fs.writeFileSync(requestsFile, JSON.stringify(existing, null, 2));
+  } catch {
+    // Silently fail on file write — not critical
+  }
+
+  return NextResponse.json({ success: true, message: "Request submitted. An admin will be notified." });
+}

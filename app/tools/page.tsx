@@ -66,6 +66,9 @@ export default function ToolsPage() {
   const [editValue, setEditValue] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [requesting, setRequesting] = useState<string | null>(null);
+  const [requestReason, setRequestReason] = useState("");
+  const [requested, setRequested] = useState<Set<string>>(new Set());
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isAdmin = session && (session as any).isAdmin === true;
@@ -126,6 +129,19 @@ export default function ToolsPage() {
     setEditing(null);
     setEditValue("");
     setSaving(false);
+  };
+
+  const handleRequestAccess = async (toolName: string) => {
+    const res = await fetch("/api/tools", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ toolName, reason: requestReason }),
+    });
+    if (res.ok) {
+      setRequested((prev) => new Set([...prev, toolName]));
+      setRequesting(null);
+      setRequestReason("");
+    }
   };
 
   return (
@@ -304,6 +320,105 @@ export default function ToolsPage() {
                   </button>
                 )}
               </div>
+
+              {/* Request Access — shown when no key is set and user is not admin */}
+              {!keys[tool.envKey] && !isAdmin && requesting !== tool.name && !requested.has(tool.name) && (
+                <button
+                  onClick={() => setRequesting(tool.name)}
+                  style={{
+                    marginTop: ".8rem",
+                    width: "100%",
+                    fontSize: ".82rem",
+                    fontWeight: 600,
+                    padding: "10px 16px",
+                    borderRadius: 10,
+                    background: "linear-gradient(135deg, " + tool.color + "15, " + tool.color + "08)",
+                    color: tool.color,
+                    border: "1px solid " + tool.color + "30",
+                    cursor: "pointer",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    transition: "all .2s",
+                  }}
+                >
+                  🔑 Request Access
+                </button>
+              )}
+
+              {/* Request form */}
+              {requesting === tool.name && (
+                <div style={{ marginTop: ".8rem" }}>
+                  <textarea
+                    value={requestReason}
+                    onChange={(e) => setRequestReason(e.target.value)}
+                    placeholder="Why do you need this tool? (optional)"
+                    rows={2}
+                    style={{
+                      width: "100%",
+                      padding: "8px 12px",
+                      borderRadius: 8,
+                      border: "1px solid var(--border, #e6e4df)",
+                      fontSize: ".82rem",
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      marginBottom: ".5rem",
+                      outline: "none",
+                      resize: "none",
+                    }}
+                  />
+                  <div style={{ display: "flex", gap: ".4rem" }}>
+                    <button
+                      onClick={() => handleRequestAccess(tool.name)}
+                      style={{
+                        fontSize: ".75rem",
+                        fontWeight: 600,
+                        padding: "5px 12px",
+                        borderRadius: 100,
+                        background: tool.color,
+                        color: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                        fontFamily: "'Space Grotesk', sans-serif",
+                      }}
+                    >
+                      Submit Request
+                    </button>
+                    <button
+                      onClick={() => { setRequesting(null); setRequestReason(""); }}
+                      style={{
+                        fontSize: ".75rem",
+                        fontWeight: 600,
+                        padding: "5px 12px",
+                        borderRadius: 100,
+                        background: "transparent",
+                        color: "var(--ink-3, #888)",
+                        border: "1px solid var(--border, #e6e4df)",
+                        cursor: "pointer",
+                        fontFamily: "'Space Grotesk', sans-serif",
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Requested confirmation */}
+              {requested.has(tool.name) && !keys[tool.envKey] && (
+                <div
+                  style={{
+                    marginTop: ".8rem",
+                    padding: "8px 14px",
+                    borderRadius: 8,
+                    background: "#16a34a12",
+                    border: "1px solid #16a34a30",
+                    fontSize: ".78rem",
+                    color: "#16a34a",
+                    fontWeight: 500,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}
+                >
+                  ✓ Request submitted — an admin will set up your access
+                </div>
+              )}
 
               {editing === tool.envKey && (
                 <div style={{ marginTop: ".8rem" }}>
