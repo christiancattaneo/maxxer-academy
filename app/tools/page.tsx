@@ -64,10 +64,10 @@ const TOOLS: ToolDef[] = [
     color: "#8b5cf6",
   },
   {
-    name: "Suno",
-    envKey: "TOOL_KEY_SUNO",
-    command: "Use at suno.com — AI music generation",
-    description: "AI music creation — v4 with full songs",
+    name: "Perplexity",
+    envKey: "TOOL_KEY_PERPLEXITY",
+    command: "Use API at perplexity.ai — AI search & research",
+    description: "AI-powered search & research assistant",
     color: "#ef4444",
   },
   {
