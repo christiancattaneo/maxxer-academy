@@ -16,14 +16,31 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      const email = (user.email || "").toLowerCase();
-      if (ADMIN_EMAILS.includes(email)) return true;
+    async signIn({ user, account, profile }) {
+      const email = (user.email || "").toLowerCase().trim();
+      const googleEmail = ((profile as Record<string, unknown>)?.email as string || "").toLowerCase().trim();
+      
+      // Debug: log what Google actually returns
+      console.log("[nextauth] signIn attempt:", JSON.stringify({
+        userEmail: email,
+        googleEmail,
+        name: user.name,
+        provider: account?.provider,
+        adminMatch: ADMIN_EMAILS.includes(email),
+        domainMatch: email.endsWith("@alpha.school") || email.endsWith("@superbuilders.school"),
+      }));
+
+      // Check both user.email and profile.email (Google Workspace can differ)
+      const emailToCheck = email || googleEmail;
+      
+      if (ADMIN_EMAILS.includes(emailToCheck)) return true;
       if (
-        email.endsWith("@alpha.school") ||
-        email.endsWith("@superbuilders.school")
+        emailToCheck.endsWith("@alpha.school") ||
+        emailToCheck.endsWith("@superbuilders.school")
       )
         return true;
+      
+      console.log("[nextauth] REJECTED:", emailToCheck);
       return false;
     },
     async session({ session }) {
