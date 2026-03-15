@@ -98,6 +98,10 @@ export default function ToolsPage() {
   const [requestReason, setRequestReason] = useState("");
   const [requested, setRequested] = useState<Set<string>>(new Set());
   const [showKey, setShowKey] = useState<Set<string>>(new Set());
+  const [requestingNew, setRequestingNew] = useState(false);
+  const [newToolName, setNewToolName] = useState("");
+  const [newToolReason, setNewToolReason] = useState("");
+  const [requestNewSubmitted, setRequestNewSubmitted] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isAdmin = session && (session as any).isAdmin === true;
@@ -532,6 +536,131 @@ export default function ToolsPage() {
               )}
             </div>
           ))}
+        </div>
+        {/* Request New Tool/Service Section */}
+        <div style={{
+          marginTop: "2.5rem",
+          padding: "1.5rem",
+          borderRadius: 14,
+          border: "1px dashed var(--border, #e6e4df)",
+          background: "var(--surface, #fff)",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: ".5rem", marginBottom: ".6rem" }}>
+            <span style={{ fontSize: "1.1rem" }}>💡</span>
+            <span style={{ fontWeight: 700, fontSize: "1rem", letterSpacing: "-.3px" }}>
+              Need a different tool?
+            </span>
+          </div>
+          <p style={{ fontSize: ".85rem", color: "var(--ink-2, #3a3a3a)", marginBottom: "1rem", lineHeight: 1.6 }}>
+            Request API access to any AI tool or paid service. Admins will review and add it to the stack.
+          </p>
+          {!requestingNew ? (
+            <button
+              onClick={() => setRequestingNew(true)}
+              style={{
+                fontSize: ".82rem",
+                fontWeight: 600,
+                padding: "10px 20px",
+                borderRadius: 100,
+                background: "var(--ink, #0f0f0f)",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}
+            >
+              Request a Tool
+            </button>
+          ) : requestNewSubmitted ? (
+            <div style={{
+              padding: "10px 14px",
+              borderRadius: 8,
+              background: "#16a34a12",
+              border: "1px solid #16a34a30",
+              fontSize: ".82rem",
+              color: "#16a34a",
+              fontWeight: 500,
+            }}>
+              ✓ Request submitted! An admin will review it.
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: ".5rem" }}>
+              <input
+                type="text"
+                value={newToolName}
+                onChange={(e) => setNewToolName(e.target.value)}
+                placeholder="Tool name (e.g. Midjourney, Runway, Replicate)"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  border: "1px solid var(--border, #e6e4df)",
+                  fontSize: ".82rem",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  outline: "none",
+                }}
+              />
+              <textarea
+                value={newToolReason}
+                onChange={(e) => setNewToolReason(e.target.value)}
+                placeholder="What would you use it for?"
+                rows={2}
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  border: "1px solid var(--border, #e6e4df)",
+                  fontSize: ".82rem",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  outline: "none",
+                  resize: "none",
+                }}
+              />
+              <div style={{ display: "flex", gap: ".4rem" }}>
+                <button
+                  onClick={async () => {
+                    if (!newToolName.trim()) return;
+                    await fetch("/api/tools", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ toolName: newToolName, reason: newToolReason, type: "new_tool_request" }),
+                    });
+                    setRequestNewSubmitted(true);
+                    setNewToolName("");
+                    setNewToolReason("");
+                  }}
+                  disabled={!newToolName.trim()}
+                  style={{
+                    fontSize: ".78rem",
+                    fontWeight: 600,
+                    padding: "6px 14px",
+                    borderRadius: 100,
+                    background: newToolName.trim() ? "var(--ink, #0f0f0f)" : "#ccc",
+                    color: "#fff",
+                    border: "none",
+                    cursor: newToolName.trim() ? "pointer" : "not-allowed",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}
+                >
+                  Submit
+                </button>
+                <button
+                  onClick={() => { setRequestingNew(false); setNewToolName(""); setNewToolReason(""); }}
+                  style={{
+                    fontSize: ".78rem",
+                    fontWeight: 600,
+                    padding: "6px 14px",
+                    borderRadius: 100,
+                    background: "transparent",
+                    color: "var(--ink-3, #888)",
+                    border: "1px solid var(--border, #e6e4df)",
+                    cursor: "pointer",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

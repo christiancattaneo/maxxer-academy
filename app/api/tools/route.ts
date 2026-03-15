@@ -79,18 +79,22 @@ export async function POST(request: Request) {
     `[tool-request] ${session.user.email} requested access to ${toolName}: ${reason || "no reason given"}`
   );
 
-  // Store request in a simple JSON file
-  const fs = await import("fs");
+  // Store request in a simple JSON file (async I/O)
+  const { promises: fs } = await import("fs");
   const path = await import("path");
   const dataDir = path.join(process.cwd(), ".data");
   const requestsFile = path.join(dataDir, "key-requests.json");
 
   try {
-    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    await fs.mkdir(dataDir, { recursive: true });
 
-    const existing = fs.existsSync(requestsFile)
-      ? JSON.parse(fs.readFileSync(requestsFile, "utf-8"))
-      : [];
+    let existing: unknown[] = [];
+    try {
+      const raw = await fs.readFile(requestsFile, "utf-8");
+      existing = JSON.parse(raw);
+    } catch {
+      // File doesn't exist yet
+    }
 
     existing.push({
       email: session.user.email,
@@ -100,7 +104,7 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     });
 
-    fs.writeFileSync(requestsFile, JSON.stringify(existing, null, 2));
+    await fs.writeFile(requestsFile, JSON.stringify(existing, null, 2));
   } catch {
     // Silently fail on file write — not critical
   }
