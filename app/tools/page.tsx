@@ -11,64 +11,94 @@ interface ToolDef {
   command: string;
   description: string;
   color: string;
+  apiCommand?: string; // actual curl/CLI command with KEY placeholder
 }
 
 const TOOLS: ToolDef[] = [
   {
     name: "Claude (Opus 4.6)",
     envKey: "TOOL_KEY_CLAUDE",
-    command: "Use API key at console.anthropic.com or in Claude Code / Cursor",
-    description: "Best-in-class AI for writing & reasoning",
+    command: "Best-in-class AI for writing & reasoning",
+    description: "Anthropic — console.anthropic.com",
     color: "#d97706",
+    apiCommand: `curl https://api.anthropic.com/v1/messages \\
+  -H "x-api-key: KEY" \\
+  -H "anthropic-version: 2023-06-01" \\
+  -H "content-type: application/json" \\
+  -d '{"model":"claude-sonnet-4-6-20250514","max_tokens":1024,"messages":[{"role":"user","content":"Hello"}]}'`,
   },
   {
     name: "Codex (OpenAI)",
     envKey: "TOOL_KEY_OPENAI",
-    command: "Use API key at platform.openai.com or in Codex CLI",
-    description: "AI coding agent — pair with Opus for max output",
+    command: "AI coding agent — pair with Opus for max output",
+    description: "OpenAI — platform.openai.com",
     color: "#10a37f",
+    apiCommand: `curl https://api.openai.com/v1/chat/completions \\
+  -H "Authorization: Bearer KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"model":"gpt-4o","messages":[{"role":"user","content":"Hello"}]}'`,
   },
   {
     name: "ElevenLabs",
     envKey: "TOOL_KEY_ELEVENLABS",
-    command: "Use API key at elevenlabs.io/docs or in voice apps",
-    description: "Voice synthesis & cloning — best quality TTS",
+    command: "Voice synthesis & cloning — best quality TTS",
+    description: "ElevenLabs — elevenlabs.io",
     color: "#6366f1",
+    apiCommand: `curl -X POST "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM" \\
+  -H "xi-api-key: KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"text":"Hello world","model_id":"eleven_turbo_v2_5"}' --output audio.mp3`,
   },
   {
     name: "DataForSEO",
     envKey: "TOOL_KEY_DATAFORSEO",
-    command: "API docs at dataforseo.com — SERP, keyword, backlink data",
-    description: "SEO data API — rankings, keywords, competitors",
+    command: "SEO data API — rankings, keywords, competitors",
+    description: "DataForSEO — dataforseo.com",
     color: "#2563eb",
+    apiCommand: `curl -X POST "https://api.dataforseo.com/v3/serp/google/organic/live/advanced" \\
+  -H "Authorization: Basic KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '[{"keyword":"ai agents","location_code":2840}]'`,
   },
   {
     name: "Postiz",
     envKey: "TOOL_KEY_POSTIZ",
-    command: "Use API key at postiz.com — social media scheduling",
-    description: "Social media automation & scheduling",
+    command: "Social media automation & scheduling",
+    description: "Postiz — postiz.com",
     color: "#ec4899",
+    apiCommand: `# Use API key in Postiz dashboard settings
+# postiz.com → Settings → API → paste key`,
   },
   {
     name: "fal.ai",
     envKey: "TOOL_KEY_FALAI",
-    command: "Use API key at fal.ai — image/video generation",
-    description: "Fast AI content generation — images, video, audio",
+    command: "Fast AI content generation — images, video, audio",
+    description: "fal.ai — fal.ai",
     color: "#f97316",
+    apiCommand: `curl -X POST "https://fal.run/fal-ai/flux/schnell" \\
+  -H "Authorization: Key KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"prompt":"a beautiful sunset over mountains"}'`,
   },
   {
     name: "Gamma",
     envKey: "TOOL_KEY_GAMMA",
-    command: "Use at gamma.app — AI-powered presentations",
-    description: "AI slide deck & presentation generator",
+    command: "AI slide deck & presentation generator",
+    description: "Gamma — gamma.app",
     color: "#8b5cf6",
+    apiCommand: `# Use API key in Gamma app settings
+# gamma.app → Account → API Access → paste key`,
   },
   {
     name: "Perplexity",
     envKey: "TOOL_KEY_PERPLEXITY",
-    command: "Use API at perplexity.ai — AI search & research",
-    description: "AI-powered search & research assistant",
+    command: "AI-powered search & research assistant",
+    description: "Perplexity AI — perplexity.ai",
     color: "#ef4444",
+    apiCommand: `curl https://api.perplexity.ai/chat/completions \\
+  -H "Authorization: Bearer KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"model":"sonar","messages":[{"role":"user","content":"What is AI?"}]}'`,
   },
   {
     name: "Seedance 2.0",
@@ -98,6 +128,7 @@ export default function ToolsPage() {
   const [requestReason, setRequestReason] = useState("");
   const [requested, setRequested] = useState<Set<string>>(new Set());
   const [showKey, setShowKey] = useState<Set<string>>(new Set());
+  const [copiedCmd, setCopiedCmd] = useState<string | null>(null);
   const [requestingNew, setRequestingNew] = useState(false);
   const [newToolName, setNewToolName] = useState("");
   const [newToolReason, setNewToolReason] = useState("");
@@ -356,6 +387,42 @@ export default function ToolsPage() {
                   marginBottom: ".8rem",
                 }}>
                   🔒 Key not set yet
+                </div>
+              )}
+
+              {/* API Command — copyable code block */}
+              {tool.apiCommand && keys[tool.envKey] && (
+                <div style={{ marginBottom: ".8rem" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: ".3rem" }}>
+                    <span style={{ fontSize: ".65rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-3, #888)" }}>
+                      Quick Start
+                    </span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(tool.apiCommand!.replace(/KEY/g, keys[tool.envKey]));
+                        setCopiedCmd(tool.envKey);
+                        setTimeout(() => setCopiedCmd(null), 2000);
+                      }}
+                      style={{ fontSize: ".6rem", padding: "2px 8px", borderRadius: 6, background: copiedCmd === tool.envKey ? "#16a34a" : "#1a1a1a", color: copiedCmd === tool.envKey ? "#fff" : "#888", border: "1px solid #333", cursor: "pointer", fontFamily: "'Space Grotesk', sans-serif", transition: "all .2s" }}
+                    >
+                      {copiedCmd === tool.envKey ? "✓ Copied with key" : "Copy command"}
+                    </button>
+                  </div>
+                  <pre style={{
+                    background: "#0f0f0f",
+                    borderRadius: 8,
+                    padding: ".6rem .8rem",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: ".68rem",
+                    color: "#94a3b8",
+                    overflowX: "auto",
+                    lineHeight: 1.5,
+                    whiteSpace: "pre-wrap",
+                    wordBreak: "break-all",
+                    margin: 0,
+                  }}>
+                    {tool.apiCommand.replace(/KEY/g, keys[tool.envKey] ? keys[tool.envKey].slice(0, 8) + "..." : "<YOUR_KEY>")}
+                  </pre>
                 </div>
               )}
 
