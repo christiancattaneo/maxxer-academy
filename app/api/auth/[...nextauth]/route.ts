@@ -27,7 +27,7 @@ const handler = NextAuth({
         name: user.name,
         provider: account?.provider,
         adminMatch: ADMIN_EMAILS.includes(email),
-        domainMatch: email.endsWith("@alpha.school") || email.endsWith("@superbuilders.school"),
+        domainMatch: email.endsWith("@alpha.school") || email.endsWith("@superbuilders.school") || email.endsWith("@2hourlearning.com"),
       }));
 
       // Check both user.email and profile.email (Google Workspace can differ)
@@ -36,7 +36,8 @@ const handler = NextAuth({
       if (ADMIN_EMAILS.includes(emailToCheck)) return true;
       if (
         emailToCheck.endsWith("@alpha.school") ||
-        emailToCheck.endsWith("@superbuilders.school")
+        emailToCheck.endsWith("@superbuilders.school") ||
+        emailToCheck.endsWith("@2hourlearning.com")
       )
         return true;
       
