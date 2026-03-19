@@ -2,6 +2,56 @@
 
 ---
 
+## 2026-03-19 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 15 – Mar 19, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow; Claude Code MCP shipped built revenue founder; openclaw solo founder automated agent March 2026
+**Sources checked:** Reddit r/clawdbot, Stormy.ai, Medium (@rentierdigital), xcloud.host, genaiunplugged Substack, superframeworks.com, Brave web search
+
+### Posts Found & Assessed
+
+| # | Source | Author | Topic | Quality | Action |
+|---|--------|--------|-------|---------|--------|
+| 1 | Reddit r/clawdbot | u/auselen (chDB engineer, ex-Shopee principal eng) | How I manage my one-man company — Mac Mini, Fastlane "ship a new version", multi-agent code pipeline for chDB v4 (ClickHouse acquisition) | ✅ High | Added |
+| 2 | Stormy.ai | Stormy.ai | $25/mo AI SDR replacing $1,500+/mo sales stack — full-cycle outbound: ICP research → personalized email → triage → handoff | ✅ High | Added |
+| 3 | Medium | @rentierdigital | Claude Code + n8n-mcp (czlonkowski/n8n-mcp) — 55-node production pipeline, erased 140 product variants at 11PM, rebuilt in 15 minutes | ✅ High | Added |
+| 4 | xcloud.host | xCloud | 7 proactive OpenClaw workflows — Morning Brief (25-40 min/day), health monitoring, self-improvement loop, cron scheduling, sub-agent delegation | ⚠️ Medium — good framework/setup guide but no specific founder revenue outcome story | Skipped |
+| 5 | genaiunplugged Substack | genaiunplugged | Claude Code MCP servers + hooks (Perplexity, Firecrawl, Notion) — 60-min setup guide | ⚠️ Medium — good technical setup tutorial but more generic than a founder business story | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Start Here section (new Tier 1 card — inserted before "$73k/mo Eddie" card)
+- **Title:** How I Manage My One-Man Company with OpenClaw
+- **Author:** u/auselen — r/clawdbot — March 15, 2026
+- **Result badge:** 24/7 on Mac Mini
+- **Key takeaway:** Principal engineer at Shopee, maintainer of chDB (ClickHouse acquisition). Ordered a Mac Mini to build custom 24/7 agent — Mac was still in the mail when OpenClaw launched. Day it arrived: installed OpenClaw, never built from scratch. Agent handles code review, social media, App Store submissions (Fastlane fully automated — just say "ship a new version"), project coordination. Multi-agent pipeline for chDB v4: test generator → bug fixer → architect → reviewer → benchmark runner. Uses Claude Opus as default model. "Can AI agents write, review, and iterate without me, 24/7?" Yes.
+- **Tools:** OpenClaw, Claude Code, Fastlane, App Store, Mac Mini
+- **Link:** reddit.com/r/clawdbot/comments/1rrjnxg/
+
+#### 2. Sales & Leads section (new Tier 2 card — inserted before the Maxxer CTA)
+- **Title:** $25/Month AI SDR — Owns the Entire Outbound Sales Cycle
+- **Author:** Stormy.ai — March 15, 2026
+- **Result badge:** $25/mo vs $1,500/mo stack
+- **Key takeaway:** Sales stack cost collapse: $150 Sales Nav + $200 leads + $300 sequencer + enrichment + CRM = $1,500+/mo. OpenClaw SDR does it all for ~$25/mo: LinkedIn/Apollo ICP scraping, firmographic enrichment, personalized first-line writing, sequence sending, reply monitoring, objection triage, warm lead handoff. 81% of sales teams now run agentic workflows (Autobound 2026). 1.3x revenue growth vs. manual (Salesforce State of Sales).
+- **Tools:** OpenClaw, Apollo.io, LinkedIn Sales Nav, himalaya, MCP
+- **Link:** stormy.ai/blog/build-openclaw-ai-sdr-playbook-2026
+
+#### 3. Setup & Infrastructure section (new Tier 2 card — inserted before "Claude Code + Vercel MCP" card)
+- **Title:** Claude Code as n8n Architect — 55-Node Pipeline Fixed in 15 Minutes
+- **Author:** @rentierdigital (Medium) — March 17, 2026
+- **Result badge:** 1hr → 15 min
+- **Key takeaway:** Real production disaster: Claude Code erased 140 product variants via a bad PUT request to PrestaShop at 11PM. 15 min later: diagnosed root cause, built GET-before-PUT fix across 4 new nodes, deployed atomically, verified before/after. Same work in n8n UI: 1+ hour. The key: czlonkowski/n8n-mcp repo turns Claude Code into a full n8n architect — reads node library, generates workflow JSON, deploys without touching the UI. Tested on 55-node pipeline. "Manual workflow building is dying."
+- **Tools:** Claude Code, n8n-mcp (czlonkowski), n8n, PrestaShop API
+- **Link:** medium.com/@rentierdigital/one-open-source-repo-turned-claude-code-into-an-n8n-architect...
+
+### Deployment
+- Git commit: `6658eb7`
+- Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-f5ziw0rky-christiancattaneos-projects.vercel.app
+- Deployed to: https://maxxer.academy (Vercel prod)
+
+---
+
 ## 2026-03-12 — Auto-Update (cron: maxxer-academy-x-scanner)
 
 **Search window:** Last 4 days (Mar 8 – Mar 12, 2026)
