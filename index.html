@@ -1020,6 +1020,58 @@
       </a></div>
   </div>
 
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">I Built My First OpenClaw App — And I Haven't Opened My Inbox Since</div>
+        <div class="pb-author">Lorentz Yeung (entzyeung) — Medium — March 19, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(8,145,178,.1);color:#0e7490">Inbox Zero, automated</span>
+    </div>
+    <div class="pb-body">
+      Built a tiny email assistant — first app published to ClawHub — that runs every 15 minutes while you sleep. <strong>Checks Mail.app via AppleScript → scores every unread email HIGH/MEDIUM/LOW based on keywords + trusted senders → drafts a full reply for HIGH priority emails (using thread history for context) → emails you a formatted triage report → marks everything as read.</strong> No cloud. No subscriptions. Runs entirely on your Mac. When a HIGH email arrives, the agent fetches the last 10 messages for context — the draft it writes knows the whole conversation. Tell your OpenClaw agent via Telegram: "Send the draft reply to Alice." It fires <code>send_reply.py</code> and it's done. You never opened your inbox. Published to ClawHub so anyone running OpenClaw can install it in one command. LLM-agnostic: works with LM Studio, Ollama, OpenAI, or without a model at all. "The switching cost was my real problem — not the volume."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-clawhub">himalaya</span>
+      <span class="tool-pill tp-clawhub">ClawHub</span>
+      <span class="tool-pill tp-api">Mail.app (AppleScript)</span>
+      <span class="tool-pill tp-api">LM Studio / Ollama</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://entzyeung.medium.com/i-built-my-first-openclaw-app-and-i-havent-opened-my-inbox-since-ccad04cdc1d8" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full breakdown →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Monday Report Writes Itself — OpenClaw KPI Automation (WF-05)</div>
+        <div class="pb-author">Rakesh Patel — ManageMyClaw — March 18, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(8,145,178,.1);color:#0e7490">4–6 hrs → 5 min/week</span>
+    </div>
+    <div class="pb-body">
+      Finance professionals spend 25–40% of their time assembling reports — not analyzing, just collating. At founder rates ($200–$500/hr), that's <strong>$3,200–$12,000/month on copy-paste.</strong> WF-05 is OpenClaw's business reporting workflow: <strong>connects Stripe, Google Analytics, and your CRM → pulls the KPIs you define → formats the report → delivers it to Slack or email on whatever cadence you set.</strong> 4–6 hours of Monday morning assembly compressed to 5 minutes of agent runtime. $5–$15/month in API costs. The report shows up whether you remember it or not — which is the real problem with manual reporting. Reports are also consistent week-to-week (same metric definitions, same date ranges, same columns) — no more "last month's report used a different definition." Start here: this is the workflow that makes founders comfortable with agent automation. "The first time your Monday report shows up in Slack without you doing anything, you become a believer."
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-clawhub">OpenClaw</span>
+      <span class="tool-pill tp-api">Stripe MCP</span>
+      <span class="tool-pill tp-mcp">GA4 MCP</span>
+      <span class="tool-pill tp-api">Slack</span>
+      <span class="tool-pill tp-api">CRM (HubSpot / Pipedrive)</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://managemyclaw.com/blog/openclaw-business-reporting-automation/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the full guide →
+      </a>
+    </div>
+  </div>
+
   <div class="maxxer-cta">
     <div class="maxxer-cta-text"><strong>Automating your workflow?</strong> Maxxer is purpose-built to automate B2B growth — from ICP to closed deal.</div>
     <a href="https://maxxer.ai" target="_blank" rel="noopener" class="maxxer-cta-btn">
@@ -1431,6 +1483,35 @@
       <a href="https://medium.com/@rentierdigital/anthropic-just-killed-my-200-month-openclaw-setup-so-i-rebuilt-it-for-15-9cab6814c556" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Read the full post →
+      </a>
+    </div>
+  </div>
+
+  <div class="playbook reveal">
+    <div class="pb-header">
+      <div>
+        <div class="pb-title">Claude Code Channels — Build from Your Phone via Telegram & Discord</div>
+        <div class="pb-author">@trq212 (Anthropic) + @BorisVagner — March 20, 2026</div>
+      </div>
+      <span class="pb-result" style="background:rgba(55,65,81,.1);color:#374151">Claude Code v2.1.80</span>
+    </div>
+    <div class="pb-body">
+      Anthropic shipped <strong>Claude Code Channels</strong> (v2.1.80, March 20) — a bridge between Telegram/Discord and your running Claude Code session. Your agent has access to your real codebase, real tools, real git history — all controlled from your phone. <strong>No more terminal bottleneck.</strong> While you're in a meeting or on the subway, Claude can hit a permission prompt and you respond from Telegram. CI fails at 11PM — your Discord bot pings you and you approve the fix from your phone. First reaction from the field: "Set up Dispatch yesterday — was adding features, shipping updates, building from my phone with zero friction. Two hours ago they dropped Discord + Telegram channels. Just got this set up and holy cow it's amazing." (Boris Vagner, @BorisVagner) Setup in 5 commands: create a Telegram bot via BotFather, install the plugin, configure your token, launch with <code>--channels</code>, pair with a code. Works for both Telegram and Discord. This is the same core appeal that drove OpenClaw's viral growth — now native to Claude Code and backed by Anthropic.
+    </div>
+    <div class="pb-tools">
+      <span class="tool-pill tp-cli">Claude Code</span>
+      <span class="tool-pill tp-mcp">Channels MCP</span>
+      <span class="tool-pill tp-api">Telegram Bot</span>
+      <span class="tool-pill tp-api">Discord Bot</span>
+    </div>
+    <div class="pb-tweet">
+      <a href="https://venturebeat.com/orchestration/anthropic-just-shipped-an-openclaw-killer-called-claude-code-channels" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Read the VentureBeat breakdown →
+      </a>
+    
+      <a href="https://www.atcyrus.com/stories/what-are-claude-code-channels" style="margin-left:1rem;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" style="vertical-align:-2px"><path d="M2 2h4l2 2 2-2h4v11H9.5L8 14.5 6.5 13H2V2z"/><path d="M8 4v10"/></svg> Setup guide →
       </a>
     </div>
   </div>
