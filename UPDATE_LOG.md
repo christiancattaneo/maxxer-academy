@@ -2,6 +2,56 @@
 
 ---
 
+## 2026-03-26 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 22 – Mar 26, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow; openclaw founder business revenue March 22-26 2026; openclaw "shipped" "built" "making money" business 2026; Claude Code MCP founder business March 2026
+**Sources checked:** Brave web search, getclaw.sh, HFS Research, Codebridge.tech, Reuters/Straits Times (WeChat/Tencent), PRNewswire (Venn.ai), theclawreport.com, gauraw.com, luma.com (Hack Day), CNBC, Indian Express, Medium, Substack
+
+### Posts Found & Assessed
+
+| # | Source | Author/Org | Topic | Quality | Action |
+|---|--------|-----------|-------|---------|--------|
+| 1 | getclaw.sh | HKUDS Research Lab (Univ. of Hong Kong) | ClawWork: agent starts with $10, earns $10,000 in 7 hours across 44 industries ($1,500/hr value creation) — open source on GitHub | ✅ High | Added |
+| 2 | HFS Research | Panel participant (Oakland-Claw event, Mar 24) | Real estate business deploys OpenClaw in 2 days, saves 275 staff hours over next 5 days | ✅ High | Added |
+| 3 | PRNewswire | Barndoor.ai / Venn.ai (Mar 26) | Venn.ai ships OpenClaw integration: single MCP connection to 40+ business apps with permission-based governance — ClawHub install | ✅ High | Added |
+| 4 | Reuters / Straits Times | Tencent (Mar 22) | Tencent integrates WeChat (1B MAU) with OpenClaw as "ClawBot" — deepening AI agent push | ⚠️ High news value but not actionable founder workflow — platform news, not a how-to | Skipped |
+| 5 | gauraw.com | Kumar Gauraw (Mar 22) | Full breakdown of OpenClaw 2026.3.22 update: ClawHub marketplace (13,700 skills), /btw command, sub-agent model selection, session bloat mgmt, 30+ security patches | ⚠️ Medium — good for operators but more of a release notes summary than a founder revenue story | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Start Here section (new Tier 1 card — inserted before Maxxer CTA)
+- **Title:** ClawWork: $10 → $10,000 in 7 Hours — Agent Works 44 Industries
+- **Author:** HKUDS Research Lab (University of Hong Kong) — March 2026
+- **Result badge:** $10K in 7 hrs
+- **Key takeaway:** Research team built ClawWork on top of OpenClaw — an agent that starts with $10 and earns money autonomously on the open market. First run: $10K in 7 hours across 44 industries (~$1,500/hr). Tasks: financial analyses, legal summaries, data pipelines, marketing copy. The agent selected jobs based on its own skill set, negotiated pricing, and delivered — no hand-holding between steps. Founder takeaway: if a research prototype can do $1,500/hr on generic tasks, a configured agent on your specific business is a quantifiable engineering project, not a speculative bet. GitHub: github.com/HKUDS/ClawWork
+- **Tools:** OpenClaw, ClawWork (open-source), freelance task markets
+- **Link:** getclaw.sh/blog/openclaw-stories-what-companies-built-and-achieved
+
+#### 2. Setup & Infrastructure section (new Tier 2 card — inserted before Maxxer CTA)
+- **Title:** Real Estate Agent Deployed in 2 Days — 275 Staff Hours Saved in 5 Days
+- **Author:** HFS Research (Oakland-Claw Panel) — March 24, 2026
+- **Result badge:** 275 hrs in 5 days
+- **Key takeaway:** Live case study from the Oakland-Claw event at STAK Ventures. A real estate business went from sandbox to production OpenClaw in two days, saving 275 hours of staff time over the following five days. HFS Research framework: start with your domain expertise — automate where admin overhead and business friction are highest. Pattern applies to real estate, logistics, professional services, e-commerce — any domain-heavy business with repetitive coordination work.
+- **Tools:** OpenClaw, document intake automation, internal ops workflows
+- **Link:** hfsresearch.com/research/openclaw-services-as-software/
+
+#### 3. Setup & Infrastructure section (new Tier 3 card — inserted before Maxxer CTA)
+- **Title:** Venn.ai — Deploy OpenClaw to 40+ Business Apps Without Security Risk
+- **Author:** Barndoor.ai / Venn.ai — March 26, 2026
+- **Result badge:** 40+ apps · one MCP
+- **Key takeaway:** Solves the #1 scaling blocker: connecting OpenClaw to real business apps without giving it unchecked access. Venn.ai provides a single MCP connection with permission-based governance across 40+ apps (Google Drive, Notion, Slack, Zendesk, Salesforce). Context-optimized data per app = better results, fewer wasted tokens. Available via ClawHub (`clawhub install venn`). Replaces the "spin up a VM" or "use dedicated hardware" workaround that slowed enterprise adoption. "Anyone deploying open-source AI agents like OpenClaw is at risk without proper controls." — Oren Michels, CEO, Barndoor.ai
+- **Tools:** OpenClaw, Venn MCP, ClawHub, Salesforce/Slack/Notion
+- **Link:** prnewswire.com/news-releases/venn-introduces-openclaw-integration...
+
+### Deployment
+- Git commit: `bd20e41`
+- Pushed to: github.com/christiancattaneo/maxxer-academy
+- Deploy URL: https://maxxer-academy-ux2pkonxt-christiancattaneos-projects.vercel.app
+- Deployed to: https://maxxer.academy (Vercel prod)
+
+---
+
 ## 2026-03-23 — Auto-Update (cron: maxxer-academy-x-scanner)
 
 **Search window:** Last 4 days (Mar 19 – Mar 23, 2026)
