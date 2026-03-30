@@ -353,3 +353,41 @@
 - Pushed to: github.com/christiancattaneo/maxxer-academy
 - Deploy URL: https://maxxer-academy-5an7td4h0-christiancattaneos-projects.vercel.app
 - Deployed to: https://maxxer.academy (Vercel prod)
+
+---
+
+## 2026-03-30 — Auto-Update (cron: maxxer-academy-x-scanner)
+
+**Search window:** Last 4 days (Mar 27 – Mar 30, 2026)
+**Search terms:** openclaw agent revenue business automation shipped built workflow; openclaw "claude code" business SaaS clients revenue; paperclip claude code agent company founder business; claude code ai agent pipeline client revenue 2026; openclaw founder business productivity automation last 4 days
+**Sources checked:** Brave web search, AI Agent Store News, Towards AI (Medium), The AI Corner (Substack), The 4th Path, paperclip.ing, GitHub (paperclipai/paperclip), Skool/AI Automation Society, O-mega.ai, startup.whatfinger.com, Codebridge.tech, aiagentstore.ai
+
+### Posts Found & Assessed
+
+| # | Source | Author/Org | Topic | Quality | Action |
+|---|--------|-----------|-------|---------|--------|
+| 1 | The AI Corner (Substack) | Anonymous growth consultant case study — Mar 29, 2026 | 15-agent Claude Code pipeline: 2 weeks of GTM work delivered in 4 hours, 4× price increase, 8 clients | ✅ High — real business outcome, fully actionable architecture | Added |
+| 2 | Towards AI / paperclip.ing | @dotta, Paperclip — launched Mar 4, viral peak Mar 27–30 | Paperclip: open-source "company OS" that orchestrates Claude Code + OpenClaw agents into structured orgs with org charts, budgets, heartbeats. 30K GitHub stars in 3 weeks. YouTube tutorial today | ✅ High — actionable for any founder running multi-agent setup | Added |
+| 3 | Codebridge.tech | Codebridge team — published Mar 30 | OpenClaw Business Use Cases — Slack auto-support, accounting intake workflows, enterprise guardrails | ⚠️ Medium — enterprise content, not individual founder story | Skipped |
+| 4 | Claudefa.st | Various — Mar 29 | OpenClaw vs Claude Code comparison | ⚠️ Low relevance — comparison article, not a use case | Skipped |
+| 5 | AI Agent Store (daily news) | Various — Mar 30 | Claude Code ran 910 experiments in 8 hours; Paperclip AI; LG Innotek AI | ⚠️ Research, not founder business workflow | Skipped |
+
+### Cards Added to index.html
+
+#### 1. Sales & Lead Generation section (new Tier 2 card — inserted before Maxxer CTA)
+- **Title:** 15-Agent Claude Code Pipeline — 4x Prices, 2 Weeks → 4 Hours
+- **Author:** The AI Corner — March 29, 2026
+- **Result badge:** 4× revenue · 8 clients
+- **Key takeaway:** Small growth agency (8 clients, 2 staff) built a 15-agent Claude Code pipeline for B2B go-to-market packages. Work that took 2 weeks now takes 4 hours. Founder raised prices 4×, close rate went up, hours went down. Architecture: 6 stages, each with a quality gate. Research phase (YouTube/Reddit/X), then Positioning → Messaging → Copy agents, each scored by a manager agent that loops back if quality doesn't clear. Every output line independently scored on differentiation + sharpness. Input: company name, ICP, goal. Output: complete, research-backed deliverable.
+- **Tools:** Claude Code, YouTube/Reddit/X APIs, Research MCPs
+- **Link:** the-ai-corner.com/p/claude-code-ai-agent-pipeline-client-revenue-2026
+
+#### 2. Setup & Infrastructure section (new Tier 2 card — inserted before Maxxer CTA)
+- **Title:** Paperclip — Run an Entire Agent Company with Claude Code
+- **Author:** @dotta (Paperclip) — March 2026 — 30K GitHub stars in 3 weeks
+- **Result badge:** Zero-human company OS
+- **Key takeaway:** @dotta built Paperclip while running an automated hedge fund with 20+ Claude Code tabs open. Paperclip is the organizational layer above individual agents — an org chart, budgets, task queues, heartbeats, and audit trails. CEO agent hires and manages engineer agents. Task checkout/budget enforcement are atomic. Agents resume state across heartbeats. 30K GitHub stars in 3 weeks. Coming soon: Clipmart (download entire pre-built companies in one click). "If OpenClaw is the worker, Paperclip is the company." npm install -g paperclip-ai. Free and open source.
+- **Tools:** Claude Code, OpenClaw, Paperclip (open-source), any HTTP agent
+- **Links:** github.com/paperclipai/paperclip, paperclip.ing
+
+### Deployment
